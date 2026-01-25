@@ -1,0 +1,26 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "nif-cloth4d-temporal"
+version = "0.1.0"
+description = "Neural Implicit Field for Continuous-Time Cloth Simulation"
+requires-python = ">=3.10"
+dependencies = [
+    "torch>=2.0.0",
+    "numpy>=1.24",
+    "h5py>=3.8",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.setuptools.package-dir]
+"" = "."

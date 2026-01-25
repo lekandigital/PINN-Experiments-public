@@ -1,0 +1,78 @@
+# ClothGeom-NIF Training Configuration
+# Neural Implicit Field Decoder for High-Detail Cloth Geometry
+
+# Model architecture
+model:
+  latent_dim: 128           # Latent code dimension
+  hidden_dim: 256           # Hidden layer dimension
+  num_layers: 8             # Number of hidden layers
+  coord_dim: 3              # Input coordinate dimension (xyz)
+  omega_0: 30.0             # SIREN frequency for first layer
+  omega_hidden: 30.0        # SIREN frequency for hidden layers
+  use_skip_connection: true # Skip connection at middle layer
+  use_positional_encoding: false  # Use Fourier features
+  num_frequencies: 6        # Frequency bands for positional encoding
+
+# Training parameters
+training:
+  batch_size: 8             # Cloth states per batch
+  num_points: 8192          # Points sampled per cloth state
+  epochs: 100               # Total training epochs
+  learning_rate: 1.0e-4     # Initial learning rate
+  weight_decay: 1.0e-6      # L2 regularization
+  grad_clip: 1.0            # Gradient clipping (0 = disabled)
+  
+  # Learning rate scheduling
+  lr_scheduler: cosine      # Options: cosine, step, plateau
+  lr_warmup_epochs: 5       # Warmup epochs before decay
+  lr_min: 1.0e-6            # Minimum learning rate
+  
+  # Mixed precision
+  use_amp: true             # Automatic mixed precision (FP16)
+  
+  # Checkpointing
+  checkpoint_every: 10      # Save checkpoint every N epochs
+  keep_last_n: 3            # Keep last N checkpoints
+  
+  # Early stopping
+  early_stopping: true      # Enable early stopping
+  patience: 20              # Epochs without improvement before stopping
+  min_delta: 1.0e-5         # Minimum improvement threshold
+
+# Loss function weights
+loss:
+  lambda_sdf: 1.0           # SDF reconstruction loss weight
+  lambda_eikonal: 0.1       # Eikonal constraint (|grad|=1)
+  lambda_variance: 0.01     # Variance regularization
+  
+  # Loss computation
+  clamp_sdf: 0.1            # Clamp SDF values for loss (0 = no clamp)
+  surface_weight: 5.0       # Extra weight for near-surface points
+
+# Data settings
+data:
+  train_ratio: 0.8          # Training set ratio
+  val_ratio: 0.2            # Validation set ratio
+  num_workers: 4            # DataLoader workers
+  
+  # Point sampling
+  surface_ratio: 0.5        # Fraction of points near surface
+  surface_std: 0.05         # Std dev for near-surface sampling
+  
+  # Augmentation
+  augment: true             # Enable data augmentation
+  
+# Logging
+logging:
+  log_every: 10             # Log metrics every N batches
+  tensorboard: true         # Enable TensorBoard logging
+  log_dir: logs             # Log directory
+  
+# Output paths
+output:
+  checkpoint_dir: checkpoints
+  results_dir: outputs
+
+# Reproducibility
+seed: 42                    # Random seed
+deterministic: false        # Fully deterministic (slower)

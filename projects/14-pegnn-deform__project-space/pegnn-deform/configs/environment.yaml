@@ -1,0 +1,28 @@
+# PEGNN-Deform Conda Environment
+# Install: conda env create -f environment.yaml
+# Activate: conda activate pegndeform
+
+name: pegndeform
+channels:
+  - pytorch
+  - pyg
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.10
+  - pytorch=2.1
+  - pytorch-cuda=11.8
+  - numpy>=1.24
+  - scipy
+  - matplotlib
+  - tqdm
+  - pip
+  - pip:
+    - torch-geometric>=2.4.0
+    - torch-scatter
+    - torch-sparse
+    - torch-cluster
+    - wandb
+    - trimesh
+    - pytest

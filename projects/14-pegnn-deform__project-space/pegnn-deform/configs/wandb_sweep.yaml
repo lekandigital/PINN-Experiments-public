@@ -1,0 +1,35 @@
+# PEGNN-Deform Hyperparameter Sweep Configuration
+# Launch: wandb sweep configs/wandb_sweep.yaml
+# Run agent: wandb agent <sweep_id>
+
+program: src/train_pegdeform.py
+method: bayes
+metric:
+  name: val_loss
+  goal: minimize
+
+parameters:
+  learning_rate:
+    distribution: log_uniform_values
+    min: 1e-5
+    max: 1e-3
+  
+  hidden_size:
+    values: [64, 128, 256]
+  
+  lambda_vel:
+    values: [0.01, 0.1, 1.0]
+  
+  lambda_energy:
+    values: [0.1, 1.0, 10.0]
+  
+  batch_size:
+    values: [2, 4, 8]
+  
+  num_mp_layers:
+    values: [2, 3, 4]
+
+early_terminate:
+  type: hyperband
+  min_iter: 10
+  eta: 3

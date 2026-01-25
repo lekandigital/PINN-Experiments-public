@@ -1,0 +1,57 @@
+# NIF-Cloth4D-Temporal Conda Environment
+# Neural Implicit Field for Continuous-Time Cloth Simulation
+# Target: NVIDIA L40S (48GB VRAM), ≥3 fps inference
+
+name: nif_cloth4d
+channels:
+  - pytorch
+  - nvidia
+  - conda-forge
+  - defaults
+
+dependencies:
+  # Python
+  - python=3.10
+  
+  # Core scientific computing
+  - numpy>=1.24
+  - scipy>=1.10
+  - h5py>=3.8
+  
+  # PyTorch with CUDA 11.8
+  - pytorch>=2.1.0
+  - torchvision>=0.16.0
+  - torchaudio>=2.1.0
+  - pytorch-cuda=11.8
+  
+  # Mesh processing and visualization
+  - pyvista>=0.42
+  - trimesh>=4.0
+  - matplotlib>=3.7
+  - plotly>=5.15
+  
+  # Development tools
+  - jupyterlab>=4.0
+  - ipywidgets>=8.0
+  - pytest>=7.4
+  - black>=23.0
+  - isort>=5.12
+  
+  # Pip-only packages
+  - pip
+  - pip:
+    # USD for export
+    - usd-core>=23.11
+    
+    # Experiment tracking
+    - wandb>=0.16
+    
+    # Additional mesh utilities
+    - scikit-learn>=1.3
+    - open3d>=0.17
+    
+    # PyFlex (requires manual installation from NVIDIA)
+    # - pyflex  # Install manually: https://github.com/YunzhuLi/PyFlex
+    
+    # Typing and code quality
+    - typing-extensions>=4.8

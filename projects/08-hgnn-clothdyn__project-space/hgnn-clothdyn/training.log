@@ -1,0 +1,148 @@
+/home/o/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'pyg-lib'. Disabling its usage. Stacktrace: Could not load this library: /home/o/miniconda3/envs/wavepinn/lib/python3.10/site-packages/libpyg.so
+  import torch_geometric.typing
+/home/o/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-scatter'. Disabling its usage. Stacktrace: Could not load this library: /home/o/miniconda3/envs/wavepinn/lib/python3.10/site-packages/torch_scatter/_version_cuda.so
+  import torch_geometric.typing
+/home/o/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-cluster'. Disabling its usage. Stacktrace: Could not load this library: /home/o/miniconda3/envs/wavepinn/lib/python3.10/site-packages/torch_cluster/_version_cuda.so
+  import torch_geometric.typing
+/home/o/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-spline-conv'. Disabling its usage. Stacktrace: Could not load this library: /home/o/miniconda3/envs/wavepinn/lib/python3.10/site-packages/torch_spline_conv/_version_cuda.so
+  import torch_geometric.typing
+/home/o/.local/lib/python3.10/site-packages/torch_geometric/__init__.py:4: UserWarning: An issue occurred while importing 'torch-sparse'. Disabling its usage. Stacktrace: Could not load this library: /home/o/miniconda3/envs/wavepinn/lib/python3.10/site-packages/torch_sparse/_version_cuda.so
+  import torch_geometric.typing
+INFO:__main__:Using device: cuda
+INFO:__main__:GPU: NVIDIA GeForce RTX 3090 Ti
+INFO:__main__:VRAM: 25.3 GB
+INFO:__main__:Loaded dataset: 200 frames, 400 nodes
+INFO:model:HGNNClothDyn initialized: input=6, hidden=128, output=3, levels=2, passes=3
+INFO:__main__:Model parameters: 619,340
+WARNING:mesh_to_graph:Graclus failed (`graclus` requires `torch-cluster`.), using simple strided clustering
+INFO:mesh_to_graph:Level 1: 200 nodes, 892 edges
+INFO:__main__:Graph pyramid: fine=400 nodes, coarse=200 nodes
+INFO:__main__:Trainer initialized: AMP=False, scheduled_sampling=True
+INFO:__main__:Starting training for 50 epochs
+INFO:__main__:Epoch 1: sampling_prob=0.00
+/home/o/hgnn-clothdyn/train.py:373: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with autocast(enabled=self.use_amp):
+INFO:__main__:Epoch 1/50 - Train Loss: 0.092276 (pos: 0.000035, vel: 0.922401, edge: 0.000106) - Val Loss: 1.682136
+INFO:__main__:Checkpoint saved: checkpoints/best_model.pt
+INFO:__main__:  → New best model saved!
+INFO:__main__:Epoch 2: sampling_prob=0.00
+INFO:__main__:Epoch 2/50 - Train Loss: 0.085417 (pos: 0.000034, vel: 0.853822, edge: 0.000101) - Val Loss: 1.725301
+INFO:__main__:Epoch 3: sampling_prob=0.00
+INFO:__main__:Epoch 3/50 - Train Loss: 0.075695 (pos: 0.000032, vel: 0.756619, edge: 0.000095) - Val Loss: 1.401516
+INFO:__main__:Checkpoint saved: checkpoints/best_model.pt
+INFO:__main__:  → New best model saved!
+INFO:__main__:Epoch 4: sampling_prob=0.00
+INFO:__main__:Epoch 4/50 - Train Loss: 0.070279 (pos: 0.000032, vel: 0.702463, edge: 0.000091) - Val Loss: 2.644249
+INFO:__main__:Epoch 5: sampling_prob=0.10
+INFO:__main__:Epoch 5/50 - Train Loss: 0.070580 (pos: 0.000041, vel: 0.705376, edge: 0.000093) - Val Loss: 2.660277
+INFO:__main__:Epoch 6: sampling_prob=0.15
+INFO:__main__:Epoch 6/50 - Train Loss: 0.073654 (pos: 0.000065, vel: 0.735883, edge: 0.000094) - Val Loss: 9.365506
+INFO:__main__:Epoch 7: sampling_prob=0.20
+INFO:__main__:Epoch 7/50 - Train Loss: 0.067180 (pos: 0.000058, vel: 0.671208, edge: 0.000089) - Val Loss: 7.817363
+INFO:__main__:Epoch 8: sampling_prob=0.25
+INFO:__main__:Epoch 8/50 - Train Loss: 0.071451 (pos: 0.000086, vel: 0.713642, edge: 0.000095) - Val Loss: 1.109252
+INFO:__main__:Checkpoint saved: checkpoints/best_model.pt
+INFO:__main__:  → New best model saved!
+INFO:__main__:Epoch 9: sampling_prob=0.30
+INFO:__main__:Epoch 9/50 - Train Loss: 0.074381 (pos: 0.000098, vel: 0.742821, edge: 0.000098) - Val Loss: 19.910358
+INFO:__main__:Epoch 10: sampling_prob=0.35
+INFO:__main__:Epoch 10/50 - Train Loss: 0.084438 (pos: 0.000153, vel: 0.842838, edge: 0.000113) - Val Loss: 10.687969
+INFO:__main__:Checkpoint saved: checkpoints/checkpoint_epoch10.pt
+INFO:__main__:Epoch 11: sampling_prob=0.40
+INFO:__main__:Epoch 11/50 - Train Loss: 0.079617 (pos: 0.000130, vel: 0.794856, edge: 0.000110) - Val Loss: 0.980040
+INFO:__main__:Checkpoint saved: checkpoints/best_model.pt
+INFO:__main__:  → New best model saved!
+INFO:__main__:Epoch 12: sampling_prob=0.45
+INFO:__main__:Epoch 12/50 - Train Loss: 0.099710 (pos: 0.000301, vel: 0.994077, edge: 0.000127) - Val Loss: 9.490248
+INFO:__main__:Epoch 13: sampling_prob=0.50
+INFO:__main__:Epoch 13/50 - Train Loss: 0.107172 (pos: 0.000346, vel: 1.068246, edge: 0.000140) - Val Loss: 0.329233
+INFO:__main__:Checkpoint saved: checkpoints/best_model.pt
+INFO:__main__:  → New best model saved!
+INFO:__main__:Epoch 14: sampling_prob=0.55
+INFO:__main__:Epoch 14/50 - Train Loss: 0.095389 (pos: 0.000268, vel: 0.951205, edge: 0.000126) - Val Loss: 5.847216
+INFO:__main__:Epoch 15: sampling_prob=0.60
+INFO:__main__:Epoch 15/50 - Train Loss: 0.100294 (pos: 0.000388, vel: 0.999051, edge: 0.000134) - Val Loss: 5.634398
+INFO:__main__:Epoch 16: sampling_prob=0.65
+INFO:__main__:Epoch 16/50 - Train Loss: 0.143995 (pos: 0.000924, vel: 1.430683, edge: 0.000182) - Val Loss: 5.714998
+INFO:__main__:Epoch 17: sampling_prob=0.70
+INFO:__main__:Epoch 17/50 - Train Loss: 0.153142 (pos: 0.001211, vel: 1.519279, edge: 0.000255) - Val Loss: 0.670007
+INFO:__main__:Epoch 18: sampling_prob=0.75
+INFO:__main__:Epoch 18/50 - Train Loss: 0.237700 (pos: 0.003428, vel: 2.342677, edge: 0.000384) - Val Loss: 0.739110
+INFO:__main__:Epoch 19: sampling_prob=0.80
+INFO:__main__:Epoch 19/50 - Train Loss: 0.221623 (pos: 0.005429, vel: 2.161909, edge: 0.000304) - Val Loss: 5.226801
+INFO:__main__:Epoch 20: sampling_prob=0.85
+INFO:__main__:Epoch 20/50 - Train Loss: 0.594808 (pos: 0.073931, vel: 5.208690, edge: 0.000813) - Val Loss: 0.332417
+INFO:__main__:Checkpoint saved: checkpoints/checkpoint_epoch20.pt
+INFO:__main__:Epoch 21: sampling_prob=0.90
+INFO:__main__:Epoch 21/50 - Train Loss: 1.237746 (pos: 0.179537, vel: 10.582022, edge: 0.000632) - Val Loss: 0.257119
+INFO:__main__:Checkpoint saved: checkpoints/best_model.pt
+INFO:__main__:  → New best model saved!
+INFO:__main__:Epoch 22: sampling_prob=0.95
+INFO:__main__:Epoch 22/50 - Train Loss: 0.458763 (pos: 0.035348, vel: 4.234064, edge: 0.000905) - Val Loss: 0.207252
+INFO:__main__:Checkpoint saved: checkpoints/best_model.pt
+INFO:__main__:  → New best model saved!
+INFO:__main__:Epoch 23: sampling_prob=1.00
+INFO:__main__:Epoch 23/50 - Train Loss: 1.509678 (pos: 0.607196, vel: 9.024521, edge: 0.003001) - Val Loss: 0.181886
+INFO:__main__:Checkpoint saved: checkpoints/best_model.pt
+INFO:__main__:  → New best model saved!
+INFO:__main__:Epoch 24: sampling_prob=1.00
+INFO:__main__:Epoch 24/50 - Train Loss: 3.523240 (pos: 0.866489, vel: 26.525613, edge: 0.418926) - Val Loss: 0.510195
+INFO:__main__:Epoch 25: sampling_prob=1.00
+INFO:__main__:Epoch 25/50 - Train Loss: 0.984863 (pos: 0.261876, vel: 7.229460, edge: 0.004109) - Val Loss: 0.511611
+INFO:__main__:Epoch 26: sampling_prob=1.00
+INFO:__main__:Epoch 26/50 - Train Loss: 1.666476 (pos: 0.612078, vel: 10.543198, edge: 0.007842) - Val Loss: 0.594942
+INFO:__main__:Epoch 27: sampling_prob=1.00
+INFO:__main__:Epoch 27/50 - Train Loss: 1.473165 (pos: 0.515642, vel: 9.574292, edge: 0.009464) - Val Loss: 0.381251
+INFO:__main__:Epoch 28: sampling_prob=1.00
+INFO:__main__:Epoch 28/50 - Train Loss: 0.700769 (pos: 0.166826, vel: 5.338707, edge: 0.007181) - Val Loss: 0.187149
+INFO:__main__:Epoch 29: sampling_prob=1.00
+INFO:__main__:Epoch 29/50 - Train Loss: 0.957430 (pos: 0.249197, vel: 7.081517, edge: 0.008095) - Val Loss: 0.256952
+INFO:__main__:Epoch 30: sampling_prob=1.00
+INFO:__main__:Epoch 30/50 - Train Loss: 0.826337 (pos: 0.207775, vel: 6.184585, edge: 0.010328) - Val Loss: 0.547393
+INFO:__main__:Checkpoint saved: checkpoints/checkpoint_epoch30.pt
+INFO:__main__:Epoch 31: sampling_prob=1.00
+INFO:__main__:Epoch 31/50 - Train Loss: 1.207325 (pos: 0.393166, vel: 8.140994, edge: 0.005955) - Val Loss: 0.788069
+INFO:__main__:Epoch 32: sampling_prob=1.00
+INFO:__main__:Epoch 32/50 - Train Loss: 1.001012 (pos: 0.493688, vel: 5.072707, edge: 0.005303) - Val Loss: 1.454899
+INFO:__main__:Epoch 33: sampling_prob=1.00
+INFO:__main__:Epoch 33/50 - Train Loss: 0.862018 (pos: 0.284533, vel: 5.771689, edge: 0.031616) - Val Loss: 1.204481
+INFO:__main__:Epoch 34: sampling_prob=1.00
+INFO:__main__:Epoch 34/50 - Train Loss: 0.865383 (pos: 0.394377, vel: 4.705194, edge: 0.048655) - Val Loss: 1.268604
+INFO:__main__:Epoch 35: sampling_prob=1.00
+INFO:__main__:Epoch 35/50 - Train Loss: 0.787314 (pos: 0.246925, vel: 5.401268, edge: 0.026204) - Val Loss: 0.739538
+INFO:__main__:Epoch 36: sampling_prob=1.00
+INFO:__main__:Epoch 36/50 - Train Loss: 0.959821 (pos: 0.381379, vel: 5.783775, edge: 0.006488) - Val Loss: 0.565289
+INFO:__main__:Epoch 37: sampling_prob=1.00
+INFO:__main__:Epoch 37/50 - Train Loss: 1.022116 (pos: 0.341155, vel: 6.802318, edge: 0.072928) - Val Loss: 0.374412
+INFO:__main__:Epoch 38: sampling_prob=1.00
+INFO:__main__:Epoch 38/50 - Train Loss: 0.693798 (pos: 0.199166, vel: 4.944487, edge: 0.018326) - Val Loss: 0.600504
+INFO:__main__:Epoch 39: sampling_prob=1.00
+INFO:__main__:Epoch 39/50 - Train Loss: 0.679314 (pos: 0.198278, vel: 4.808884, edge: 0.014788) - Val Loss: 0.410021
+INFO:__main__:Epoch 40: sampling_prob=1.00
+INFO:__main__:Epoch 40/50 - Train Loss: 0.628233 (pos: 0.199167, vel: 4.289059, edge: 0.015921) - Val Loss: 0.542357
+INFO:__main__:Checkpoint saved: checkpoints/checkpoint_epoch40.pt
+INFO:__main__:Epoch 41: sampling_prob=1.00
+INFO:__main__:Epoch 41/50 - Train Loss: 0.933022 (pos: 0.354288, vel: 5.786664, edge: 0.006707) - Val Loss: 0.415544
+INFO:__main__:Epoch 42: sampling_prob=1.00
+INFO:__main__:Epoch 42/50 - Train Loss: 0.987782 (pos: 0.406728, vel: 5.810192, edge: 0.003482) - Val Loss: 0.335927
+INFO:__main__:Epoch 43: sampling_prob=1.00
+INFO:__main__:Epoch 43/50 - Train Loss: 0.832094 (pos: 0.313531, vel: 5.184638, edge: 0.009933) - Val Loss: 0.324622
+INFO:__main__:Epoch 44: sampling_prob=1.00
+INFO:__main__:Epoch 44/50 - Train Loss: 0.682379 (pos: 0.241679, vel: 4.405567, edge: 0.014373) - Val Loss: 0.299266
+INFO:__main__:Epoch 45: sampling_prob=1.00
+INFO:__main__:Epoch 45/50 - Train Loss: 0.732386 (pos: 0.267424, vel: 4.646044, edge: 0.035706) - Val Loss: 0.314863
+INFO:__main__:Epoch 46: sampling_prob=1.00
+INFO:__main__:Epoch 46/50 - Train Loss: 0.704468 (pos: 0.255021, vel: 4.491668, edge: 0.028068) - Val Loss: 0.335237
+INFO:__main__:Epoch 47: sampling_prob=1.00
+INFO:__main__:Epoch 47/50 - Train Loss: 0.717161 (pos: 0.291864, vel: 4.251815, edge: 0.011574) - Val Loss: 0.382633
+INFO:__main__:Epoch 48: sampling_prob=1.00
+INFO:__main__:Epoch 48/50 - Train Loss: 0.761937 (pos: 0.310225, vel: 4.516211, edge: 0.009086) - Val Loss: 0.356449
+INFO:__main__:Epoch 49: sampling_prob=1.00
+INFO:__main__:Epoch 49/50 - Train Loss: 0.874299 (pos: 0.374219, vel: 4.999670, edge: 0.011251) - Val Loss: 0.306864
+INFO:__main__:Epoch 50: sampling_prob=1.00
+INFO:__main__:Epoch 50/50 - Train Loss: 0.851686 (pos: 0.388295, vel: 4.632221, edge: 0.016935) - Val Loss: 0.291581
+INFO:__main__:Checkpoint saved: checkpoints/checkpoint_epoch50.pt
+INFO:__main__:Training complete in 0:04:23.966159
+INFO:__main__:Checkpoint saved: checkpoints/final_model.pt
+
+✓ Training complete!

@@ -1,0 +1,28 @@
+# Maxwell-PINN-NIF Requirements
+# Physics-Informed Neural Network for Maxwell's Equations
+
+# Core dependencies
+torch>=2.0.0
+numpy>=1.24.0
+scipy>=1.10.0
+h5py>=3.8.0
+
+# Training and logging
+tqdm>=4.65.0
+tensorboard>=2.12.0
+
+# Visualization
+matplotlib>=3.7.0
+plotly>=5.14.0
+
+# Bayesian optimization (for antenna design)
+bayesian-optimization>=1.4.0
+
+# Optional: MEEP for FDTD simulation
+# Install via conda: conda install -c conda-forge pymeep
+# meep>=1.25.0
+
+# Development
+pytest>=7.3.0
+black>=23.0.0
+isort>=5.12.0

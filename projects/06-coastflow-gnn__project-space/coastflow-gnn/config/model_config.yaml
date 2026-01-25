@@ -1,0 +1,76 @@
+# CoastFlow-GNN Model Configuration
+# This file contains all hyperparameters for training and model architecture
+
+# Model Architecture
+model:
+  in_channels: 6           # [x, y, z, elevation, wind_u, wind_v]
+  hidden_channels: 64      # GNN hidden dimension
+  out_channels: 4          # [u_x, u_y, u_z, wave_height]
+  pool_ratios: [0.8, 0.5]  # TopK pooling ratios for hierarchical encoding
+  dropout: 0.1             # Dropout probability
+
+# Data Configuration
+data:
+  num_samples: 140         # Total dataset size
+  num_nodes: 200           # Nodes per mesh sample
+  grid_size: 1000.0        # Physical domain size (meters)
+  train_ratio: 0.714       # 100/140
+  val_ratio: 0.143         # 20/140
+  test_ratio: 0.143        # 20/140
+  seed: 42                 # Random seed for reproducibility
+
+# Training Configuration
+training:
+  epochs: 50               # Number of training epochs
+  batch_size: 4            # Batch size
+  learning_rate: 1.0e-3    # Initial learning rate
+  weight_decay: 0.0        # L2 regularization
+  grad_clip_norm: 1.0      # Gradient clipping threshold
+  use_amp: true            # Mixed precision training (torch.cuda.amp)
+
+# Learning Rate Scheduler
+scheduler:
+  type: "ReduceLROnPlateau"
+  factor: 0.5              # LR reduction factor
+  patience: 5              # Epochs to wait before reducing
+  min_lr: 1.0e-6           # Minimum learning rate
+
+# Physics-Informed Loss Weights
+loss:
+  lambda_data: 1.0         # Data fidelity loss weight
+  lambda_cont: 1.0         # Continuity equation (∇·u = 0)
+  lambda_mom: 0.1          # Navier-Stokes momentum
+  lambda_turb: 0.01        # k-ε turbulence model
+  lambda_bc: 1.0           # Boundary conditions
+
+# Physical Parameters
+physics:
+  nu: 1.0e-6               # Kinematic viscosity (m²/s) - water
+  rho: 1025.0              # Fluid density (kg/m³) - seawater
+  C_mu: 0.09               # k-ε model constant
+
+# Checkpointing
+checkpoint:
+  save_every: 10           # Save checkpoint every N epochs
+  keep_last: 3             # Keep last N checkpoints
+  save_best: true          # Save best model based on val loss
+
+# Output
+output:
+  dir: "./outputs"         # Output directory
+  log_every: 1             # Log metrics every N epochs
+  save_training_curves: true
+  save_evaluation_report: true
+
+# Hardware
+hardware:
+  device: "cuda"           # "cuda" or "cpu"
+  num_workers: 2           # DataLoader workers
+  pin_memory: true         # Pin memory for faster GPU transfer
+
+# Logging (optional)
+logging:
+  use_wandb: false         # Enable Weights & Biases logging
+  project: "coastflow-gnn"
+  entity: null             # W&B username/team
+  tags: ["pinn", "gnn", "coastal"]

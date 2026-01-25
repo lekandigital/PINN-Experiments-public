@@ -1,0 +1,634 @@
+/Users/o/Downloads/.DS_Store
+/Users/o/Downloads/Archive/fancy-6f4af3c6205495edd073f98ba6b7df88a557b83a-2/node_modules/prismjs/components/prism-javastacktrace.js
+/Users/o/Downloads/Archive/fancy-6f4af3c6205495edd073f98ba6b7df88a557b83a-2/node_modules/prismjs/components/prism-javastacktrace.min.js
+/Users/o/Downloads/Archive/fancy-6f4af3c6205495edd073f98ba6b7df88a557b83a/node_modules/prismjs/components/prism-javastacktrace.js
+/Users/o/Downloads/Archive/fancy-6f4af3c6205495edd073f98ba6b7df88a557b83a/node_modules/prismjs/components/prism-javastacktrace.min.js
+/Users/o/Downloads/Archive/fancy-feat-circular-carousel/node_modules/prismjs/components/prism-javastacktrace.js
+/Users/o/Downloads/Archive/fancy-feat-circular-carousel/node_modules/prismjs/components/prism-javastacktrace.min.js
+/Users/o/Downloads/Archive/fancy-main-2/node_modules/prismjs/components/prism-javastacktrace.js
+/Users/o/Downloads/Archive/fancy-main-2/node_modules/prismjs/components/prism-javastacktrace.min.js
+/Users/o/Downloads/Data/Applications/.Ableton Live 12 Suite_updated.app/Contents/App-Resources/Core Library/Samples/One Shots/Instrument/Mallets/Marimba Cloth C3.aif
+/Users/o/Downloads/Data/Applications/.Ableton Live 12 Suite_updated.app/Contents/App-Resources/Core Library/Samples/One Shots/Instrument/Mallets/Marimba Cloth C3.aif.asd
+/Users/o/Downloads/Data/Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Core Library/Samples/One Shots/Instrument/Mallets/Marimba Cloth C3.aif
+/Users/o/Downloads/Data/Applications/Ableton Live 12 Suite.app/Contents/App-Resources/Core Library/Samples/One Shots/Instrument/Mallets/Marimba Cloth C3.aif.asd
+/Users/o/Downloads/Data/Applications/Autodesk/bifrost/maya2025/2.10.0.0/bifrost/resources/graphs/tearing_cloth/tearing_cloth.json
+/Users/o/Downloads/Data/Applications/Autodesk/bifrost/maya2025/2.10.0.0/bifrost/resources/graphs/tearing_cloth/tearing_cloth_docs_ENU.md
+/Users/o/Downloads/Data/Applications/Autodesk/bifrost/maya2025/2.10.0.0/bifrost/resources/graphs/tearing_cloth/tearing_cloth_thumb.png
+/Users/o/Downloads/Data/Applications/Autodesk/bifrost/maya2025/2.10.0.0/bifrost/resources/mpm/docs/CHS/make_mpm_cloth.md
+/Users/o/Downloads/Data/Applications/Autodesk/bifrost/maya2025/2.10.0.0/bifrost/resources/mpm/docs/ENU/make_mpm_cloth.md
+/Users/o/Downloads/Data/Applications/Autodesk/bifrost/maya2025/2.10.0.0/bifrost/resources/mpm/docs/JPN/make_mpm_cloth.md
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/Examples/FX/nCloth_Examples/.mayaSwatches/BasicNClothCharacter.ma.swatch
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/Examples/FX/nCloth_Examples/.mayaSwatches/NClothWater.ma.swatch
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/Examples/FX/nCloth_Examples/BasicNClothCharacter.ma
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/Examples/FX/nCloth_Examples/NClothWater.ma
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/presets/Assets/Meshes/Cloth.obj
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/AETemplates/AEaddDynRampClothCollision.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/AETemplates/AEclothTemplate.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/AETemplates/AEnClothRelated.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/AETemplates/AEnClothTemplate.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/NETemplates/NEclothTemplate.xml
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/NClothPaintCallback.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/artAttrNClothCallback.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/artAttrNClothProperties.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/artAttrNClothToolScript.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/artAttrNClothValues.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/assignNSolver.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/convertClothBeta1To2.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/convertPost2014ClothInputAttract.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/createNCloth.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/displayNClothMesh.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/doAppendNclothCache.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/doCreateNCloth.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/doCreateNclothCache.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/doDeleteNClothHistory.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/doDeleteNclothCacheFrames.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/doReplaceNclothCacheFrames.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/doSetNClothRestShape.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/getAutomaticNclothCacheName.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/getNClothDescriptionInfo.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/getNclothObjectsToCache.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/makeCollideNCloth.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/nClothConvertOutput.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/nClothTextureMapToVtxMap.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/nClothVertexEditor.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/nClothVtxMapToTextureMap.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/paintNClothTexture.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/performAppendNclothCache.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/performCreateNCloth.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/performCreateNclothCache.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/performDeleteNClothHistory.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/performDeleteNclothCache.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/performDeleteNclothCacheFrames.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/performMakeCollideNCloth.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/performRemoveNCloth.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/performReplaceNclothCacheFrames.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/performSetNClothStartState.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/removeNCloth.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/setNClothMapType.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/setNClothRestShape.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/others/setNClothStartFromMesh.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/paintEffects/assignNewPfxToon.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/shelves/shelf_NCloth.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/startup/DynClothMenu.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/Maya.app/Contents/scripts/startup/doCreateAssignNewMaterialTreeLister.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/include/maya/MnCloth.h
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/plug-ins/BonusTools/scripts/bt_assignNewMaterialForSelected.mel
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/plug-ins/xgen/presets/expressions/samples/Color/DoNotUse_clothOrientation.se
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/plug-ins/xgen/presets/expressions/samples/Color/Orientation/clothSkew.se
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/plug-ins/xgen/presets/expressions/samples/Color/Procedural/Fabric/grilleCloth.se
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/plug-ins/xgen/presets/expressions/samples/Color/clothFlat/clothFlatEncodeUV.se
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/plug-ins/xgen/presets/expressions/samples/Color/clothFlat/clothFlatUnencodeUV.se
+/Users/o/Downloads/Data/Applications/Autodesk/maya2025/plug-ins/xgen/presets/expressions/samples/Color/clothFlat/clothFlat_Orient.se
+/Users/o/Downloads/Data/Applications/Autodesk/mayausd/maya2025/0.28.0_202404152327-48d2ddb/mayausd/USD/resources/Geometry/cloth.obj
+/Users/o/Downloads/Data/Applications/Autodesk/mayausd/maya2025/0.28.0_202404152327-48d2ddb/mayausd/USD/resources/Images/cloth.bmp
+/Users/o/Downloads/Data/Applications/Autodesk/mayausd/maya2025/0.28.0_202404152327-48d2ddb/mayausd/USD/resources/Images/cloth.gif
+/Users/o/Downloads/Data/Applications/Autodesk/mayausd/maya2025/0.28.0_202404152327-48d2ddb/mayausd/USD/resources/Images/cloth.jpg
+/Users/o/Downloads/Data/Applications/Autodesk/mayausd/maya2025/0.28.0_202404152327-48d2ddb/mayausd/USD/resources/Images/cloth.png
+/Users/o/Downloads/Data/Applications/Autodesk/mayausd/maya2025/0.28.0_202404152327-48d2ddb/mayausd/USD/resources/Images/cloth.tga
+/Users/o/Downloads/Data/Applications/EXR.app/Contents/Resources/Data/Managed/UnityEngine.ClothModule.dll
+/Users/o/Downloads/Data/Applications/Final Cut Pro.app/Contents/PlugIns/MediaProviders/MotionEffect.fxp/Contents/Resources/PETemplates.localized/Generators.localized/Textures.localized/Fabric.localized/Media/Cloth.jpg
+/Users/o/Downloads/Data/Applications/Final Cut Pro.app/Contents/PlugIns/MediaProviders/MotionEffect.fxp/Contents/Resources/PETemplates.localized/Generators.localized/Textures.localized/Fabric.localized/Media/cloth 3.jpg
+/Users/o/Downloads/Data/Applications/Final Cut Pro.app/Contents/PlugIns/MediaProviders/MotionEffect.fxp/Contents/Resources/PETemplates.localized/Generators.localized/Textures.localized/Fabric.localized/Media/cloth 4.jpg
+/Users/o/Downloads/Data/Applications/Final Cut Pro.app/Contents/PlugIns/MediaProviders/MotionEffect.fxp/Contents/Resources/PETemplates.localized/Transitions.localized/Movements.localized/Clothesline.localized/Clothesline.motr
+/Users/o/Downloads/Data/Applications/GarageBand.app/Contents/Resources/AppleLoopsIndex/Alpha Waves/Vast Canyons.loopdata
+/Users/o/Downloads/Data/Applications/Keynote.app/Contents/Resources/ClotheslinePush.parameterGroup
+/Users/o/Downloads/Data/Applications/Logic Pro (Old).app/Contents/Resources/AppleLoopsIndex/23 Oblique Structures/Vast Cosmos Pad.loopdata
+/Users/o/Downloads/Data/Applications/Logic Pro (Old).app/Contents/Resources/AppleLoopsIndex/Alpha Waves/Vast Canyons.loopdata
+/Users/o/Downloads/Data/Applications/Renpho Health.app/Wrapper/renphoHealthPlus.app/RNRelease/StoreRN/assets/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Applications/Second Number.app/Wrapper/GhostChat.app/assets/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/Library/Frameworks/GameplayKit.framework/Versions/A/Headers/GKMeshGraph.h
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/System/iOSSupport/System/Library/Frameworks/GameplayKit.framework/Versions/A/Headers/GKMeshGraph.h
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/share/man/man3/MPSCNNNeuronSoftSignNode.3
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/share/man/man3/Tk_CanvasTagsOption.3tcl
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/share/man/man3/Tk_CanvasTextInfo.3tcl
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/share/man/man3/Tk_CanvasTkwin.3tcl
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/Library/Frameworks/GameplayKit.framework/Versions/A/Headers/GKMeshGraph.h
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/System/iOSSupport/System/Library/Frameworks/GameplayKit.framework/Versions/A/Headers/GKMeshGraph.h
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/share/man/man3/MPSCNNNeuronSoftSignNode.3
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/share/man/man3/Tk_CanvasTagsOption.3tcl
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/share/man/man3/Tk_CanvasTextInfo.3tcl
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX13.3.sdk/usr/share/man/man3/Tk_CanvasTkwin.3tcl
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/System/Library/Frameworks/GameplayKit.framework/Versions/A/Headers/GKMeshGraph.h
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/System/iOSSupport/System/Library/Frameworks/GameplayKit.framework/Versions/A/Headers/GKMeshGraph.h
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/share/man/man3/MPSCNNNeuronSoftSignNode.3
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/share/man/man3/Tk_CanvasTagsOption.3tcl
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/share/man/man3/Tk_CanvasTextInfo.3tcl
+/Users/o/Downloads/Data/Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk/usr/share/man/man3/Tk_CanvasTkwin.3tcl
+/Users/o/Downloads/Data/Library/User Template/Dutch.lproj/Library/FontCollections/Vaste breedte.collection
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/New/Team16-2021-AppPrototype/amigo/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/htmlparser2/node_modules/dom-serializer/lib/foreignNames.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/htmlparser2/node_modules/dom-serializer/lib/foreignNames.d.ts.map
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/htmlparser2/node_modules/dom-serializer/lib/foreignNames.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/renderkid/node_modules/dom-serializer/lib/foreignNames.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/renderkid/node_modules/dom-serializer/lib/foreignNames.d.ts.map
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/amigo/node_modules/renderkid/node_modules/dom-serializer/lib/foreignNames.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/yourshare/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/yourshare/node_modules/react-bootstrap/cjs/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/yourshare/node_modules/react-bootstrap/cjs/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/yourshare/node_modules/react-bootstrap/esm/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project copy/Old/Team16-2021-AppPrototype/yourshare/node_modules/react-bootstrap/esm/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/New/Team16-2021-AppPrototype/amigo/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/New/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/htmlparser2/node_modules/dom-serializer/lib/foreignNames.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/htmlparser2/node_modules/dom-serializer/lib/foreignNames.d.ts.map
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/htmlparser2/node_modules/dom-serializer/lib/foreignNames.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/renderkid/node_modules/dom-serializer/lib/foreignNames.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/renderkid/node_modules/dom-serializer/lib/foreignNames.d.ts.map
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/amigo/node_modules/renderkid/node_modules/dom-serializer/lib/foreignNames.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/yourshare/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/yourshare/node_modules/react-bootstrap/cjs/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/yourshare/node_modules/react-bootstrap/cjs/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/yourshare/node_modules/react-bootstrap/esm/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/TNT Intern Project/Old/Team16-2021-AppPrototype/yourshare/node_modules/react-bootstrap/esm/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/htmlparser2/node_modules/dom-serializer/lib/foreignNames.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/htmlparser2/node_modules/dom-serializer/lib/foreignNames.d.ts.map
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/htmlparser2/node_modules/dom-serializer/lib/foreignNames.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/renderkid/node_modules/dom-serializer/lib/foreignNames.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/renderkid/node_modules/dom-serializer/lib/foreignNames.d.ts.map
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/amigo/node_modules/renderkid/node_modules/dom-serializer/lib/foreignNames.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/yourshare/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/yourshare/node_modules/react-bootstrap/cjs/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/yourshare/node_modules/react-bootstrap/cjs/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/yourshare/node_modules/react-bootstrap/esm/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Team16-2021-AppPrototype copy/yourshare/node_modules/react-bootstrap/esm/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Documents/Dev/Week1React/test-app/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/dom-serializer/lib/foreignNames.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/dom-serializer/lib/foreignNames.d.ts.map
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/dom-serializer/lib/foreignNames.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/react-bootstrap/cjs/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/react-bootstrap/cjs/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/react-bootstrap/esm/OffcanvasTitle.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.d.ts
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/react-bootstrap/esm/OffcanvasToggling.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Dev/August 2021 Backup/Downloads/Team16-2021-AppPrototype-main/amigo/node_modules/svgo/node_modules/dom-serializer/foreignNames.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/Takeout/Drive/AAf/App_Backup_Restore/com.metago.astro-463-vASTRO-4.2.463.apk
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/chatgpt-export/ChatGPT-PI-GNNs_vs_PINNs.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/dwdw/iCloud copy/Newer/https---www-reddit-com-r-FinancialCareers-comments-19938n3-investment_bankers_of_reddit_what_clothin….md
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/dwdw/iCloud copy/Newer/reset suitcase pin and only keep a few clothes in the house and for….md
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/dwdw/iCloud copy/Notes/3-30 - 4- Eat and finish packing clothes.md
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/dwdw/iCloud copy/Notes/Order clothes.md
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/dwdw/iCloud/Newer/https---www-reddit-com-r-FinancialCareers-comments-19938n3-investment_bankers_of_reddit_what_clothin….md
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/dwdw/iCloud/Newer/reset suitcase pin and only keep a few clothes in the house and for….md
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/dwdw/iCloud/Notes/3-30 - 4- Eat and finish packing clothes.md
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/dwdw/iCloud/Notes/Order clothes.md
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/iCloud Notes/Newer/https:||www.reddit.com|r|FinancialCareers|comments|19938n3|investment_bankers_of_reddit_what_clothin/https:||www.reddit.com|r|FinancialCareers|comments|19938n3|investment_bankers_of_reddit_what_clothin-2024-01-18T20:42:01Z.txt
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/iCloud Notes/Newer/reset suitcase pin and only keep a few clothes in the house and for…/reset suitcase pin and only keep a few clothes in the house and for…-2024-04-16T07:17:51Z.txt
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/iCloud Notes/Notes/3:30 - 4: Eat and finish packing clothes/3:30 - 4: Eat and finish packing clothes-2021-08-24T01:30:25Z.txt
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/iCloud Notes/Notes/Order clothes/Order clothes-2022-06-06T21:25:31Z.txt
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/mydata~1689316740896/chat_media/b~EiQSFUxnOGNHbmhpd291TnRkdGNnUGVabhoAGgAyAXxIAlAEYAE.jpeg
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/8FkTgmP0rm8Vw3A6wgsyJdlyfJ4n21grqk5dAHeIp8L9E94c9sTrBB3JmdH7kgOOwPGnnQFxli2FmkhllEIDqQ==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/8FkTgmP0rm8Vw3A6wgsyJdlyfJ4n21grqk5dAHeIp8L9E94c9sTrBB3JmdH7kgOOwPGnnQFxli2FmkhllEIDqQ==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/GYQL_CBxY8-ohsmH8XBo3VWGtIKRfP5Xfv4l59fseM-dNpANQ8uUDY0Y0j72waqkN7IhnSuV0X9ko1kNimgnnw==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/GYQL_CBxY8-ohsmH8XBo3VWGtIKRfP5Xfv4l59fseM-dNpANQ8uUDY0Y0j72waqkN7IhnSuV0X9ko1kNimgnnw==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/Gwks54TyhWA5MrTyHp285hqoxsN4tT0TgnnwyZQUAoPu-U2s6vr1rBoDGPH6WfZw_WaoGYwEwaiczT6eMlH0FQ==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/Gwks54TyhWA5MrTyHp285hqoxsN4tT0TgnnwyZQUAoPu-U2s6vr1rBoDGPH6WfZw_WaoGYwEwaiczT6eMlH0FQ==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/I6ZKCC02oLOfmbGnnRJtfTwm6rvYRfy2a5ASFr2-OXuboBRJhzunMBWm-rDU5BLubNjnMQy7NpIYHtW4ykkfag==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/I6ZKCC02oLOfmbGnnRJtfTwm6rvYRfy2a5ASFr2-OXuboBRJhzunMBWm-rDU5BLubNjnMQy7NpIYHtW4ykkfag==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/IWygNsmqpTpuIqOU1PlekBQGhPkBeORf-9PAwqHP41MUmw1RowOTjv4dd1HAaPjF6REXGiX3wgnNL_vYBBNSWg==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/IWygNsmqpTpuIqOU1PlekBQGhPkBeORf-9PAwqHP41MUmw1RowOTjv4dd1HAaPjF6REXGiX3wgnNL_vYBBNSWg==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/KG6Ms-WaX0l95PIUHt5jSGKIuOLTUI4fftWOHmT3V_WcroroQ4YSgBuVMVxcHlRwFvCV0GJavOGnniBnDkvaSA==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/KG6Ms-WaX0l95PIUHt5jSGKIuOLTUI4fftWOHmT3V_WcroroQ4YSgBuVMVxcHlRwFvCV0GJavOGnniBnDkvaSA==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/ND1WAf5_h4zFBk9r9RGnnJ26SA6DXgliUWkVLsjpNM6ql6qtPi55-eWRDpK7OS_U3Wm8MnzrHGlwDE34X87Wrw==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/ND1WAf5_h4zFBk9r9RGnnJ26SA6DXgliUWkVLsjpNM6ql6qtPi55-eWRDpK7OS_U3Wm8MnzrHGlwDE34X87Wrw==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/VuKqN0G81Y5CDRXCv7BaGnnqBvYVs8JHXcqcOzUv_4QyE2031RiH5vVWvvyPyKz6R3GqymPsTQ9QNjyGj1PJjQ==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/VuKqN0G81Y5CDRXCv7BaGnnqBvYVs8JHXcqcOzUv_4QyE2031RiH5vVWvvyPyKz6R3GqymPsTQ9QNjyGj1PJjQ==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/WE3xl9MKv1jfjrcIXGNNotklYDQQ7YTN3i15lAYK0-aO1Ej9yzgs9whLRCWezLKQ0JWq0yFC2r_3V-H7Ga065A==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/WE3xl9MKv1jfjrcIXGNNotklYDQQ7YTN3i15lAYK0-aO1Ej9yzgs9whLRCWezLKQ0JWq0yFC2r_3V-H7Ga065A==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/hbgiF5Y3niZLpfbW4FVyskZg3xbCm58dfrsb96plyWVhpSMtwqbo7Eh8_cln-bb_FJavtfjHJCGnNCP6nRtovw==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/hbgiF5Y3niZLpfbW4FVyskZg3xbCm58dfrsb96plyWVhpSMtwqbo7Eh8_cln-bb_FJavtfjHJCGnNCP6nRtovw==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/lVD5jjWA92AogB-XNTJ1HmoK_sg_pjrOfXOusLcWX_wYTd9vVwLvT_Jys1gnnUzBIdOxDFGg8ZCCCqpf16fZMA==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/lVD5jjWA92AogB-XNTJ1HmoK_sg_pjrOfXOusLcWX_wYTd9vVwLvT_Jys1gnnUzBIdOxDFGg8ZCCCqpf16fZMA==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/s4Sm46WZjtuoa8A1ynJJhW4CLJIq3FGNnz9XQY170cAyuAn7hASL3i7BZ1L-57ti-ORQ8vNQbAGT2yrRfVgHMQ==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/s4Sm46WZjtuoa8A1ynJJhW4CLJIq3FGNnz9XQY170cAyuAn7hASL3i7BZ1L-57ti-ORQ8vNQbAGT2yrRfVgHMQ==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/stOBvF9mHm80KprafDHWkn0zhAyScmJwmYZs3NeUNuJQ7QxON3g52SENGp37ZiqGIpLGGNNMqvq_arDLEUKJcQ==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/stOBvF9mHm80KprafDHWkn0zhAyScmJwmYZs3NeUNuJQ7QxON3g52SENGp37ZiqGIpLGGNNMqvq_arDLEUKJcQ==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/wYYrudbmqZhN1kHjxc5pvasTDPzhT6ayR5DF0OHNHYYA7PqTMrfo6OhgPpl_scx9VnBLY0jOK6ka6rYYjAiNkA==.eml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/proton-mail-export-cli/lekan.adeyeri@proton.me/mail_20241220_091317/wYYrudbmqZhN1kHjxc5pvasTDPzhT6ayR5DF0OHNHYYA7PqTMrfo6OhgPpl_scx9VnBLY0jOK6ka6rYYjAiNkA==.metadata.json
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/test31/imgvnv1/lib/python3.12/site-packages/onnxruntime/transformers/models/longformer/generate_test_data.py
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/test31/imgvnv1/lib/python3.12/site-packages/rembg/sessions/__pycache__/u2net_cloth_seg.cpython-312.pyc
+/Users/o/Downloads/Data/Users/lekanadeyeri/Downloads/test31/imgvnv1/lib/python3.12/site-packages/rembg/sessions/u2net_cloth_seg.py
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/BraveSoftware/Brave-Browser/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.61.2_0/web_accessible_resources/noop-vast2.xml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/BraveSoftware/Brave-Browser/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.61.2_0/web_accessible_resources/noop-vast3.xml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/BraveSoftware/Brave-Browser/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.61.2_0/web_accessible_resources/noop-vast4.xml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/CloudDocs/session/containers/iCloud.com.avast.ios.secureline2.plist
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/Google/Chrome Canary/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.61.2_0/web_accessible_resources/noop-vast2.xml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/Google/Chrome Canary/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.61.2_0/web_accessible_resources/noop-vast3.xml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/Google/Chrome Canary/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.61.2_0/web_accessible_resources/noop-vast4.xml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/Google/Chrome/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.61.2_0/web_accessible_resources/noop-vast2.xml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/Google/Chrome/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.61.2_0/web_accessible_resources/noop-vast3.xml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/Google/Chrome/Default/Extensions/cjpalhdlnbpafiamejdnhcphjbkeiagm/1.61.2_0/web_accessible_resources/noop-vast4.xml
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/Google/Chrome/extensions_crx_cache/coplmfnphahpcknbchcehdikbdieognn_1.a7fa7c52465a582b9884a98d27b3864147817e2f4c724562ed5f554734da05a3
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/Steam/config/htmlcache/component_crx_cache/oimompecagnajdejgnnjijobebaeigek_1.d483549aedc03483b244042288d43c71f313d811a41138221e8da39feefd188a
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/Vivaldi/component_crx_cache/oimompecagnajdejgnnjijobebaeigek_1.0afff62e217e4f2b450f0885faacc8416f219a1d0877087df52569f51f1da860
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/com.operasoftware.Opera/component_crx_cache/oimompecagnajdejgnnjijobebaeigek_1.0afff62e217e4f2b450f0885faacc8416f219a1d0877087df52569f51f1da860
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Application Support/discord/component_crx_cache/oimompecagnajdejgnnjijobebaeigek_1.2684259a9c0a5b2c654a20e33c059e3bf9162ecab11b67593cc5418a16a3a80b
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Group Containers/UBF8T346G9.Office/SolutionPackages/5e885c8afb470ab91c35a430366940c7/PackageResources/OfflineFiles/XandrVastPlayer_eb09440ee890ca44ea64f55cf70967e9.js
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Messages/Attachments/ee/14/5112DA9F-A43E-4E20-8B4F-52D163D4DC18/v12044gd0000coohgnnog65sjmok28dg.mov
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Messages/Caches/Previews/Attachments/ee/14/5112DA9F-A43E-4E20-8B4F-52D163D4DC18/v12044gd0000coohgnnog65sjmok28dg-preview.ktx
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Messages/Caches/Previews/Attachments/ee/14/5112DA9F-A43E-4E20-8B4F-52D163D4DC18/v12044gd0000coohgnnog65sjmok28dg-preview.plist
+/Users/o/Downloads/Data/Users/lekanadeyeri/Library/Python/3.9/lib/python/site-packages/numpy/distutils/fcompiler/vast.py
+/Users/o/Downloads/Data/Users/lekanadeyeri/elk/d/2J/NEQI534Y7BXYDL2UMUOHE5ZW4K2GKW/xLy4oSKxuBOVeZxVLPgAg2J6rx0mp8gNn05p8WvB0Q==.c9r
+/Users/o/Downloads/Data/opt/homebrew/Cellar/tcl-tk/9.0.0_1/share/man/man3/Tk_CanvasTagsOption.3tk
+/Users/o/Downloads/Data/opt/homebrew/Cellar/tcl-tk/9.0.0_1/share/man/man3/Tk_CanvasTextInfo.3tk
+/Users/o/Downloads/Data/opt/homebrew/Cellar/tcl-tk/9.0.0_1/share/man/man3/Tk_CanvasTkwin.3tk
+/Users/o/Downloads/Data/opt/homebrew/lib/python3.11/site-packages/h5py/tests/data_files/vlen_string_dset.h5
+/Users/o/Downloads/Data/opt/homebrew/lib/python3.11/site-packages/h5py/tests/data_files/vlen_string_dset_utc.h5
+/Users/o/Downloads/Data/opt/homebrew/lib/python3.11/site-packages/h5py/tests/data_files/vlen_string_s390x.h5
+/Users/o/Downloads/Data/opt/homebrew/lib/python3.11/site-packages/keras/src/losses.py
+/Users/o/Downloads/Data/opt/homebrew/lib/python3.11/site-packages/numpy/distutils/fcompiler/__pycache__/vast.cpython-311.pyc
+/Users/o/Downloads/Data/opt/homebrew/lib/python3.11/site-packages/numpy/distutils/fcompiler/vast.py
+/Users/o/Downloads/Data/opt/homebrew/lib/python3.11/site-packages/tensorflow/python/keras/losses.py
+/Users/o/Downloads/Data/opt/homebrew/lib/python3.11/site-packages/tensorflow/python/ops/losses/losses.py
+/Users/o/Downloads/VASTAI_GUIDE_PROSE (1).md
+/Users/o/Downloads/VASTAI_GUIDE_PROSE.md
+/Users/o/Downloads/VASTAI_INSTANCE_MANAGEMENT.md
+/Users/o/Downloads/files (1).zip
+/Users/o/Downloads/hgnn-nif-cloth/README.md
+/Users/o/Downloads/hgnn-nif-cloth/benchmark_results.md
+/Users/o/Downloads/hgnn-nif-cloth/data/train_data.h5
+/Users/o/Downloads/hgnn-nif-cloth/docker/Dockerfile
+/Users/o/Downloads/hgnn-nif-cloth/docker/requirements.txt
+/Users/o/Downloads/hgnn-nif-cloth/scripts/__init__.py
+/Users/o/Downloads/hgnn-nif-cloth/scripts/deploy_vastai.py
+/Users/o/Downloads/hgnn-nif-cloth/scripts/test_remote.py
+/Users/o/Downloads/hgnn-nif-cloth/scripts/train_local.py
+/Users/o/Downloads/hgnn-nif-cloth/setup.py
+/Users/o/Downloads/hgnn-nif-cloth/src/__init__.py
+/Users/o/Downloads/hgnn-nif-cloth/src/data/__init__.py
+/Users/o/Downloads/hgnn-nif-cloth/src/data/dataset.py
+/Users/o/Downloads/hgnn-nif-cloth/src/data/synthetic_data.py
+/Users/o/Downloads/hgnn-nif-cloth/src/models/__init__.py
+/Users/o/Downloads/hgnn-nif-cloth/src/models/attention.py
+/Users/o/Downloads/hgnn-nif-cloth/src/models/graph_conv.py
+/Users/o/Downloads/hgnn-nif-cloth/src/models/hgnn.py
+/Users/o/Downloads/hgnn-nif-cloth/src/models/hybrid_model.py
+/Users/o/Downloads/hgnn-nif-cloth/src/models/siren.py
+/Users/o/Downloads/hgnn-nif-cloth/src/training/__init__.py
+/Users/o/Downloads/hgnn-nif-cloth/src/training/losses.py
+/Users/o/Downloads/hgnn-nif-cloth/src/training/trainer.py
+/Users/o/Downloads/hgnn-nif-cloth/src/utils/__init__.py
+/Users/o/Downloads/hgnn-nif-cloth/src/utils/metrics.py
+/Users/o/Downloads/hgnn-nif-cloth/tests/__init__.py
+/Users/o/Downloads/hgnn-nif-cloth/tests/test_forward.py
+/Users/o/Downloads/hgnn-nif-cloth/tests/test_model.py
+/Users/o/Downloads/nif-cloth3d/README.md
+/Users/o/Downloads/nif-cloth3d/blender_addon/blender_cloth_pipeline.py
+/Users/o/Downloads/nif-cloth3d/blender_addon/nif_cloth_addon.py
+/Users/o/Downloads/nif-cloth3d/configs/l40s.yaml
+/Users/o/Downloads/nif-cloth3d/configs/low_vram.yaml
+/Users/o/Downloads/nif-cloth3d/configs/rtx4090.yaml
+/Users/o/Downloads/nif-cloth3d/docker/Dockerfile
+/Users/o/Downloads/nif-cloth3d/docker/docker-compose.yml
+/Users/o/Downloads/nif-cloth3d/notebooks/evaluation.ipynb
+/Users/o/Downloads/nif-cloth3d/requirements.txt
+/Users/o/Downloads/nif-cloth3d/scripts/benchmark.sh
+/Users/o/Downloads/nif-cloth3d/scripts/quickstart.sh
+/Users/o/Downloads/nif-cloth3d/scripts/train.sh
+/Users/o/Downloads/nif-cloth3d/src/__init__.py
+/Users/o/Downloads/nif-cloth3d/src/data_loader.py
+/Users/o/Downloads/nif-cloth3d/src/inference.py
+/Users/o/Downloads/nif-cloth3d/src/losses.py
+/Users/o/Downloads/nif-cloth3d/src/model.py
+/Users/o/Downloads/nif-cloth3d/src/train.py
+/Users/o/Downloads/nif-cloth3d/src/utils.py
+/Users/o/Downloads/nif-cloth3d/tests/generate_test_data.py
+/Users/o/Downloads/nif-cloth3d/tests/test_inference.py
+/Users/o/Downloads/nif-cloth3d/tests/test_model.py
+/Users/o/Downloads/parts/Acoustic_PINNs_and_NIFs/.DS_Store
+/Users/o/Downloads/parts/Acoustic_PINNs_and_NIFs/wavepinn_nif_scalar/tests/test_model.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/README.md
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/cell_path_pinns/__init__.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/cell_path_pinns/api.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/cell_path_pinns/data_utils.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/cell_path_pinns/losses.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/cell_path_pinns/models.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/notebooks/quick_demo.ipynb
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/requirements.txt
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/setup.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/tests/__init__.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/tests/test_model.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell_path_pinns_literature_review_scan.txt
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/ChatGPT-ClothGNN_Research_Package.md.txt
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/.DS_Store
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/README.md
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/models/__init__.py
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/models/clothgnn.py
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/results/gpu_info.txt
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/results/test_results.txt
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/tests/__init__.py
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/tests/generate_test_data.py
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/tests/test_model.py
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/utils/__init__.py
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/utils/collision.py
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn/utils/losses.py
+/Users/o/Downloads/parts/ChatGPT-ClothGNN_Research_Package.md/clothgnn_research_package_scan.txt
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/ChatGPT-ClothGeom-NIF_Research_Plan.md.txt
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/.gitignore
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/ARCHITECTURE.md
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/README.md
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/configs/train_config.yaml
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/data/__init__.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/data/__pycache__/cloth_dataset.cpython-311.pyc
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/data/__pycache__/synthetic_cloth_generator.cpython-311.pyc
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/data/cloth_dataset.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/data/synthetic_cloth_generator.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/demo.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/extract_meshes.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/generate_dataset.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/inference/__init__.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/inference/mesh_extractor.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/models/__init__.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/models/nif_decoder.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/models/siren.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/quickstart.sh
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/requirements.txt
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/search_gpus.sh
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/setup_environment.sh
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/setup_vastai.sh
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/tests/__init__.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/tests/test_model.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/tests/test_training.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/train.py
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/venv/lib/python3.11/site-packages/h5py/tests/data_files/vlen_string_dset.h5
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/venv/lib/python3.11/site-packages/h5py/tests/data_files/vlen_string_dset_utc.h5
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/venv/lib/python3.11/site-packages/h5py/tests/data_files/vlen_string_s390x.h5
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/venv/lib/python3.11/site-packages/numpy/distutils/fcompiler/__pycache__/vast.cpython-311.pyc
+/Users/o/Downloads/parts/ChatGPT-ClothGeom-NIF_Research_Plan.md/clothgeom-nif/venv/lib/python3.11/site-packages/numpy/distutils/fcompiler/vast.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/ChatGPT-CoastFlow-GNN_Research_Setup.md.txt
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/README.md
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/config/model_config.yaml
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/deployment/Dockerfile
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/deployment/remote_setup.sh
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/deployment/requirements.txt
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/deployment/vastai_setup.sh
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/notebooks/site_planning_demo.ipynb
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/__init__.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/data/__init__.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/data/dataset.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/data/dem_fetcher.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/data/mesh_builder.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/models/__init__.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/models/coastflow_gnn.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/models/physics_losses.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/training/__init__.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/training/eval_model.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/training/train_ddp.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/training/train_single.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/utils/__init__.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/utils/cost_benefit.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/src/utils/visualization.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/tests/__init__.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/tests/test_dataset.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/tests/test_model.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/tests/test_physics_losses.py
+/Users/o/Downloads/parts/ChatGPT-CoastFlow-GNN_Research_Setup.md/coastflow-gnn/tests/test_training_loop.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/Dockerfile
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/README.md
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/debug_lb.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/debug_lb2.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/debug_lb3.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/environment.yml
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/__init__.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/data/__init__.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/data/shell_elasticity.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/data/sphere_swe.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/data/torus_reaction_diffusion.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/layers/__init__.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/layers/chart_atlas.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/layers/dec_operators.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/layers/spectral_conv.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/layers/tangent_message_passing.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/training/__init__.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/training/adaptive_refinement.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/training/mesh_trainer.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/geopinn/training/sphere_trainer.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/pyproject.toml
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/requirements.txt
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/scripts/deploy.sh
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/tests/test_integration.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/GeoPINN-Manifold/tests/test_sphere_pde.py
+/Users/o/Downloads/parts/ChatGPT-GeoPINN-Manifold_Development_Guide.md/surfpinn_scan.txt
+/Users/o/Downloads/parts/ChatGPT-Geom-INR-Motion_Development_Plan.md/geom-inr-motion/README.md
+/Users/o/Downloads/parts/ChatGPT-Geom-INR-Motion_Development_Plan.md/geom-inr-motion/data_pipeline.py
+/Users/o/Downloads/parts/ChatGPT-Geom-INR-Motion_Development_Plan.md/geom-inr-motion/evaluation.ipynb
+/Users/o/Downloads/parts/ChatGPT-Geom-INR-Motion_Development_Plan.md/geom-inr-motion/export_utils.py
+/Users/o/Downloads/parts/ChatGPT-Geom-INR-Motion_Development_Plan.md/geom-inr-motion/geometry_losses.py
+/Users/o/Downloads/parts/ChatGPT-Geom-INR-Motion_Development_Plan.md/geom-inr-motion/minimal_test.py
+/Users/o/Downloads/parts/ChatGPT-Geom-INR-Motion_Development_Plan.md/geom-inr-motion/model.py
+/Users/o/Downloads/parts/ChatGPT-Geom-INR-Motion_Development_Plan.md/geom-inr-motion/requirements.txt
+/Users/o/Downloads/parts/ChatGPT-Geom-INR-Motion_Development_Plan.md/geom-inr-motion/train.py
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/ChatGPT-HGNN-ClothDyn_Development_Plan.md.txt
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn.tar.gz
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn/IMPLEMENTATION_REPORT.md
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn/README.md
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn/benchmark.py
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn/config.yaml
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn/mesh_to_graph.py
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn/model.py
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn/requirements.txt
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn/setup.sh
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn/synthetic_data.py
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn/test_integration.py
+/Users/o/Downloads/parts/ChatGPT-HGNN-ClothDyn_Development_Plan.md/hgnn_clothdyn/train.py
+/Users/o/Downloads/parts/ChatGPT-HGNN-NIF-Cloth_Framework_Design.md/ChatGPT-HGNN-NIF-Cloth_Framework_Design.md.txt
+/Users/o/Downloads/parts/ChatGPT-Maxwell-PINN-NIF_Research_Development.md/maxwell_pinn_nif_scan.txt
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth3D-Interactive_Pipeline.md/ChatGPT-NIF-Cloth3D-Interactive_Pipeline.md.txt
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth3D-Interactive_Pipeline.md/nif_cloth3d_scan.txt
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D-Temporal_Package.md/ChatGPT-NIF-Cloth4D-Temporal_Package.md.txt
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/ChatGPT-NIF-Cloth4D_Research_Development.md.txt
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/README.md
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/TEST_REPORT_TEMPLATE.md
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/__init__.py
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/config_test.yaml
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/export_mesh.py
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/nif_cloth4d.py
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/requirements.txt
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/run_pipeline.sh
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/synthetic_data.py
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/test_evaluation.py
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/train_nif_cloth4d.py
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/vastai_setup.sh
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/ChatGPT-PEGNN-Deform_Research_Pipeline.md.txt
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/README.md
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/configs/environment.yaml
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/configs/wandb_sweep.yaml
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/data/generate_synthetic.py
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/scripts/deploy_vastai.sh
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/scripts/run_tests.sh
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/scripts/setup_vastai.sh
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/scripts/validate_local.py
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/src/__init__.py
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/src/benchmark.py
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/src/mesh_features.py
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/src/pegdeform_model.py
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/src/train_pegdeform.py
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/tests/__init__.py
+/Users/o/Downloads/parts/ChatGPT-PEGNN-Deform_Research_Pipeline.md/pegnn-deform/tests/test_model.py
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/README.md
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/VASTAI_DEPLOYMENT.md
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/notebooks/test_results.ipynb
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/requirements-cpu.txt
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/requirements.txt
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/src/__init__.py
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/src/data/synthetic_dam_break.h5
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/src/data_gen.py
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/src/model.py
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/src/physics.py
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/src/train.py
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/tests/__init__.py
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/tests/integration_test.py
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn/tests/test_model.py
+/Users/o/Downloads/parts/ChatGPT-SurfPINN_Research_Framework.md/surfpinn_research_framework_scan.txt
+/Users/o/Downloads/parts/maxwell-pinn-nif/README.md
+/Users/o/Downloads/parts/maxwell-pinn-nif/TEST_REPORT.md
+/Users/o/Downloads/parts/maxwell-pinn-nif/experiments/quick_test.py
+/Users/o/Downloads/parts/maxwell-pinn-nif/requirements.txt
+/Users/o/Downloads/parts/maxwell-pinn-nif/src/__init__.py
+/Users/o/Downloads/parts/maxwell-pinn-nif/src/dataset_generator.py
+/Users/o/Downloads/parts/maxwell-pinn-nif/src/pinn_model.py
+/Users/o/Downloads/parts/maxwell-pinn-nif/src/pml_loss.py
+/Users/o/Downloads/parts/maxwell-pinn-nif/src/train.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/.gitignore
+/Users/o/Downloads/parts/nif-cloth4d-temporal/LICENSE
+/Users/o/Downloads/parts/nif-cloth4d-temporal/README.md
+/Users/o/Downloads/parts/nif-cloth4d-temporal/docker/Dockerfile
+/Users/o/Downloads/parts/nif-cloth4d-temporal/environment.yml
+/Users/o/Downloads/parts/nif-cloth4d-temporal/scripts/connect_vastai.sh
+/Users/o/Downloads/parts/nif-cloth4d-temporal/scripts/edit_sequence.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/scripts/provision_vastai.sh
+/Users/o/Downloads/parts/nif-cloth4d-temporal/scripts/setup_remote.sh
+/Users/o/Downloads/parts/nif-cloth4d-temporal/scripts/test_inference.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/scripts/train.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/__init__.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/data/__init__.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/data/pyflex_simulator.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/data/sdf_dataset.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/losses/__init__.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/losses/physics_losses.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/losses/scheduled_sampling.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/models/__init__.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/models/fourier_mlp.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/models/siren.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/models/temporal_gru.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/training/__init__.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/training/config.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/training/trainer.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/utils/__init__.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/utils/mesh_utils.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/utils/reproducibility.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/src/utils/visualization.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/tests/ci_sanity_check.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/tests/test_losses.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/tests/test_model.py
+/Users/o/Downloads/parts/nif-cloth4d-temporal/wandb_sweep.yaml
+/Users/o/Downloads/parts/pinn-lite-foil/README.md
+/Users/o/Downloads/parts/pinn-lite-foil/docs/calibration_guide.md
+/Users/o/Downloads/parts/pinn-lite-foil/docs/hardware_setup.md
+/Users/o/Downloads/parts/pinn-lite-foil/docs/whitepaper_template.tex
+/Users/o/Downloads/parts/pinn-lite-foil/pytest.ini
+/Users/o/Downloads/parts/pinn-lite-foil/requirements.txt
+/Users/o/Downloads/parts/pinn-lite-foil/setup_vastai.sh
+/Users/o/Downloads/parts/pinn-lite-foil/src/benchmarking/__init__.py
+/Users/o/Downloads/parts/pinn-lite-foil/src/benchmarking/accuracy_test.py
+/Users/o/Downloads/parts/pinn-lite-foil/src/benchmarking/latency_benchmark.py
+/Users/o/Downloads/parts/pinn-lite-foil/src/data_generation/__init__.py
+/Users/o/Downloads/parts/pinn-lite-foil/src/data_generation/hdf5_exporter.py
+/Users/o/Downloads/parts/pinn-lite-foil/src/data_generation/naca_generator.py
+/Users/o/Downloads/parts/pinn-lite-foil/src/data_generation/openfoam_wrapper.py
+/Users/o/Downloads/parts/pinn-lite-foil/src/deployment/__init__.py
+/Users/o/Downloads/parts/pinn-lite-foil/src/deployment/cpp_inference/CMakeLists.txt
+/Users/o/Downloads/parts/pinn-lite-foil/src/deployment/cpp_inference/pinn_inference.cpp
+/Users/o/Downloads/parts/pinn-lite-foil/src/deployment/onnx_converter.py
+/Users/o/Downloads/parts/pinn-lite-foil/src/deployment/pico_firmware/CMakeLists.txt
+/Users/o/Downloads/parts/pinn-lite-foil/src/deployment/pico_firmware/aoa_stream.c
+/Users/o/Downloads/parts/pinn-lite-foil/src/training/__init__.py
+/Users/o/Downloads/parts/pinn-lite-foil/src/training/baseline_pinn.py
+/Users/o/Downloads/parts/pinn-lite-foil/src/training/distillation.py
+/Users/o/Downloads/parts/pinn-lite-foil/tests/integration_test.sh
+/Users/o/Downloads/parts/pinn-lite-foil/tests/test_inference.py
+/Users/o/Downloads/parts/pinn-lite-foil/tests/test_naca_gen.py
+/Users/o/Downloads/parts/pinn-lite-foil/tests/test_pinn.py
+/Users/o/Downloads/parts1/ChatGPT-ClothGNN_Research_Package.txt
+/Users/o/Downloads/parts1/ChatGPT-ClothGeom-NIF_Research_Plan.txt
+/Users/o/Downloads/parts1/ChatGPT-CoastFlow-GNN_Research_Setup.txt
+/Users/o/Downloads/parts1/ChatGPT-HGNN-ClothDyn_Development_Plan.txt
+/Users/o/Downloads/parts1/ChatGPT-HGNN-NIF-Cloth_Framework_Design.txt
+/Users/o/Downloads/parts1/ChatGPT-NIF-Cloth3D-Interactive_Pipeline.txt
+/Users/o/Downloads/parts1/ChatGPT-NIF-Cloth4D-Temporal_Package.txt
+/Users/o/Downloads/parts1/ChatGPT-NIF-Cloth4D_Research_Development.txt
+/Users/o/Downloads/parts1/ChatGPT-PEGNN-Deform_Research_Pipeline.txt
+/Users/o/Downloads/uBlock0.chromium/web_accessible_resources/noop-vast2.xml
+/Users/o/Downloads/uBlock0.chromium/web_accessible_resources/noop-vast3.xml
+/Users/o/Downloads/uBlock0.chromium/web_accessible_resources/noop-vast4.xml
+/Users/o/Downloads/untitled folder/New Folder With Items/.DS_Store
+/Users/o/Downloads/untitled folder/New Folder With Items/chunks/.DS_Store
+/Users/o/Downloads/untitled folder/exporting_documents/v12044gd0000coohgnnog65sjmok28dg.mp4
+/Users/o/Downloads/vastai-backups/.DS_Store
+/Users/o/Downloads/vastai-backups/29388712/backup-inst1-20251231-2057/root/.vast_api_key
+/Users/o/Downloads/vastai-backups/29388712/backup-inst1-20251231-2057/root/.vast_containerlabel
+/Users/o/Downloads/vastai-backups/29391133/backup3/root/.vast_api_key
+/Users/o/Downloads/vastai-backups/29391133/backup3/root/.vast_containerlabel
+/Users/o/Downloads/vastai-backups/29391133/backup3/workspace/hgnn_clothdyn.tar.gz
+/Users/o/Downloads/vastai-backups/29391133/backup3/workspace/hgnn_clothdyn/data/synthetic_cloth.h5
+/Users/o/Downloads/vastai-backups/29393775/workspace/workspace/pegnn-deform.tar.gz
+/Users/o/Downloads/vastai-backups/29393775/workspace/workspace/pegnn-deform/scripts/deploy_vastai.sh
+/Users/o/Downloads/vastai-backups/29393775/workspace/workspace/pegnn-deform/scripts/setup_vastai.sh
+/Users/o/Downloads/vastai-backups/29393775/workspace/workspace/pegnn-deform/tests/test_model.py
+/Users/o/Downloads/vastai-backups/29394145/backup4/root/.vast_api_key
+/Users/o/Downloads/vastai-backups/29394145/backup4/root/.vast_containerlabel
+/Users/o/Downloads/workspace/workspace/pegnn-deform.tar.gz
+/Users/o/Downloads/workspace/workspace/pegnn-deform/scripts/deploy_vastai.sh
+/Users/o/Downloads/workspace/workspace/pegnn-deform/scripts/setup_vastai.sh
+/Users/o/Downloads/workspace/workspace/pegnn-deform/tests/test_model.py
+/Users/o/Library/Python/3.9/lib/python/site-packages/h5py/tests/data_files/vlen_string_dset.h5
+/Users/o/Library/Python/3.9/lib/python/site-packages/h5py/tests/data_files/vlen_string_dset_utc.h5
+/Users/o/Library/Python/3.9/lib/python/site-packages/h5py/tests/data_files/vlen_string_s390x.h5
+/Users/o/vastai-backups copy/29391133/backup3/workspace/hgnn_clothdyn/data/synthetic_cloth.h5
+=== ClothGNN related files ===

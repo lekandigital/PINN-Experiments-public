@@ -1,0 +1,51 @@
+# RTX 3090 Large Model Configuration
+# Target: NVIDIA GeForce RTX 3090 Ti (24GB VRAM)
+# Expected params: ~2.5M (18x increase from base 136K)
+
+model:
+  node_feat_dim: 3
+  latent_dim: 256          # 4x increase (was 64)
+  hidden_dim: 256          # 4x increase (was 64)
+  siren_hidden_dim: 512    # 4x increase (was 128)
+  siren_layers: 5          # +2 layers (was 3)
+  num_gnn_layers: 4        # +2 layers (was 2)
+  num_attention_heads: 8   # 2x increase (was 4)
+  energy_threshold: 0.1
+  use_fourier: false
+  dropout: 0.1
+
+data:
+  fine_resolution: 40      # 40x40 = 1600 vertices (4x from 20x20=400)
+  coarse_stride: 2
+  coarse_resolution: 20    # 20x20 = 400 vertices (4x from 10x10=100)
+  sdf_resolution: 64       # 64^3 SDF grid (2x from 32^3)
+  query_points: 4000       # 4x increase (was 1000)
+  cloth_size: 1.0
+  padding: 0.2
+
+training:
+  batch_size: 4            # Reduced for larger model
+  epochs: 100
+  lr: 3e-4
+  weight_decay: 1e-5
+  warmup_epochs: 5
+  min_lr: 1e-6
+  use_curriculum: true
+  use_amp: true            # Mixed precision for memory efficiency
+  gradient_clip: 1.0
+  accumulation_steps: 4    # Effective batch size = 16
+  num_workers: 4
+  save_interval: 10
+  log_interval: 10
+
+loss_weights:
+  spring: 0.1
+  sdf: 1.0
+  eikonal: 0.01
+  bending: 0.05            # Enable bending loss for cloth realism
+
+# Expected performance:
+# - Model params: ~2.5M
+# - Memory usage: ~5-8 GB with batch_size=4
+# - Training speed: ~5-10 it/s with AMP
+# - Inference: 100-200 FPS

@@ -1,0 +1,35 @@
+# WavePINN-NIF-ComplexMedia
+
+## Overview
+This project-space contains the WavePINN-NIF-ComplexMedia implementation and related resources.
+
+## Structure
+
+```
+WavePINN-NIF-ComplexMedia__project-space/
+├── README.md                 # This file
+├── WavePINN-NIF-ComplexMedia/          # Source code
+│   ├── src/
+│   ├── notebooks/
+│   ├── configs/
+│   ├── checkpoints/          # Model weights (from vast.ai backups)
+│   └── results/              # Benchmark outputs
+├── docker/                   # Docker definitions
+│   ├── Dockerfile
+│   └── scripts/
+├── docker-backups/           # Local backups (not in git)
+│   ├── files/
+│   └── archived/
+└── docs/                     # Research documentation
+```
+
+## Quick Start
+
+```bash
+cd WavePINN-NIF-ComplexMedia
+pip install -r requirements.txt  # if exists
+python -m pytest tests/ -v       # run tests
+```
+
+## Related Documentation
+See `docs/` directory for research notes and design documents.

@@ -1,0 +1,12 @@
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/ChatGPT-Cell-Path_PINNs_Literature_Review.md.txt
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/cell_path_pinns/__init__.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/cell_path_pinns/api.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/cell_path_pinns/data_utils.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/cell_path_pinns/losses.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/cell_path_pinns/models.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/setup.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/tests/__init__.py
+/Users/o/Downloads/parts/ChatGPT-Cell-Path_PINNs_Literature_Review.md/cell-path-pinns/tests/test_model.py
+/Users/o/Downloads/parts1/ChatGPT-Cell-Path_PINNs_Literature_Review.txt

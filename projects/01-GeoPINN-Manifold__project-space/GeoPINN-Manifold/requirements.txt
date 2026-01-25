@@ -1,0 +1,16 @@
+# Core dependencies
+torch>=2.0.0
+numpy>=1.21
+scipy>=1.7
+scikit-learn>=1.0
+h5py>=3.6
+
+# Visualization
+matplotlib>=3.5
+pyvista>=0.36
+
+# Experiment tracking (optional)
+wandb>=0.13
+
+# Testing
+pytest>=7.0

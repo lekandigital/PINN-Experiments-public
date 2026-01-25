@@ -1,0 +1,43 @@
+# NIF-Cloth4D Requirements
+# 
+# Core dependencies for the NIF-Cloth4D neural implicit cloth simulator
+# Install with: pip install -r requirements.txt
+
+# Core ML/DL
+torch>=1.9.0
+numpy>=1.19.0
+scipy>=1.5.0
+
+# Data handling
+h5py>=3.0.0
+pyyaml>=5.4
+
+# Mesh processing
+trimesh>=3.9.0
+
+# Visualization
+matplotlib>=3.3.0
+ipywidgets>=7.6.0  # For interactive notebooks
+
+# Mesh extraction (marching cubes)
+# Note: PyMCubes may need to be installed separately
+# pip install PyMCubes
+# mcubes
+
+# SDF computation from meshes
+# Note: mesh-to-sdf has OpenGL dependencies
+# pip install mesh-to-sdf
+# mesh-to-sdf
+
+# USD export (optional)
+# Note: Platform-specific, may require manual installation
+# pip install usd-core
+
+# Optional: Differentiable rendering
+# pytorch3d  # Requires matching CUDA/PyTorch versions
+
+# Optional: TensorBoard logging
+# tensorboard>=2.4.0
+
+# Optional: Experiment tracking
+# wandb

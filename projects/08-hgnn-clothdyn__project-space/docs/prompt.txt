@@ -1,0 +1,15 @@
+HGNN-ClothDyn
+Hierarchical Graph Neural Networks for Cloth Dynamics (Graph-Only)
+
+**Project title:** "HGNN-ClothDyn"
+
+**Mission:** Deliver a multi-resolution graph neural network that predicts cloth node positions, velocities, and collision impulses without generating surfaces.
+
+**Provide:**
+1. Canonical literature review on GRU/Transformer-MPNN cloth surrogates.
+2. Automatic mesh-to-graph extractor with geodesic adjacency and pyramid builder.
+3. PyTorch Geometric model: hierarchical message passing + learned edge stiffness, with collision/self-collision nodes.
+4. Temporal roll-out trainer (teacher-forcing & scheduled sampling options).
+5. Dataset exporter for Blender/Houdini cloth sims (positions, edge tables, collision sets).
+6. Benchmarks: roll-out stability, FPS, edge-length error vs. ground truth.
+7. README for integrating the latent state with any downstream surface decoder.

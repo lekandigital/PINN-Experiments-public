@@ -1,0 +1,6 @@
+/Users/o/Downloads/nif-cloth3d
+/Users/o/Downloads/nif-cloth3d/blender_addon/nif_cloth_addon.py
+/Users/o/Downloads/nif-cloth3d/docs/nif_cloth3d_scan.txt
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth3D-Interactive_Pipeline.md/nif_cloth3d_scan.txt
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/nif_cloth4d.py
+/Users/o/Downloads/parts/ChatGPT-NIF-Cloth4D_Research_Development.md/nif_cloth4d/train_nif_cloth4d.py

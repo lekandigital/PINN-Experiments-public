@@ -1,0 +1,99 @@
+# NIF-Cloth4D-Temporal .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# Conda
+*.conda
+conda-meta/
+
+# PyTorch
+*.pt
+*.pth
+*.ckpt
+
+# Data files (large)
+data/raw/
+data/processed/*.h5
+data/processed/*.hdf5
+*.h5
+*.hdf5
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs and outputs
+logs/
+outputs/
+wandb/
+*.log
+lightning_logs/
+
+# Model checkpoints (large files)
+checkpoints/
+*.onnx
+
+# Exported meshes
+exports/
+*.usd
+*.usda
+*.usdc
+*.usdz
+*.fbx
+*.obj
+*.ply
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Build artifacts
+*.o
+*.a
+*.dylib
+
+# Secrets
+.env
+.env.local
+*.pem
+*.key

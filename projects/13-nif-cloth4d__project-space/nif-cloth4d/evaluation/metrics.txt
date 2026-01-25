@@ -1,0 +1,17 @@
+NIF-Cloth4D Evaluation Metrics
+========================================
+
+t = 0.00:
+  Chamfer: 0.024970
+  Hausdorff: 1.275646
+
+t = 0.50:
+  Chamfer: 0.010176
+  Hausdorff: 0.582037
+
+t = 1.00:
+  Chamfer: 0.024392
+  Hausdorff: 0.954037
+
+Average Chamfer: 0.019846
+Average Hausdorff: 0.937240

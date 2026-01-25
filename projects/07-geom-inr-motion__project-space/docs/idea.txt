@@ -1,0 +1,5 @@
+Motion
+Geom-INR-Motion
+Human motion prediction often suffers from "sliding" or "jitter." Geom-INR-Motion maps continuous time coordinates to joint poses using an Implicit Neural Representation.
+
+The innovation lies in the regularization: we implement Differential Geometry Losses that explicitly penalize spikes in torsion and curvature along the motion trajectory. This forces the network to generate kinematically smooth, anatomically plausible motion without requiring post-processing filters.

@@ -1,0 +1,9 @@
+# Cell-Path PINNs Dependencies
+# PyTorch and CUDA assumed pre-installed on L40S GPU server
+
+numpy>=1.24.0
+matplotlib>=3.7.0
+pandas>=2.0.0
+scikit-learn>=1.3.0
+jupyter>=1.0.0
+pytest>=7.0.0

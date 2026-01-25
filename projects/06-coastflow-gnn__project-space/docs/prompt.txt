@@ -1,0 +1,16 @@
+CFD
+CoastFlow-GNN
+PINN-GCN Surrogate for Coastal Atmosphere & Ocean Flow
+
+**Project title:** "CoastFlow-GNN"
+
+**Mission:** Generate a deep-research suite for a multi-scale GCN/PINN surrogate that maps shoreline DEM meshes to coupled wind-wave fields for coastal engineering.
+
+**Include:**
+1. State-of-the-art review on PINN-GCN CFD surrogates and shoreline morphodynamics.
+2. Dataset builder: fetch NOAA DEM tiles, mesh them (PyVista), and pair with OpenFOAM simulations (tutorial cases + scripted batch).
+3. Hierarchical graph-pooling network code with physics losses (continuity, momentum, k-ε) and coastal boundary conditions.
+4. Training/eval scripts scalable from single 3090 to multi-GPU cluster.
+5. Cost-benefit calculator comparing simulation runtime/energy vs. surrogate.
+6. Demo Jupyter notebook generating site-planning plots (wave height, wind vectors) for a sample bay.
+7. Docker & Terraform files for cloud deployment on AWS Batch + GP3 volumes.

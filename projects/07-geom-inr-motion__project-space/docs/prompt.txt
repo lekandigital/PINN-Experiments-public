@@ -1,0 +1,16 @@
+Motion
+Geom-INR-Motion
+Implicit Neural Representation for Human Motion
+
+**Project title:** "Geom-INR-Motion"
+
+**Mission:** Deliver a full research starter kit for an implicit neural representation with differential-geometry regularization for long-horizon human motion prediction and retargeting.
+
+**Contents:**
+1. Annotated survey of NeRMo, SkelINR, MotionDiff, and curvature-regularized motion works (2022-25).
+2. Data pipeline converting AMASS/Human3.6M to continuous time-coordinate → joint-pose pairs; include skeleton normalizer.
+3. PyTorch implementation: sine-activated INR network conditioned on actor ID, with optional graph-based kinematic constraint module.
+4. Geometry losses penalizing torsion/curvature spikes; comparison to diffusion baselines.
+5. Training script, LR scheduler, and checkpoint-to-Blender export (USD/FBX) producing in-between keyframes.
+6. Evaluation notebook with FID-Motion, MPJPE, and perceptual smoothness metrics.
+7. Plug-in template for Blender 4.x exposing a UI to load the trained weights and retarget any BVH file.

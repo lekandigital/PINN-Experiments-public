@@ -1,0 +1,202 @@
+2026-01-21 23:10:55.655668: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-01-21 23:10:56.876594: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-01-21 23:10:58.480576: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-01-21 23:11:01.734338: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-01-21 23:11:01.734369: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-01-21 23:11:01.734411: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-01-21 23:11:01.734429: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-01-21 23:11:01.734458: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-01-21 23:11:01.734534: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-01-21 23:11:01.734558: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+2026-01-21 23:11:01.734573: W external/xla/xla/service/gpu/autotuning/dot_search_space.cc:200] All configs were filtered out because none of them sufficiently match the hints. Maybe the hints set does not contain a good representative set of valid configs?Working around this by using the full hints set instead.
+============================================================
+SurfPINN Training
+============================================================
+JAX devices: [CudaDevice(id=0)]
+Warning: No GPU detected, training will be slow
+Mixed precision enabled (bfloat16)
+
+Loading data from data/synthetic_dam_break.h5
+  Eulerian grid: (64, 64, 32, 1)
+  Lagrangian particles: (2000, 32, 3)
+  Steps per epoch: 8
+
+Initializing model...
+  Grid input shape: (64, 64, 4)
+  Particles: 2000
+  Total parameters: 230,372
+
+Starting training for 500 epochs...
+------------------------------------------------------------
+Epoch    1 | Loss: 1.994788 | H_MSE: 0.070576 | Curv: 0.000000 | Grad: 21.1878 | Time: 11.45s
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch   10 | Loss: 0.541543 | H_MSE: 0.002553 | Curv: 0.000000 | Grad: 4.4821 | Time: 0.03s
+Saved checkpoint to checkpoints/surfpinn_epoch_10.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch   20 | Loss: 0.380728 | H_MSE: 0.000333 | Curv: 0.000000 | Grad: 4.8595 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_20.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch   30 | Loss: 0.404555 | H_MSE: 0.000894 | Curv: 0.000000 | Grad: 5.1982 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_30.pkl
+Epoch   40 | Loss: 0.411264 | H_MSE: 0.000296 | Curv: 0.000000 | Grad: 5.2667 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_40.pkl
+Epoch   50 | Loss: 0.388431 | H_MSE: 0.000138 | Curv: 0.000000 | Grad: 5.2616 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_50.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch   60 | Loss: 0.362116 | H_MSE: 0.000114 | Curv: 0.000000 | Grad: 5.3320 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_60.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch   70 | Loss: 0.339047 | H_MSE: 0.000082 | Curv: 0.000000 | Grad: 5.3760 | Time: 0.05s
+Saved checkpoint to checkpoints/surfpinn_epoch_70.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch   80 | Loss: 0.322651 | H_MSE: 0.000065 | Curv: 0.000000 | Grad: 5.4382 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_80.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch   90 | Loss: 0.313710 | H_MSE: 0.000059 | Curv: 0.000000 | Grad: 5.4913 | Time: 0.03s
+Saved checkpoint to checkpoints/surfpinn_epoch_90.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch  100 | Loss: 0.307738 | H_MSE: 0.000180 | Curv: 0.000000 | Grad: 5.5029 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_100.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch  110 | Loss: 0.301664 | H_MSE: 0.000103 | Curv: 0.000000 | Grad: 5.5252 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_110.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch  120 | Loss: 0.300900 | H_MSE: 0.000200 | Curv: 0.000000 | Grad: 5.5727 | Time: 0.04s
+Saved checkpoint to checkpoints/surfpinn_epoch_120.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch  130 | Loss: 0.298751 | H_MSE: 0.000146 | Curv: 0.000000 | Grad: 5.5635 | Time: 0.03s
+Saved checkpoint to checkpoints/surfpinn_epoch_130.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch  140 | Loss: 0.298047 | H_MSE: 0.000115 | Curv: 0.000000 | Grad: 5.6349 | Time: 0.03s
+Saved checkpoint to checkpoints/surfpinn_epoch_140.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch  150 | Loss: 0.296785 | H_MSE: 0.000068 | Curv: 0.000000 | Grad: 5.6704 | Time: 0.03s
+Saved checkpoint to checkpoints/surfpinn_epoch_150.pkl
+Saved checkpoint to checkpoints/surfpinn_best.pkl
+Epoch  160 | Loss: 0.298817 | H_MSE: 0.000042 | Curv: 0.000000 | Grad: 5.7585 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_160.pkl
+Epoch  170 | Loss: 0.300475 | H_MSE: 0.000061 | Curv: 0.000000 | Grad: 5.8073 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_170.pkl
+Epoch  180 | Loss: 0.303435 | H_MSE: 0.000155 | Curv: 0.000000 | Grad: 5.8111 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_180.pkl
+Epoch  190 | Loss: 0.303261 | H_MSE: 0.000062 | Curv: 0.000000 | Grad: 5.7971 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_190.pkl
+Epoch  200 | Loss: 0.304662 | H_MSE: 0.000116 | Curv: 0.000000 | Grad: 5.7166 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_200.pkl
+Epoch  210 | Loss: 0.305323 | H_MSE: 0.000042 | Curv: 0.000000 | Grad: 5.7029 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_210.pkl
+Epoch  220 | Loss: 0.306017 | H_MSE: 0.000028 | Curv: 0.000000 | Grad: 5.6823 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_220.pkl
+Epoch  230 | Loss: 0.307750 | H_MSE: 0.000025 | Curv: 0.000000 | Grad: 5.6978 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_230.pkl
+Epoch  240 | Loss: 0.309537 | H_MSE: 0.000023 | Curv: 0.000000 | Grad: 5.7140 | Time: 0.03s
+Saved checkpoint to checkpoints/surfpinn_epoch_240.pkl
+Epoch  250 | Loss: 0.310649 | H_MSE: 0.000024 | Curv: 0.000000 | Grad: 5.7178 | Time: 0.03s
+Saved checkpoint to checkpoints/surfpinn_epoch_250.pkl
+Epoch  260 | Loss: 0.311210 | H_MSE: 0.000023 | Curv: 0.000000 | Grad: 5.7536 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_260.pkl
+Epoch  270 | Loss: 0.311203 | H_MSE: 0.000021 | Curv: 0.000000 | Grad: 5.7873 | Time: 0.03s
+Saved checkpoint to checkpoints/surfpinn_epoch_270.pkl
+Epoch  280 | Loss: 0.311109 | H_MSE: 0.000021 | Curv: 0.000000 | Grad: 5.8308 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_280.pkl
+Epoch  290 | Loss: 0.310900 | H_MSE: 0.000021 | Curv: 0.000000 | Grad: 5.8534 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_290.pkl
+Epoch  300 | Loss: 0.310635 | H_MSE: 0.000019 | Curv: 0.000000 | Grad: 5.8736 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_300.pkl
+Epoch  310 | Loss: 0.310215 | H_MSE: 0.000018 | Curv: 0.000000 | Grad: 5.8807 | Time: 0.04s
+Saved checkpoint to checkpoints/surfpinn_epoch_310.pkl
+Epoch  320 | Loss: 0.309784 | H_MSE: 0.000017 | Curv: 0.000000 | Grad: 5.8917 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_320.pkl
+Epoch  330 | Loss: 0.309473 | H_MSE: 0.000016 | Curv: 0.000000 | Grad: 5.8930 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_330.pkl
+Epoch  340 | Loss: 0.309140 | H_MSE: 0.000016 | Curv: 0.000000 | Grad: 5.9005 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_340.pkl
+Epoch  350 | Loss: 0.309000 | H_MSE: 0.000015 | Curv: 0.000000 | Grad: 5.9083 | Time: 0.03s
+Saved checkpoint to checkpoints/surfpinn_epoch_350.pkl
+Epoch  360 | Loss: 0.308684 | H_MSE: 0.000015 | Curv: 0.000000 | Grad: 5.9152 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_360.pkl
+Epoch  370 | Loss: 0.308314 | H_MSE: 0.000015 | Curv: 0.000000 | Grad: 5.9114 | Time: 0.04s
+Saved checkpoint to checkpoints/surfpinn_epoch_370.pkl
+Epoch  380 | Loss: 0.308131 | H_MSE: 0.000014 | Curv: 0.000000 | Grad: 5.9164 | Time: 0.03s
+Saved checkpoint to checkpoints/surfpinn_epoch_380.pkl
+Epoch  390 | Loss: 0.307945 | H_MSE: 0.000014 | Curv: 0.000000 | Grad: 5.9177 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_390.pkl
+Epoch  400 | Loss: 0.307710 | H_MSE: 0.000014 | Curv: 0.000000 | Grad: 5.9164 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_400.pkl
+Epoch  410 | Loss: 0.307813 | H_MSE: 0.000014 | Curv: 0.000000 | Grad: 5.9228 | Time: 0.04s
+Saved checkpoint to checkpoints/surfpinn_epoch_410.pkl
+Epoch  420 | Loss: 0.307510 | H_MSE: 0.000014 | Curv: 0.000000 | Grad: 5.9180 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_420.pkl
+Epoch  430 | Loss: 0.307558 | H_MSE: 0.000014 | Curv: 0.000000 | Grad: 5.9224 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_430.pkl
+Epoch  440 | Loss: 0.307441 | H_MSE: 0.000014 | Curv: 0.000000 | Grad: 5.9180 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_440.pkl
+Epoch  450 | Loss: 0.307323 | H_MSE: 0.000013 | Curv: 0.000000 | Grad: 5.9177 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_450.pkl
+Epoch  460 | Loss: 0.307207 | H_MSE: 0.000013 | Curv: 0.000000 | Grad: 5.9149 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_460.pkl
+Epoch  470 | Loss: 0.307162 | H_MSE: 0.000013 | Curv: 0.000000 | Grad: 5.9137 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_470.pkl
+Epoch  480 | Loss: 0.307093 | H_MSE: 0.000013 | Curv: 0.000000 | Grad: 5.9133 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_480.pkl
+Epoch  490 | Loss: 0.307087 | H_MSE: 0.000013 | Curv: 0.000000 | Grad: 5.9135 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_490.pkl
+Epoch  500 | Loss: 0.307083 | H_MSE: 0.000013 | Curv: 0.000000 | Grad: 5.9132 | Time: 0.02s
+Saved checkpoint to checkpoints/surfpinn_epoch_500.pkl
+------------------------------------------------------------
+Training complete! Best loss: 0.296785
+
+Final evaluation...
+  PSNR: 14.62 dB
+  Height RMSE: 0.120703
+  Velocity RMSE: 0.467217

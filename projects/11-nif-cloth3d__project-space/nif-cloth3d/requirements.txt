@@ -1,0 +1,47 @@
+# NIF-Cloth3D-Interactive Dependencies
+# PyTorch 2.1+ with CUDA 12.1 support
+
+# Core ML
+torch>=2.1.0
+torchvision>=0.16.0
+torchaudio>=2.1.0
+
+# Scientific computing
+numpy>=1.24.0
+scipy>=1.11.0
+
+# Mesh processing
+trimesh>=4.0.0
+open3d>=0.17.0
+
+# Configuration
+pyyaml>=6.0
+omegaconf>=2.3.0
+
+# Visualization
+matplotlib>=3.7.0
+plotly>=5.18.0
+
+# Utilities
+tqdm>=4.66.0
+pandas>=2.1.0
+
+# Testing
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# Logging and monitoring
+tensorboard>=2.15.0
+wandb>=0.16.0
+
+# Jupyter notebooks
+jupyter>=1.0.0
+ipywidgets>=8.1.0
+
+# Code quality (optional)
+black>=23.12.0
+isort>=5.13.0
+flake8>=6.1.0
+
+# Type checking (optional)
+mypy>=1.7.0

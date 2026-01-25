@@ -1,0 +1,23 @@
+# SurfPINN Dependencies
+# Physics-Informed Neural Network for Free-Surface Flows
+
+# Core ML
+jax[cuda12_pip]>=0.4.20
+dm-haiku>=0.0.10
+optax>=0.1.7
+chex>=0.1.7
+
+# Data
+numpy>=1.24.0
+h5py>=3.8.0
+scipy>=1.10.0
+
+# Visualization
+matplotlib>=3.7.0
+pyvista>=0.42.0
+
+# Testing
+pytest>=7.3.0
+
+# Utilities
+tqdm>=4.65.0

@@ -1,0 +1,3 @@
+# HuggingFace Token (optional)
+# Get from: https://huggingface.co/settings/tokens
+# Paste your token into .secrets/hf_token

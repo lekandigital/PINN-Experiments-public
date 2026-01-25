@@ -1,0 +1,12 @@
+{
+  "resolution": 256,
+  "n_frames": 120,
+  "t_start": 0.05,
+  "t_end": 0.5,
+  "fps": 24,
+  "duration_seconds": 5.0,
+  "global_min": -8.091097697615623e-05,
+  "global_max": 6.881309673190117e-05,
+  "displacement_scale": 0.5,
+  "model_path": "wavepinn_trained.pt"
+}

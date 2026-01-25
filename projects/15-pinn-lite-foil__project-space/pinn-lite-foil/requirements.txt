@@ -1,0 +1,33 @@
+# PINN-Lite-Foil Requirements
+# Core ML/DL
+tensorflow==2.15.0
+jax[cuda12_pip]==0.4.20
+jaxlib==0.4.20
+flax==0.8.0
+
+# Numerical & Scientific
+numpy==1.24.3
+scipy==1.11.3
+h5py==3.10.0
+
+# Visualization
+matplotlib==3.8.0
+seaborn==0.13.0
+
+# ONNX Deployment
+onnx==1.15.0
+onnxruntime-gpu==1.16.3
+tf2onnx==1.15.1
+
+# Data Processing
+pandas==2.1.3
+PyFoam==2022.9
+
+# Testing
+pytest==7.4.3
+pytest-cov==4.1.0
+
+# Utilities
+tqdm==4.66.1
+pyyaml==6.0.1
+psutil==5.9.6

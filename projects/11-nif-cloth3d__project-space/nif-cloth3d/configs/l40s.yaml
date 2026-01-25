@@ -1,0 +1,71 @@
+# NIF-Cloth3D-Interactive: NVIDIA L40S Training Configuration
+# Optimized for NVIDIA L40S (48GB VRAM) - vast.ai / cloud
+# PyTorch 2.1+ / CUDA 12.1
+
+# Model Architecture - Larger model for L40S
+model:
+  in_dim: 8                 # x, y, z, t, fx, fy, fz, material_id
+  hidden_dim: 768           # Larger hidden layers
+  out_dim: 3                # dx, dy, dz displacement
+  n_layers: 8               # More layers for capacity
+  w0: 30.0                  # First layer frequency (SIREN)
+  w0_hidden: 1.0            # Hidden layer frequency
+  use_conditioning: false   # Use FiLM conditioning (optional)
+
+# Training Parameters - Larger batches for L40S
+training:
+  batch_size: 256           # Larger batch for 48GB VRAM
+  learning_rate: 5e-4       # Adam learning rate
+  epochs: 1000              # Total training epochs
+  samples_per_epoch: 2000   # More samples per epoch
+  mixed_precision: true     # Enable FP16 training
+  grad_accumulation: 1      # No accumulation needed
+  checkpoint_interval: 50   # Save every N epochs
+  
+# Optimizer
+optimizer:
+  type: "Adam"
+  betas: [0.9, 0.999]
+  weight_decay: 0.0
+  
+# Learning Rate Schedule
+scheduler:
+  type: "CosineAnnealing"
+  T_max: 1000
+  eta_min: 1e-6
+
+# Physics Loss Weights
+physics:
+  stretch_weight: 1.0       # Edge length preservation
+  bend_weight: 0.5          # Laplacian smoothness
+  momentum_weight: 0.3      # Dynamic consistency
+  damping_weight: 0.01      # Displacement regularization
+  collision_weight: 10.0    # Collision penalty
+
+# Curriculum Learning
+curriculum:
+  enabled: true
+  force_start: 0.0          # Initial force magnitude
+  force_end: 1.0            # Final force magnitude
+  epochs: 500               # Epochs to reach full force
+  schedule: "linear"        # linear, cosine, exponential
+
+# Data Configuration
+data:
+  resolution: 100           # Higher resolution cloth (100x100 = 10k vertices)
+  size: 2.0                 # Physical cloth size (meters)
+  pin_top_row: true         # Pin top vertices
+  num_materials: 5          # Number of material types
+
+# Logging
+logging:
+  log_interval: 10          # Log every N epochs
+  save_best: true           # Save best model checkpoint
+  tensorboard: true         # Enable TensorBoard logging
+  wandb: true               # Enable Weights & Biases
+
+# Hardware
+hardware:
+  device: "cuda"
+  num_workers: 8
+  pin_memory: true

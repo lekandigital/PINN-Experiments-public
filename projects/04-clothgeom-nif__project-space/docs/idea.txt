@@ -1,0 +1,5 @@
+Geometry
+ClothGeom-NIF: Geometry Decoding
+This architecture solves the "Latent-to-Mesh" problem. It is a specialized geometry decoder that maps the abstract latent states from our dynamics models into watertight, renderable meshes.
+
+It uses a sine-activated MLP with a learned Variance Field to handle Level-of-Detail (LOD) blending automatically. Because the entire pipeline is differentiable, it allows for Inverse Design: we can optimize the latent codes via gradient descent to match a target silhouette or drape, effectively allowing artists to "sculpt" the simulation parameters.

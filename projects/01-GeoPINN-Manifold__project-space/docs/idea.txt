@@ -1,0 +1,5 @@
+Geometry
+GeoPINN-Manifold
+To solve PDEs on curved surfaces (like the Earth's atmosphere or a biological membrane), GeoPINN-Manifold implements custom PyTorch layers for Tangent-Space Message Passing.
+
+We utilize Discrete Exterior Calculus (DEC) operators to compute gradients and curls directly on the manifold mesh, respecting the intrinsic curvature. The architecture includes automatic Chart Stitching logic to handle complex topologies (like tori or spheres) without singularities, effectively solving the "hairy ball theorem" problem architecturally.

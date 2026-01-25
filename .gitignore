@@ -1,0 +1,76 @@
+# =============================================================================
+# VAST.AI DOCKER BACKUPS - Never commit these
+# =============================================================================
+projects/*__project-space/docker-backups/
+
+# =============================================================================
+# RUNTIME ARTIFACTS - Ignored inside project-space folders
+# =============================================================================
+projects/*__project-space/**/volumes/
+projects/*__project-space/**/runs/
+projects/*__project-space/**/outputs/
+projects/*__project-space/**/checkpoints/
+projects/*__project-space/**/logs/
+projects/*__project-space/**/tmp/
+projects/*__project-space/**/cache/
+projects/*__project-space/**/.cache/
+
+# Compressed archives (backups)
+projects/*__project-space/**/*.tar
+projects/*__project-space/**/*.tar.gz
+
+# =============================================================================
+# LOCAL-ONLY DIRECTORIES
+# =============================================================================
+*.local/
+_local/
+**/*.local/
+**/_local/
+
+# =============================================================================
+# PYTHON / JUPYTER
+# =============================================================================
+**/__pycache__/
+**/*.pyc
+**/.pytest_cache/
+**/.mypy_cache/
+**/.ruff_cache/
+.ipynb_checkpoints/
+
+# =============================================================================
+# VIRTUAL ENVIRONMENTS
+# =============================================================================
+**/venv/
+**/env/
+**/.venv/
+**/.env/
+
+# =============================================================================
+# SECRETS
+# =============================================================================
+.secrets/
+.env
+.env.*
+*.pem
+*.key
+credentials.txt
+**/credentials.txt
+**/secrets.txt
+.git-filter-repo-replacements.txt
+.secrets-filter.txt
+
+# =============================================================================
+# DATA & MODELS (too large for git)
+# =============================================================================
+**/*.h5
+**/*.hdf5
+**/*.pt
+**/*.pth
+**/*.onnx
+**/*.pb
+
+# =============================================================================
+# OS
+# =============================================================================
+.DS_Store
+Thumbs.db

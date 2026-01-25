@@ -1,0 +1,25 @@
+# HGNN-ClothDyn Requirements
+# Core ML Framework
+torch>=2.1.0
+torchvision>=0.16.0
+
+# PyTorch Geometric and dependencies
+torch-geometric>=2.4.0
+torch-scatter>=2.1.2
+torch-sparse>=0.6.18
+torch-cluster>=1.6.3
+
+# Scientific computing
+numpy>=1.24.0
+scipy>=1.11.0
+h5py>=3.9.0
+
+# Visualization
+matplotlib>=3.7.0
+
+# Utilities
+tqdm>=4.66.0
+pyyaml>=6.0.1
+
+# Optional: Profiling
+# tensorboard>=2.14.0

@@ -1,0 +1,2422 @@
+.
+├── KEYS.md
+├── PROMPT_improve-workflow-doc.md
+├── PROMPT_keys-management.md
+├── PROMPT_vastai-manage-script.md
+├── README.md
+├── WORKFLOW.md
+├── projects
+│   ├── GeoPINN-Manifold__project-space
+│   │   ├── GeoPINN-Manifold
+│   │   │   ├── Dockerfile
+│   │   │   ├── README.md
+│   │   │   ├── debug_lb.py
+│   │   │   ├── debug_lb2.py
+│   │   │   ├── debug_lb3.py
+│   │   │   ├── environment.yml
+│   │   │   ├── geopinn
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── data
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   ├── shell_elasticity.py
+│   │   │   │   │   ├── sphere_swe.py
+│   │   │   │   │   └── torus_reaction_diffusion.py
+│   │   │   │   ├── layers
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   ├── chart_atlas.py
+│   │   │   │   │   ├── dec_operators.py
+│   │   │   │   │   ├── spectral_conv.py
+│   │   │   │   │   └── tangent_message_passing.py
+│   │   │   │   └── training
+│   │   │   │       ├── __init__.py
+│   │   │   │       ├── adaptive_refinement.py
+│   │   │   │       ├── mesh_trainer.py
+│   │   │   │       └── sphere_trainer.py
+│   │   │   ├── pyproject.toml
+│   │   │   ├── requirements.txt
+│   │   │   ├── scripts
+│   │   │   │   └── deploy.sh
+│   │   │   └── tests
+│   │   │       ├── test_integration.py
+│   │   │       └── test_sphere_pde.py
+│   │   ├── README.md
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   │       ├── vastai_29394145_GeoPINN-Manifold_2026-01-03_085437
+│   │   │       │   ├── Dockerfile
+│   │   │       │   ├── README.md
+│   │   │       │   ├── environment.yml
+│   │   │       │   ├── geopinn
+│   │   │       │   │   ├── __init__.py
+│   │   │       │   │   ├── __pycache__
+│   │   │       │   │   ├── data
+│   │   │       │   │   ├── layers
+│   │   │       │   │   └── training
+│   │   │       │   ├── pyproject.toml
+│   │   │       │   ├── requirements.txt
+│   │   │       │   ├── scripts
+│   │   │       │   │   └── deploy.sh
+│   │   │       │   └── tests
+│   │   │       │       ├── test_integration.py
+│   │   │       │       └── test_sphere_pde.py
+│   │   │       ├── vastai_29394145_GeoPINN-Manifold_2026-01-03_085438
+│   │   │       │   ├── Dockerfile
+│   │   │       │   ├── README.md
+│   │   │       │   ├── environment.yml
+│   │   │       │   ├── geopinn
+│   │   │       │   │   ├── __init__.py
+│   │   │       │   │   ├── __pycache__
+│   │   │       │   │   ├── data
+│   │   │       │   │   ├── layers
+│   │   │       │   │   └── training
+│   │   │       │   ├── pyproject.toml
+│   │   │       │   ├── requirements.txt
+│   │   │       │   ├── scripts
+│   │   │       │   │   └── deploy.sh
+│   │   │       │   └── tests
+│   │   │       │       ├── test_integration.py
+│   │   │       │       └── test_sphere_pde.py
+│   │   │       └── vastai_backup_2026-01-03_085411
+│   │   │           ├── Dockerfile
+│   │   │           ├── README.md
+│   │   │           ├── environment.yml
+│   │   │           ├── geopinn
+│   │   │           │   ├── __init__.py
+│   │   │           │   ├── __pycache__
+│   │   │           │   ├── data
+│   │   │           │   ├── layers
+│   │   │           │   └── training
+│   │   │           ├── pyproject.toml
+│   │   │           ├── requirements.txt
+│   │   │           ├── scripts
+│   │   │           │   └── deploy.sh
+│   │   │           └── tests
+│   │   │               ├── test_integration.py
+│   │   │               └── test_sphere_pde.py
+│   │   └── docs
+│   │       ├── ChatGPT-GeoPINN-Manifold_Development_Guide.md.txt
+│   │       ├── geopinn_manifold_development_guide_summary.txt
+│   │       ├── geopinn_scan.txt
+│   │       ├── idea.txt
+│   │       └── prompt.txt
+│   ├── WavePINN-NIF-ComplexMedia__project-space
+│   │   ├── README.md
+│   │   ├── WavePINN-NIF-ComplexMedia
+│   │   │   ├── Dockerfile
+│   │   │   ├── README.md
+│   │   │   ├── config
+│   │   │   │   └── default_config.yaml
+│   │   │   ├── environment.yml
+│   │   │   ├── main.py
+│   │   │   ├── requirements.txt
+│   │   │   ├── src
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── data_generator.py
+│   │   │   │   ├── inverse.py
+│   │   │   │   ├── model.py
+│   │   │   │   ├── physics_loss.py
+│   │   │   │   └── trainer.py
+│   │   │   └── tests
+│   │   │       ├── __init__.py
+│   │   │       └── test_forward_sim.py
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   └── docs
+│   │       └── ChatGPT-WavePINN_Research_Workflow.md.txt
+│   ├── cell-path-pinns__project-space
+│   │   ├── README.md
+│   │   ├── cell-path-pinns
+│   │   │   ├── README.md
+│   │   │   ├── cell_path_pinns
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── api.py
+│   │   │   │   ├── data_utils.py
+│   │   │   │   ├── losses.py
+│   │   │   │   └── models.py
+│   │   │   ├── notebooks
+│   │   │   │   └── quick_demo.ipynb
+│   │   │   ├── requirements.txt
+│   │   │   ├── setup.py
+│   │   │   └── tests
+│   │   │       ├── __init__.py
+│   │   │       └── test_model.py
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   └── docs
+│   │       ├── ChatGPT-Cell-Path_PINNs_Literature_Review.md.txt
+│   │       ├── cell_path_pinns_literature_review_scan.txt
+│   │       ├── idea.txt
+│   │       └── prompt.txt
+│   ├── clothgeom-nif__project-space
+│   │   ├── README.md
+│   │   ├── clothgeom-nif
+│   │   │   ├── ARCHITECTURE.md
+│   │   │   ├── README.md
+│   │   │   ├── __pycache__
+│   │   │   │   └── train.cpython-311.pyc
+│   │   │   ├── configs
+│   │   │   │   └── train_config.yaml
+│   │   │   ├── data
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── __init__.cpython-311.pyc
+│   │   │   │   │   ├── cloth_dataset.cpython-311.pyc
+│   │   │   │   │   └── synthetic_cloth_generator.cpython-311.pyc
+│   │   │   │   ├── cloth_dataset.py
+│   │   │   │   └── synthetic_cloth_generator.py
+│   │   │   ├── demo.py
+│   │   │   ├── extract_meshes.py
+│   │   │   ├── generate_dataset.py
+│   │   │   ├── inference
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── __init__.cpython-311.pyc
+│   │   │   │   │   └── mesh_extractor.cpython-311.pyc
+│   │   │   │   └── mesh_extractor.py
+│   │   │   ├── models
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── __init__.cpython-311.pyc
+│   │   │   │   │   ├── nif_decoder.cpython-311.pyc
+│   │   │   │   │   └── siren.cpython-311.pyc
+│   │   │   │   ├── nif_decoder.py
+│   │   │   │   └── siren.py
+│   │   │   ├── quickstart.sh
+│   │   │   ├── requirements.txt
+│   │   │   ├── search_gpus.sh
+│   │   │   ├── setup_environment.sh
+│   │   │   ├── setup_vastai.sh
+│   │   │   ├── tests
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── test_model.py
+│   │   │   │   └── test_training.py
+│   │   │   ├── train.py
+│   │   │   └── venv
+│   │   │       ├── bin
+│   │   │       │   ├── Activate.ps1
+│   │   │       │   ├── activate
+│   │   │       │   ├── activate.csh
+│   │   │       │   ├── activate.fish
+│   │   │       │   ├── convert-caffe2-to-onnx
+│   │   │       │   ├── convert-onnx-to-caffe2
+│   │   │       │   ├── f2py
+│   │   │       │   ├── imageio_download_bin
+│   │   │       │   ├── imageio_remove_bin
+│   │   │       │   ├── isympy
+│   │   │       │   ├── lsm2bin
+│   │   │       │   ├── pip
+│   │   │       │   ├── pip3
+│   │   │       │   ├── pip3.11
+│   │   │       │   ├── python -> python3.11
+│   │   │       │   ├── python3 -> python3.11
+│   │   │       │   ├── python3.11 -> /usr/local/opt/python@3.11/bin/python3.11
+│   │   │       │   ├── tiff2fsspec
+│   │   │       │   ├── tiffcomment
+│   │   │       │   ├── tifffile
+│   │   │       │   ├── torchrun
+│   │   │       │   └── tqdm
+│   │   │       ├── include
+│   │   │       │   └── python3.11
+│   │   │       ├── lib
+│   │   │       │   └── python3.11
+│   │   │       │       └── site-packages
+│   │   │       ├── pyvenv.cfg
+│   │   │       └── share
+│   │   │           └── man
+│   │   │               └── man1
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   └── docs
+│   │       ├── ChatGPT-ClothGeom-NIF_Research_Plan.md.txt
+│   │       ├── idea.txt
+│   │       └── prompt.txt
+│   ├── clothgnn__project-space
+│   │   ├── README.md
+│   │   ├── clothgnn
+│   │   │   ├── README.md
+│   │   │   ├── data
+│   │   │   ├── models
+│   │   │   │   ├── __init__.py
+│   │   │   │   └── clothgnn.py
+│   │   │   ├── results
+│   │   │   │   ├── gpu_info.txt
+│   │   │   │   └── test_results.txt
+│   │   │   ├── tests
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── generate_test_data.py
+│   │   │   │   └── test_model.py
+│   │   │   └── utils
+│   │   │       ├── __init__.py
+│   │   │       ├── collision.py
+│   │   │       └── losses.py
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   └── docs
+│   │       ├── ChatGPT-ClothGNN_Research_Package.md.txt
+│   │       ├── clothgnn_research_package_scan.txt
+│   │       ├── idea.txt
+│   │       └── prompt.txt
+│   ├── coastflow-gnn__project-space
+│   │   ├── README.md
+│   │   ├── coastflow-gnn
+│   │   │   ├── README.md
+│   │   │   ├── config
+│   │   │   │   └── model_config.yaml
+│   │   │   ├── deployment
+│   │   │   │   ├── Dockerfile
+│   │   │   │   ├── remote_setup.sh
+│   │   │   │   ├── requirements.txt
+│   │   │   │   └── vastai_setup.sh
+│   │   │   ├── notebooks
+│   │   │   │   └── site_planning_demo.ipynb
+│   │   │   ├── src
+│   │   │   │   ├── __init__.py
+│   │   │   │   ├── data
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   ├── dataset.py
+│   │   │   │   │   ├── dem_fetcher.py
+│   │   │   │   │   └── mesh_builder.py
+│   │   │   │   ├── models
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   ├── coastflow_gnn.py
+│   │   │   │   │   └── physics_losses.py
+│   │   │   │   ├── training
+│   │   │   │   │   ├── __init__.py
+│   │   │   │   │   ├── eval_model.py
+│   │   │   │   │   ├── train_ddp.py
+│   │   │   │   │   └── train_single.py
+│   │   │   │   └── utils
+│   │   │   │       ├── __init__.py
+│   │   │   │       ├── cost_benefit.py
+│   │   │   │       └── visualization.py
+│   │   │   └── tests
+│   │   │       ├── __init__.py
+│   │   │       ├── test_dataset.py
+│   │   │       ├── test_model.py
+│   │   │       ├── test_physics_losses.py
+│   │   │       └── test_training_loop.py
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   └── docs
+│   │       ├── ChatGPT-CoastFlow-GNN_Research_Setup.md.txt
+│   │       ├── idea.txt
+│   │       └── prompt.txt
+│   ├── geom-inr-motion__project-space
+│   │   ├── README.md
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   │       ├── vastai_29391133_geom-inr-motion_2026-01-03_085436
+│   │   │       │   ├── README.md
+│   │   │       │   ├── __pycache__
+│   │   │       │   │   ├── data_pipeline.cpython-310.pyc
+│   │   │       │   │   ├── geometry_losses.cpython-310.pyc
+│   │   │       │   │   └── model.cpython-310.pyc
+│   │   │       │   ├── data_pipeline.py
+│   │   │       │   ├── evaluation.ipynb
+│   │   │       │   ├── export_utils.py
+│   │   │       │   ├── geometry_losses.py
+│   │   │       │   ├── logs
+│   │   │       │   │   └── run_20260101_002719
+│   │   │       │   ├── minimal_test.py
+│   │   │       │   ├── minimal_test_results.png
+│   │   │       │   ├── model.py
+│   │   │       │   ├── requirements.txt
+│   │   │       │   ├── train.py
+│   │   │       │   └── training.log
+│   │   │       ├── vastai_29391133_geom-inr-motion_2026-01-03_085438
+│   │   │       │   ├── README.md
+│   │   │       │   ├── __pycache__
+│   │   │       │   │   ├── data_pipeline.cpython-310.pyc
+│   │   │       │   │   ├── geometry_losses.cpython-310.pyc
+│   │   │       │   │   └── model.cpython-310.pyc
+│   │   │       │   ├── data_pipeline.py
+│   │   │       │   ├── evaluation.ipynb
+│   │   │       │   ├── export_utils.py
+│   │   │       │   ├── geometry_losses.py
+│   │   │       │   ├── logs
+│   │   │       │   │   └── run_20260101_002719
+│   │   │       │   ├── minimal_test.py
+│   │   │       │   ├── minimal_test_results.png
+│   │   │       │   ├── model.py
+│   │   │       │   ├── requirements.txt
+│   │   │       │   ├── train.py
+│   │   │       │   └── training.log
+│   │   │       └── vastai_backup_2026-01-03_085414
+│   │   │           ├── README.md
+│   │   │           ├── __pycache__
+│   │   │           │   ├── data_pipeline.cpython-310.pyc
+│   │   │           │   ├── geometry_losses.cpython-310.pyc
+│   │   │           │   └── model.cpython-310.pyc
+│   │   │           ├── data_pipeline.py
+│   │   │           ├── evaluation.ipynb
+│   │   │           ├── export_utils.py
+│   │   │           ├── geometry_losses.py
+│   │   │           ├── logs
+│   │   │           │   └── run_20260101_002719
+│   │   │           ├── minimal_test.py
+│   │   │           ├── minimal_test_results.png
+│   │   │           ├── model.py
+│   │   │           ├── requirements.txt
+│   │   │           ├── train.py
+│   │   │           └── training.log
+│   │   ├── docs
+│   │   │   ├── ChatGPT-Geom-INR-Motion_Development_Plan.md.txt
+│   │   │   ├── idea.txt
+│   │   │   └── prompt.txt
+│   │   └── geom-inr-motion
+│   │       ├── README.md
+│   │       ├── checkpoints
+│   │       │   ├── config.json
+│   │       │   ├── history.json
+│   │       │   └── model_best.pt
+│   │       ├── data_pipeline.py
+│   │       ├── evaluation.ipynb
+│   │       ├── export_utils.py
+│   │       ├── geometry_losses.py
+│   │       ├── minimal_test.py
+│   │       ├── minimal_test_results.png
+│   │       ├── model.py
+│   │       ├── requirements.txt
+│   │       ├── train.py
+│   │       └── training.log
+│   ├── hgnn-clothdyn__project-space
+│   │   ├── README.md
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   │       ├── vastai_29391133_hgnn_clothdyn_2026-01-03_085436
+│   │   │       │   ├── README.md
+│   │   │       │   ├── __pycache__
+│   │   │       │   │   ├── benchmark.cpython-310.pyc
+│   │   │       │   │   ├── mesh_to_graph.cpython-310.pyc
+│   │   │       │   │   ├── model.cpython-310.pyc
+│   │   │       │   │   ├── synthetic_data.cpython-310.pyc
+│   │   │       │   │   └── train.cpython-310.pyc
+│   │   │       │   ├── benchmark.py
+│   │   │       │   ├── checkpoints
+│   │   │       │   │   ├── best_model.pt
+│   │   │       │   │   ├── checkpoint_epoch10.pt
+│   │   │       │   │   ├── checkpoint_epoch20.pt
+│   │   │       │   │   ├── final_model.pt
+│   │   │       │   │   └── loss_history.json
+│   │   │       │   ├── config.yaml
+│   │   │       │   ├── data
+│   │   │       │   │   └── synthetic_cloth.h5
+│   │   │       │   ├── mesh_to_graph.py
+│   │   │       │   ├── model.py
+│   │   │       │   ├── requirements.txt
+│   │   │       │   ├── setup.sh
+│   │   │       │   ├── synthetic_data.py
+│   │   │       │   ├── test_integration.py
+│   │   │       │   └── train.py
+│   │   │       ├── vastai_29391133_hgnn_clothdyn_2026-01-03_085438
+│   │   │       │   ├── README.md
+│   │   │       │   ├── __pycache__
+│   │   │       │   │   ├── benchmark.cpython-310.pyc
+│   │   │       │   │   ├── mesh_to_graph.cpython-310.pyc
+│   │   │       │   │   ├── model.cpython-310.pyc
+│   │   │       │   │   ├── synthetic_data.cpython-310.pyc
+│   │   │       │   │   └── train.cpython-310.pyc
+│   │   │       │   ├── benchmark.py
+│   │   │       │   ├── checkpoints
+│   │   │       │   │   ├── best_model.pt
+│   │   │       │   │   ├── checkpoint_epoch10.pt
+│   │   │       │   │   ├── checkpoint_epoch20.pt
+│   │   │       │   │   ├── final_model.pt
+│   │   │       │   │   └── loss_history.json
+│   │   │       │   ├── config.yaml
+│   │   │       │   ├── data
+│   │   │       │   │   └── synthetic_cloth.h5
+│   │   │       │   ├── mesh_to_graph.py
+│   │   │       │   ├── model.py
+│   │   │       │   ├── requirements.txt
+│   │   │       │   ├── setup.sh
+│   │   │       │   ├── synthetic_data.py
+│   │   │       │   ├── test_integration.py
+│   │   │       │   └── train.py
+│   │   │       └── vastai_backup_2026-01-03_085412
+│   │   │           ├── README.md
+│   │   │           ├── __pycache__
+│   │   │           │   ├── benchmark.cpython-310.pyc
+│   │   │           │   ├── mesh_to_graph.cpython-310.pyc
+│   │   │           │   ├── model.cpython-310.pyc
+│   │   │           │   ├── synthetic_data.cpython-310.pyc
+│   │   │           │   └── train.cpython-310.pyc
+│   │   │           ├── benchmark.py
+│   │   │           ├── checkpoints
+│   │   │           │   ├── best_model.pt
+│   │   │           │   ├── checkpoint_epoch10.pt
+│   │   │           │   ├── checkpoint_epoch20.pt
+│   │   │           │   ├── final_model.pt
+│   │   │           │   └── loss_history.json
+│   │   │           ├── config.yaml
+│   │   │           ├── data
+│   │   │           │   └── synthetic_cloth.h5
+│   │   │           ├── mesh_to_graph.py
+│   │   │           ├── model.py
+│   │   │           ├── requirements.txt
+│   │   │           ├── setup.sh
+│   │   │           ├── synthetic_data.py
+│   │   │           ├── test_integration.py
+│   │   │           └── train.py
+│   │   ├── docs
+│   │   │   ├── ChatGPT-HGNN-ClothDyn_Development_Plan.md.txt
+│   │   │   ├── idea.txt
+│   │   │   └── prompt.txt
+│   │   └── hgnn-clothdyn
+│   │       ├── IMPLEMENTATION_REPORT.md
+│   │       ├── README.md
+│   │       ├── benchmark.py
+│   │       ├── checkpoints
+│   │       │   ├── best_model.pt
+│   │       │   ├── checkpoint_epoch10.pt
+│   │       │   ├── checkpoint_epoch20.pt
+│   │       │   ├── final_model.pt
+│   │       │   └── loss_history.json
+│   │       ├── config.yaml
+│   │       ├── data
+│   │       │   └── synthetic_cloth.h5
+│   │       ├── mesh_to_graph.py
+│   │       ├── model.py
+│   │       ├── requirements.txt
+│   │       ├── setup.sh
+│   │       ├── synthetic_data.py
+│   │       ├── test_integration.py
+│   │       └── train.py
+│   ├── hgnn-nif-cloth__project-space
+│   │   ├── README.md
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   ├── docs
+│   │   │   └── ChatGPT-HGNN-NIF-Cloth_Framework_Design.md.txt
+│   │   └── hgnn-nif-cloth
+│   │       ├── README.md
+│   │       ├── benchmark_results.md
+│   │       ├── data
+│   │       │   └── train_data.h5
+│   │       ├── docker
+│   │       │   ├── Dockerfile
+│   │       │   └── requirements.txt
+│   │       ├── outputs
+│   │       │   ├── best_model.pth
+│   │       │   ├── checkpoint_epoch1.pth
+│   │       │   ├── checkpoint_epoch2.pth
+│   │       │   ├── checkpoint_epoch3.pth
+│   │       │   ├── final_model.pth
+│   │       │   ├── history.json
+│   │       │   └── tensorboard
+│   │       │       └── events.out.tfevents.1767227294.os-mac-pro.lan.22621.0
+│   │       ├── scripts
+│   │       │   ├── __init__.py
+│   │       │   ├── deploy_vastai.py
+│   │       │   ├── test_remote.py
+│   │       │   └── train_local.py
+│   │       ├── setup.py
+│   │       ├── src
+│   │       │   ├── __init__.py
+│   │       │   ├── __pycache__
+│   │       │   │   └── __init__.cpython-314.pyc
+│   │       │   ├── data
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── dataset.py
+│   │       │   │   └── synthetic_data.py
+│   │       │   ├── models
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── __pycache__
+│   │       │   │   │   ├── __init__.cpython-314.pyc
+│   │       │   │   │   └── graph_conv.cpython-314.pyc
+│   │       │   │   ├── attention.py
+│   │       │   │   ├── graph_conv.py
+│   │       │   │   ├── hgnn.py
+│   │       │   │   ├── hybrid_model.py
+│   │       │   │   └── siren.py
+│   │       │   ├── training
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── losses.py
+│   │       │   │   └── trainer.py
+│   │       │   └── utils
+│   │       │       ├── __init__.py
+│   │       │       └── metrics.py
+│   │       └── tests
+│   │           ├── __init__.py
+│   │           ├── test_forward.py
+│   │           └── test_model.py
+│   ├── maxwell-pinn-nif__project-space
+│   │   ├── README.md
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   ├── docs
+│   │   │   ├── ChatGPT-Maxwell-PINN-NIF_Research_Development.md.txt
+│   │   │   └── maxwell_pinn_nif_scan.txt
+│   │   └── maxwell-pinn-nif
+│   │       ├── README.md
+│   │       ├── TEST_REPORT.md
+│   │       ├── data
+│   │       ├── experiments
+│   │       │   └── quick_test.py
+│   │       ├── notebooks
+│   │       ├── requirements.txt
+│   │       └── src
+│   │           ├── __init__.py
+│   │           ├── dataset_generator.py
+│   │           ├── pinn_model.py
+│   │           ├── pml_loss.py
+│   │           └── train.py
+│   ├── nif-cloth3d__project-space
+│   │   ├── README.md
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   ├── docs
+│   │   │   ├── ChatGPT-NIF-Cloth3D-Interactive_Pipeline.md.txt
+│   │   │   └── nif_cloth3d_scan.txt
+│   │   └── nif-cloth3d
+│   │       ├── README.md
+│   │       ├── blender_addon
+│   │       │   ├── blender_cloth_pipeline.py
+│   │       │   └── nif_cloth_addon.py
+│   │       ├── checkpoints
+│   │       ├── configs
+│   │       │   ├── l40s.yaml
+│   │       │   ├── low_vram.yaml
+│   │       │   └── rtx4090.yaml
+│   │       ├── data
+│   │       ├── docker
+│   │       │   ├── Dockerfile
+│   │       │   └── docker-compose.yml
+│   │       ├── docs
+│   │       ├── logs
+│   │       ├── notebooks
+│   │       │   └── evaluation.ipynb
+│   │       ├── requirements.txt
+│   │       ├── scripts
+│   │       │   ├── benchmark.sh
+│   │       │   ├── quickstart.sh
+│   │       │   └── train.sh
+│   │       ├── src
+│   │       │   ├── __init__.py
+│   │       │   ├── data_loader.py
+│   │       │   ├── inference.py
+│   │       │   ├── losses.py
+│   │       │   ├── model.py
+│   │       │   ├── train.py
+│   │       │   └── utils.py
+│   │       └── tests
+│   │           ├── generate_test_data.py
+│   │           ├── test_inference.py
+│   │           └── test_model.py
+│   ├── nif-cloth4d-temporal__project-space
+│   │   ├── README.md
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   ├── docs
+│   │   │   └── ChatGPT-NIF-Cloth4D-Temporal_Package.md.txt
+│   │   └── nif-cloth4d-temporal
+│   │       ├── LICENSE
+│   │       ├── README.md
+│   │       ├── docker
+│   │       │   └── Dockerfile
+│   │       ├── environment.yml
+│   │       ├── scripts
+│   │       │   ├── connect_vastai.sh
+│   │       │   ├── edit_sequence.py
+│   │       │   ├── provision_vastai.sh
+│   │       │   ├── setup_remote.sh
+│   │       │   ├── test_inference.py
+│   │       │   └── train.py
+│   │       ├── src
+│   │       │   ├── __init__.py
+│   │       │   ├── data
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── pyflex_simulator.py
+│   │       │   │   └── sdf_dataset.py
+│   │       │   ├── losses
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── physics_losses.py
+│   │       │   │   └── scheduled_sampling.py
+│   │       │   ├── models
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── fourier_mlp.py
+│   │       │   │   ├── siren.py
+│   │       │   │   └── temporal_gru.py
+│   │       │   ├── training
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── config.py
+│   │       │   │   └── trainer.py
+│   │       │   └── utils
+│   │       │       ├── __init__.py
+│   │       │       ├── mesh_utils.py
+│   │       │       ├── reproducibility.py
+│   │       │       └── visualization.py
+│   │       ├── tests
+│   │       │   ├── ci_sanity_check.py
+│   │       │   ├── test_losses.py
+│   │       │   └── test_model.py
+│   │       └── wandb_sweep.yaml
+│   ├── nif-cloth4d__project-space
+│   │   ├── README.md
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   ├── docs
+│   │   │   └── ChatGPT-NIF-Cloth4D_Research_Development.md.txt
+│   │   └── nif-cloth4d
+│   │       ├── README.md
+│   │       ├── TEST_REPORT_TEMPLATE.md
+│   │       ├── __init__.py
+│   │       ├── config_test.yaml
+│   │       ├── export_mesh.py
+│   │       ├── nif_cloth4d.py
+│   │       ├── requirements.txt
+│   │       ├── run_pipeline.sh
+│   │       ├── synthetic_data.py
+│   │       ├── test_evaluation.py
+│   │       ├── train_nif_cloth4d.py
+│   │       └── vastai_setup.sh
+│   ├── pegnn-deform__project-space
+│   │   ├── README.md
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   │       ├── vastai_29393775_pegnn-deform_2026-01-03_085436
+│   │   │       │   ├── README.md
+│   │   │       │   ├── benchmark_results.json
+│   │   │       │   ├── checkpoints
+│   │   │       │   │   ├── best_model.pth
+│   │   │       │   │   └── checkpoint_epoch_10.pth
+│   │   │       │   ├── configs
+│   │   │       │   │   ├── environment.yaml
+│   │   │       │   │   └── wandb_sweep.yaml
+│   │   │       │   ├── data
+│   │   │       │   │   ├── generate_synthetic.py
+│   │   │       │   │   └── synthetic
+│   │   │       │   ├── scripts
+│   │   │       │   │   ├── deploy_vastai.sh
+│   │   │       │   │   ├── run_tests.sh
+│   │   │       │   │   ├── setup_vastai.sh
+│   │   │       │   │   └── validate_local.py
+│   │   │       │   ├── src
+│   │   │       │   │   ├── __init__.py
+│   │   │       │   │   ├── __pycache__
+│   │   │       │   │   ├── benchmark.py
+│   │   │       │   │   ├── mesh_features.py
+│   │   │       │   │   ├── pegdeform_model.py
+│   │   │       │   │   └── train_pegdeform.py
+│   │   │       │   └── tests
+│   │   │       │       ├── __init__.py
+│   │   │       │       ├── __pycache__
+│   │   │       │       └── test_model.py
+│   │   │       ├── vastai_backup_2026-01-03_085412
+│   │   │       │   ├── README.md
+│   │   │       │   ├── benchmark_results.json
+│   │   │       │   ├── checkpoints
+│   │   │       │   │   ├── best_model.pth
+│   │   │       │   │   └── checkpoint_epoch_10.pth
+│   │   │       │   ├── configs
+│   │   │       │   │   ├── environment.yaml
+│   │   │       │   │   └── wandb_sweep.yaml
+│   │   │       │   ├── data
+│   │   │       │   │   ├── generate_synthetic.py
+│   │   │       │   │   └── synthetic
+│   │   │       │   ├── scripts
+│   │   │       │   │   ├── deploy_vastai.sh
+│   │   │       │   │   ├── run_tests.sh
+│   │   │       │   │   ├── setup_vastai.sh
+│   │   │       │   │   └── validate_local.py
+│   │   │       │   ├── src
+│   │   │       │   │   ├── __init__.py
+│   │   │       │   │   ├── __pycache__
+│   │   │       │   │   ├── benchmark.py
+│   │   │       │   │   ├── mesh_features.py
+│   │   │       │   │   ├── pegdeform_model.py
+│   │   │       │   │   └── train_pegdeform.py
+│   │   │       │   └── tests
+│   │   │       │       ├── __init__.py
+│   │   │       │       ├── __pycache__
+│   │   │       │       └── test_model.py
+│   │   │       └── vastai_workspace_pegnn-deform_2026-01-03_085438
+│   │   │           ├── README.md
+│   │   │           ├── benchmark_results.json
+│   │   │           ├── checkpoints
+│   │   │           │   ├── best_model.pth
+│   │   │           │   └── checkpoint_epoch_10.pth
+│   │   │           ├── configs
+│   │   │           │   ├── environment.yaml
+│   │   │           │   └── wandb_sweep.yaml
+│   │   │           ├── data
+│   │   │           │   ├── generate_synthetic.py
+│   │   │           │   └── synthetic
+│   │   │           ├── scripts
+│   │   │           │   ├── deploy_vastai.sh
+│   │   │           │   ├── run_tests.sh
+│   │   │           │   ├── setup_vastai.sh
+│   │   │           │   └── validate_local.py
+│   │   │           ├── src
+│   │   │           │   ├── __init__.py
+│   │   │           │   ├── __pycache__
+│   │   │           │   ├── benchmark.py
+│   │   │           │   ├── mesh_features.py
+│   │   │           │   ├── pegdeform_model.py
+│   │   │           │   └── train_pegdeform.py
+│   │   │           └── tests
+│   │   │               ├── __init__.py
+│   │   │               ├── __pycache__
+│   │   │               └── test_model.py
+│   │   ├── docs
+│   │   │   └── ChatGPT-PEGNN-Deform_Research_Pipeline.md.txt
+│   │   └── pegnn-deform
+│   │       ├── README.md
+│   │       ├── checkpoints
+│   │       │   ├── best_model.pth
+│   │       │   └── checkpoint_epoch_10.pth
+│   │       ├── configs
+│   │       │   ├── environment.yaml
+│   │       │   └── wandb_sweep.yaml
+│   │       ├── data
+│   │       │   ├── generate_synthetic.py
+│   │       │   └── synthetic
+│   │       │       ├── test_000000.pt
+│   │       │       ├── test_000001.pt
+│   │       │       ├── test_000002.pt
+│   │       │       ├── test_000003.pt
+│   │       │       ├── test_000004.pt
+│   │       │       ├── test_000005.pt
+│   │       │       ├── test_000006.pt
+│   │       │       ├── test_000007.pt
+│   │       │       ├── test_000008.pt
+│   │       │       ├── test_000009.pt
+│   │       │       ├── test_000010.pt
+│   │       │       ├── test_000011.pt
+│   │       │       ├── test_000012.pt
+│   │       │       ├── test_000013.pt
+│   │       │       ├── test_000014.pt
+│   │       │       ├── test_000015.pt
+│   │       │       ├── test_000016.pt
+│   │       │       ├── test_000017.pt
+│   │       │       ├── test_000018.pt
+│   │       │       ├── test_000019.pt
+│   │       │       ├── test_000020.pt
+│   │       │       ├── test_000021.pt
+│   │       │       ├── test_000022.pt
+│   │       │       ├── test_000023.pt
+│   │       │       ├── test_000024.pt
+│   │       │       ├── test_000025.pt
+│   │       │       ├── test_000026.pt
+│   │       │       ├── test_000027.pt
+│   │       │       ├── test_000028.pt
+│   │       │       ├── test_000029.pt
+│   │       │       ├── test_000030.pt
+│   │       │       ├── test_000031.pt
+│   │       │       ├── test_000032.pt
+│   │       │       ├── test_000033.pt
+│   │       │       ├── test_000034.pt
+│   │       │       ├── test_000035.pt
+│   │       │       ├── test_000036.pt
+│   │       │       ├── test_000037.pt
+│   │       │       ├── test_000038.pt
+│   │       │       ├── test_000039.pt
+│   │       │       ├── test_000040.pt
+│   │       │       ├── test_000041.pt
+│   │       │       ├── test_000042.pt
+│   │       │       ├── test_000043.pt
+│   │       │       ├── test_000044.pt
+│   │       │       ├── test_000045.pt
+│   │       │       ├── test_000046.pt
+│   │       │       ├── test_000047.pt
+│   │       │       ├── test_000048.pt
+│   │       │       ├── test_000049.pt
+│   │       │       ├── test_000050.pt
+│   │       │       ├── test_000051.pt
+│   │       │       ├── test_000052.pt
+│   │       │       ├── test_000053.pt
+│   │       │       ├── test_000054.pt
+│   │       │       ├── test_000055.pt
+│   │       │       ├── test_000056.pt
+│   │       │       ├── test_000057.pt
+│   │       │       ├── test_000058.pt
+│   │       │       ├── test_000059.pt
+│   │       │       ├── test_000060.pt
+│   │       │       ├── test_000061.pt
+│   │       │       ├── test_000062.pt
+│   │       │       ├── test_000063.pt
+│   │       │       ├── test_000064.pt
+│   │       │       ├── test_000065.pt
+│   │       │       ├── test_000066.pt
+│   │       │       ├── test_000067.pt
+│   │       │       ├── test_000068.pt
+│   │       │       ├── test_000069.pt
+│   │       │       ├── test_000070.pt
+│   │       │       ├── test_000071.pt
+│   │       │       ├── test_000072.pt
+│   │       │       ├── test_000073.pt
+│   │       │       ├── test_000074.pt
+│   │       │       ├── test_000075.pt
+│   │       │       ├── test_000076.pt
+│   │       │       ├── test_000077.pt
+│   │       │       ├── test_000078.pt
+│   │       │       ├── test_000079.pt
+│   │       │       ├── test_000080.pt
+│   │       │       ├── test_000081.pt
+│   │       │       ├── test_000082.pt
+│   │       │       ├── test_000083.pt
+│   │       │       ├── test_000084.pt
+│   │       │       ├── test_000085.pt
+│   │       │       ├── test_000086.pt
+│   │       │       ├── test_000087.pt
+│   │       │       ├── test_000088.pt
+│   │       │       ├── test_000089.pt
+│   │       │       ├── test_000090.pt
+│   │       │       ├── test_000091.pt
+│   │       │       ├── test_000092.pt
+│   │       │       ├── test_000093.pt
+│   │       │       ├── test_000094.pt
+│   │       │       ├── test_000095.pt
+│   │       │       ├── test_000096.pt
+│   │       │       ├── test_000097.pt
+│   │       │       ├── test_000098.pt
+│   │       │       ├── test_000099.pt
+│   │       │       ├── test_000100.pt
+│   │       │       ├── test_000101.pt
+│   │       │       ├── test_000102.pt
+│   │       │       ├── test_000103.pt
+│   │       │       ├── test_000104.pt
+│   │       │       ├── test_000105.pt
+│   │       │       ├── test_000106.pt
+│   │       │       ├── test_000107.pt
+│   │       │       ├── test_000108.pt
+│   │       │       ├── test_000109.pt
+│   │       │       ├── test_000110.pt
+│   │       │       ├── test_000111.pt
+│   │       │       ├── test_000112.pt
+│   │       │       ├── test_000113.pt
+│   │       │       ├── test_000114.pt
+│   │       │       ├── test_000115.pt
+│   │       │       ├── test_000116.pt
+│   │       │       ├── test_000117.pt
+│   │       │       ├── test_000118.pt
+│   │       │       ├── test_000119.pt
+│   │       │       ├── test_000120.pt
+│   │       │       ├── test_000121.pt
+│   │       │       ├── test_000122.pt
+│   │       │       ├── test_000123.pt
+│   │       │       ├── test_000124.pt
+│   │       │       ├── test_000125.pt
+│   │       │       ├── test_000126.pt
+│   │       │       ├── test_000127.pt
+│   │       │       ├── test_000128.pt
+│   │       │       ├── test_000129.pt
+│   │       │       ├── test_000130.pt
+│   │       │       ├── test_000131.pt
+│   │       │       ├── test_000132.pt
+│   │       │       ├── test_000133.pt
+│   │       │       ├── test_000134.pt
+│   │       │       ├── test_000135.pt
+│   │       │       ├── test_000136.pt
+│   │       │       ├── test_000137.pt
+│   │       │       ├── test_000138.pt
+│   │       │       ├── test_000139.pt
+│   │       │       ├── test_000140.pt
+│   │       │       ├── test_000141.pt
+│   │       │       ├── test_000142.pt
+│   │       │       ├── test_000143.pt
+│   │       │       ├── test_000144.pt
+│   │       │       ├── test_000145.pt
+│   │       │       ├── test_000146.pt
+│   │       │       ├── test_000147.pt
+│   │       │       ├── test_000148.pt
+│   │       │       ├── test_000149.pt
+│   │       │       ├── test_000150.pt
+│   │       │       ├── test_000151.pt
+│   │       │       ├── test_000152.pt
+│   │       │       ├── test_000153.pt
+│   │       │       ├── test_000154.pt
+│   │       │       ├── test_000155.pt
+│   │       │       ├── test_000156.pt
+│   │       │       ├── test_000157.pt
+│   │       │       ├── test_000158.pt
+│   │       │       ├── test_000159.pt
+│   │       │       ├── test_000160.pt
+│   │       │       ├── test_000161.pt
+│   │       │       ├── test_000162.pt
+│   │       │       ├── test_000163.pt
+│   │       │       ├── test_000164.pt
+│   │       │       ├── test_000165.pt
+│   │       │       ├── test_000166.pt
+│   │       │       ├── test_000167.pt
+│   │       │       ├── test_000168.pt
+│   │       │       ├── test_000169.pt
+│   │       │       ├── test_000170.pt
+│   │       │       ├── test_000171.pt
+│   │       │       ├── test_000172.pt
+│   │       │       ├── test_000173.pt
+│   │       │       ├── test_000174.pt
+│   │       │       ├── test_000175.pt
+│   │       │       ├── test_000176.pt
+│   │       │       ├── test_000177.pt
+│   │       │       ├── test_000178.pt
+│   │       │       ├── test_000179.pt
+│   │       │       ├── test_000180.pt
+│   │       │       ├── test_000181.pt
+│   │       │       ├── test_000182.pt
+│   │       │       ├── test_000183.pt
+│   │       │       ├── test_000184.pt
+│   │       │       ├── test_000185.pt
+│   │       │       ├── test_000186.pt
+│   │       │       ├── test_000187.pt
+│   │       │       ├── test_000188.pt
+│   │       │       ├── test_000189.pt
+│   │       │       ├── test_000190.pt
+│   │       │       ├── test_000191.pt
+│   │       │       ├── test_000192.pt
+│   │       │       ├── test_000193.pt
+│   │       │       ├── test_000194.pt
+│   │       │       ├── test_000195.pt
+│   │       │       ├── test_000196.pt
+│   │       │       ├── test_000197.pt
+│   │       │       ├── test_000198.pt
+│   │       │       ├── test_000199.pt
+│   │       │       ├── train_000000.pt
+│   │       │       ├── train_000001.pt
+│   │       │       ├── train_000002.pt
+│   │       │       ├── train_000003.pt
+│   │       │       ├── train_000004.pt
+│   │       │       ├── train_000005.pt
+│   │       │       ├── train_000006.pt
+│   │       │       ├── train_000007.pt
+│   │       │       ├── train_000008.pt
+│   │       │       ├── train_000009.pt
+│   │       │       ├── train_000010.pt
+│   │       │       ├── train_000011.pt
+│   │       │       ├── train_000012.pt
+│   │       │       ├── train_000013.pt
+│   │       │       ├── train_000014.pt
+│   │       │       ├── train_000015.pt
+│   │       │       ├── train_000016.pt
+│   │       │       ├── train_000017.pt
+│   │       │       ├── train_000018.pt
+│   │       │       ├── train_000019.pt
+│   │       │       ├── train_000020.pt
+│   │       │       ├── train_000021.pt
+│   │       │       ├── train_000022.pt
+│   │       │       ├── train_000023.pt
+│   │       │       ├── train_000024.pt
+│   │       │       ├── train_000025.pt
+│   │       │       ├── train_000026.pt
+│   │       │       ├── train_000027.pt
+│   │       │       ├── train_000028.pt
+│   │       │       ├── train_000029.pt
+│   │       │       ├── train_000030.pt
+│   │       │       ├── train_000031.pt
+│   │       │       ├── train_000032.pt
+│   │       │       ├── train_000033.pt
+│   │       │       ├── train_000034.pt
+│   │       │       ├── train_000035.pt
+│   │       │       ├── train_000036.pt
+│   │       │       ├── train_000037.pt
+│   │       │       ├── train_000038.pt
+│   │       │       ├── train_000039.pt
+│   │       │       ├── train_000040.pt
+│   │       │       ├── train_000041.pt
+│   │       │       ├── train_000042.pt
+│   │       │       ├── train_000043.pt
+│   │       │       ├── train_000044.pt
+│   │       │       ├── train_000045.pt
+│   │       │       ├── train_000046.pt
+│   │       │       ├── train_000047.pt
+│   │       │       ├── train_000048.pt
+│   │       │       ├── train_000049.pt
+│   │       │       ├── train_000050.pt
+│   │       │       ├── train_000051.pt
+│   │       │       ├── train_000052.pt
+│   │       │       ├── train_000053.pt
+│   │       │       ├── train_000054.pt
+│   │       │       ├── train_000055.pt
+│   │       │       ├── train_000056.pt
+│   │       │       ├── train_000057.pt
+│   │       │       ├── train_000058.pt
+│   │       │       ├── train_000059.pt
+│   │       │       ├── train_000060.pt
+│   │       │       ├── train_000061.pt
+│   │       │       ├── train_000062.pt
+│   │       │       ├── train_000063.pt
+│   │       │       ├── train_000064.pt
+│   │       │       ├── train_000065.pt
+│   │       │       ├── train_000066.pt
+│   │       │       ├── train_000067.pt
+│   │       │       ├── train_000068.pt
+│   │       │       ├── train_000069.pt
+│   │       │       ├── train_000070.pt
+│   │       │       ├── train_000071.pt
+│   │       │       ├── train_000072.pt
+│   │       │       ├── train_000073.pt
+│   │       │       ├── train_000074.pt
+│   │       │       ├── train_000075.pt
+│   │       │       ├── train_000076.pt
+│   │       │       ├── train_000077.pt
+│   │       │       ├── train_000078.pt
+│   │       │       ├── train_000079.pt
+│   │       │       ├── train_000080.pt
+│   │       │       ├── train_000081.pt
+│   │       │       ├── train_000082.pt
+│   │       │       ├── train_000083.pt
+│   │       │       ├── train_000084.pt
+│   │       │       ├── train_000085.pt
+│   │       │       ├── train_000086.pt
+│   │       │       ├── train_000087.pt
+│   │       │       ├── train_000088.pt
+│   │       │       ├── train_000089.pt
+│   │       │       ├── train_000090.pt
+│   │       │       ├── train_000091.pt
+│   │       │       ├── train_000092.pt
+│   │       │       ├── train_000093.pt
+│   │       │       ├── train_000094.pt
+│   │       │       ├── train_000095.pt
+│   │       │       ├── train_000096.pt
+│   │       │       ├── train_000097.pt
+│   │       │       ├── train_000098.pt
+│   │       │       ├── train_000099.pt
+│   │       │       ├── train_000100.pt
+│   │       │       ├── train_000101.pt
+│   │       │       ├── train_000102.pt
+│   │       │       ├── train_000103.pt
+│   │       │       ├── train_000104.pt
+│   │       │       ├── train_000105.pt
+│   │       │       ├── train_000106.pt
+│   │       │       ├── train_000107.pt
+│   │       │       ├── train_000108.pt
+│   │       │       ├── train_000109.pt
+│   │       │       ├── train_000110.pt
+│   │       │       ├── train_000111.pt
+│   │       │       ├── train_000112.pt
+│   │       │       ├── train_000113.pt
+│   │       │       ├── train_000114.pt
+│   │       │       ├── train_000115.pt
+│   │       │       ├── train_000116.pt
+│   │       │       ├── train_000117.pt
+│   │       │       ├── train_000118.pt
+│   │       │       ├── train_000119.pt
+│   │       │       ├── train_000120.pt
+│   │       │       ├── train_000121.pt
+│   │       │       ├── train_000122.pt
+│   │       │       ├── train_000123.pt
+│   │       │       ├── train_000124.pt
+│   │       │       ├── train_000125.pt
+│   │       │       ├── train_000126.pt
+│   │       │       ├── train_000127.pt
+│   │       │       ├── train_000128.pt
+│   │       │       ├── train_000129.pt
+│   │       │       ├── train_000130.pt
+│   │       │       ├── train_000131.pt
+│   │       │       ├── train_000132.pt
+│   │       │       ├── train_000133.pt
+│   │       │       ├── train_000134.pt
+│   │       │       ├── train_000135.pt
+│   │       │       ├── train_000136.pt
+│   │       │       ├── train_000137.pt
+│   │       │       ├── train_000138.pt
+│   │       │       ├── train_000139.pt
+│   │       │       ├── train_000140.pt
+│   │       │       ├── train_000141.pt
+│   │       │       ├── train_000142.pt
+│   │       │       ├── train_000143.pt
+│   │       │       ├── train_000144.pt
+│   │       │       ├── train_000145.pt
+│   │       │       ├── train_000146.pt
+│   │       │       ├── train_000147.pt
+│   │       │       ├── train_000148.pt
+│   │       │       ├── train_000149.pt
+│   │       │       ├── train_000150.pt
+│   │       │       ├── train_000151.pt
+│   │       │       ├── train_000152.pt
+│   │       │       ├── train_000153.pt
+│   │       │       ├── train_000154.pt
+│   │       │       ├── train_000155.pt
+│   │       │       ├── train_000156.pt
+│   │       │       ├── train_000157.pt
+│   │       │       ├── train_000158.pt
+│   │       │       ├── train_000159.pt
+│   │       │       ├── train_000160.pt
+│   │       │       ├── train_000161.pt
+│   │       │       ├── train_000162.pt
+│   │       │       ├── train_000163.pt
+│   │       │       ├── train_000164.pt
+│   │       │       ├── train_000165.pt
+│   │       │       ├── train_000166.pt
+│   │       │       ├── train_000167.pt
+│   │       │       ├── train_000168.pt
+│   │       │       ├── train_000169.pt
+│   │       │       ├── train_000170.pt
+│   │       │       ├── train_000171.pt
+│   │       │       ├── train_000172.pt
+│   │       │       ├── train_000173.pt
+│   │       │       ├── train_000174.pt
+│   │       │       ├── train_000175.pt
+│   │       │       ├── train_000176.pt
+│   │       │       ├── train_000177.pt
+│   │       │       ├── train_000178.pt
+│   │       │       ├── train_000179.pt
+│   │       │       ├── train_000180.pt
+│   │       │       ├── train_000181.pt
+│   │       │       ├── train_000182.pt
+│   │       │       ├── train_000183.pt
+│   │       │       ├── train_000184.pt
+│   │       │       ├── train_000185.pt
+│   │       │       ├── train_000186.pt
+│   │       │       ├── train_000187.pt
+│   │       │       ├── train_000188.pt
+│   │       │       ├── train_000189.pt
+│   │       │       ├── train_000190.pt
+│   │       │       ├── train_000191.pt
+│   │       │       ├── train_000192.pt
+│   │       │       ├── train_000193.pt
+│   │       │       ├── train_000194.pt
+│   │       │       ├── train_000195.pt
+│   │       │       ├── train_000196.pt
+│   │       │       ├── train_000197.pt
+│   │       │       ├── train_000198.pt
+│   │       │       ├── train_000199.pt
+│   │       │       ├── train_000200.pt
+│   │       │       ├── train_000201.pt
+│   │       │       ├── train_000202.pt
+│   │       │       ├── train_000203.pt
+│   │       │       ├── train_000204.pt
+│   │       │       ├── train_000205.pt
+│   │       │       ├── train_000206.pt
+│   │       │       ├── train_000207.pt
+│   │       │       ├── train_000208.pt
+│   │       │       ├── train_000209.pt
+│   │       │       ├── train_000210.pt
+│   │       │       ├── train_000211.pt
+│   │       │       ├── train_000212.pt
+│   │       │       ├── train_000213.pt
+│   │       │       ├── train_000214.pt
+│   │       │       ├── train_000215.pt
+│   │       │       ├── train_000216.pt
+│   │       │       ├── train_000217.pt
+│   │       │       ├── train_000218.pt
+│   │       │       ├── train_000219.pt
+│   │       │       ├── train_000220.pt
+│   │       │       ├── train_000221.pt
+│   │       │       ├── train_000222.pt
+│   │       │       ├── train_000223.pt
+│   │       │       ├── train_000224.pt
+│   │       │       ├── train_000225.pt
+│   │       │       ├── train_000226.pt
+│   │       │       ├── train_000227.pt
+│   │       │       ├── train_000228.pt
+│   │       │       ├── train_000229.pt
+│   │       │       ├── train_000230.pt
+│   │       │       ├── train_000231.pt
+│   │       │       ├── train_000232.pt
+│   │       │       ├── train_000233.pt
+│   │       │       ├── train_000234.pt
+│   │       │       ├── train_000235.pt
+│   │       │       ├── train_000236.pt
+│   │       │       ├── train_000237.pt
+│   │       │       ├── train_000238.pt
+│   │       │       ├── train_000239.pt
+│   │       │       ├── train_000240.pt
+│   │       │       ├── train_000241.pt
+│   │       │       ├── train_000242.pt
+│   │       │       ├── train_000243.pt
+│   │       │       ├── train_000244.pt
+│   │       │       ├── train_000245.pt
+│   │       │       ├── train_000246.pt
+│   │       │       ├── train_000247.pt
+│   │       │       ├── train_000248.pt
+│   │       │       ├── train_000249.pt
+│   │       │       ├── train_000250.pt
+│   │       │       ├── train_000251.pt
+│   │       │       ├── train_000252.pt
+│   │       │       ├── train_000253.pt
+│   │       │       ├── train_000254.pt
+│   │       │       ├── train_000255.pt
+│   │       │       ├── train_000256.pt
+│   │       │       ├── train_000257.pt
+│   │       │       ├── train_000258.pt
+│   │       │       ├── train_000259.pt
+│   │       │       ├── train_000260.pt
+│   │       │       ├── train_000261.pt
+│   │       │       ├── train_000262.pt
+│   │       │       ├── train_000263.pt
+│   │       │       ├── train_000264.pt
+│   │       │       ├── train_000265.pt
+│   │       │       ├── train_000266.pt
+│   │       │       ├── train_000267.pt
+│   │       │       ├── train_000268.pt
+│   │       │       ├── train_000269.pt
+│   │       │       ├── train_000270.pt
+│   │       │       ├── train_000271.pt
+│   │       │       ├── train_000272.pt
+│   │       │       ├── train_000273.pt
+│   │       │       ├── train_000274.pt
+│   │       │       ├── train_000275.pt
+│   │       │       ├── train_000276.pt
+│   │       │       ├── train_000277.pt
+│   │       │       ├── train_000278.pt
+│   │       │       ├── train_000279.pt
+│   │       │       ├── train_000280.pt
+│   │       │       ├── train_000281.pt
+│   │       │       ├── train_000282.pt
+│   │       │       ├── train_000283.pt
+│   │       │       ├── train_000284.pt
+│   │       │       ├── train_000285.pt
+│   │       │       ├── train_000286.pt
+│   │       │       ├── train_000287.pt
+│   │       │       ├── train_000288.pt
+│   │       │       ├── train_000289.pt
+│   │       │       ├── train_000290.pt
+│   │       │       ├── train_000291.pt
+│   │       │       ├── train_000292.pt
+│   │       │       ├── train_000293.pt
+│   │       │       ├── train_000294.pt
+│   │       │       ├── train_000295.pt
+│   │       │       ├── train_000296.pt
+│   │       │       ├── train_000297.pt
+│   │       │       ├── train_000298.pt
+│   │       │       ├── train_000299.pt
+│   │       │       ├── train_000300.pt
+│   │       │       ├── train_000301.pt
+│   │       │       ├── train_000302.pt
+│   │       │       ├── train_000303.pt
+│   │       │       ├── train_000304.pt
+│   │       │       ├── train_000305.pt
+│   │       │       ├── train_000306.pt
+│   │       │       ├── train_000307.pt
+│   │       │       ├── train_000308.pt
+│   │       │       ├── train_000309.pt
+│   │       │       ├── train_000310.pt
+│   │       │       ├── train_000311.pt
+│   │       │       ├── train_000312.pt
+│   │       │       ├── train_000313.pt
+│   │       │       ├── train_000314.pt
+│   │       │       ├── train_000315.pt
+│   │       │       ├── train_000316.pt
+│   │       │       ├── train_000317.pt
+│   │       │       ├── train_000318.pt
+│   │       │       ├── train_000319.pt
+│   │       │       ├── train_000320.pt
+│   │       │       ├── train_000321.pt
+│   │       │       ├── train_000322.pt
+│   │       │       ├── train_000323.pt
+│   │       │       ├── train_000324.pt
+│   │       │       ├── train_000325.pt
+│   │       │       ├── train_000326.pt
+│   │       │       ├── train_000327.pt
+│   │       │       ├── train_000328.pt
+│   │       │       ├── train_000329.pt
+│   │       │       ├── train_000330.pt
+│   │       │       ├── train_000331.pt
+│   │       │       ├── train_000332.pt
+│   │       │       ├── train_000333.pt
+│   │       │       ├── train_000334.pt
+│   │       │       ├── train_000335.pt
+│   │       │       ├── train_000336.pt
+│   │       │       ├── train_000337.pt
+│   │       │       ├── train_000338.pt
+│   │       │       ├── train_000339.pt
+│   │       │       ├── train_000340.pt
+│   │       │       ├── train_000341.pt
+│   │       │       ├── train_000342.pt
+│   │       │       ├── train_000343.pt
+│   │       │       ├── train_000344.pt
+│   │       │       ├── train_000345.pt
+│   │       │       ├── train_000346.pt
+│   │       │       ├── train_000347.pt
+│   │       │       ├── train_000348.pt
+│   │       │       ├── train_000349.pt
+│   │       │       ├── train_000350.pt
+│   │       │       ├── train_000351.pt
+│   │       │       ├── train_000352.pt
+│   │       │       ├── train_000353.pt
+│   │       │       ├── train_000354.pt
+│   │       │       ├── train_000355.pt
+│   │       │       ├── train_000356.pt
+│   │       │       ├── train_000357.pt
+│   │       │       ├── train_000358.pt
+│   │       │       ├── train_000359.pt
+│   │       │       ├── train_000360.pt
+│   │       │       ├── train_000361.pt
+│   │       │       ├── train_000362.pt
+│   │       │       ├── train_000363.pt
+│   │       │       ├── train_000364.pt
+│   │       │       ├── train_000365.pt
+│   │       │       ├── train_000366.pt
+│   │       │       ├── train_000367.pt
+│   │       │       ├── train_000368.pt
+│   │       │       ├── train_000369.pt
+│   │       │       ├── train_000370.pt
+│   │       │       ├── train_000371.pt
+│   │       │       ├── train_000372.pt
+│   │       │       ├── train_000373.pt
+│   │       │       ├── train_000374.pt
+│   │       │       ├── train_000375.pt
+│   │       │       ├── train_000376.pt
+│   │       │       ├── train_000377.pt
+│   │       │       ├── train_000378.pt
+│   │       │       ├── train_000379.pt
+│   │       │       ├── train_000380.pt
+│   │       │       ├── train_000381.pt
+│   │       │       ├── train_000382.pt
+│   │       │       ├── train_000383.pt
+│   │       │       ├── train_000384.pt
+│   │       │       ├── train_000385.pt
+│   │       │       ├── train_000386.pt
+│   │       │       ├── train_000387.pt
+│   │       │       ├── train_000388.pt
+│   │       │       ├── train_000389.pt
+│   │       │       ├── train_000390.pt
+│   │       │       ├── train_000391.pt
+│   │       │       ├── train_000392.pt
+│   │       │       ├── train_000393.pt
+│   │       │       ├── train_000394.pt
+│   │       │       ├── train_000395.pt
+│   │       │       ├── train_000396.pt
+│   │       │       ├── train_000397.pt
+│   │       │       ├── train_000398.pt
+│   │       │       ├── train_000399.pt
+│   │       │       ├── train_000400.pt
+│   │       │       ├── train_000401.pt
+│   │       │       ├── train_000402.pt
+│   │       │       ├── train_000403.pt
+│   │       │       ├── train_000404.pt
+│   │       │       ├── train_000405.pt
+│   │       │       ├── train_000406.pt
+│   │       │       ├── train_000407.pt
+│   │       │       ├── train_000408.pt
+│   │       │       ├── train_000409.pt
+│   │       │       ├── train_000410.pt
+│   │       │       ├── train_000411.pt
+│   │       │       ├── train_000412.pt
+│   │       │       ├── train_000413.pt
+│   │       │       ├── train_000414.pt
+│   │       │       ├── train_000415.pt
+│   │       │       ├── train_000416.pt
+│   │       │       ├── train_000417.pt
+│   │       │       ├── train_000418.pt
+│   │       │       ├── train_000419.pt
+│   │       │       ├── train_000420.pt
+│   │       │       ├── train_000421.pt
+│   │       │       ├── train_000422.pt
+│   │       │       ├── train_000423.pt
+│   │       │       ├── train_000424.pt
+│   │       │       ├── train_000425.pt
+│   │       │       ├── train_000426.pt
+│   │       │       ├── train_000427.pt
+│   │       │       ├── train_000428.pt
+│   │       │       ├── train_000429.pt
+│   │       │       ├── train_000430.pt
+│   │       │       ├── train_000431.pt
+│   │       │       ├── train_000432.pt
+│   │       │       ├── train_000433.pt
+│   │       │       ├── train_000434.pt
+│   │       │       ├── train_000435.pt
+│   │       │       ├── train_000436.pt
+│   │       │       ├── train_000437.pt
+│   │       │       ├── train_000438.pt
+│   │       │       ├── train_000439.pt
+│   │       │       ├── train_000440.pt
+│   │       │       ├── train_000441.pt
+│   │       │       ├── train_000442.pt
+│   │       │       ├── train_000443.pt
+│   │       │       ├── train_000444.pt
+│   │       │       ├── train_000445.pt
+│   │       │       ├── train_000446.pt
+│   │       │       ├── train_000447.pt
+│   │       │       ├── train_000448.pt
+│   │       │       ├── train_000449.pt
+│   │       │       ├── train_000450.pt
+│   │       │       ├── train_000451.pt
+│   │       │       ├── train_000452.pt
+│   │       │       ├── train_000453.pt
+│   │       │       ├── train_000454.pt
+│   │       │       ├── train_000455.pt
+│   │       │       ├── train_000456.pt
+│   │       │       ├── train_000457.pt
+│   │       │       ├── train_000458.pt
+│   │       │       ├── train_000459.pt
+│   │       │       ├── train_000460.pt
+│   │       │       ├── train_000461.pt
+│   │       │       ├── train_000462.pt
+│   │       │       ├── train_000463.pt
+│   │       │       ├── train_000464.pt
+│   │       │       ├── train_000465.pt
+│   │       │       ├── train_000466.pt
+│   │       │       ├── train_000467.pt
+│   │       │       ├── train_000468.pt
+│   │       │       ├── train_000469.pt
+│   │       │       ├── train_000470.pt
+│   │       │       ├── train_000471.pt
+│   │       │       ├── train_000472.pt
+│   │       │       ├── train_000473.pt
+│   │       │       ├── train_000474.pt
+│   │       │       ├── train_000475.pt
+│   │       │       ├── train_000476.pt
+│   │       │       ├── train_000477.pt
+│   │       │       ├── train_000478.pt
+│   │       │       ├── train_000479.pt
+│   │       │       ├── train_000480.pt
+│   │       │       ├── train_000481.pt
+│   │       │       ├── train_000482.pt
+│   │       │       ├── train_000483.pt
+│   │       │       ├── train_000484.pt
+│   │       │       ├── train_000485.pt
+│   │       │       ├── train_000486.pt
+│   │       │       ├── train_000487.pt
+│   │       │       ├── train_000488.pt
+│   │       │       ├── train_000489.pt
+│   │       │       ├── train_000490.pt
+│   │       │       ├── train_000491.pt
+│   │       │       ├── train_000492.pt
+│   │       │       ├── train_000493.pt
+│   │       │       ├── train_000494.pt
+│   │       │       ├── train_000495.pt
+│   │       │       ├── train_000496.pt
+│   │       │       ├── train_000497.pt
+│   │       │       ├── train_000498.pt
+│   │       │       ├── train_000499.pt
+│   │       │       ├── train_000500.pt
+│   │       │       ├── train_000501.pt
+│   │       │       ├── train_000502.pt
+│   │       │       ├── train_000503.pt
+│   │       │       ├── train_000504.pt
+│   │       │       ├── train_000505.pt
+│   │       │       ├── train_000506.pt
+│   │       │       ├── train_000507.pt
+│   │       │       ├── train_000508.pt
+│   │       │       ├── train_000509.pt
+│   │       │       ├── train_000510.pt
+│   │       │       ├── train_000511.pt
+│   │       │       ├── train_000512.pt
+│   │       │       ├── train_000513.pt
+│   │       │       ├── train_000514.pt
+│   │       │       ├── train_000515.pt
+│   │       │       ├── train_000516.pt
+│   │       │       ├── train_000517.pt
+│   │       │       ├── train_000518.pt
+│   │       │       ├── train_000519.pt
+│   │       │       ├── train_000520.pt
+│   │       │       ├── train_000521.pt
+│   │       │       ├── train_000522.pt
+│   │       │       ├── train_000523.pt
+│   │       │       ├── train_000524.pt
+│   │       │       ├── train_000525.pt
+│   │       │       ├── train_000526.pt
+│   │       │       ├── train_000527.pt
+│   │       │       ├── train_000528.pt
+│   │       │       ├── train_000529.pt
+│   │       │       ├── train_000530.pt
+│   │       │       ├── train_000531.pt
+│   │       │       ├── train_000532.pt
+│   │       │       ├── train_000533.pt
+│   │       │       ├── train_000534.pt
+│   │       │       ├── train_000535.pt
+│   │       │       ├── train_000536.pt
+│   │       │       ├── train_000537.pt
+│   │       │       ├── train_000538.pt
+│   │       │       ├── train_000539.pt
+│   │       │       ├── train_000540.pt
+│   │       │       ├── train_000541.pt
+│   │       │       ├── train_000542.pt
+│   │       │       ├── train_000543.pt
+│   │       │       ├── train_000544.pt
+│   │       │       ├── train_000545.pt
+│   │       │       ├── train_000546.pt
+│   │       │       ├── train_000547.pt
+│   │       │       ├── train_000548.pt
+│   │       │       ├── train_000549.pt
+│   │       │       ├── train_000550.pt
+│   │       │       ├── train_000551.pt
+│   │       │       ├── train_000552.pt
+│   │       │       ├── train_000553.pt
+│   │       │       ├── train_000554.pt
+│   │       │       ├── train_000555.pt
+│   │       │       ├── train_000556.pt
+│   │       │       ├── train_000557.pt
+│   │       │       ├── train_000558.pt
+│   │       │       ├── train_000559.pt
+│   │       │       ├── train_000560.pt
+│   │       │       ├── train_000561.pt
+│   │       │       ├── train_000562.pt
+│   │       │       ├── train_000563.pt
+│   │       │       ├── train_000564.pt
+│   │       │       ├── train_000565.pt
+│   │       │       ├── train_000566.pt
+│   │       │       ├── train_000567.pt
+│   │       │       ├── train_000568.pt
+│   │       │       ├── train_000569.pt
+│   │       │       ├── train_000570.pt
+│   │       │       ├── train_000571.pt
+│   │       │       ├── train_000572.pt
+│   │       │       ├── train_000573.pt
+│   │       │       ├── train_000574.pt
+│   │       │       ├── train_000575.pt
+│   │       │       ├── train_000576.pt
+│   │       │       ├── train_000577.pt
+│   │       │       ├── train_000578.pt
+│   │       │       ├── train_000579.pt
+│   │       │       ├── train_000580.pt
+│   │       │       ├── train_000581.pt
+│   │       │       ├── train_000582.pt
+│   │       │       ├── train_000583.pt
+│   │       │       ├── train_000584.pt
+│   │       │       ├── train_000585.pt
+│   │       │       ├── train_000586.pt
+│   │       │       ├── train_000587.pt
+│   │       │       ├── train_000588.pt
+│   │       │       ├── train_000589.pt
+│   │       │       ├── train_000590.pt
+│   │       │       ├── train_000591.pt
+│   │       │       ├── train_000592.pt
+│   │       │       ├── train_000593.pt
+│   │       │       ├── train_000594.pt
+│   │       │       ├── train_000595.pt
+│   │       │       ├── train_000596.pt
+│   │       │       ├── train_000597.pt
+│   │       │       ├── train_000598.pt
+│   │       │       ├── train_000599.pt
+│   │       │       ├── train_000600.pt
+│   │       │       ├── train_000601.pt
+│   │       │       ├── train_000602.pt
+│   │       │       ├── train_000603.pt
+│   │       │       ├── train_000604.pt
+│   │       │       ├── train_000605.pt
+│   │       │       ├── train_000606.pt
+│   │       │       ├── train_000607.pt
+│   │       │       ├── train_000608.pt
+│   │       │       ├── train_000609.pt
+│   │       │       ├── train_000610.pt
+│   │       │       ├── train_000611.pt
+│   │       │       ├── train_000612.pt
+│   │       │       ├── train_000613.pt
+│   │       │       ├── train_000614.pt
+│   │       │       ├── train_000615.pt
+│   │       │       ├── train_000616.pt
+│   │       │       ├── train_000617.pt
+│   │       │       ├── train_000618.pt
+│   │       │       ├── train_000619.pt
+│   │       │       ├── train_000620.pt
+│   │       │       ├── train_000621.pt
+│   │       │       ├── train_000622.pt
+│   │       │       ├── train_000623.pt
+│   │       │       ├── train_000624.pt
+│   │       │       ├── train_000625.pt
+│   │       │       ├── train_000626.pt
+│   │       │       ├── train_000627.pt
+│   │       │       ├── train_000628.pt
+│   │       │       ├── train_000629.pt
+│   │       │       ├── train_000630.pt
+│   │       │       ├── train_000631.pt
+│   │       │       ├── train_000632.pt
+│   │       │       ├── train_000633.pt
+│   │       │       ├── train_000634.pt
+│   │       │       ├── train_000635.pt
+│   │       │       ├── train_000636.pt
+│   │       │       ├── train_000637.pt
+│   │       │       ├── train_000638.pt
+│   │       │       ├── train_000639.pt
+│   │       │       ├── train_000640.pt
+│   │       │       ├── train_000641.pt
+│   │       │       ├── train_000642.pt
+│   │       │       ├── train_000643.pt
+│   │       │       ├── train_000644.pt
+│   │       │       ├── train_000645.pt
+│   │       │       ├── train_000646.pt
+│   │       │       ├── train_000647.pt
+│   │       │       ├── train_000648.pt
+│   │       │       ├── train_000649.pt
+│   │       │       ├── train_000650.pt
+│   │       │       ├── train_000651.pt
+│   │       │       ├── train_000652.pt
+│   │       │       ├── train_000653.pt
+│   │       │       ├── train_000654.pt
+│   │       │       ├── train_000655.pt
+│   │       │       ├── train_000656.pt
+│   │       │       ├── train_000657.pt
+│   │       │       ├── train_000658.pt
+│   │       │       ├── train_000659.pt
+│   │       │       ├── train_000660.pt
+│   │       │       ├── train_000661.pt
+│   │       │       ├── train_000662.pt
+│   │       │       ├── train_000663.pt
+│   │       │       ├── train_000664.pt
+│   │       │       ├── train_000665.pt
+│   │       │       ├── train_000666.pt
+│   │       │       ├── train_000667.pt
+│   │       │       ├── train_000668.pt
+│   │       │       ├── train_000669.pt
+│   │       │       ├── train_000670.pt
+│   │       │       ├── train_000671.pt
+│   │       │       ├── train_000672.pt
+│   │       │       ├── train_000673.pt
+│   │       │       ├── train_000674.pt
+│   │       │       ├── train_000675.pt
+│   │       │       ├── train_000676.pt
+│   │       │       ├── train_000677.pt
+│   │       │       ├── train_000678.pt
+│   │       │       ├── train_000679.pt
+│   │       │       ├── train_000680.pt
+│   │       │       ├── train_000681.pt
+│   │       │       ├── train_000682.pt
+│   │       │       ├── train_000683.pt
+│   │       │       ├── train_000684.pt
+│   │       │       ├── train_000685.pt
+│   │       │       ├── train_000686.pt
+│   │       │       ├── train_000687.pt
+│   │       │       ├── train_000688.pt
+│   │       │       ├── train_000689.pt
+│   │       │       ├── train_000690.pt
+│   │       │       ├── train_000691.pt
+│   │       │       ├── train_000692.pt
+│   │       │       ├── train_000693.pt
+│   │       │       ├── train_000694.pt
+│   │       │       ├── train_000695.pt
+│   │       │       ├── train_000696.pt
+│   │       │       ├── train_000697.pt
+│   │       │       ├── train_000698.pt
+│   │       │       ├── train_000699.pt
+│   │       │       ├── train_000700.pt
+│   │       │       ├── train_000701.pt
+│   │       │       ├── train_000702.pt
+│   │       │       ├── train_000703.pt
+│   │       │       ├── train_000704.pt
+│   │       │       ├── train_000705.pt
+│   │       │       ├── train_000706.pt
+│   │       │       ├── train_000707.pt
+│   │       │       ├── train_000708.pt
+│   │       │       ├── train_000709.pt
+│   │       │       ├── train_000710.pt
+│   │       │       ├── train_000711.pt
+│   │       │       ├── train_000712.pt
+│   │       │       ├── train_000713.pt
+│   │       │       ├── train_000714.pt
+│   │       │       ├── train_000715.pt
+│   │       │       ├── train_000716.pt
+│   │       │       ├── train_000717.pt
+│   │       │       ├── train_000718.pt
+│   │       │       ├── train_000719.pt
+│   │       │       ├── train_000720.pt
+│   │       │       ├── train_000721.pt
+│   │       │       ├── train_000722.pt
+│   │       │       ├── train_000723.pt
+│   │       │       ├── train_000724.pt
+│   │       │       ├── train_000725.pt
+│   │       │       ├── train_000726.pt
+│   │       │       ├── train_000727.pt
+│   │       │       ├── train_000728.pt
+│   │       │       ├── train_000729.pt
+│   │       │       ├── train_000730.pt
+│   │       │       ├── train_000731.pt
+│   │       │       ├── train_000732.pt
+│   │       │       ├── train_000733.pt
+│   │       │       ├── train_000734.pt
+│   │       │       ├── train_000735.pt
+│   │       │       ├── train_000736.pt
+│   │       │       ├── train_000737.pt
+│   │       │       ├── train_000738.pt
+│   │       │       ├── train_000739.pt
+│   │       │       ├── train_000740.pt
+│   │       │       ├── train_000741.pt
+│   │       │       ├── train_000742.pt
+│   │       │       ├── train_000743.pt
+│   │       │       ├── train_000744.pt
+│   │       │       ├── train_000745.pt
+│   │       │       ├── train_000746.pt
+│   │       │       ├── train_000747.pt
+│   │       │       ├── train_000748.pt
+│   │       │       ├── train_000749.pt
+│   │       │       ├── train_000750.pt
+│   │       │       ├── train_000751.pt
+│   │       │       ├── train_000752.pt
+│   │       │       ├── train_000753.pt
+│   │       │       ├── train_000754.pt
+│   │       │       ├── train_000755.pt
+│   │       │       ├── train_000756.pt
+│   │       │       ├── train_000757.pt
+│   │       │       ├── train_000758.pt
+│   │       │       ├── train_000759.pt
+│   │       │       ├── train_000760.pt
+│   │       │       ├── train_000761.pt
+│   │       │       ├── train_000762.pt
+│   │       │       ├── train_000763.pt
+│   │       │       ├── train_000764.pt
+│   │       │       ├── train_000765.pt
+│   │       │       ├── train_000766.pt
+│   │       │       ├── train_000767.pt
+│   │       │       ├── train_000768.pt
+│   │       │       ├── train_000769.pt
+│   │       │       ├── train_000770.pt
+│   │       │       ├── train_000771.pt
+│   │       │       ├── train_000772.pt
+│   │       │       ├── train_000773.pt
+│   │       │       ├── train_000774.pt
+│   │       │       ├── train_000775.pt
+│   │       │       ├── train_000776.pt
+│   │       │       ├── train_000777.pt
+│   │       │       ├── train_000778.pt
+│   │       │       ├── train_000779.pt
+│   │       │       ├── train_000780.pt
+│   │       │       ├── train_000781.pt
+│   │       │       ├── train_000782.pt
+│   │       │       ├── train_000783.pt
+│   │       │       ├── train_000784.pt
+│   │       │       ├── train_000785.pt
+│   │       │       ├── train_000786.pt
+│   │       │       ├── train_000787.pt
+│   │       │       ├── train_000788.pt
+│   │       │       ├── train_000789.pt
+│   │       │       ├── train_000790.pt
+│   │       │       ├── train_000791.pt
+│   │       │       ├── train_000792.pt
+│   │       │       ├── train_000793.pt
+│   │       │       ├── train_000794.pt
+│   │       │       ├── train_000795.pt
+│   │       │       ├── train_000796.pt
+│   │       │       ├── train_000797.pt
+│   │       │       ├── train_000798.pt
+│   │       │       ├── train_000799.pt
+│   │       │       ├── train_000800.pt
+│   │       │       ├── train_000801.pt
+│   │       │       ├── train_000802.pt
+│   │       │       ├── train_000803.pt
+│   │       │       ├── train_000804.pt
+│   │       │       ├── train_000805.pt
+│   │       │       ├── train_000806.pt
+│   │       │       ├── train_000807.pt
+│   │       │       ├── train_000808.pt
+│   │       │       ├── train_000809.pt
+│   │       │       ├── train_000810.pt
+│   │       │       ├── train_000811.pt
+│   │       │       ├── train_000812.pt
+│   │       │       ├── train_000813.pt
+│   │       │       ├── train_000814.pt
+│   │       │       ├── train_000815.pt
+│   │       │       ├── train_000816.pt
+│   │       │       ├── train_000817.pt
+│   │       │       ├── train_000818.pt
+│   │       │       ├── train_000819.pt
+│   │       │       ├── train_000820.pt
+│   │       │       ├── train_000821.pt
+│   │       │       ├── train_000822.pt
+│   │       │       ├── train_000823.pt
+│   │       │       ├── train_000824.pt
+│   │       │       ├── train_000825.pt
+│   │       │       ├── train_000826.pt
+│   │       │       ├── train_000827.pt
+│   │       │       ├── train_000828.pt
+│   │       │       ├── train_000829.pt
+│   │       │       ├── train_000830.pt
+│   │       │       ├── train_000831.pt
+│   │       │       ├── train_000832.pt
+│   │       │       ├── train_000833.pt
+│   │       │       ├── train_000834.pt
+│   │       │       ├── train_000835.pt
+│   │       │       ├── train_000836.pt
+│   │       │       ├── train_000837.pt
+│   │       │       ├── train_000838.pt
+│   │       │       ├── train_000839.pt
+│   │       │       ├── train_000840.pt
+│   │       │       ├── train_000841.pt
+│   │       │       ├── train_000842.pt
+│   │       │       ├── train_000843.pt
+│   │       │       ├── train_000844.pt
+│   │       │       ├── train_000845.pt
+│   │       │       ├── train_000846.pt
+│   │       │       ├── train_000847.pt
+│   │       │       ├── train_000848.pt
+│   │       │       ├── train_000849.pt
+│   │       │       ├── train_000850.pt
+│   │       │       ├── train_000851.pt
+│   │       │       ├── train_000852.pt
+│   │       │       ├── train_000853.pt
+│   │       │       ├── train_000854.pt
+│   │       │       ├── train_000855.pt
+│   │       │       ├── train_000856.pt
+│   │       │       ├── train_000857.pt
+│   │       │       ├── train_000858.pt
+│   │       │       ├── train_000859.pt
+│   │       │       ├── train_000860.pt
+│   │       │       ├── train_000861.pt
+│   │       │       ├── train_000862.pt
+│   │       │       ├── train_000863.pt
+│   │       │       ├── train_000864.pt
+│   │       │       ├── train_000865.pt
+│   │       │       ├── train_000866.pt
+│   │       │       ├── train_000867.pt
+│   │       │       ├── train_000868.pt
+│   │       │       ├── train_000869.pt
+│   │       │       ├── train_000870.pt
+│   │       │       ├── train_000871.pt
+│   │       │       ├── train_000872.pt
+│   │       │       ├── train_000873.pt
+│   │       │       ├── train_000874.pt
+│   │       │       ├── train_000875.pt
+│   │       │       ├── train_000876.pt
+│   │       │       ├── train_000877.pt
+│   │       │       ├── train_000878.pt
+│   │       │       ├── train_000879.pt
+│   │       │       ├── train_000880.pt
+│   │       │       ├── train_000881.pt
+│   │       │       ├── train_000882.pt
+│   │       │       ├── train_000883.pt
+│   │       │       ├── train_000884.pt
+│   │       │       ├── train_000885.pt
+│   │       │       ├── train_000886.pt
+│   │       │       ├── train_000887.pt
+│   │       │       ├── train_000888.pt
+│   │       │       ├── train_000889.pt
+│   │       │       ├── train_000890.pt
+│   │       │       ├── train_000891.pt
+│   │       │       ├── train_000892.pt
+│   │       │       ├── train_000893.pt
+│   │       │       ├── train_000894.pt
+│   │       │       ├── train_000895.pt
+│   │       │       ├── train_000896.pt
+│   │       │       ├── train_000897.pt
+│   │       │       ├── train_000898.pt
+│   │       │       ├── train_000899.pt
+│   │       │       ├── train_000900.pt
+│   │       │       ├── train_000901.pt
+│   │       │       ├── train_000902.pt
+│   │       │       ├── train_000903.pt
+│   │       │       ├── train_000904.pt
+│   │       │       ├── train_000905.pt
+│   │       │       ├── train_000906.pt
+│   │       │       ├── train_000907.pt
+│   │       │       ├── train_000908.pt
+│   │       │       ├── train_000909.pt
+│   │       │       ├── train_000910.pt
+│   │       │       ├── train_000911.pt
+│   │       │       ├── train_000912.pt
+│   │       │       ├── train_000913.pt
+│   │       │       ├── train_000914.pt
+│   │       │       ├── train_000915.pt
+│   │       │       ├── train_000916.pt
+│   │       │       ├── train_000917.pt
+│   │       │       ├── train_000918.pt
+│   │       │       ├── train_000919.pt
+│   │       │       ├── train_000920.pt
+│   │       │       ├── train_000921.pt
+│   │       │       ├── train_000922.pt
+│   │       │       ├── train_000923.pt
+│   │       │       ├── train_000924.pt
+│   │       │       ├── train_000925.pt
+│   │       │       ├── train_000926.pt
+│   │       │       ├── train_000927.pt
+│   │       │       ├── train_000928.pt
+│   │       │       ├── train_000929.pt
+│   │       │       ├── train_000930.pt
+│   │       │       ├── train_000931.pt
+│   │       │       ├── train_000932.pt
+│   │       │       ├── train_000933.pt
+│   │       │       ├── train_000934.pt
+│   │       │       ├── train_000935.pt
+│   │       │       ├── train_000936.pt
+│   │       │       ├── train_000937.pt
+│   │       │       ├── train_000938.pt
+│   │       │       ├── train_000939.pt
+│   │       │       ├── train_000940.pt
+│   │       │       ├── train_000941.pt
+│   │       │       ├── train_000942.pt
+│   │       │       ├── train_000943.pt
+│   │       │       ├── train_000944.pt
+│   │       │       ├── train_000945.pt
+│   │       │       ├── train_000946.pt
+│   │       │       ├── train_000947.pt
+│   │       │       ├── train_000948.pt
+│   │       │       ├── train_000949.pt
+│   │       │       ├── train_000950.pt
+│   │       │       ├── train_000951.pt
+│   │       │       ├── train_000952.pt
+│   │       │       ├── train_000953.pt
+│   │       │       ├── train_000954.pt
+│   │       │       ├── train_000955.pt
+│   │       │       ├── train_000956.pt
+│   │       │       ├── train_000957.pt
+│   │       │       ├── train_000958.pt
+│   │       │       ├── train_000959.pt
+│   │       │       ├── train_000960.pt
+│   │       │       ├── train_000961.pt
+│   │       │       ├── train_000962.pt
+│   │       │       ├── train_000963.pt
+│   │       │       ├── train_000964.pt
+│   │       │       ├── train_000965.pt
+│   │       │       ├── train_000966.pt
+│   │       │       ├── train_000967.pt
+│   │       │       ├── train_000968.pt
+│   │       │       ├── train_000969.pt
+│   │       │       ├── train_000970.pt
+│   │       │       ├── train_000971.pt
+│   │       │       ├── train_000972.pt
+│   │       │       ├── train_000973.pt
+│   │       │       ├── train_000974.pt
+│   │       │       ├── train_000975.pt
+│   │       │       ├── train_000976.pt
+│   │       │       ├── train_000977.pt
+│   │       │       ├── train_000978.pt
+│   │       │       ├── train_000979.pt
+│   │       │       ├── train_000980.pt
+│   │       │       ├── train_000981.pt
+│   │       │       ├── train_000982.pt
+│   │       │       ├── train_000983.pt
+│   │       │       ├── train_000984.pt
+│   │       │       ├── train_000985.pt
+│   │       │       ├── train_000986.pt
+│   │       │       ├── train_000987.pt
+│   │       │       ├── train_000988.pt
+│   │       │       ├── train_000989.pt
+│   │       │       ├── train_000990.pt
+│   │       │       ├── train_000991.pt
+│   │       │       ├── train_000992.pt
+│   │       │       ├── train_000993.pt
+│   │       │       ├── train_000994.pt
+│   │       │       ├── train_000995.pt
+│   │       │       ├── train_000996.pt
+│   │       │       ├── train_000997.pt
+│   │       │       ├── train_000998.pt
+│   │       │       ├── train_000999.pt
+│   │       │       ├── val_000000.pt
+│   │       │       ├── val_000001.pt
+│   │       │       ├── val_000002.pt
+│   │       │       ├── val_000003.pt
+│   │       │       ├── val_000004.pt
+│   │       │       ├── val_000005.pt
+│   │       │       ├── val_000006.pt
+│   │       │       ├── val_000007.pt
+│   │       │       ├── val_000008.pt
+│   │       │       ├── val_000009.pt
+│   │       │       ├── val_000010.pt
+│   │       │       ├── val_000011.pt
+│   │       │       ├── val_000012.pt
+│   │       │       ├── val_000013.pt
+│   │       │       ├── val_000014.pt
+│   │       │       ├── val_000015.pt
+│   │       │       ├── val_000016.pt
+│   │       │       ├── val_000017.pt
+│   │       │       ├── val_000018.pt
+│   │       │       ├── val_000019.pt
+│   │       │       ├── val_000020.pt
+│   │       │       ├── val_000021.pt
+│   │       │       ├── val_000022.pt
+│   │       │       ├── val_000023.pt
+│   │       │       ├── val_000024.pt
+│   │       │       ├── val_000025.pt
+│   │       │       ├── val_000026.pt
+│   │       │       ├── val_000027.pt
+│   │       │       ├── val_000028.pt
+│   │       │       ├── val_000029.pt
+│   │       │       ├── val_000030.pt
+│   │       │       ├── val_000031.pt
+│   │       │       ├── val_000032.pt
+│   │       │       ├── val_000033.pt
+│   │       │       ├── val_000034.pt
+│   │       │       ├── val_000035.pt
+│   │       │       ├── val_000036.pt
+│   │       │       ├── val_000037.pt
+│   │       │       ├── val_000038.pt
+│   │       │       ├── val_000039.pt
+│   │       │       ├── val_000040.pt
+│   │       │       ├── val_000041.pt
+│   │       │       ├── val_000042.pt
+│   │       │       ├── val_000043.pt
+│   │       │       ├── val_000044.pt
+│   │       │       ├── val_000045.pt
+│   │       │       ├── val_000046.pt
+│   │       │       ├── val_000047.pt
+│   │       │       ├── val_000048.pt
+│   │       │       ├── val_000049.pt
+│   │       │       ├── val_000050.pt
+│   │       │       ├── val_000051.pt
+│   │       │       ├── val_000052.pt
+│   │       │       ├── val_000053.pt
+│   │       │       ├── val_000054.pt
+│   │       │       ├── val_000055.pt
+│   │       │       ├── val_000056.pt
+│   │       │       ├── val_000057.pt
+│   │       │       ├── val_000058.pt
+│   │       │       ├── val_000059.pt
+│   │       │       ├── val_000060.pt
+│   │       │       ├── val_000061.pt
+│   │       │       ├── val_000062.pt
+│   │       │       ├── val_000063.pt
+│   │       │       ├── val_000064.pt
+│   │       │       ├── val_000065.pt
+│   │       │       ├── val_000066.pt
+│   │       │       ├── val_000067.pt
+│   │       │       ├── val_000068.pt
+│   │       │       ├── val_000069.pt
+│   │       │       ├── val_000070.pt
+│   │       │       ├── val_000071.pt
+│   │       │       ├── val_000072.pt
+│   │       │       ├── val_000073.pt
+│   │       │       ├── val_000074.pt
+│   │       │       ├── val_000075.pt
+│   │       │       ├── val_000076.pt
+│   │       │       ├── val_000077.pt
+│   │       │       ├── val_000078.pt
+│   │       │       ├── val_000079.pt
+│   │       │       ├── val_000080.pt
+│   │       │       ├── val_000081.pt
+│   │       │       ├── val_000082.pt
+│   │       │       ├── val_000083.pt
+│   │       │       ├── val_000084.pt
+│   │       │       ├── val_000085.pt
+│   │       │       ├── val_000086.pt
+│   │       │       ├── val_000087.pt
+│   │       │       ├── val_000088.pt
+│   │       │       ├── val_000089.pt
+│   │       │       ├── val_000090.pt
+│   │       │       ├── val_000091.pt
+│   │       │       ├── val_000092.pt
+│   │       │       ├── val_000093.pt
+│   │       │       ├── val_000094.pt
+│   │       │       ├── val_000095.pt
+│   │       │       ├── val_000096.pt
+│   │       │       ├── val_000097.pt
+│   │       │       ├── val_000098.pt
+│   │       │       ├── val_000099.pt
+│   │       │       ├── val_000100.pt
+│   │       │       ├── val_000101.pt
+│   │       │       ├── val_000102.pt
+│   │       │       ├── val_000103.pt
+│   │       │       ├── val_000104.pt
+│   │       │       ├── val_000105.pt
+│   │       │       ├── val_000106.pt
+│   │       │       ├── val_000107.pt
+│   │       │       ├── val_000108.pt
+│   │       │       ├── val_000109.pt
+│   │       │       ├── val_000110.pt
+│   │       │       ├── val_000111.pt
+│   │       │       ├── val_000112.pt
+│   │       │       ├── val_000113.pt
+│   │       │       ├── val_000114.pt
+│   │       │       ├── val_000115.pt
+│   │       │       ├── val_000116.pt
+│   │       │       ├── val_000117.pt
+│   │       │       ├── val_000118.pt
+│   │       │       ├── val_000119.pt
+│   │       │       ├── val_000120.pt
+│   │       │       ├── val_000121.pt
+│   │       │       ├── val_000122.pt
+│   │       │       ├── val_000123.pt
+│   │       │       ├── val_000124.pt
+│   │       │       ├── val_000125.pt
+│   │       │       ├── val_000126.pt
+│   │       │       ├── val_000127.pt
+│   │       │       ├── val_000128.pt
+│   │       │       ├── val_000129.pt
+│   │       │       ├── val_000130.pt
+│   │       │       ├── val_000131.pt
+│   │       │       ├── val_000132.pt
+│   │       │       ├── val_000133.pt
+│   │       │       ├── val_000134.pt
+│   │       │       ├── val_000135.pt
+│   │       │       ├── val_000136.pt
+│   │       │       ├── val_000137.pt
+│   │       │       ├── val_000138.pt
+│   │       │       ├── val_000139.pt
+│   │       │       ├── val_000140.pt
+│   │       │       ├── val_000141.pt
+│   │       │       ├── val_000142.pt
+│   │       │       ├── val_000143.pt
+│   │       │       ├── val_000144.pt
+│   │       │       ├── val_000145.pt
+│   │       │       ├── val_000146.pt
+│   │       │       ├── val_000147.pt
+│   │       │       ├── val_000148.pt
+│   │       │       ├── val_000149.pt
+│   │       │       ├── val_000150.pt
+│   │       │       ├── val_000151.pt
+│   │       │       ├── val_000152.pt
+│   │       │       ├── val_000153.pt
+│   │       │       ├── val_000154.pt
+│   │       │       ├── val_000155.pt
+│   │       │       ├── val_000156.pt
+│   │       │       ├── val_000157.pt
+│   │       │       ├── val_000158.pt
+│   │       │       ├── val_000159.pt
+│   │       │       ├── val_000160.pt
+│   │       │       ├── val_000161.pt
+│   │       │       ├── val_000162.pt
+│   │       │       ├── val_000163.pt
+│   │       │       ├── val_000164.pt
+│   │       │       ├── val_000165.pt
+│   │       │       ├── val_000166.pt
+│   │       │       ├── val_000167.pt
+│   │       │       ├── val_000168.pt
+│   │       │       ├── val_000169.pt
+│   │       │       ├── val_000170.pt
+│   │       │       ├── val_000171.pt
+│   │       │       ├── val_000172.pt
+│   │       │       ├── val_000173.pt
+│   │       │       ├── val_000174.pt
+│   │       │       ├── val_000175.pt
+│   │       │       ├── val_000176.pt
+│   │       │       ├── val_000177.pt
+│   │       │       ├── val_000178.pt
+│   │       │       ├── val_000179.pt
+│   │       │       ├── val_000180.pt
+│   │       │       ├── val_000181.pt
+│   │       │       ├── val_000182.pt
+│   │       │       ├── val_000183.pt
+│   │       │       ├── val_000184.pt
+│   │       │       ├── val_000185.pt
+│   │       │       ├── val_000186.pt
+│   │       │       ├── val_000187.pt
+│   │       │       ├── val_000188.pt
+│   │       │       ├── val_000189.pt
+│   │       │       ├── val_000190.pt
+│   │       │       ├── val_000191.pt
+│   │       │       ├── val_000192.pt
+│   │       │       ├── val_000193.pt
+│   │       │       ├── val_000194.pt
+│   │       │       ├── val_000195.pt
+│   │       │       ├── val_000196.pt
+│   │       │       ├── val_000197.pt
+│   │       │       ├── val_000198.pt
+│   │       │       └── val_000199.pt
+│   │       ├── scripts
+│   │       │   ├── deploy_vastai.sh
+│   │       │   ├── run_tests.sh
+│   │       │   ├── setup_vastai.sh
+│   │       │   └── validate_local.py
+│   │       ├── src
+│   │       │   ├── __init__.py
+│   │       │   ├── __pycache__
+│   │       │   │   ├── benchmark.cpython-314.pyc
+│   │       │   │   └── train_pegdeform.cpython-314.pyc
+│   │       │   ├── benchmark.py
+│   │       │   ├── mesh_features.py
+│   │       │   ├── pegdeform_model.py
+│   │       │   └── train_pegdeform.py
+│   │       └── tests
+│   │           ├── __init__.py
+│   │           └── test_model.py
+│   ├── pinn-lite-foil__project-space
+│   │   ├── README.md
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   ├── docs
+│   │   │   └── ChatGPT-PINN-Lite-Foil_Research_Plan.md.txt
+│   │   └── pinn-lite-foil
+│   │       ├── README.md
+│   │       ├── docs
+│   │       │   ├── calibration_guide.md
+│   │       │   ├── hardware_setup.md
+│   │       │   └── whitepaper_template.tex
+│   │       ├── pytest.ini
+│   │       ├── requirements.txt
+│   │       ├── setup_vastai.sh
+│   │       ├── src
+│   │       │   ├── benchmarking
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── accuracy_test.py
+│   │       │   │   └── latency_benchmark.py
+│   │       │   ├── data_generation
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── hdf5_exporter.py
+│   │       │   │   ├── naca_generator.py
+│   │       │   │   └── openfoam_wrapper.py
+│   │       │   ├── deployment
+│   │       │   │   ├── __init__.py
+│   │       │   │   ├── cpp_inference
+│   │       │   │   │   ├── CMakeLists.txt
+│   │       │   │   │   └── pinn_inference.cpp
+│   │       │   │   ├── onnx_converter.py
+│   │       │   │   └── pico_firmware
+│   │       │   │       ├── CMakeLists.txt
+│   │       │   │       └── aoa_stream.c
+│   │       │   └── training
+│   │       │       ├── __init__.py
+│   │       │       ├── baseline_pinn.py
+│   │       │       └── distillation.py
+│   │       └── tests
+│   │           ├── integration_test.sh
+│   │           ├── test_inference.py
+│   │           ├── test_naca_gen.py
+│   │           └── test_pinn.py
+│   ├── surfpinn__project-space
+│   │   ├── README.md
+│   │   ├── docker
+│   │   │   ├── Dockerfile
+│   │   │   └── scripts
+│   │   ├── docker-backups
+│   │   │   ├── archived
+│   │   │   └── files
+│   │   ├── docs
+│   │   │   ├── ChatGPT-SurfPINN_Research_Framework.md.txt
+│   │   │   └── surfpinn_research_framework_scan.txt
+│   │   └── surfpinn
+│   │       ├── README.md
+│   │       ├── VASTAI_DEPLOYMENT.md
+│   │       ├── notebooks
+│   │       │   └── test_results.ipynb
+│   │       ├── requirements-cpu.txt
+│   │       ├── requirements.txt
+│   │       ├── src
+│   │       │   ├── __init__.py
+│   │       │   ├── __pycache__
+│   │       │   │   ├── data_gen.cpython-311.pyc
+│   │       │   │   ├── model.cpython-311.pyc
+│   │       │   │   └── physics.cpython-311.pyc
+│   │       │   ├── checkpoints
+│   │       │   │   ├── surfpinn_best.pkl
+│   │       │   │   └── surfpinn_epoch_10.pkl
+│   │       │   ├── data
+│   │       │   │   └── synthetic_dam_break.h5
+│   │       │   ├── data_gen.py
+│   │       │   ├── model.py
+│   │       │   ├── physics.py
+│   │       │   └── train.py
+│   │       └── tests
+│   │           ├── __init__.py
+│   │           ├── __pycache__
+│   │           │   ├── __init__.cpython-311.pyc
+│   │           │   └── test_model.cpython-311-pytest-9.0.2.pyc
+│   │           ├── integration_test.py
+│   │           └── test_model.py
+│   └── wavepinn-nif__project-space
+│       ├── README.md
+│       ├── docker
+│       │   ├── Dockerfile
+│       │   └── scripts
+│       ├── docker-backups
+│       │   ├── archived
+│       │   └── files
+│       ├── docs
+│       └── wavepinn-nif
+│           ├── PROJECT_HISTORY.md
+│           ├── README.md
+│           ├── VSCODE_AGENT_PROMPT.md
+│           ├── blender
+│           │   └── import_animation.py
+│           ├── configs
+│           │   ├── Dockerfile
+│           │   ├── environment.yml
+│           │   └── sweep.yaml
+│           ├── notebooks
+│           │   ├── inverse_demo.ipynb
+│           │   └── visualization_demo.ipynb
+│           ├── pyproject.toml
+│           ├── requirements.txt
+│           ├── src
+│           │   ├── __init__.py
+│           │   ├── data_gen.py
+│           │   ├── export_blender.py
+│           │   ├── inverse.py
+│           │   ├── model.py
+│           │   ├── train_pytorch.py
+│           │   ├── train_pytorch_v2.py
+│           │   ├── train_v2.py
+│           │   ├── training.py
+│           │   └── utils.py
+│           └── tests
+│               ├── __init__.py
+│               ├── test_data_gen.py
+│               ├── test_integration.py
+│               └── test_model.py
+├── research-docs
+│   ├── ChatGPT-Cell-Path_PINNs_Literature_Review.md.txt
+│   ├── ChatGPT-ClothGNN_Research_Package.md.txt
+│   ├── ChatGPT-ClothGeom-NIF_Research_Plan.md.txt
+│   ├── ChatGPT-CoastFlow-GNN_Research_Setup.md.txt
+│   ├── ChatGPT-GeoPINN-Manifold_Development_Guide.md.txt
+│   ├── ChatGPT-Geom-INR-Motion_Development_Plan.md.txt
+│   ├── ChatGPT-HGNN-ClothDyn_Development_Plan.md.txt
+│   ├── ChatGPT-HGNN-NIF-Cloth_Framework_Design.md.txt
+│   ├── ChatGPT-Maxwell-PINN-NIF_Research_Development.md.txt
+│   ├── ChatGPT-NIF-Cloth3D-Interactive_Pipeline.md.txt
+│   ├── ChatGPT-NIF-Cloth4D-Temporal_Package.md.txt
+│   ├── ChatGPT-NIF-Cloth4D_Research_Development.md.txt
+│   ├── ChatGPT-PEGNN-Deform_Research_Pipeline.md.txt
+│   ├── ChatGPT-PINN-Lite-Foil_Research_Plan.md.txt
+│   ├── ChatGPT-SurfPINN_Research_Framework.md.txt
+│   ├── ChatGPT-WavePINN_Research_Workflow.md.txt
+│   ├── cell_path_pinns_literature_review_scan.txt
+│   ├── clothgnn_research_package_scan.txt
+│   ├── geopinn_manifold_development_guide_summary.txt
+│   ├── geopinn_scan.txt
+│   ├── idea.txt
+│   ├── maxwell_pinn_nif_scan.txt
+│   ├── nif_cloth3d_scan.txt
+│   ├── parts1-originals
+│   │   ├── ChatGPT-Acoustic_PINNs_and_NIFs.txt
+│   │   ├── ChatGPT-Cell-Path_PINNs_Literature_Review.txt
+│   │   ├── ChatGPT-ClothGNN_Research_Package.txt
+│   │   ├── ChatGPT-ClothGeom-NIF_Research_Plan.txt
+│   │   ├── ChatGPT-CoastFlow-GNN_Research_Setup.txt
+│   │   ├── ChatGPT-GeoPINN-Manifold_Development_Guide.txt
+│   │   ├── ChatGPT-Geom-INR-Motion_Development_Plan.txt
+│   │   ├── ChatGPT-HGNN-ClothDyn_Development_Plan.txt
+│   │   ├── ChatGPT-HGNN-NIF-Cloth_Framework_Design.txt
+│   │   ├── ChatGPT-Maxwell-PINN-NIF_Research_Development.txt
+│   │   ├── ChatGPT-NIF-Cloth3D-Interactive_Pipeline.txt
+│   │   ├── ChatGPT-NIF-Cloth4D-Temporal_Package.txt
+│   │   ├── ChatGPT-NIF-Cloth4D_Research_Development.txt
+│   │   ├── ChatGPT-PEGNN-Deform_Research_Pipeline.txt
+│   │   ├── ChatGPT-PINN-Lite-Foil_Research_Plan.txt
+│   │   ├── ChatGPT-SurfPINN_Research_Framework.txt
+│   │   └── ChatGPT-WavePINN_Research_Workflow.txt
+│   ├── prompt.txt
+│   └── surfpinn_research_framework_scan.txt
+├── setup-secrets.sh
+├── tree_result.txt
+└── vastai-manage.sh
+
+332 directories, 2088 files

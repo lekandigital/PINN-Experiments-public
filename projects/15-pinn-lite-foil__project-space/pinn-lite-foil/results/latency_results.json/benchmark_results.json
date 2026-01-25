@@ -1,0 +1,76 @@
+{
+  "system_info": {
+    "platform": "Linux-6.8.0-90-generic-x86_64-with-glibc2.35",
+    "processor": "x86_64",
+    "python_version": "3.10.12",
+    "onnxruntime_version": "1.23.2"
+  },
+  "gpu_info": {
+    "name": "NVIDIA GeForce RTX 3090 Ti",
+    "memory_total_mb": 24564,
+    "memory_free_mb": 24098,
+    "power_draw_w": 20.94
+  },
+  "model_path": "models/onnx/student_compressed.onnx",
+  "n_iterations": 10000,
+  "num_threads": 1,
+  "benchmarks": [
+    {
+      "provider": "CPUExecutionProvider",
+      "batch_size": 1,
+      "mean_ms": 0.0372701499494724,
+      "std_ms": 0.012261467987144408,
+      "min_ms": 0.01744797918945551,
+      "max_ms": 0.2318519982509315,
+      "p50_ms": 0.03684600233100355,
+      "p95_ms": 0.04228724283166229,
+      "p99_ms": 0.10077404702315315,
+      "throughput_per_sec": 26831.123603090204,
+      "avg_power_w": 20.919100000000004,
+      "energy_per_inference_mj": 0.7796579938080082
+    },
+    {
+      "provider": "CPUExecutionProvider",
+      "batch_size": 4,
+      "mean_ms": 0.04021941142273135,
+      "std_ms": 0.01179835621582037,
+      "min_ms": 0.03056399873457849,
+      "max_ms": 0.18661798094399273,
+      "p50_ms": 0.03848099731840193,
+      "p95_ms": 0.04454608424566685,
+      "p99_ms": 0.08771033753874713,
+      "throughput_per_sec": 99454.46386466177,
+      "avg_power_w": 20.8937,
+      "energy_per_inference_mj": 0.840332316443122
+    },
+    {
+      "provider": "CPUExecutionProvider",
+      "batch_size": 8,
+      "mean_ms": 0.042109754838747904,
+      "std_ms": 0.01268635302445049,
+      "min_ms": 0.019964005332440138,
+      "max_ms": 0.22016899310983717,
+      "p50_ms": 0.040471000829711556,
+      "p95_ms": 0.046336154628079385,
+      "p99_ms": 0.09612837457098873,
+      "throughput_per_sec": 189979.73345213314,
+      "avg_power_w": 20.8601,
+      "energy_per_inference_mj": 0.8784136969117651
+    },
+    {
+      "provider": "CPUExecutionProvider",
+      "batch_size": 16,
+      "mean_ms": 0.045196839468553664,
+      "std_ms": 0.012866109612811155,
+      "min_ms": 0.03687600838020444,
+      "max_ms": 0.19505899399518967,
+      "p50_ms": 0.0433080131188035,
+      "p95_ms": 0.04970099980710073,
+      "p99_ms": 0.09254490491004078,
+      "throughput_per_sec": 354007.0542129882,
+      "avg_power_w": 20.873199999999997,
+      "energy_per_inference_mj": 0.9434026695950142
+    }
+  ],
+  "model_size_mb": 0.015000343322753906
+}
