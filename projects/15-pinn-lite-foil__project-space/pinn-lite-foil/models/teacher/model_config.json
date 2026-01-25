@@ -1,0 +1,6 @@
+{
+  "hidden_layers": 8,
+  "hidden_units": 128,
+  "nu": 0.001,
+  "rho": 1.0
+}

@@ -1,0 +1,3 @@
+# Vast.ai API Key
+# Get from: https://cloud.vast.ai/ → Account → API Keys
+# Paste your key (no quotes, no newlines) into .secrets/vast_api_key

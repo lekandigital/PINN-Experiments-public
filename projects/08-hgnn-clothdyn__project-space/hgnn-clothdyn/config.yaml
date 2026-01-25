@@ -1,0 +1,73 @@
+# HGNN-ClothDyn Default Configuration
+# Adjust based on available GPU memory
+
+# Model Architecture
+model:
+  hidden_dim: 128          # Hidden dimension (reduce to 64 for <24GB VRAM)
+  num_levels: 2            # Graph pyramid levels (fine + coarse)
+  num_message_passes: 3    # Message passing iterations per level
+  input_dim: 6             # pos (3) + vel (3)
+  output_dim: 3            # velocity delta
+
+# Graph Construction
+graph:
+  coarsening_ratio: 0.5    # Ratio of nodes at each coarser level
+  use_geodesic: true       # Use geodesic adjacency
+  max_neighbors: 12        # Maximum neighbors per node
+
+# Training
+training:
+  epochs: 50
+  batch_size: 1            # Sequence batch size (single sequence per batch)
+  learning_rate: 0.0001  # Lower for physics-informed network stability
+  weight_decay: 0.0001
+  gradient_clip: 1.0
+  
+  # Scheduled Sampling
+  use_scheduled_sampling: true
+  sampling_start_epoch: 5
+  sampling_initial_prob: 0.1
+  sampling_increment: 0.05  # Per epoch increase
+  
+  # Mixed Precision - DISABLED by default for numerical stability on consumer GPUs
+  use_amp: false
+  
+  # Checkpointing
+  checkpoint_interval: 10
+  save_best: true
+
+# Loss Weights
+loss:
+  position_weight: 1.0
+  velocity_weight: 0.1
+  edge_length_weight: 0.01
+
+# Data
+data:
+  sequence_length: 100     # Frames per sequence
+  train_split: 0.8
+  val_split: 0.1
+  test_split: 0.1
+
+# Synthetic Data Generation
+synthetic:
+  mesh_size: 20            # NxN grid
+  num_frames: 100
+  dt: 0.01                 # Time step
+  gravity: -9.81
+  ground_height: -1.0
+  damping: 0.99
+
+# Benchmark
+benchmark:
+  rollout_frames: 50
+  num_warmup_iters: 10
+  num_timing_iters: 100
+
+# Logging
+logging:
+  log_interval: 10         # Steps between logs
+  use_tensorboard: false
+  
+# Reproducibility
+seed: 42

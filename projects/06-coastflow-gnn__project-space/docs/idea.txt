@@ -1,0 +1,9 @@
+CFD
+CoastFlow-GNN
+For large-scale environmental modeling, we employ a Hierarchical Graph-Pooling Network.
+
+This architecture can process multi-resolution shoreline meshes, essential for modeling kilometers of coast. The physics loss incorporates 
+k
+−
+ϵ
+k−ϵ Turbulence Closures, enabling the network to approximate chaotic flow and sediment transport that simple laminar flow models miss. The training infrastructure is designed for distributed multi-GPU clusters to handle the massive spatial scale of coastal regions.

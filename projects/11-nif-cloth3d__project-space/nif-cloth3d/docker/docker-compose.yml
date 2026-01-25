@@ -1,0 +1,156 @@
+# NIF-Cloth3D-Interactive Docker Compose Configuration
+# For cloud training on vast.ai, RunPod, Lambda Labs, etc.
+
+version: '3.8'
+
+services:
+  # Main training service
+  train:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: nif-cloth3d:latest
+    container_name: nif-cloth3d-train
+    
+    # GPU configuration
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    
+    # Environment variables
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONUNBUFFERED=1
+      - WANDB_API_KEY=${WANDB_API_KEY:-}
+    
+    # Volume mounts
+    volumes:
+      - ../src:/workspace/src:ro
+      - ../configs:/workspace/configs:ro
+      - ../data:/workspace/data
+      - ../checkpoints:/workspace/checkpoints
+      - ../logs:/workspace/logs
+    
+    # Working directory
+    working_dir: /workspace
+    
+    # Default training command
+    command: >
+      python3 src/train.py 
+      --config configs/l40s.yaml 
+      --output /workspace/checkpoints
+    
+    # Keep container running for debugging
+    stdin_open: true
+    tty: true
+
+  # TensorBoard visualization service
+  tensorboard:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: nif-cloth3d:latest
+    container_name: nif-cloth3d-tensorboard
+    
+    volumes:
+      - ../logs:/workspace/logs:ro
+      - ../checkpoints:/workspace/checkpoints:ro
+    
+    ports:
+      - "6006:6006"
+    
+    command: tensorboard --logdir=/workspace/logs --bind_all
+    
+    depends_on:
+      - train
+
+  # Jupyter notebook service for development
+  jupyter:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: nif-cloth3d:latest
+    container_name: nif-cloth3d-jupyter
+    
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    
+    volumes:
+      - ../:/workspace
+    
+    ports:
+      - "8888:8888"
+    
+    command: >
+      jupyter notebook 
+      --ip=0.0.0.0 
+      --port=8888 
+      --no-browser 
+      --allow-root 
+      --NotebookApp.token=''
+
+  # Blender data generation service
+  blender:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: nif-cloth3d:latest
+    container_name: nif-cloth3d-blender
+    
+    volumes:
+      - ../data:/workspace/data
+      - ../blender_addon:/workspace/blender_addon:ro
+    
+    command: >
+      blender --background 
+      --python /workspace/blender_addon/blender_cloth_pipeline.py
+
+  # Inference benchmark service
+  benchmark:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    image: nif-cloth3d:latest
+    container_name: nif-cloth3d-benchmark
+    
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    
+    volumes:
+      - ../checkpoints:/workspace/checkpoints:ro
+      - ../src:/workspace/src:ro
+    
+    command: >
+      python3 src/inference.py 
+      --model /workspace/checkpoints/model_traced.pt 
+      --vertices 10000 
+      --iterations 1000
+
+# Networks
+networks:
+  default:
+    driver: bridge
+
+# Volumes for persistent data
+volumes:
+  checkpoints:
+  logs:
+  data:

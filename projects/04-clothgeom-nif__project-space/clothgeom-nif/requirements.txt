@@ -1,0 +1,24 @@
+# ClothGeom-NIF Dependencies
+# Neural Implicit Field Decoder for High-Detail Cloth Geometry
+
+# Core ML
+torch>=2.1.0
+numpy>=1.24.0,<2.0  # PyTorch requires NumPy 1.x
+
+# Data handling
+h5py>=3.8.0
+pyyaml>=6.0
+
+# Mesh processing
+scikit-image>=0.21.0
+trimesh>=3.21.0
+
+# Visualization
+matplotlib>=3.7.0
+
+# Progress bars
+tqdm>=4.65.0
+
+# PyTorch3D for metrics (optional, may need special installation)
+# Install separately: pip install pytorch3d
+# Or from source: pip install "git+https://github.com/facebookresearch/pytorch3d.git@stable"

@@ -1,0 +1,73 @@
+# Weights & Biases Hyperparameter Sweep Configuration
+# Usage: wandb sweep configs/sweep.yaml
+#        wandb agent <sweep_id>
+
+program: src/training.py
+method: bayes  # Options: grid, random, bayes
+
+name: wavepinn-nif-scalar-sweep
+project: wavepinn-nif-scalar
+
+metric:
+  name: validation/total_loss
+  goal: minimize
+
+parameters:
+  # Learning rate (log-uniform sampling)
+  learning_rate:
+    distribution: log_uniform_values
+    min: 1e-5
+    max: 1e-2
+
+  # Network architecture
+  hidden_dims:
+    values:
+      - [64, 64, 32]
+      - [128, 128, 64]
+      - [256, 256, 128]
+      - [128, 128, 128, 64]
+
+  # Activation function
+  activation:
+    values: ["tanh", "sin", "relu"]
+
+  # Fourier feature settings
+  use_fourier_features:
+    values: [true, false]
+  
+  fourier_scale:
+    values: [1.0, 5.0, 10.0]
+
+  # Training settings
+  batch_size:
+    values: [4096, 8192, 16384, 32768]
+
+  # Loss weights
+  lambda_pde:
+    values: [1.0, 10.0, 100.0]
+  
+  lambda_bc:
+    values: [1.0, 10.0, 100.0]
+  
+  lambda_ic:
+    values: [1.0, 10.0, 100.0]
+
+  # Optimizer
+  optimizer:
+    values: ["adam", "adamw"]
+  
+  weight_decay:
+    distribution: log_uniform_values
+    min: 1e-6
+    max: 1e-3
+
+  # Gradient clipping
+  grad_clip_norm:
+    values: [0.5, 1.0, 5.0]
+
+# Early stopping
+early_terminate:
+  type: hyperband
+  min_iter: 100
+  eta: 2
+  s: 3

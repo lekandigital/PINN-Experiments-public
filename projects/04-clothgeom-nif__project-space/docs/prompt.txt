@@ -1,0 +1,15 @@
+ClothGeom-NIF
+Neural Implicit Field Decoder for High-Detail Cloth Geometry
+
+**Project title:** "ClothGeom-NIF"
+
+**Mission:** Create a geometry decoder that maps latent cloth states (node positions + edge strains) to watertight, high-detail cloth surfaces.
+
+**Need:**
+1. Survey of latent-conditioned SDF/NeRF decoders (DeepSDF+, INGP, EG3D-mesh).
+2. Training set builder converting HGNN outputs to latent codes aligned with ground-truth SDFs.
+3. PyTorch implementation: sine-activated MLP with latent modulation; variance field for LOD blending; real-time tricks (voxel hash cache, fp16).
+4. Marching-cubes export pipeline with progressive resolution control.
+5. Inverse-design notebook: optimise latent to hit target silhouette or drape.
+6. Evaluation metrics (Chamfer, normal consistency) vs. ground truth at multiple LODs.
+7. Deployment demo in Unity/Omniverse with live latent sliders.

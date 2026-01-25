@@ -1,0 +1,5 @@
+Bio
+Cell-Path PINNs
+In biological modeling, we forecast microbe chemotaxis (movement towards nutrients) by treating the nutrient concentration as a Latent Potential Field.
+
+The neural network learns the manifold of this potential field, and the loss function enforces a Geodesic Constraint: microbes are modeled as minimizing energy paths (geodesics) on this evolving manifold. This provides a geometric framework for understanding biological efficiency.

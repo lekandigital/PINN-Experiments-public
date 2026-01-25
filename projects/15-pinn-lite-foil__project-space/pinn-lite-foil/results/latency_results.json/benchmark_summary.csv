@@ -1,0 +1,5 @@
+provider,batch_size,mean_ms,std_ms,min_ms,p50_ms,p95_ms,p99_ms,throughput
+CPUExecutionProvider,1,0.0373,0.0123,0.0174,0.0368,0.0423,0.1008,26831.1
+CPUExecutionProvider,4,0.0402,0.0118,0.0306,0.0385,0.0445,0.0877,99454.5
+CPUExecutionProvider,8,0.0421,0.0127,0.0200,0.0405,0.0463,0.0961,189979.7
+CPUExecutionProvider,16,0.0452,0.0129,0.0369,0.0433,0.0497,0.0925,354007.1

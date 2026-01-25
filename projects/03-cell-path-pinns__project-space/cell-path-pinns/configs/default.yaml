@@ -1,0 +1,29 @@
+# Cell-Path PINNs Default Configuration
+# For RTX 3090 optimization
+
+# Model architecture
+hidden_dim: 64
+
+# Training parameters
+epochs: 200
+lr: 0.001
+grad_clip: 1.0
+
+# Loss weights
+lambda_data: 1.0
+lambda_geo: 0.1
+lambda_chem: 1.0
+target_speed: 1.0
+
+# Performance options
+use_amp: true
+use_scheduler: true
+scheduler_T_max: null  # defaults to epochs
+
+# Checkpointing
+save_checkpoints: false
+checkpoint_dir: results/checkpoints
+checkpoint_every: 50
+
+# Device (null for auto-detect)
+device: null

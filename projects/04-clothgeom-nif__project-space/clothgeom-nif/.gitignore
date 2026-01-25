@@ -1,0 +1,74 @@
+# ClothGeom-NIF .gitignore
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Data and outputs
+data/generated/
+outputs/
+checkpoints/
+logs/
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+
+# Meshes
+*.obj
+*.ply
+*.stl
+
+# Vast.ai temp files
+.vastai_search/
+gpu_search_*.txt
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# Logs
+*.log
+tensorboard/
+
+# Local config overrides
+local_config.yaml

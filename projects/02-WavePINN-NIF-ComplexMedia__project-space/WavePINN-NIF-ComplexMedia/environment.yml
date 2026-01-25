@@ -1,0 +1,21 @@
+name: wavepinn
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python=3.10
+  - pip
+  - numpy>=1.24
+  - scipy>=1.11
+  - matplotlib>=3.7
+  - h5py>=3.9
+  - pyyaml>=6.0
+  - jupyter>=1.0
+  - ipykernel>=6.25
+  - tqdm>=4.65
+  - pytest>=7.4
+  - pip:
+    - "jax[cuda12_pip]>=0.4.20"
+    - dm-haiku>=0.0.11
+    - optax>=0.1.7
+    - wandb>=0.16.0

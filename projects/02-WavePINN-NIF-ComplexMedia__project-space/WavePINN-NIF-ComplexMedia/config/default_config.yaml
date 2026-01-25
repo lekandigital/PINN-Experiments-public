@@ -1,0 +1,98 @@
+# WavePINN-NIF Configuration
+# Physics-Informed Neural Network with Neural Implicit Fields for Acoustic Wave Propagation
+
+experiment_name: "wavepinn_2d_layered"
+seed: 42
+
+# Domain configuration
+domain:
+  spatial_dims: 2
+  domain_size: [1.0, 1.0]  # [Lx, Ly] in normalized units
+  t_max: 1.0               # Maximum simulation time
+
+# Model architecture
+model:
+  wave_net:
+    hidden_dims: [256, 256, 256, 256]
+    use_fourier: true
+    fourier_dim: 256
+    fourier_sigma: 10.0    # Bandwidth of Fourier features
+    activation: "tanh"
+    use_residual: true
+    
+  media_net:
+    hidden_dims: [128, 128]
+    activation: "softplus"
+    c_min: 1.0             # Minimum wave speed
+    c_max: 5.0             # Maximum wave speed
+    use_fourier: true
+    fourier_dim: 128
+    fourier_sigma: 5.0
+
+# Data generation
+data:
+  n_collocation: 10000     # Interior collocation points
+  n_boundary: 1000         # Points per boundary face
+  n_initial: 1000          # Initial condition points
+  medium_type: "layered"   # "layered", "random", or "homogeneous"
+  n_layers: 5              # Number of layers for layered medium
+  correlation_length: 0.1  # For random medium
+  
+  # Source configuration
+  source:
+    type: "ricker"         # "ricker" or "gaussian"
+    frequency: 10.0        # Dominant frequency (Hz)
+    position: [0.5, 0.5]   # Source location (normalized)
+    amplitude: 1.0
+
+# Training configuration
+training:
+  n_epochs: 5000
+  batch_size: 1024
+  learning_rate: 1.0e-3
+  lr_scheduler:
+    type: "exponential"
+    decay_rate: 0.99
+    decay_steps: 100
+  gradient_clip: 1.0
+  checkpoint_freq: 500
+  validation_freq: 100
+
+# Loss weights (λ values)
+loss_weights:
+  lambda_pde: 1.0          # PDE residual weight
+  lambda_bc: 10.0          # Boundary condition weight
+  lambda_ic: 10.0          # Initial condition weight
+  lambda_data: 1.0         # Data fitting weight (if available)
+  
+  # Adaptive weighting
+  adaptive_weights: false
+  adapt_method: "grad_norm"  # "grad_norm" or "uncertainty"
+
+# Boundary conditions
+boundary_conditions:
+  type: "dirichlet"        # "dirichlet", "neumann", "absorbing", or "mixed"
+  absorbing_coefficient: 1.0
+
+# GPU and compute settings
+compute:
+  device: "cuda"
+  mixed_precision: true
+  multi_gpu: false
+  jit_compile: true
+
+# Logging and monitoring
+logging:
+  use_wandb: true
+  wandb_project: "wavepinn-nif"
+  wandb_entity: null       # Your W&B username/team
+  log_freq: 10
+  save_visualizations: true
+  visualization_freq: 500
+
+# Paths
+paths:
+  checkpoint_dir: "checkpoints"
+  log_dir: "logs"
+  data_dir: "data"
+  output_dir: "outputs"

@@ -1,0 +1,81 @@
+{
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 3090 Ti",
+  "benchmarks": {
+    "h64_b4_n200": {
+      "config": {
+        "hidden": 64,
+        "batch_size": 4,
+        "num_nodes": 200
+      },
+      "inference": {
+        "mean_ms": 7.961411071300972,
+        "std_ms": 4.894282023876637,
+        "min_ms": 4.927221016259864,
+        "max_ms": 20.523829996818677,
+        "samples_per_batch": 864
+      },
+      "throughput": {
+        "samples_per_second": 258.42776152882846,
+        "batches_per_second": 129.21388076441423,
+        "total_samples": 100,
+        "elapsed_seconds": 0.38695533099235035
+      },
+      "memory": {
+        "peak_memory_mb": 29.80419921875,
+        "allocated_mb": 19.59228515625
+      },
+      "model_params": 209892
+    },
+    "h128_b8_n500": {
+      "config": {
+        "hidden": 128,
+        "batch_size": 8,
+        "num_nodes": 500
+      },
+      "inference": {
+        "mean_ms": 8.533312220824882,
+        "std_ms": 5.396725445352149,
+        "min_ms": 5.143596004927531,
+        "max_ms": 19.94824199937284,
+        "samples_per_batch": 4272
+      },
+      "throughput": {
+        "samples_per_second": 458.0171118114197,
+        "batches_per_second": 229.00855590570984,
+        "total_samples": 100,
+        "elapsed_seconds": 0.21833245400921442
+      },
+      "memory": {
+        "peak_memory_mb": 126.2841796875,
+        "allocated_mb": 24.9248046875
+      },
+      "model_params": 833476
+    },
+    "h256_b4_n1000": {
+      "config": {
+        "hidden": 256,
+        "batch_size": 4,
+        "num_nodes": 1000
+      },
+      "inference": {
+        "mean_ms": 11.202602961275261,
+        "std_ms": 6.03420242471484,
+        "min_ms": 6.453763984609395,
+        "max_ms": 21.787942008813843,
+        "samples_per_batch": 4244
+      },
+      "throughput": {
+        "samples_per_second": 148.52579864683858,
+        "batches_per_second": 74.26289932341929,
+        "total_samples": 100,
+        "elapsed_seconds": 0.6732837049930822
+      },
+      "memory": {
+        "peak_memory_mb": 243.9765625,
+        "allocated_mb": 44.4892578125
+      },
+      "model_params": 3321732
+    }
+  }
+}

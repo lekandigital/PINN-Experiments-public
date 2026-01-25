@@ -1,0 +1,26 @@
+# Python dependencies for HGNN-NIF-Cloth
+#
+# Core dependencies only - PyTorch is provided by base Docker image
+
+# Numerical computing
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Data handling
+h5py>=3.8.0
+
+# Visualization
+matplotlib>=3.7.0
+
+# Testing
+pytest>=7.3.0
+
+# Training utilities
+tensorboard>=2.13.0
+tqdm>=4.65.0
+
+# Configuration
+PyYAML>=6.0
+
+# Optional: mesh processing (for marching cubes)
+# scikit-image>=0.21.0

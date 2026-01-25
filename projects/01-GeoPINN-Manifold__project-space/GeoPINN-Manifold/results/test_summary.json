@@ -1,0 +1,39 @@
+{
+  "timestamp": "2026-01-20T04:02:21.217856",
+  "gpu": "NVIDIA GeForce RTX 3090 Ti",
+  "cuda_version": "12.1",
+  "pytorch_version": "2.5.1+cu121",
+  "driver_version": "580.95.05",
+  "gpu_memory_total_gb": 25.3,
+  "tests": {
+    "integration_tests": {
+      "total": 10,
+      "passed": 10,
+      "time_seconds": 1.71
+    },
+    "laplace_beltrami_verification": {
+      "max_error": 0.0,
+      "passed": true
+    },
+    "sphere_pde_100_epochs": {
+      "initial_loss": 2.562482,
+      "final_loss": 0.00285,
+      "final_l2_error": 0.005009,
+      "training_time_seconds": 2.08,
+      "passed": true
+    },
+    "sphere_pde_500_epochs_amp": {
+      "initial_loss": 2.562524,
+      "final_loss": 0.000108,
+      "final_l2_error": 0.000347,
+      "training_time_seconds": 8.95,
+      "passed": true
+    }
+  },
+  "datasets_generated": [
+    "data/sphere_swe.h5",
+    "data/shell_mesh.h5",
+    "data/torus_rd.h5"
+  ],
+  "notes": "Full test suite completed on local RTX 3090 Ti. All tests passed with excellent results."
+}

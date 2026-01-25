@@ -1,0 +1,28 @@
+# Conda environment for WavePINN-NIF-Scalar
+# Usage: conda env create -f environment.yml
+#        conda activate wavepinn
+
+name: wavepinn
+channels:
+  - conda-forge
+  - defaults
+
+dependencies:
+  - python=3.9
+  - numpy>=1.24.0
+  - scipy>=1.10.0
+  - matplotlib>=3.7.0
+  - h5py>=3.8.0
+  - jupyter
+  - ipykernel
+  - pytest
+  - pip
+  - pip:
+    # JAX with CUDA support - adjust for your CUDA version
+    # For CUDA 12.x:
+    - jax[cuda12]>=0.4.14
+    # For CUDA 11.x, use: jax[cuda11_local]>=0.4.14
+    - dm-haiku>=0.0.10
+    - optax>=0.1.7
+    - wandb>=0.15.0
+    - tqdm>=4.65.0

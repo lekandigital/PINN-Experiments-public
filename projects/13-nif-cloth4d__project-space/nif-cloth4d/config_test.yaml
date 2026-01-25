@@ -1,0 +1,69 @@
+# NIF-Cloth4D Training Configuration (Test)
+# 
+# This configuration is optimized for quick testing on L40S (48GB VRAM)
+# or other high-memory GPUs. For low-VRAM setups, see config_low_vram.yaml
+
+experiment: NIF_Cloth4D_test
+
+# Model Architecture
+model:
+  type: FourierFeatureSIREN
+  in_dim: 4                  # Input: (x, y, z, t)
+  cond_dim: 0                # No conditioning for test (set to 3 for wind vector)
+  hidden_dim: 128            # Reduced for faster testing (256 for full training)
+  hidden_layers: 4           # Number of hidden layers (5 for full training)
+  w0_initial: 30.0           # SIREN first-layer frequency scaling
+
+# Data Configuration
+data:
+  data_dir: /tmp/cloth_test_data    # Directory containing SDF HDF5 files
+  sdf_volume_size: 64               # Resolution of SDF volumes
+  samples_per_frame: 10000          # Points sampled per frame per epoch
+  near_surface_ratio: 0.7           # Fraction of samples near surface
+  surface_band: 0.1                 # SDF threshold for "near surface"
+  train_frames: all                 # Use all frames (or list indices)
+  val_split: 0.1                    # Fraction for validation
+
+# Training Configuration
+training:
+  epochs: 50                   # Quick test (1000+ for full training)
+  batch_size: 8192             # Points per batch
+  learning_rate: 0.0001        # 1e-4, good for SIREN
+  optimizer: Adam
+  weight_decay: 0.0            # L2 regularization (usually not needed for SIREN)
+  scheduler: CosineAnnealingLR
+  scheduler_params:
+    T_max: 50                  # Should match epochs
+    eta_min: 0.00001           # Minimum learning rate
+  
+  # Loss weights
+  loss_weights:
+    sdf: 1.0                   # Primary SDF reconstruction loss
+    eikonal: 0.01              # Eikonal regularization (|∇SDF| = 1)
+    stretch: 0.0               # Disabled for SDF-only test
+    bend: 0.0                  # Disabled for SDF-only test
+  
+  # Logging and checkpointing
+  log_interval: 10             # Log every N batches
+  val_interval: 5              # Validate every N epochs
+  checkpoint_interval: 10      # Save checkpoint every N epochs
+
+# Output Configuration
+output:
+  output_dir: ./checkpoints    # Where to save checkpoints
+  experiment_name: nif_cloth4d_test
+  save_best: true              # Save best model based on val loss
+  tensorboard: true            # Enable TensorBoard logging
+
+# Hardware Configuration
+hardware:
+  device: cuda                 # 'cuda' or 'cpu'
+  num_workers: 4               # DataLoader workers
+  pin_memory: true             # Pin memory for faster GPU transfer
+  mixed_precision: false       # AMP (caution with SIREN)
+  gradient_checkpointing: false # Trade compute for memory
+
+# Evaluation Configuration
+evaluation:
+  marching_cubes_resolution: 64  # Resolution for mesh extraction
+  export_times: [0.0, 0.5, 1.0]  # Timestamps to export

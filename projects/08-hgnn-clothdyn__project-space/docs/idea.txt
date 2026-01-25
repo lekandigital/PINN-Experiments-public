@@ -1,0 +1,91 @@
+Graph
+HGNN-ClothDyn: Graph-Based Dynamics
+While NIFs excel at surface detail, they lack topological awareness. HGNN-ClothDyn treats the cloth mesh strictly as a graph.
+
+We construct a Multi-Resolution Graph Pyramid based on geodesic adjacency, allowing the network to pass messages across long distances (drape behavior) and short distances (wrinkle behavior) simultaneously.
+
+Instead of generic message passing, the graph layers utilize Learned Edge Stiffness parameters. The network effectively learns the spring constants of a mass-spring system, approximating Hookean constraints:
+
+F
+s
+p
+r
+i
+n
+g
+=
+−
+k
+l
+e
+a
+r
+n
+e
+d
+(
+∣
+∣
+x
+i
+−
+x
+j
+∣
+∣
+−
+L
+r
+e
+s
+t
+)
+x
+i
+−
+x
+j
+∣
+∣
+x
+i
+−
+x
+j
+∣
+∣
+F 
+spring
+​
+ =−k 
+learned
+​
+ (∣∣x 
+i
+​
+ −x 
+j
+​
+ ∣∣−L 
+rest
+​
+ ) 
+∣∣x 
+i
+​
+ −x 
+j
+​
+ ∣∣
+x 
+i
+​
+ −x 
+j
+​
+ 
+​
+ 
+
+
+The system also dynamically injects "collision nodes" into the graph to handle self-collision and object interaction explicitly.

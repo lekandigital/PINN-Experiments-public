@@ -1,0 +1,16 @@
+Geometry
+GeoPINN-Manifold
+Geometric Deep Learning PINNs on Complex Manifolds
+
+**Project title:** "GeoPINN-Manifold"
+
+**Mission:** Build a turnkey research kit—a physics-informed neural network framework that natively solves PDEs on curved surfaces, graphs, and general Riemannian manifolds.
+
+**Provide:**
+1. Annotated survey (2019-2025) on manifold PINNs, HodgeNet, and discrete exterior calculus.
+2. Python library implementing manifold-aware layers (tangent-space message passing, spectral graph conv, DEC operators) with automatic chart stitching.
+3. Data generators for (a) shallow-water equations on the sphere, (b) thin-shell elasticity, (c) reaction–diffusion on genus-1 meshes—export to HDF5.
+4. Training scripts: sphere → triangulated manifold → adaptive-mesh refinement, with boundary-condition utilities.
+5. Mixed-precision configs for single RTX 3090 and multi-GPU scaling notes.
+6. Evaluation notebook (L2 residual, geodesic error) and visualisation via PyVista.
+7. Reproducibility bundle (conda env, Dockerfile, wandb sweep YAML, seed control).

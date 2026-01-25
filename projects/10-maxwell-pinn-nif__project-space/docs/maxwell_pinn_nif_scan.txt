@@ -1,0 +1,7 @@
+/System/Volumes/Data/Users/o/Downloads/parts/maxwell-pinn-nif
+/Users/o/Downloads/parts/ChatGPT-Maxwell-PINN-NIF_Research_Development.md
+/Users/o/Downloads/parts/ChatGPT-Maxwell-PINN-NIF_Research_Development.md/ChatGPT-Maxwell-PINN-NIF_Research_Development.md.txt
+/Users/o/Downloads/parts/ChatGPT-Maxwell-PINN-NIF_Research_Development.md/maxwell_pinn_nif_scan.txt
+/Users/o/Downloads/parts/maxwell-pinn-nif
+/Users/o/Downloads/parts/maxwell-pinn-nif/src/pinn_model.py
+/Users/o/Downloads/parts1/ChatGPT-Maxwell-PINN-NIF_Research_Development.txt

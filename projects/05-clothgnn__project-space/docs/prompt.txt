@@ -1,0 +1,16 @@
+Cloth
+ClothGNN
+MeshGraphNetRP Surrogate for Cloth & Hair
+
+**Project title:** "ClothGNN"
+
+**Mission:** Produce a turnkey research package for a MeshGraphNet-style recurrent surrogate that predicts cloth/hair vertex displacements under wind, collisions, and material tags.
+
+**Deliver:**
+1. Literature digest on MeshGraphNetRP, DiffCloth, Evo-Shear (SIGGRAPH 2022-24) with key takeaways.
+2. Dataset builder: cloak 3s simulations from CLO3D/Marvelous Designer and Nvidia Flex, plus auto-labeled seams, triangle shear, strain energy density.
+3. Collision module using voxelized occupancy grids fused with graph features.
+4. PyTorch Geometric code: encoder→GRU→decoder, optional equivariant layers, and auxiliary losses on seam curvature & shear.
+5. Training script with curriculum learning and data-augmentation knobs.
+6. Export pipeline to USD and sample Unity/Omniverse integration snippets.
+7. Evaluation notebook comparing FPS, Chamfer/Edge-length error vs. ground truth on RTX 4090 and laptop GPUs.

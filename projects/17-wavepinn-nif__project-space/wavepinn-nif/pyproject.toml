@@ -1,0 +1,65 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "wavepinn-nif-scalar"
+version = "0.1.0"
+description = "Physics-Informed Neural Implicit Field Solver for 2D/3D Acoustic Wave Equation"
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.8"
+authors = [
+    {name = "WavePINN Team"}
+]
+keywords = [
+    "physics-informed neural networks",
+    "wave equation",
+    "neural implicit fields",
+    "JAX",
+    "inverse problems",
+    "seismic tomography"
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Topic :: Scientific/Engineering :: Physics",
+]
+dependencies = [
+    "jax>=0.4.14",
+    "jaxlib>=0.4.14",
+    "dm-haiku>=0.0.10",
+    "optax>=0.1.7",
+    "numpy>=1.24.0",
+    "scipy>=1.10.0",
+    "matplotlib>=3.7.0",
+    "h5py>=3.8.0",
+    "tqdm>=4.65.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.3.0",
+    "jupyter>=1.0.0",
+    "wandb>=0.15.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/wavepinn/wavepinn-nif-scalar"
+Documentation = "https://github.com/wavepinn/wavepinn-nif-scalar#readme"
+Repository = "https://github.com/wavepinn/wavepinn-nif-scalar"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = "test_*.py"
+python_functions = "test_*"
+addopts = "-v --tb=short"

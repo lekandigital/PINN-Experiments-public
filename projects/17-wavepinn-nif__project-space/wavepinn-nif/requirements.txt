@@ -1,0 +1,27 @@
+# WavePINN-NIF-Scalar Dependencies
+# Core ML/Scientific Computing
+jax>=0.4.14
+jaxlib>=0.4.14
+dm-haiku>=0.0.10
+optax>=0.1.7
+numpy>=1.24.0
+scipy>=1.10.0
+
+# Visualization
+matplotlib>=3.7.0
+
+# Data I/O
+h5py>=3.8.0
+
+# Progress bars
+tqdm>=4.65.0
+
+# Experiment tracking (optional)
+wandb>=0.15.0
+
+# Testing
+pytest>=7.3.0
+
+# Notebooks
+jupyter>=1.0.0
+ipykernel>=6.0.0

@@ -1,0 +1,93 @@
+# WandB Hyperparameter Sweep Configuration
+# NIF-Cloth4D-Temporal Neural Implicit Cloth Simulator
+#
+# Run with:
+#   wandb sweep wandb_sweep.yaml
+#   wandb agent <sweep_id>
+
+program: scripts/train.py
+method: bayes  # Bayesian optimization for efficient search
+metric:
+  name: val/chamfer_distance
+  goal: minimize
+
+parameters:
+  # Model Architecture
+  hidden_dim:
+    values: [128, 256, 512]
+  num_layers:
+    values: [3, 5, 7]
+  num_freqs:
+    values: [8, 16, 32]
+  omega_0:
+    values: [10.0, 30.0, 60.0]
+  use_gru:
+    values: [true, false]
+  gru_hidden:
+    values: [64, 128, 256]
+  
+  # Training
+  learning_rate:
+    distribution: log_uniform_values
+    min: 0.0001
+    max: 0.01
+  batch_size:
+    values: [4, 8, 16]
+  epochs:
+    value: 50
+  
+  # Scheduled Sampling
+  eps_start:
+    value: 1.0
+  eps_min:
+    values: [0.1, 0.2, 0.3]
+  eps_decay:
+    values: [0.9, 0.95, 0.99]
+  
+  # Physics Loss Weights
+  lambda_stretch:
+    distribution: log_uniform_values
+    min: 0.01
+    max: 10.0
+  lambda_bend:
+    distribution: log_uniform_values
+    min: 0.01
+    max: 1.0
+  lambda_momentum:
+    distribution: log_uniform_values
+    min: 0.01
+    max: 1.0
+  lambda_collision:
+    distribution: log_uniform_values
+    min: 1.0
+    max: 100.0
+
+# Early stopping
+early_terminate:
+  type: hyperband
+  min_iter: 5
+  eta: 3
+  s: 2
+
+# Command line arguments format
+command:
+  - ${env}
+  - python
+  - ${program}
+  - --use_wandb
+  - --hidden_dim=${hidden_dim}
+  - --num_layers=${num_layers}
+  - --num_freqs=${num_freqs}
+  - --omega_0=${omega_0}
+  - --use_gru=${use_gru}
+  - --gru_hidden=${gru_hidden}
+  - --learning_rate=${learning_rate}
+  - --batch_size=${batch_size}
+  - --epochs=${epochs}
+  - --eps_start=${eps_start}
+  - --eps_min=${eps_min}
+  - --eps_decay=${eps_decay}
+  - --lambda_stretch=${lambda_stretch}
+  - --lambda_bend=${lambda_bend}
+  - --lambda_momentum=${lambda_momentum}
+  - --lambda_collision=${lambda_collision}

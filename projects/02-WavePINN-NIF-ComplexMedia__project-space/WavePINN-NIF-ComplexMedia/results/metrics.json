@@ -1,0 +1,11 @@
+{
+  "final_total_loss": 1.4227644642675033e-08,
+  "final_pde_loss": 1.4194317425146133e-08,
+  "final_bc_loss": 1.0248626544435189e-13,
+  "final_ic_loss": 3.230214947762421e-12,
+  "best_loss": 1.0947789144369027e-08,
+  "total_epochs": 1000,
+  "parameter_count": 297090,
+  "gpu": "RTX 3090 Ti",
+  "training_time_seconds": 137.1
+}

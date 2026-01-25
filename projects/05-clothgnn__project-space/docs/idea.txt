@@ -1,0 +1,9 @@
+Cloth
+ClothGNN: Recurrent Surrogate
+Designed for production pipelines in Unity or Omniverse, ClothGNN focuses on standard compatibility.
+
+It employs a PyTorch Geometric pipeline (Encoder 
+→
+→ GRU 
+→
+→ Decoder). To handle complex environmental interactions—such as wind flowing around a body—we fuse Voxelized Occupancy Grids directly with the graph node features. The loss landscape includes auxiliary terms to prevent "super-elasticity," specifically penalizing changes in triangle area (shear) and edge curvature, ensuring the material looks like fabric, not rubber. The pipeline includes an exporter to USD (Universal Scene Description) for immediate use in 3D tools.

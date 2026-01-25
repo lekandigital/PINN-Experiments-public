@@ -1,0 +1,862 @@
+
+# Cell-Path PINNs Literature Review
+
+#### You:
+do it all sequentially. Prompt: Develop and Document "Cell-Path PINNs"
+Project Title: Cell-Path PINNs
+Mission: Create a comprehensive research kit, "Cell-Path PINNs," for forecasting microbe trajectories as geodesics on an evolving nutrient manifold using week-long microscope videos, leveraging physics-informed neural networks (PINNs) with geometric and biological constraints.
+Objective: Deliver a reproducible, technically rigorous research package with detailed components, leveraging Python, PyTorch, and bio-image processing tools for usability by researchers and biologists.
+Instructions
+Follow the steps below to create each component of "Cell-Path PINNs." Each step provides specific guidance and a sub-prompt you can use to interact with an AI assistant (e.g., GPT models) to generate outputs like code, text, or configurations. This assumes basic familiarity with Python, PyTorch, and microscopy data, but includes clear instructions for execution.
+Step 1: Literature Roundup on Chemotaxis Modeling, Geodesic Learning, and Bio-PINNs
+Goal: Establish a foundation by reviewing relevant prior work.
+Scope: Focus on chemotaxis modeling, geodesic learning, and physics-informed neural networks (PINNs) applied to biological systems from 2019 to present.
+Output:  
+A table with columns: Title, Authors, Year, Venue, Key Contributions.  
+
+A 400-word summary highlighting trends, limitations, and research gaps in predicting microbe movement using geometric and physics-informed approaches.
+Sub-Prompt:
+
+“Generate a literature roundup on chemotaxis modeling, geodesic learning, and bio-PINNs from 2019 to present. Include a table with columns: Title, Authors, Year, Venue, Key Contributions. Write a 400-word summary identifying trends, limitations, and gaps relevant to forecasting microbe trajectories using PINNs.”
+
+Step 2: End-to-End Pipeline for Data Acquisition and Processing
+Goal: Set up a pipeline to acquire, segment, and track microbe data from microscope videos.
+Components:  
+(a) Sample Acquisition Checklist: Guidelines for setting up an inverted microscope for week-long video capture of microbe movement.  
+
+(b) U-Net Segmentation/Tracking Code: Python script to segment and track microbes, outputting centroid CSVs.  
+
+(c) Synthetic Boids Generator: Script to augment real data with synthetic microbe movement using the Boids algorithm.
+Output:  
+
+A checklist document for microscope setup.  
+
+Python scripts for segmentation, tracking, and synthetic data generation, with comments explaining each step.
+Sub-Prompt:
+
+“Provide: (1) A sample acquisition checklist for an inverted microscope to capture week-long microbe videos, (2) A Python script using U-Net for segmentation and tracking, outputting centroid CSVs, (3) A Python script to generate synthetic microbe data using the Boids algorithm. Include comments and dependencies (e.g., PyTorch, OpenCV).”
+
+Step 3: PINN Architecture with Curvature-Aware Loss and Latent Potential-Field Estimation
+Goal: Build the core PINN model for predicting microbe trajectories.
+Components:  
+PINN Architecture: Neural network that maps spatial-temporal coordinates to microbe positions, with a latent potential-field to model nutrient gradients.  
+
+Curvature-Aware Loss: Enforce constant-speed geodesic constraints on predicted paths.  
+
+Latent Potential-Field Estimation: Learn the underlying nutrient manifold driving microbe movement.
+Output: Fully commented PyTorch code defining the model architecture and loss functions.
+Sub-Prompt:
+
+“Generate a PyTorch implementation for Cell-Path PINNs: a neural network with (1) A PINN architecture mapping (x, y, t) to microbe positions, (2) A curvature-aware loss for constant-speed geodesics, (3) Latent potential-field estimation for nutrient gradients. Provide code with detailed comments explaining the architecture and loss terms.”
+
+Step 4: Training Notebook and Hyper-Parameter Sweep Script
+Goal: Train the model efficiently on GPU hardware.
+Components:  
+Training Notebook: Jupyter notebook for model training, optimized for 16 GB GPUs.  
+
+Hyper-Parameter Sweep Script: Script to perform grid or random search over key hyperparameters (e.g., learning rate, network depth).
+Output:  
+
+A Jupyter notebook with training code, data loading, and visualization of loss curves.  
+
+A Python script for hyperparameter tuning, logging results to a file or dashboard.
+Sub-Prompt:
+
+“Provide: (1) A Jupyter notebook for training Cell-Path PINNs on 16 GB GPUs, including data loading, training loop, and loss visualization, (2) A Python script for hyperparameter sweeps (e.g., learning rate, network size). Include comments and dependencies (e.g., PyTorch, Weights & Biases).”
+
+Step 5: Output Wrapper Exposing an API and Sample Jupyter Demo
+Goal: Make the model accessible for prediction and demonstration.
+Components:  
+API Wrapper: A Python module exposing a predict_paths() function to forecast microbe trajectories.  
+
+Sample Jupyter Demo: A notebook demonstrating how to use the API with real or synthetic data.  
+
+Installation via pip: Instructions for packaging the project as a pip-installable library.
+Output:  
+
+A Python module with the API function.  
+
+A Jupyter notebook demonstrating API usage.  
+
+A setup.py file and instructions for pip installation.
+Sub-Prompt:
+
+“Create: (1) A Python module exposing a predict_paths() API for Cell-Path PINNs, (2) A Jupyter notebook demonstrating API usage with sample data, (3) A setup.py file and instructions for pip installation. Include comments and ensure the API is user-friendly.”
+
+Step 6: Validation Protocol Using K-Fold Temporal Split and Metrics
+Goal: Rigorously evaluate the model’s predictive performance.
+Components:  
+K-Fold Temporal Split: Split the week-long data into temporal folds for cross-validation.  
+
+Metrics:  
+Displacement Error: Measure accuracy of predicted positions.  
+
+Topology Metrics: Assess path similarity (e.g., Fréchet distance).
+Output: A Python script to perform k-fold validation and compute metrics, with visualization of results.
+Sub-Prompt:
+
+“Provide a Python script for k-fold temporal split validation of Cell-Path PINNs. Compute: (1) Displacement error, (2) Topology metrics (e.g., Fréchet distance). Include code to visualize results (e.g., Matplotlib) and comments explaining the validation protocol.”
+
+Step 7: README for Biologist Collaborators
+Goal: Ensure the project is accessible to non-technical users.
+Content:  
+Minimal Python Setup: Instructions for setting up a Python environment (e.g., via conda).  
+
+Expected Run Times: Estimates for training and inference on standard hardware.  
+
+Usage Guide: Step-by-step instructions for running the API and interpreting outputs.
+Output: A concise README.md file with clear, biologist-friendly language.
+Sub-Prompt:
+
+“Write a README.md for Cell-Path PINNs aimed at biologist collaborators. Include: (1) Minimal Python setup instructions, (2) Expected run times for training and inference, (3) A usage guide for the predict_paths() API. Use simple language and provide examples.”
+
+
+#### ChatGPT:
+To begin Step 1, could you confirm whether you’d like the literature roundup to focus only on peer-reviewed journal papers and conference proceedings, or should it also include preprints (e.g., arXiv, bioRxiv)? Additionally, do you want coverage across both computational and biological domains, or prioritize one over the other?
+
+
+#### You:
+Thank you for your question regarding the development and documentation of the "Cell-Path PINNs" research package. I confirm that starting with Step 1: Literature Roundup on Chemotaxis Modeling, Geodesic Learning, and Bio-PINNs is an ideal starting point, as it establishes the theoretical foundation for forecasting microbe trajectories using physics-informed neural networks (PINNs). This step will contextualize the project and guide the subsequent technical components.
+To address your query about the literature roundup scope, I suggest including peer-reviewed journal papers, conference proceedings, and preprints (e.g., arXiv, bioRxiv) from 2019 to 2025 to ensure a comprehensive review. The roundup should balance computational (e.g., PINNs, geodesic learning) and biological (e.g., chemotaxis, microbe behavior) domains, prioritizing works that bridge these areas for relevance to microbe trajectory prediction.
+To streamline the process and leverage deep research capabilities, I’d prefer a comprehensive response that addresses all seven steps in a single, cohesive package, beginning with Step 1 and proceeding sequentially. Please utilize deep research to:
+Source recent papers (2019–2025) from PubMed, arXiv, bioRxiv, NeurIPS, and other academic databases for the Step 1 literature roundup, ensuring a robust review of chemotaxis modeling, geodesic learning, and bio-PINNs.
+Provide technically accurate, fully commented Python/PyTorch code for Steps 2–6, referencing official documentation (e.g., PyTorch, OpenCV, scikit-image) and community best practices to ensure reproducibility.
+Optimize configurations for GPU environments with 16 GB VRAM, as specified in Step 4, ensuring compatibility with dependencies like PyTorch, OpenCV, and Weights & Biases.
+For Step 1, deliver a table with columns (Title, Authors, Year, Venue, Key Contributions) and a 400-word summary of trends, limitations, and gaps, focusing on geometric and physics-informed approaches for microbe trajectories.
+For Steps 2–7, include detailed code, equations (e.g., curvature-aware loss in Step 3), and configurations (e.g., setup.py in Step 5), ensuring each component (U-Net segmentation, PINN architecture, k-fold validation, etc.) is well-documented and executable.
+For Step 7, ensure the README is accessible to biologists, with clear instructions and minimal technical jargon.
+If you suggest prioritizing a specific step or adjusting the scope (e.g., emphasizing real vs. synthetic data or specific chemotaxis models), please propose modifications. Otherwise, please proceed with the full research package, delivering a reproducible, well-documented framework for Cell-Path PINNs. Let me know if you need further clarification!
+
+#### ChatGPT:
+Great. I’ll begin building the complete Cell-Path PINNs research package, starting with a literature roundup (Step 1) covering chemotaxis modeling, geodesic learning, and bio-PINNs from 2019–2025. I’ll proceed sequentially through all seven steps, generating code, documentation, and a biologist-accessible README as described.
+
+This will include: peer-reviewed and preprint sources for the literature review; executable, GPU-optimized Python/PyTorch code for segmentation, PINN architecture, training, validation, and synthetic data; and clean documentation with examples. I’ll notify you as each part is completed for your review.
+
+
+#### ChatGPT:
+# Cell-Path PINNs: Forecasting Microbe Trajectories on an Evolving Nutrient Manifold
+
+## Step 1: Literature Roundup
+
+| **Title**                                                                                                           | **Authors**                      | **Year** | **Venue**                        | **Key Contributions**                                                                                                                                                                                                                                                                                                                                              |
+| ------------------------------------------------------------------------------------------------------------------- | -------------------------------- | -------- | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| *Data-driven discovery of chemotactic migration of bacteria via coordinate-invariant machine learning*【36†L82-L90】  | Psarellis YM *et al.*            | 2024     | BMC Bioinformatics               | Introduced coordinate-invariant ML to infer macroscopic chemotactic PDEs from data. Demonstrated surrogate (black-/gray-box) PDE models for chemotaxis. Showed that time-series of bacterial density alone can predict unmeasured nutrient fields【36†L82-L90】.                                                                                                     |
+| *Learning black- and gray-box chemotactic PDEs/closures from agent based Monte Carlo simulation data*【41†L21-L29】   | Lee S *et al.*                   | 2022     | arXiv (q-bio.QM)                 | Proposed a data-driven framework to learn coarse-grained Keller–Segel–type chemotactic PDEs from agent-based E. coli simulations. Used ARD and Gaussian Processes to select effective observables, then trained neural nets/GPs to discover PDE terms (fully black-box or partially known gray-box)【41†L21-L29】.                                                   |
+| *Chemotactic smoothing of collective migration*【27†L129-L137】                                                       | Bhattacharjee T *et al.*         | 2022     | *eLife*                          | Experimentally and computationally demonstrated that **E. coli** populations migrating in a nutrient gel self-smooth large-scale perturbations in their fronts via spatially varying chemotactic response【27†L129-L137】. Revealed that cells in nutrient-rich regions saturate and slow down, allowing others to catch up, thus straightening the group over time. |
+| *Dynamic cluster field modeling of collective chemotaxis*【37†L74-L82】                                               | Paspunurwar AS, Moure A, Gomez H | 2024     | *Scientific Reports*             | Developed **Dynamic Cluster Field (DCF)** simulation: a high-fidelity model for collective chemotaxis of \~1000 cells. Couples individual cell motion with a dynamic extracellular nutrient field. Validated against experiments (e.g. secretion, uptake, confinement)【37†L74-L82】, enabling large-scale simulations of chemotactic cell clusters.                 |
+| *Simulation of a Free Boundary Cell Migration Model through Physics Informed Neural Networks*【44†L316-L324】         | Malla S, Oelz D, Roy S           | 2025     | *J. Mech. Behav. Biomed. Mater.* | Presented a one-dimensional **PINN** for actomyosin-driven cell migration with moving boundaries. Modeled actin flow and polymerization via coupled PDEs, solved with a PINN. Achieved simulation of complex biophysics without requiring synthetic training data; results qualitatively match experiments【44†L316-L324】.                                          |
+| *Data-augmented Learning of Geodesic Distances in Irregular Domains through Soner Boundary Conditions*【38†L97-L105】 | Cabral Muchacho RI, Pokorny FT   | 2025     | arXiv Preprint                   | Proposed a PINN-based framework for solving geodesic distance (Eikonal) problems in irregular domains. Combines physics-informed losses (Eikonal PDE) with sparse data supervision, showing that even limited labeled points dramatically improve convergence and accuracy【38†L97-L105】. Highlights hybrid physics–data geodesic learning.                         |
+
+Chemotactic migration modeling has seen a surge of **data-driven and physics-informed approaches**. Recent works use machine learning to bridge scales: for example, data-driven PDE discovery techniques infer macroscale chemotaxis equations from either simulations or experiments【41†L21-L29】【36†L82-L90】. These methods often treat unknown chemotactic flux terms with black-box regressors or embed known diffusion terms in gray-box models. Embedding theorems (Whitney/Takens) and coordinate-invariant representations help avoid explicit nutrient measurements【36†L82-L90】. Similarly, high-fidelity agent-based simulations have enabled learning of effective Keller–Segel–type PDEs via automatic relevance determination and Gaussian processes【41†L21-L29】. Overall, a trend is to leverage **hybrid ML–PDE pipelines**: training neural nets to honor known physics while fitting data.
+
+Geometric and physics-informed deep learning are emerging in related domains. For instance, PINNs are being applied to cell mechanics and migration: a PINN solved a free-boundary actomyosin flow problem, integrating complex biophysical terms directly into the loss【44†L316-L324】. Geometric learning of paths has been explored in robotics and graphics (e.g. neural solvers for geodesic distance satisfying the Eikonal equation【38†L97-L105】【38†L167-L173】). These PINN approaches suggest **scalability to high dimensions** and provide smooth differentiable solutions, but they often require careful training (indeed data augmentation helped geodesic PINNs stabilize convergence【38†L97-L105】).
+
+However, **limitations and gaps** remain when forecasting individual microbe trajectories. Classical PDE models (e.g. Keller–Segel) capture population densities but require full knowledge of nutrient fields and often assume continuum limits【36†L121-L129】. Most ML-PDE methods also focus on collective densities, not on single-cell paths. Explicitly learning the underlying nutrient field is hard, though some work shows density history can approximate it【36†L82-L90】. Crucially, **geometry has been under-exploited**: microbes likely follow (near-)geodesic paths on an evolving nutrient landscape, but no framework directly enforces such manifold constraints in chemotactic models. Data-driven methods often lack *geometric priors* (e.g., curvature-minimizing trajectories). Finally, many existing methods assume static or predefined domains, whereas real environments evolve over time as cells consume nutrients.
+
+In summary, the literature reveals a push towards **hybrid physics-ML models** for chemotaxis: learning effective PDEs from data, using PINNs for biophysical cell models, and beginning to apply geometric PINN ideas to path planning【36†L82-L90】【44†L316-L324】【38†L97-L105】. The clear gaps are in integrating **single-cell trajectory modeling** with dynamic nutrient fields and geometric constraints. Our proposed “Cell-Path PINNs” kit addresses these gaps by treating each microbe’s trajectory as a geodesic on a learned, time-varying nutrient manifold, enforced via PINN losses. This leverages the strengths of geometric deep learning (smooth manifold paths) and physics-informed learning (chemotaxis PDE structure) to forecast trajectories with minimal supervision.
+
+## Step 2: Data Pipeline
+
+### (a) Sample Acquisition Checklist
+
+- **Microbial Strain and Labeling:** Select a motile microbe (e.g. *E. coli*) with a fluorescent marker. Ensure consistent fluorescence expression.
+- **Media Preparation:** Prepare a nutrient gel (e.g. agarose) with known chemoattractant concentrations. Maintain uniform thickness (\~1–2 mm).
+- **Microfluidic Setup:** Use a temperature-controlled chamber (e.g. 37 °C) with sealed cover to prevent evaporation over one week. Include oxygenation if needed for prolonged viability.
+- **Microscope Configuration:**
+  - Use a high-resolution inverted fluorescence microscope with motorized stage.
+  - Select an objective (e.g. 40×–60×) balancing field-of-view and resolution. Calibrate pixel size.
+  - Optimize illumination (uniform LED or lamp) to minimize phototoxicity during long imaging.
+  - Enable autofocus or periodic refocusing schedule to accommodate drift.
+- **Time-lapse Settings:**
+  - Set frame rate (e.g. 1–5 min intervals) capturing motion without aliasing.
+  - Ensure continuous focus/stability for 7 days. Check buffer exchange and humidity control.
+- **Environmental Controls:** Monitor temperature/humidity; use anti-vibration table if available.
+- **Quality Checks:** Acquire test runs (few hours) to verify imaging contrast, focus stability, and that microbes remain active.
+
+### (b) U-Net Segmentation and Tracking
+
+```python
+# Dependencies: torch, torchvision, OpenCV (cv2), numpy, pandas
+import torch
+import torch.nn as nn
+import torchvision.transforms as transforms
+import cv2
+import numpy as np
+import pandas as pd
+
+# Define a simple U-Net architecture
+class DoubleConv(nn.Module):
+    def __init__(self, in_ch, out_ch):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Conv2d(in_ch, out_ch, kernel_size=3, padding=1),
+            nn.BatchNorm2d(out_ch), nn.ReLU(inplace=True),
+            nn.Conv2d(out_ch, out_ch, kernel_size=3, padding=1),
+            nn.BatchNorm2d(out_ch), nn.ReLU(inplace=True)
+        )
+    def forward(self, x):
+        return self.net(x)
+
+class UNet(nn.Module):
+    def __init__(self, in_ch=1, out_ch=1, features=[64, 128, 256, 512]):
+        super().__init__()
+        # Encoder (Down-sampling)
+        self.downs = nn.ModuleList()
+        self.pools = nn.ModuleList()
+        prev_ch = in_ch
+        for f in features:
+            self.downs.append(DoubleConv(prev_ch, f))
+            self.pools.append(nn.MaxPool2d(2))
+            prev_ch = f
+        # Bottleneck
+        self.bottleneck = DoubleConv(prev_ch, prev_ch*2)
+        # Decoder (Up-sampling)
+        self.ups = nn.ModuleList()
+        self.up_convs = nn.ModuleList()
+        for f in reversed(features):
+            self.ups.append(nn.ConvTranspose2d(prev_ch*2, f, kernel_size=2, stride=2))
+            self.up_convs.append(DoubleConv(f*2, f))
+            prev_ch = f
+        self.final = nn.Conv2d(features[0], out_ch, kernel_size=1)
+
+    def forward(self, x):
+        skip_connections = []
+        # Encoder
+        for down, pool in zip(self.downs, self.pools):
+            x = down(x)
+            skip_connections.append(x)
+            x = pool(x)
+        # Bottleneck
+        x = self.bottleneck(x)
+        skip_connections = skip_connections[::-1]
+        # Decoder
+        for up, conv in zip(self.ups, self.up_convs):
+            x = up(x)
+            skip = skip_connections.pop(0)
+            # concatenate along channel dimension
+            x = torch.cat([x, skip], dim=1)
+            x = conv(x)
+        return torch.sigmoid(self.final(x))
+
+# Load a pre-trained U-Net model (assumed trained on similar microbe images)
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+unet = UNet(in_ch=1, out_ch=1).to(device)
+unet.load_state_dict(torch.load('unet_model.pth', map_location=device))
+unet.eval()
+
+# Video processing: segment frames and find centroids
+cap = cv2.VideoCapture('microscope_video.mp4')
+centroid_records = []  # list of (frame_idx, x, y)
+
+frame_idx = 0
+transform = transforms.Compose([
+    transforms.ToTensor(),
+    transforms.Normalize(mean=[0.5], std=[0.5])  # adjust as needed
+])
+while True:
+    ret, frame = cap.read()
+    if not ret:
+        break
+    # Preprocess: convert to grayscale and normalize
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    inp = transform(gray).unsqueeze(0).to(device)  # shape (1,1,H,W)
+    with torch.no_grad():
+        mask = unet(inp)  # output shape (1,1,H,W)
+    mask_np = mask.squeeze().cpu().numpy()
+    # Threshold to binary mask
+    _, mask_bin = cv2.threshold((mask_np*255).astype(np.uint8), 127, 255, cv2.THRESH_BINARY)
+    # Find contours of segmented microbes
+    contours, _ = cv2.findContours(mask_bin, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    for cnt in contours:
+        # Compute centroid of each contour
+        M = cv2.moments(cnt)
+        if M['m00'] == 0:
+            continue
+        cx = int(M['m10']/M['m00'])
+        cy = int(M['m01']/M['m00'])
+        centroid_records.append({'frame': frame_idx, 'x': cx, 'y': cy})
+    frame_idx += 1
+
+cap.release()
+# Save centroids to CSV
+df = pd.DataFrame(centroid_records, columns=['frame','x','y'])
+df.to_csv('centroids.csv', index=False)
+```
+
+*Note:* The above code segments each video frame using a pre-trained U-Net, binarizes the output, and finds centroid coordinates of detected microbes. For full tracking (assigning consistent IDs across frames), one could extend this with a nearest-neighbor association or a Kalman filter. Here we output all centroids per frame to `centroids.csv` for simplicity. Dependencies: `torch`, `torchvision`, `opencv-python`, `numpy`, `pandas`.
+
+### (c) Synthetic Data Generator (Boids Algorithm)
+
+```python
+import numpy as np
+import pandas as pd
+
+def generate_boids(n_boids=50, steps=200, dt=0.1, space_size=100):
+    """
+    Generate synthetic trajectories for boids-like swarm (simulating chemotactic motion).
+    Returns a DataFrame with columns: boid_id, t, x, y.
+    """
+    # Initialize positions and velocities
+    pos = np.random.rand(n_boids, 2) * space_size
+    vel = (np.random.rand(n_boids, 2) - 0.5) * 2  # random initial velocities
+    trajectories = []
+
+    for t in range(steps):
+        for i in range(n_boids):
+            trajectories.append({'boid_id': i, 't': t*dt, 'x': pos[i,0], 'y': pos[i,1]})
+        # Boids rules (separation, alignment, cohesion)
+        for i in range(n_boids):
+            neighbors = []
+            for j in range(n_boids):
+                if j != i:
+                    dist = np.linalg.norm(pos[j] - pos[i])
+                    if dist < 15:  # neighbor radius
+                        neighbors.append(j)
+            # Initialize rule vectors
+            v_separation = np.zeros(2)
+            v_alignment = np.zeros(2)
+            v_cohesion = np.zeros(2)
+            if neighbors:
+                # Separation: steer away from nearby boids
+                for j in neighbors:
+                    diff = pos[i] - pos[j]
+                    dist = np.linalg.norm(diff)
+                    if dist > 0:
+                        v_separation += diff / dist  # weighted by inverse distance
+                # Alignment: match velocity
+                avg_vel = np.mean(vel[neighbors], axis=0)
+                v_alignment = avg_vel - vel[i]
+                # Cohesion: move towards center of mass
+                center = np.mean(pos[neighbors], axis=0)
+                v_cohesion = center - pos[i]
+            # Update velocity with weighted rules
+            vel[i] += 0.02*v_separation + 0.01*v_alignment + 0.005*v_cohesion
+            # Limit maximum speed
+            speed = np.linalg.norm(vel[i])
+            if speed > 2.0:
+                vel[i] = vel[i] / speed * 2.0
+        # Update positions
+        pos += vel * dt
+    # Save to DataFrame
+    df = pd.DataFrame(trajectories)
+    df.to_csv('synthetic_boids.csv', index=False)
+    return df
+
+# Generate and save synthetic trajectories
+df_synthetic = generate_boids(n_boids=20, steps=100, dt=0.5)
+print("Synthetic data generated with {} trajectories".format(len(df_synthetic)))
+```
+
+This code simulates `n_boids` agents moving in 2D with simple boids rules, outputting `(x,y)` for each agent at each time step. It saves a CSV `synthetic_boids.csv` with columns `boid_id, t, x, y`. Dependencies: `numpy`, `pandas`.
+
+## Step 3: PINN Model
+
+We design a PINN that learns microbe trajectories `(x(t), y(t))` given `(x,y,t)` inputs, enforcing **constant-speed geodesics** and a latent **chemotactic potential field**.
+
+**Model Architecture:** We use two neural networks:
+
+- **Path Network**: $ \mathbf{r}(t) = (x(t), y(t)) = \mathrm{PathNet}(t) $. Input is time $t$; output is the 2D position. This implicitly parameterizes the trajectory.
+- **Potential Network**: $ U(x,y,t) = \mathrm{PotentialNet}(x, y, t) $. Input is space-time coordinates; output is a scalar potential field (chemotactic nutrient).
+
+```python
+import torch
+import torch.nn as nn
+import torch.autograd as autograd
+
+# Define the Path Network: input t -> output (x,y)
+class PathNet(nn.Module):
+    def __init__(self, hidden_dim=64):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(1, hidden_dim), nn.Tanh(),
+            nn.Linear(hidden_dim, hidden_dim), nn.Tanh(),
+            nn.Linear(hidden_dim, 2)  # outputs x and y
+        )
+    def forward(self, t):
+        return self.net(t)
+
+# Define the Potential Network: input (x,y,t) -> output scalar U
+class PotentialNet(nn.Module):
+    def __init__(self, hidden_dim=64):
+        super().__init__()
+        self.net = nn.Sequential(
+            nn.Linear(3, hidden_dim), nn.ReLU(),
+            nn.Linear(hidden_dim, hidden_dim), nn.ReLU(),
+            nn.Linear(hidden_dim, 1)   # scalar potential
+        )
+    def forward(self, x, y, t):
+        inp = torch.cat([x, y, t], dim=1)  # shape (batch,3)
+        return self.net(inp)
+
+# Instantiate networks
+path_net = PathNet(hidden_dim=64).to(device)
+potential_net = PotentialNet(hidden_dim=64).to(device)
+```
+
+**Physical Constraints & Loss Terms:**
+
+1. **Data Loss (Trajectory Fitting):** Match network trajectory to observed centroids $(x\_{\text{data}}(t\_i), y\_{\text{data}}(t\_i))$. E.g. using MSE:
+   $
+   L\_{\text{data}} = \sum\_i \big| \mathbf{r}(t\_i) - \mathbf{r}\_{\text{data}}(t\_i) \big|^2.
+   $
+
+2. **Geodesic Loss (Constant Speed):** Enforce that the speed $|\mathbf{r}'(t)|$ is constant (e.g. 1). If $\mathbf{v}(t) = \mathbf{r}'(t)$, we impose $|\mathbf{v}|^2 = c^2$. In practice:
+   $
+   L\_{\text{geo}} = \sum\_i \Big( |\mathbf{v}(t\_i)|^2 - 1 \Big)^2,
+   $
+   or equivalently penalize tangential acceleration: $\mathbf{v}\cdot \mathbf{a} = 0$ ⇒ $(x'x'' + y'y'')^2$. Here we use the simpler constant-speed loss.
+
+3. **Chemotactic Potential Loss:** Encourage motion along the gradient of $U$. If cells move up the nutrient gradient, we expect
+   $
+   \mathbf{v}(t) \approx \nabla U(\mathbf{r}(t),t).
+   $
+   Using autograd, compute $\nabla U$ at $(x(t),y(t),t)$. The loss is
+   $
+   L\_{\text{chem}} = \sum\_i | \mathbf{v}(t\_i) - \nabla U(x(t\_i),y(t\_i),t\_i) |^2.
+   $
+   (Sign convention depends on definition; here positive gradient means moving toward higher concentration.)
+
+4. **PDE/Regularization (Optional):** We may also impose a diffusion-consumption PDE on $U$, e.g. $\partial\_t U = D \Delta U - \alpha \rho$ (nutrient diffusion minus uptake by microbes), as a residual loss if data allow.
+
+The **total loss** is a weighted sum: $L = \lambda\_d L\_{\text{data}} + \lambda\_g L\_{\text{geo}} + \lambda\_c L\_{\text{chem}} + \dots$.
+
+```python
+# Example loss computation for a batch of time points
+# t: tensor of shape (N,1) with requires_grad=True
+# x_data, y_data: ground-truth positions (N,1)
+t = torch.linspace(0, 10, steps=100, requires_grad=True).view(-1,1).to(device)
+x_pred, y_pred = path_net(t).chunk(2, dim=1)  # each is (N,1)
+# Data loss
+loss_data = ((x_pred - x_data)**2 + (y_pred - y_data)**2).mean()
+# Compute velocity by autograd: v = dr/dt
+v = autograd.grad(outputs=(x_pred.sum()+y_pred.sum()), inputs=t, create_graph=True)[0]  # derivative of (x+y) w.r.t. t
+# NOTE: The above line computes d(x_pred+y_pred)/dt; in practice compute dx/dt, dy/dt separately:
+dx_dt = autograd.grad(x_pred.sum(), t, create_graph=True)[0]
+dy_dt = autograd.grad(y_pred.sum(), t, create_graph=True)[0]
+# Geodesic (constant-speed) loss: enforce speed^2 = 1
+speed_sq = dx_dt**2 + dy_dt**2
+loss_geo = ((speed_sq - 1.0)**2).mean()
+# Potential field gradients
+U_pred = potential_net(x_pred, y_pred, t)  # shape (N,1)
+# Gradient of U w.r.t spatial inputs
+grad_U = autograd.grad(U_pred.sum(), [x_pred, y_pred], create_graph=True)
+Ux, Uy = grad_U[0], grad_U[1]  # both (N,1)
+# Chemotactic loss: velocity ~ gradient of U
+loss_chem = ((dx_dt - Ux)**2 + (dy_dt - Uy)**2).mean()
+# Total loss
+loss = loss_data + 0.1*loss_geo + 1.0*loss_chem
+loss.backward()
+```
+
+In practice, all derivatives (`dx_dt, dy_dt, Ux, Uy`) are obtained via PyTorch's autograd. The above code comments highlight the loss terms and their computation. One should also include regularization (e.g. weight decay) and possibly normalization of inputs.
+
+**Equations and Comments:**
+
+- The **Keller–Segel model** (density PDE) motivates our approach【36†L121-L129】 but we work at the single-cell level.
+- We explicitly enforce *constant-speed geodesic motion* by constraining $|\mathbf{r}'(t)|$ to a constant, capturing the notion of minimal-energy paths on the nutrient manifold.
+- The chemotactic term is encoded by learning a latent potential $U(x,y,t)$ whose gradient drives motion. This reflects physics: cells tend to move up nutrient gradients.
+- All equations are enforced in the loss, making our NN *physics-informed*.
+
+Full code (with initialization, training loop, etc.) is provided in Step 4.
+
+## Step 4: Training and Hyperparameter Tuning
+
+### Training Notebook Code
+
+Below is a representative training loop using PyTorch. This would be placed in a Jupyter notebook, leveraging a 16 GB GPU if available. We assume data loaders (`train_loader`) providing batches of `(t, x_true, y_true)`.
+
+```python
+# Example training loop for the PINN (in a Jupyter notebook)
+import torch.optim as optim
+from torch.utils.data import DataLoader, TensorDataset
+import matplotlib.pyplot as plt
+
+# Prepare training data (e.g., from centroids.csv or synthetic data)
+# t_data, x_data, y_data: 1D numpy arrays of equal length
+t_tensor = torch.tensor(t_data, dtype=torch.float32).view(-1,1).to(device)
+x_tensor = torch.tensor(x_data, dtype=torch.float32).view(-1,1).to(device)
+y_tensor = torch.tensor(y_data, dtype=torch.float32).view(-1,1).to(device)
+dataset = TensorDataset(t_tensor, x_tensor, y_tensor)
+train_loader = DataLoader(dataset, batch_size=64, shuffle=True)
+
+# Optimizer
+optimizer = optim.Adam(list(path_net.parameters()) + list(potential_net.parameters()), lr=1e-3)
+# Learning rate scheduler (optional)
+scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=500, gamma=0.5)
+
+num_epochs = 2000
+for epoch in range(num_epochs):
+    epoch_loss = 0.0
+    for t_batch, x_batch, y_batch in train_loader:
+        t_batch.requires_grad = True  # enable gradients w.r.t. t
+        optimizer.zero_grad()
+        # Forward pass: predict position
+        xy_pred = path_net(t_batch)       # (batch,2)
+        x_pred = xy_pred[:,0:1]; y_pred = xy_pred[:,1:2]
+        # Data loss
+        loss_data = ((x_pred - x_batch)**2 + (y_pred - y_batch)**2).mean()
+        # Velocity via autograd
+        dx_dt = autograd.grad(x_pred.sum(), t_batch, create_graph=True)[0]
+        dy_dt = autograd.grad(y_pred.sum(), t_batch, create_graph=True)[0]
+        speed_sq = dx_dt**2 + dy_dt**2
+        loss_geo = ((speed_sq - 1.0)**2).mean()
+        # Potential and its gradient
+        U_pred = potential_net(x_pred, y_pred, t_batch)
+        Ux = autograd.grad(U_pred.sum(), x_pred, create_graph=True)[0]
+        Uy = autograd.grad(U_pred.sum(), y_pred, create_graph=True)[0]
+        loss_chem = ((dx_dt - Ux)**2 + (dy_dt - Uy)**2).mean()
+        # Total loss
+        loss = loss_data + 0.1*loss_geo + 1.0*loss_chem
+        loss.backward()
+        optimizer.step()
+        epoch_loss += loss.item()
+    scheduler.step()
+    if epoch % 100 == 0:
+        print(f"Epoch {epoch}: Loss = {epoch_loss/len(train_loader):.6f}")
+        # Optional: visualize predicted vs true paths
+        if epoch % 500 == 0:
+            t_vis = torch.linspace(0, t_data.max(), 200).view(-1,1).to(device)
+            with torch.no_grad():
+                xy_vis = path_net(t_vis).cpu().numpy()
+            plt.figure(figsize=(4,4))
+            plt.plot(x_data, y_data, 'k.', label='True')
+            plt.plot(xy_vis[:,0], xy_vis[:,1], 'r-', label='Pred')
+            plt.legend(); plt.title(f'Epoch {epoch}')
+            plt.show()
+```
+
+This notebook code demonstrates data loading, model setup, and a training loop with loss computation and periodic visualization. Adjust batch sizes and epochs based on dataset size and GPU memory. Training on a 16 GB GPU should allow moderate batch sizes (e.g. 64) and networks of this scale. For real week-long video data, consider downsampling or using subsequences.
+
+### Hyperparameter Sweep Script
+
+Use **Weights & Biases (wandb)** for systematic hyperparameter tuning. Below is a Python script (e.g. `sweep.py`) that performs sweeps over learning rate, hidden size, and loss weights:
+
+```python
+# Dependencies: wandb, PyTorch, numpy
+import wandb
+import torch
+
+# Define a function that creates the model and returns a dict of metrics
+def train():
+    # Initialize W&B run
+    wandb.init(project='cell-path-pinns')
+    # Configurable hyperparameters
+    lr = wandb.config.lr
+    hidden_size = wandb.config.hidden_size
+    weight_geo = wandb.config.weight_geo
+    weight_chem = wandb.config.weight_chem
+
+    # (Re)build models with these hyperparameters
+    path_net = PathNet(hidden_dim=hidden_size).to(device)
+    potential_net = PotentialNet(hidden_dim=hidden_size).to(device)
+    optimizer = torch.optim.Adam(list(path_net.parameters()) + list(potential_net.parameters()), lr=lr)
+    
+    # ... (set up data loader as above) ...
+    for epoch in range(2000):
+        for t_batch, x_batch, y_batch in train_loader:
+            t_batch.requires_grad = True
+            optimizer.zero_grad()
+            x_pred = path_net(t_batch)[:,0:1]; y_pred = path_net(t_batch)[:,1:2]
+            loss_data = ((x_pred - x_batch)**2 + (y_pred - y_batch)**2).mean()
+            dx_dt = torch.autograd.grad(x_pred.sum(), t_batch, create_graph=True)[0]
+            dy_dt = torch.autograd.grad(y_pred.sum(), t_batch, create_graph=True)[0]
+            loss_geo = ((dx_dt**2 + dy_dt**2 - 1.0)**2).mean()
+            U_pred = potential_net(x_pred, y_pred, t_batch)
+            Ux = torch.autograd.grad(U_pred.sum(), x_pred, create_graph=True)[0]
+            Uy = torch.autograd.grad(U_pred.sum(), y_pred, create_graph=True)[0]
+            loss_chem = ((dx_dt - Ux)**2 + (dy_dt - Uy)**2).mean()
+            loss = loss_data + weight_geo*loss_geo + weight_chem*loss_chem
+            loss.backward(); optimizer.step()
+        # Log intermediate metrics
+        if epoch % 100 == 0:
+            wandb.log({'epoch': epoch, 'loss': loss.item()})
+    wandb.log({'final_loss': loss.item()})
+
+# Sweep configuration
+sweep_config = {
+    'method': 'grid',
+    'parameters': {
+        'lr': {'values': [1e-3, 5e-4, 1e-4]},
+        'hidden_size': {'values': [32, 64, 128]},
+        'weight_geo': {'values': [0.01, 0.1, 1.0]},
+        'weight_chem': {'values': [0.1, 1.0, 10.0]}
+    }
+}
+
+sweep_id = wandb.sweep(sweep_config, project='cell-path-pinns')
+wandb.agent(sweep_id, train)
+```
+
+Run this script to launch hyperparameter sweeps. It logs losses to W\&B for each combination. After completion, analyze reported metrics to choose optimal parameters.
+
+## Step 5: API and Demo
+
+We package the model into a user-friendly API. Create a Python module `cell_path_pinns.py` exposing a `predict_paths()` function:
+
+```python
+# cell_path_pinns.py
+import torch
+
+class CellPathModel:
+    def __init__(self, path_state_dict, potential_state_dict, device='cpu'):
+        """
+        Initialize with pre-trained model weights.
+        """
+        self.device = torch.device(device)
+        self.path_net = PathNet(hidden_dim=64).to(self.device)
+        self.potential_net = PotentialNet(hidden_dim=64).to(self.device)
+        self.path_net.load_state_dict(torch.load(path_state_dict, map_location=self.device))
+        self.potential_net.load_state_dict(torch.load(potential_state_dict, map_location=self.device))
+        self.path_net.eval()
+        self.potential_net.eval()
+    
+    def predict_paths(self, t_sequence):
+        """
+        Forecast microbe positions given sequence of times.
+        t_sequence: array-like of time points.
+        Returns: numpy array of shape (len(t), 2) with (x,y) positions.
+        """
+        t_tensor = torch.tensor(t_sequence, dtype=torch.float32).view(-1,1).to(self.device)
+        with torch.no_grad():
+            xy_pred = self.path_net(t_tensor).cpu().numpy()
+        return xy_pred
+
+# For completeness, also provide function for batch predictions
+def predict_paths(model, init_positions, times):
+    """
+    Example: ignore init_positions for this PINN, since it parameterizes absolute path.
+    Returns predicted (x,y) for given times using model.
+    """
+    return model.predict_paths(times)
+```
+
+To use this API:
+
+```python
+# sample_usage.ipynb (Jupyter Notebook demonstration)
+import numpy as np
+from cell_path_pinns import CellPathModel
+
+# Load our trained model (assumes weights saved as .pth files)
+model = CellPathModel('path_net.pth', 'potential_net.pth', device='cuda')
+
+# Suppose we have start time 0 and want predictions up to t=10s
+times = np.linspace(0, 10, 100)
+predictions = model.predict_paths(times)
+
+# Visualize
+import matplotlib.pyplot as plt
+plt.plot(predictions[:,0], predictions[:,1], 'b-', label='Predicted Path')
+plt.xlabel('x'); plt.ylabel('y'); plt.legend()
+plt.title('Microbe Trajectory Prediction')
+plt.show()
+```
+
+**Packaging:** Create a `setup.py` for pip installation:
+
+```python
+# setup.py
+from setuptools import setup, find_packages
+
+setup(
+    name='cell_path_pinns',
+    version='0.1',
+    author='Your Name',
+    description='Cell-Path PINNs for microbe trajectory prediction',
+    packages=find_packages(),
+    install_requires=[
+        'torch>=1.8',
+        'numpy',
+        'opencv-python',
+        'pandas'
+    ],
+    python_requires='>=3.8'
+)
+```
+
+After placing `cell_path_pinns.py` and `setup.py` appropriately, users can install:
+
+```bash
+pip install .
+```
+
+This installs the module so that `import cell_path_pinns` works. Provide pretrained model files (`.pth`) either bundled or as separate downloads. The module and notebook example constitute the demo.
+
+## Step 6: Validation Protocol
+
+We validate forecasting accuracy and topology using temporal k-fold splits.
+
+**K-Fold Temporal Split:** Divide each trajectory’s time span into *k* contiguous segments. For fold *i*, use segments ≠ *i* for training and segment *i* for testing (future prediction). This respects temporal order (no leakage). For each test segment, forecast from the last training point forward.
+
+```python
+import numpy as np
+from sklearn.model_selection import TimeSeriesSplit
+import matplotlib.pyplot as plt
+
+def compute_displacement_error(true, pred):
+    """Compute mean Euclidean displacement error between true and predicted trajectories."""
+    return np.mean(np.linalg.norm(true - pred, axis=1))
+
+def discrete_frechet(P, Q):
+    """Compute discrete Frechet distance between curves P and Q (both shape (N,2))."""
+    ca = np.full((len(P), len(Q)), -1.0)
+    def c(i,j):
+        if ca[i,j] > -0:
+            return ca[i,j]
+        d = np.linalg.norm(P[i] - Q[j])
+        if i == 0 and j == 0:
+            ca[i,j] = d
+        elif i > 0 and j == 0:
+            ca[i,j] = max(c(i-1,0), d)
+        elif i == 0 and j > 0:
+            ca[i,j] = max(c(0,j-1), d)
+        else:
+            ca[i,j] = max(min(c(i-1,j), c(i-1,j-1), c(i,j-1)), d)
+        return ca[i,j]
+    return c(len(P)-1, len(Q)-1)
+
+# Example: Load a single microbe's trajectory (time-ordered)
+times = np.linspace(0, 100, 1001)   # 0 to 100 sec
+true_xy = np.vstack((np.sin(times/10), np.cos(times/10))).T  # example circular path
+tscv = TimeSeriesSplit(n_splits=5)
+errors = []
+frechets = []
+
+for train_idx, test_idx in tscv.split(times):
+    t_train, t_test = times[train_idx], times[test_idx]
+    xy_train, xy_test = true_xy[train_idx], true_xy[test_idx]
+    # Train model on (t_train, xy_train) using Step 4 procedure...
+    # For demonstration, assume model is retrained here (omitted)
+    # Predict on test times
+    pred_xy = model.predict_paths(t_test)  # using the API
+    # Align lengths if needed (here same length)
+    de = compute_displacement_error(xy_test, pred_xy)
+    fe = discrete_frechet(xy_test, pred_xy)
+    errors.append(de); frechets.append(fe)
+
+print("Mean displacement error across folds:", np.mean(errors))
+print("Mean Frechet distance across folds:", np.mean(frechets))
+
+# Visualization for one fold
+plt.plot(xy_test[:,0], xy_test[:,1], 'k--', label='True')
+plt.plot(pred_xy[:,0], pred_xy[:,1], 'r-', label='Predicted')
+plt.title('Trajectory Forecast (Test Fold)')
+plt.legend(); plt.xlabel('x'); plt.ylabel('y')
+plt.show()
+```
+
+This script demonstrates k-fold splitting (here `TimeSeriesSplit`) for one trajectory. For each test segment, it computes:
+
+- **Displacement Error:** Mean Euclidean distance between predicted and true points.
+- **Frechet Distance:** A topology-aware measure of curve similarity, capturing maximum deviation along the path【38†L167-L173】.
+
+Visualizations include plotting true vs predicted path for qualitative assessment.
+
+## Step 7: README for Biologists
+
+````markdown
+# Cell-Path PINNs
+
+**A toolbox to predict microbe (e.g. bacterial) trajectories using physics-informed neural networks (PINNs).**
+
+## Overview
+Cell-Path PINNs models individual microbe movements (e.g. chemotaxis) as geodesic paths on a learned nutrient landscape. It uses microscope video data to train a neural network that respects physical laws (e.g. constant speed, nutrient gradients). No deep math knowledge is needed to use the tool.
+
+## Installation
+We recommend using [Conda](https://www.anaconda.com) or Miniconda for environment management.
+
+1. **Create a Conda environment:**  
+   ```bash
+   conda create -n cellpath python=3.10
+   conda activate cellpath
+````
+
+2. **Install dependencies:**
+   ```bash
+   pip install torch numpy opencv-python pandas matplotlib
+   ```
+   (Optionally install **Weights & Biases** `pip install wandb` for hyperparameter tuning.)
+
+3. **Install the package:**\
+   If you have the source code (including `setup.py`), run:
+   ```bash
+   pip install .
+   ```
+   This makes the `cell_path_pinns` module importable.
+
+## Usage
+
+### 1. Prepare Data
+
+- **Video Segmentation:** Use the provided U-Net script to process your microscopy video and extract microbe centroids. This outputs `centroids.csv` with columns `frame, x, y`.
+- **Synthetic Data (optional):** For testing, run the synthetic boids generator to simulate trajectories.
+
+### 2. Train the Model
+
+- Use the Jupyter notebook (`training_notebook.ipynb`) to train the PINN. Example steps:
+
+  1. Load `centroids.csv` and convert frames to time (e.g. `time = frame * dt` where `dt` is your frame interval in seconds).
+  2. Run the training loop (see notebook cells). Expect a few minutes to hours depending on data size and GPU.
+  3. Training outputs model weight files `path_net.pth` and `potential_net.pth`.
+
+  **Note:** Typical runs on a modern GPU (16 GB) take on the order of minutes to an hour for moderate datasets. CPU training is slower.
+
+### 3. Forecast Trajectories
+
+- After training, use the `cell_path_pinns` API:
+  ```python
+  from cell_path_pinns import CellPathModel
+  model = CellPathModel('path_net.pth', 'potential_net.pth', device='cuda')
+  times = np.linspace(0, 300, 601)  # e.g. predict for 5 min at 0.5s intervals
+  predicted_xy = model.predict_paths(times)
+  ```
+- `predicted_xy` is an array of (x,y) positions over time. Plot or analyze as needed.
+
+### 4. Validation
+
+- Use `validation.py` script to compute errors. It will perform k-fold temporal splits and report:
+  - **Displacement Error:** Average distance between predicted and true positions.
+  - **Frechet Distance:** Measures overall curve similarity.
+- The script also plots example predicted vs true paths for visual inspection.
+
+## Example
+
+Below is a minimal example using synthetic data:
+
+```python
+import numpy as np
+from cell_path_pinns import CellPathModel
+
+# Assume synthetic data was generated and model trained...
+model = CellPathModel('path_net.pth', 'potential_net.pth')
+
+# Predict for a new time series
+times = np.linspace(0, 100, 1001)
+predicted = model.predict_paths(times)
+print(predicted.shape)  # (1001, 2)
+
+# Plot trajectory
+import matplotlib.pyplot as plt
+plt.plot(predicted[:,0], predicted[:,1], 'o-')
+plt.xlabel('x'); plt.ylabel('y'); plt.title('Predicted Microbe Path')
+plt.show()
+```
+
+## Run Times
+
+- **Segmentation & Tracking (Step 2):** Depends on video size. A 1000-frame video (1024×1024) runs in seconds to a few minutes on a typical desktop.
+- **Training (Step 4):** On a GPU (16 GB), training the PINN (a few thousand epochs) takes on the order of 10–60 minutes for a modest dataset (\~10^4 points). CPU training will be slower.
+- **Prediction (Step 5):** Once trained, predicting a trajectory is fast (milliseconds per point) on CPU or GPU.
+- **Validation (Step 6):** Computing errors on held-out segments is quick (under a minute for moderate data).
+
+## Support
+
+For any issues or questions, please refer to the code comments or contact the author. Good luck with your chemotaxis modeling!
+
+```
+
+This README uses plain language and step-by-step instructions suitable for biologists familiar with basic Python usage. It outlines setup, data preparation, training, and usage with examples.
+
+```
+
+
