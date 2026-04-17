@@ -5,6 +5,7 @@ Implements multi-task losses combining:
 1. Edge Spring Loss - enforces graph-based dynamics consistency
 2. SDF Reconstruction Loss - ensures surface accuracy
 3. Eikonal Loss - regularizes SDF gradients
+4. Bending Loss - intrinsic curvature-based (using diffgeo) or simplified
 
 Reference equations from the framework design document.
 """
@@ -12,7 +13,17 @@ Reference equations from the framework design document.
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
-from typing import Optional, Dict, Tuple
+from typing import Optional, Dict, Tuple, Union
+import numpy as np
+
+# Optional import of intrinsic physics from diffgeo integration
+try:
+    from ..physics.intrinsic_energy import IntrinsicBendingEnergy, MembraneEnergy
+    INTRINSIC_PHYSICS_AVAILABLE = True
+except ImportError:
+    INTRINSIC_PHYSICS_AVAILABLE = False
+    IntrinsicBendingEnergy = None
+    MembraneEnergy = None
 
 
 def edge_spring_loss(

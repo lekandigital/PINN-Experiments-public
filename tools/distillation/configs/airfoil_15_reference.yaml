@@ -1,0 +1,107 @@
+# PINN-Lite-Foil (Project 15) Reference Configuration
+#
+# Use case: Regression test / reference implementation
+# This mirrors the existing Project 15 distillation setup
+# Teacher: Full PINN with 8 layers × 128 units
+# Student: Compact PINN with 4 layers × 32 units
+
+name: airfoil_15_reference
+description: "Reference distillation config based on Project 15 PINN-Lite-Foil"
+
+# Teacher model (Project 15 - Full PINN)
+teacher:
+  name: pinn_foil_full
+  checkpoint: "projects/15-pinn-lite-foil__project-space/checkpoints/teacher_best.pt"
+  project_path: "projects/15-pinn-lite-foil__project-space"
+  freeze: true
+
+# Student model (Project 15 - Lite PINN)
+student:
+  name: pinn_foil_lite
+  init_args:
+    input_dim: 4    # (x, y, Re, AoA) - position + flow parameters
+    output_dim: 3   # (u, v, p) - velocity components + pressure
+    hidden_dim: 32
+    num_layers: 4
+    activation: "tanh"
+    use_fourier_features: false
+
+# Sampling - random within domain bounds
+sampling:
+  strategy: random
+  bounds:
+    x: [-0.5, 1.5]   # Normalized chord coordinates
+    y: [-0.5, 0.5]
+    Re: [1.0e5, 1.0e7]  # Reynolds number range (log-scaled)
+    AoA: [-10.0, 15.0]  # Angle of attack in degrees
+  batch_size: 8192
+  num_workers: 4
+
+# Loss configuration - matches Project 15 settings
+loss:
+  temperature: 2.0
+  weights:
+    soft_target: 0.7    # alpha_distill = 0.7
+    hard_target: 0.2
+    feature_match: 0.0
+    physics: 0.1        # Scaled by lambda_pde = 10.0
+  physics_losses:
+    - type: navier_stokes
+      weight: 10.0      # lambda_pde from Project 15
+      params:
+        viscosity: null  # Computed from Re
+        density: 1.0
+
+# Training configuration
+training:
+  epochs: 500
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-5
+  scheduler: cosine
+  warmup_epochs: 25
+  batch_size: 8192
+  gradient_clip: 1.0
+  early_stopping_patience: 75
+  checkpoint_every: 25
+  seed: 42
+
+# Export configuration
+export:
+  format: onnx
+  opset_version: 17  # Updated from Project 15's opset 13
+  strategy: direct
+  optimize: true
+  simplify: true
+  dynamic_axes:
+    input: {0: "batch_size"}
+    output: {0: "batch_size"}
+  validate_export: true
+
+# Quantization configuration (NEW - not in original Project 15)
+quantization:
+  enabled: true
+  methods:
+    - dynamic_int8
+    - fp16
+  calibration_samples: 500
+
+# Benchmark configuration
+benchmark:
+  backends:
+    - cpu
+    - cuda
+  warmup_runs: 100
+  benchmark_runs: 1000
+  batch_sizes: [1, 64, 256, 1024]
+  target_latency_ms: 1.0
+  target_throughput: 1000.0
+
+# Packaging configuration
+package:
+  target: edge
+  target_platform: x86_64
+  include_cpp: true
+  include_python: true
+
+# Output configuration
+output_dir: "outputs/distillation/airfoil_15_reference"

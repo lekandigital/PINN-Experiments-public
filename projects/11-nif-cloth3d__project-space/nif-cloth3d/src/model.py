@@ -7,26 +7,35 @@ time, force vectors, and material properties to cloth displacement predictions.
 Architecture follows "Implicit Neural Representations with Periodic Activation Functions"
 (Sitzmann et al., NeurIPS 2020) with modifications for physics-informed cloth simulation.
 
+Uses the shared implicit_fields library for core SIREN components.
+
 Input: 8D tensor (x, y, z, t, force_x, force_y, force_z, material_id)
 Output: 3D displacement vector (dx, dy, dz)
 """
+
+import sys
+from pathlib import Path
+
+# Add repository root to path for implicit_fields import
+repo_root = Path(__file__).parent.parent.parent.parent.parent
+if str(repo_root) not in sys.path:
+    sys.path.insert(0, str(repo_root))
 
 import torch
 import torch.nn as nn
 import numpy as np
 from typing import Optional, Tuple
 
+# Import from shared library
+from implicit_fields import SirenLayer as _BaseSirenLayer, SirenNetwork
+
 
 class SineLayer(nn.Module):
     """
     Sine activation layer with SIREN-style initialization.
     
-    The sinusoidal activation enables learning high-frequency functions,
-    which is critical for capturing fine wrinkles and detailed cloth deformations.
-    
-    Initialization follows SIREN paper:
-    - First layer: weights ~ U(-1/in_features, 1/in_features)
-    - Hidden layers: weights ~ U(-sqrt(6/in_features)/w0, sqrt(6/in_features)/w0)
+    Wrapper for P11 backward compatibility - uses zero bias init instead of
+    uniform bias init (project-specific convention).
     
     Args:
         in_features: Number of input features
@@ -48,25 +57,27 @@ class SineLayer(nn.Module):
         self.w0 = w0
         self.is_first = is_first
         
-        self.linear = nn.Linear(in_features, out_features)
-        self._init_weights()
-    
-    def _init_weights(self):
-        """Initialize weights according to SIREN paper."""
+        # Use shared library layer
+        self._layer = _BaseSirenLayer(
+            in_features=in_features,
+            out_features=out_features,
+            omega=w0,
+            is_first=is_first,
+            bias=True
+        )
+        # Override bias init to zero (P11 convention)
         with torch.no_grad():
-            if self.is_first:
-                # First layer: uniform in [-1/in, 1/in]
-                bound = 1.0 / self.in_features
-            else:
-                # Hidden layers: uniform scaled by sqrt(6) / (w0 * sqrt(in))
-                bound = np.sqrt(6.0 / self.in_features) / self.w0
-            
-            self.linear.weight.uniform_(-bound, bound)
-            self.linear.bias.zero_()
+            if self._layer.linear.bias is not None:
+                self._layer.linear.bias.zero_()
+    
+    @property
+    def linear(self):
+        """Expose linear layer for compatibility."""
+        return self._layer.linear
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Apply linear transformation followed by sine activation."""
-        return torch.sin(self.w0 * self.linear(x))
+        return self._layer(x)
 
 
 class SineMLP(nn.Module):

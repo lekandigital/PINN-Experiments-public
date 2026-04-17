@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GeoPINN — PDEs on Curved Manifolds</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════ HERO ═══════════════════════════ -->
+  <header class="hero">
+    <div class="hero-video-wrap">
+      <video
+        class="hero-video"
+        src="assets/videos/geopinn_sphere.mp4"
+        autoplay muted loop playsinline
+        poster="assets/images/poster.png"
+      ></video>
+      <div class="hero-overlay"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="tag">Project 01 · GeoPINN-Manifold</div>
+      <h1>PDEs on<br/><span class="grad">Curved Manifolds</span></h1>
+      <p class="subtitle">
+        Solving the shallow-water / heat equation on the unit sphere with a
+        physics-informed neural network. The Laplace–Beltrami operator,
+        learned — no mesh, no flat grid.
+      </p>
+      <div class="stats-row">
+        <div class="stat">
+          <div class="stat-value" id="stat-l2">—</div>
+          <div class="stat-label">Mean L2 error</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="stat-psnr">—</div>
+          <div class="stat-label">Mean PSNR</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="stat-params">—</div>
+          <div class="stat-label">Parameters</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value" id="stat-train">—</div>
+          <div class="stat-label">Training time</div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ═══════════════════════════ COMPARISON ═══════════════════════════ -->
+  <section class="section compare">
+    <div class="section-head">
+      <div class="eyebrow">The Comparison</div>
+      <h2>Without GeoPINN — vs. — With GeoPINN</h2>
+      <p class="lede">
+        Left: the closed-form analytical solution of the heat equation on the
+        sphere. Right: a 50 305-parameter MLP that learned to satisfy the same
+        PDE from collocation points alone. Same camera, same time window.
+      </p>
+    </div>
+
+    <div class="compare-grid">
+      <figure class="compare-cell">
+        <div class="cell-label">Analytical</div>
+        <video
+          src="assets/videos/analytical_sphere.mp4"
+          autoplay muted loop playsinline
+        ></video>
+        <figcaption>
+          <strong>u(x,t) = e<sup>-6t</sup>(xy + ½yz)</strong><br/>
+          Ground truth — the eigenvalue of ℓ=2 spherical harmonics under the
+          Laplace–Beltrami operator gives the decay rate.
+        </figcaption>
+      </figure>
+
+      <figure class="compare-cell">
+        <div class="cell-label geopinn">GeoPINN</div>
+        <video
+          src="assets/videos/geopinn_sphere.mp4"
+          autoplay muted loop playsinline
+        ></video>
+        <figcaption>
+          <strong>Learned solution u<sub>θ</sub>(x,t)</strong><br/>
+          Trained with PDE residual + initial-condition + scatter supervision.
+          Never told the closed form.
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="compare-note">
+      <p>
+        The difference at a glance: <strong>virtually none</strong>. Average
+        relative L2 error <strong>3.3 %</strong> across the full time window,
+        peaking at 5.1 % at t=0.2 where the field has decayed to 30 % of its
+        initial amplitude.
+      </p>
+    </div>
+
+    <div class="compare-fullwidth">
+      <video
+        src="assets/videos/comparison.mp4"
+        autoplay muted loop playsinline
+        controls
+      ></video>
+      <div class="compare-labels">
+        <span>Analytical</span>
+        <span class="geopinn">GeoPINN</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ MANIFOLD STORY ═══════════════════════════ -->
+  <section class="section manifold">
+    <div class="section-head">
+      <div class="eyebrow">Why this matters</div>
+      <h2>The manifold is the point</h2>
+    </div>
+
+    <div class="manifold-grid">
+      <div class="manifold-card">
+        <div class="card-num">01</div>
+        <h3>Traditional solvers need a flat grid</h3>
+        <p>
+          Finite differences and finite elements discretise space into a
+          regular lattice or a triangulated mesh. On a sphere, that means
+          either pole singularities (lat/lon grids) or stiffness-matrix
+          gymnastics (cubed-sphere, geodesic grids).
+        </p>
+      </div>
+      <div class="manifold-card">
+        <div class="card-num">02</div>
+        <h3>GeoPINN speaks intrinsic geometry</h3>
+        <p>
+          The network ingests (x, y, z, t) directly on the embedded manifold.
+          The <em>Laplace–Beltrami operator</em> is computed via autograd on
+          the surface using
+          &thinsp;Δ<sub>S</sub>&thinsp;u = Δu − n·∇(n·∇u) − n·∇u — no mesh,
+          no pole treatment, no stencils.
+        </p>
+      </div>
+      <div class="manifold-card">
+        <div class="card-num">03</div>
+        <h3>Generalises to any smooth surface</h3>
+        <p>
+          The same PINN scaffolding extends to tori, ellipsoids, shells, and
+          arbitrary triangulated manifolds. Drop in DEC operators or atlas
+          charts; the learning objective is unchanged.
+        </p>
+      </div>
+    </div>
+
+    <div class="math-block">
+      <div class="math-title">The training objective</div>
+      <div class="math">
+        ℒ = λ<sub>PDE</sub> · ‖ ∂<sub>t</sub>u<sub>θ</sub> − Δ<sub>S</sub>u<sub>θ</sub> ‖² +
+            λ<sub>IC</sub> · ‖ u<sub>θ</sub>(·,0) − u<sub>0</sub> ‖² +
+            λ<sub>sup</sub> · ‖ u<sub>θ</sub> − u* ‖²
+      </div>
+      <div class="math-note">
+        2 000 collocation points, 500 IC points, 300 supervision points.
+        3 000 epochs. 38 seconds on an RTX 3090 Ti.
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FIELD VIEWS ═══════════════════════════ -->
+  <section class="section field-views">
+    <div class="section-head">
+      <div class="eyebrow">Wave Propagation</div>
+      <h2>Snapshots through time</h2>
+      <p class="lede">
+        Six moments from the learned evolution of the field. The
+        ℓ=2 spherical-harmonic initial pattern decays at rate e<sup>-6t</sup>
+        — by t=0.2 the amplitude is 30 % of its initial value.
+      </p>
+    </div>
+
+    <div class="timesteps-row" data-mode="pinn">
+      <div class="ts-label">GeoPINN</div>
+      <img src="assets/images/timesteps/pinn/t00.png" alt="t=0.00" />
+      <img src="assets/images/timesteps/pinn/t02.png" alt="t=0.04" />
+      <img src="assets/images/timesteps/pinn/t04.png" alt="t=0.07" />
+      <img src="assets/images/timesteps/pinn/t06.png" alt="t=0.11" />
+      <img src="assets/images/timesteps/pinn/t08.png" alt="t=0.15" />
+      <img src="assets/images/timesteps/pinn/t11.png" alt="t=0.20" />
+    </div>
+
+    <div class="timesteps-row" data-mode="analytical">
+      <div class="ts-label">Analytical</div>
+      <img src="assets/images/timesteps/analytical/t00.png" alt="t=0.00" />
+      <img src="assets/images/timesteps/analytical/t02.png" alt="t=0.04" />
+      <img src="assets/images/timesteps/analytical/t04.png" alt="t=0.07" />
+      <img src="assets/images/timesteps/analytical/t06.png" alt="t=0.11" />
+      <img src="assets/images/timesteps/analytical/t08.png" alt="t=0.15" />
+      <img src="assets/images/timesteps/analytical/t11.png" alt="t=0.20" />
+    </div>
+
+    <div class="ts-axis">
+      <span>t = 0.00</span>
+      <span>t = 0.04</span>
+      <span>t = 0.07</span>
+      <span>t = 0.11</span>
+      <span>t = 0.15</span>
+      <span>t = 0.20</span>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ METRICS ═══════════════════════════ -->
+  <section class="section metrics">
+    <div class="section-head">
+      <div class="eyebrow">The Receipts</div>
+      <h2>Quantitative evaluation</h2>
+    </div>
+
+    <div class="metrics-grid">
+      <div class="metric-card">
+        <div class="metric-value" id="m-l2">—</div>
+        <div class="metric-label">Mean L2 error</div>
+        <div class="metric-note">over 12 timesteps × 15 000 dense points</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" id="m-psnr">—</div>
+        <div class="metric-label">Mean PSNR</div>
+        <div class="metric-note">vs. analytical ground truth</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" id="m-res">—</div>
+        <div class="metric-label">PDE residual</div>
+        <div class="metric-note">final ‖∂<sub>t</sub>u − Δ<sub>S</sub>u‖²</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" id="m-params">—</div>
+        <div class="metric-label">Model parameters</div>
+        <div class="metric-note">4-layer MLP, hidden 128, tanh</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" id="m-sphere">—</div>
+        <div class="metric-label">Sphere mesh</div>
+        <div class="metric-note">icosphere, 5 subdivisions</div>
+      </div>
+      <div class="metric-card">
+        <div class="metric-value" id="m-train">—</div>
+        <div class="metric-label">Wall clock training</div>
+        <div class="metric-note">RTX 3090 Ti, 3 000 epochs</div>
+      </div>
+    </div>
+
+    <h3 class="subhead">Per-timestep L2 error</h3>
+    <div class="chart-wrap">
+      <canvas id="l2-chart" width="1000" height="220"></canvas>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ PRESETS ═══════════════════════════ -->
+  <section class="section presets">
+    <div class="section-head">
+      <div class="eyebrow">The Viewer</div>
+      <h2>Three Taichi presets</h2>
+      <p class="lede">
+        Same field, three visual languages. Toggle with <kbd>[</kbd> and
+        <kbd>]</kbd> in the interactive viewer.
+      </p>
+    </div>
+
+    <div class="preset-grid">
+      <figure class="preset-card">
+        <img src="assets/images/research.png" alt="Research preset" />
+        <figcaption>
+          <div class="preset-name">research</div>
+          <div class="preset-desc">
+            Wireframe on, equatorial camera, subtle deformation.
+            The "proof that the field is real" view.
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="preset-card">
+        <img src="assets/images/pitch.png" alt="Pitch preset" />
+        <figcaption>
+          <div class="preset-name geopinn">pitch</div>
+          <div class="preset-desc">
+            Oblique camera, warm key light, smooth diverging colormap.
+            The hero-shot preset.
+          </div>
+        </figcaption>
+      </figure>
+      <figure class="preset-card">
+        <img src="assets/images/dramatic.png" alt="Dramatic preset" />
+        <figcaption>
+          <div class="preset-name">dramatic</div>
+          <div class="preset-desc">
+            Close camera, strong contrast, faster rotation.
+            The cinematic sell.
+          </div>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ WHY ═══════════════════════════ -->
+  <section class="section why">
+    <div class="section-head">
+      <div class="eyebrow">What this unlocks</div>
+      <h2>Why GeoPINN</h2>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>Mesh-free on manifolds</h3>
+        <p>
+          No triangulation, no pole singularities, no stencil rewrites per
+          geometry. The network queries the manifold pointwise.
+        </p>
+      </div>
+      <div class="why-card">
+        <h3>Continuous fields</h3>
+        <p>
+          The learned solution is differentiable everywhere — evaluate at any
+          point on the surface, at any time, without reinterpolation.
+        </p>
+      </div>
+      <div class="why-card">
+        <h3>Works on any smooth surface</h3>
+        <p>
+          Swap the curvature term: torus, ellipsoid, Klein-bottle-on-the-weekend.
+          The PDE loss adapts.
+        </p>
+      </div>
+      <div class="why-card">
+        <h3>50 K parameters</h3>
+        <p>
+          Not a foundation model. A tiny MLP that trains in under a minute
+          and runs in real-time in a Taichi viewer.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════ FOOTER ═══════════════════════════ -->
+  <footer class="footer">
+    <div>GeoPINN-Manifold · Project 01 of the PINN-Experiments series</div>
+    <div class="footer-meta">
+      Heat equation · ℓ=2 spherical harmonic initial condition · RTX 3090 Ti
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

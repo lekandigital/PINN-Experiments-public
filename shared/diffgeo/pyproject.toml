@@ -1,0 +1,50 @@
+[project]
+name = "diffgeo"
+version = "0.1.0"
+description = "Shared Differential Geometry operators for PINN-Experiments monorepo"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+authors = [
+    {name = "PINN-Experiments Team"}
+]
+
+# Core dependencies (always required)
+dependencies = [
+    "numpy>=1.21",
+    "scipy>=1.7",
+]
+
+[project.optional-dependencies]
+# PyTorch backend for Projects 01, 06, 09
+torch = [
+    "torch>=2.0.0",
+]
+# JAX backend for Project 16
+jax = [
+    "jax[cpu]>=0.4.0",
+]
+# Full installation with all backends
+full = [
+    "torch>=2.0.0",
+    "jax[cpu]>=0.4.0",
+]
+# Development dependencies
+dev = [
+    "pytest>=7.0",
+    "pytest-cov>=3.0",
+]
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["diffgeo*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"

@@ -1,0 +1,186 @@
+{
+  "preset": "dramatic",
+  "mode": "compare",
+  "arch": "cuda",
+  "physics_path": "outputs/physics_baseline/cloth_sequence.npy",
+  "hgnn_path": "outputs/hgnn_prediction/cloth_sequence.npy",
+  "mesh_info": "outputs/mesh_info.json",
+  "clip_start": 24,
+  "clip_end": 24,
+  "window_res": [
+    1760,
+    990
+  ],
+  "export_only": true,
+  "export_frames": 1,
+  "export_fps": 30,
+  "fps": 60,
+  "playback_speed": 0.62,
+  "mesh_scale": 1.55,
+  "comparison_gap": 0.96,
+  "surface_mode": "smooth",
+  "wireframe": false,
+  "show_gui": false,
+  "preset_config": {
+    "name": "dramatic",
+    "description": "Tighter hero framing with deeper contrast and stronger stage lighting.",
+    "window_res": [
+      1760,
+      990
+    ],
+    "export_frames": 144,
+    "export_fps": 30,
+    "clip_start": 4,
+    "clip_end": 28,
+    "playback_speed": 0.62,
+    "mesh_scale": 1.55,
+    "comparison_gap": 0.96,
+    "surface_mode": "smooth",
+    "display_subdivisions": 3,
+    "camera": {
+      "position": [
+        -0.58,
+        1.6,
+        3.82
+      ],
+      "lookat": [
+        0.0,
+        0.5,
+        0.22
+      ],
+      "fov": 26.5
+    },
+    "background": [
+      0.022,
+      0.026,
+      0.036
+    ],
+    "ambient": [
+      0.24,
+      0.24,
+      0.26
+    ],
+    "lights": [
+      {
+        "pos": [
+          2.8,
+          2.5,
+          1.5
+        ],
+        "color": [
+          1.12,
+          1.02,
+          0.94
+        ]
+      },
+      {
+        "pos": [
+          -2.2,
+          0.9,
+          -1.6
+        ],
+        "color": [
+          0.18,
+          0.31,
+          0.52
+        ]
+      },
+      {
+        "pos": [
+          0.0,
+          0.65,
+          2.7
+        ],
+        "color": [
+          0.08,
+          0.1,
+          0.14
+        ]
+      }
+    ],
+    "floor_color": [
+      0.08,
+      0.09,
+      0.12
+    ],
+    "floor_margin": 0.095,
+    "wireframe_default": false,
+    "wireframe_color": [
+      0.05,
+      0.06,
+      0.08
+    ],
+    "wireframe_width": 0.68,
+    "physics_style": {
+      "light_color": [
+        0.83,
+        0.88,
+        0.95
+      ],
+      "dark_color": [
+        0.54,
+        0.64,
+        0.78
+      ],
+      "shadow_tint": [
+        0.24,
+        0.42,
+        0.72
+      ],
+      "highlight_tint": [
+        0.96,
+        0.98,
+        1.0
+      ],
+      "displacement_tint": [
+        0.5,
+        0.7,
+        0.96
+      ],
+      "stripe_repeat": 6,
+      "stripe_strength": 0.04,
+      "tone_strength": 0.38,
+      "displacement_strength": 0.12
+    },
+    "hgnn_style": {
+      "light_color": [
+        0.94,
+        0.88,
+        0.76
+      ],
+      "dark_color": [
+        0.66,
+        0.62,
+        0.56
+      ],
+      "shadow_tint": [
+        0.48,
+        0.51,
+        0.62
+      ],
+      "highlight_tint": [
+        1.0,
+        0.96,
+        0.88
+      ],
+      "displacement_tint": [
+        0.98,
+        0.72,
+        0.38
+      ],
+      "stripe_repeat": 7,
+      "stripe_strength": 0.03,
+      "tone_strength": 0.34,
+      "displacement_strength": 0.14
+    }
+  },
+  "timestep": 0.010000000474974513,
+  "bundle_frames": 1,
+  "bundle_frame_offset": 24,
+  "source_mesh_size": 40,
+  "display_mesh_size": 118,
+  "ffmpeg": {
+    "mp4": "ffmpeg -y -framerate 30 -i /home/o/hgnn-clothdyn/artifacts/taichi_presets/dramatic_frame/frame_%04d.png -vf \"scale=trunc(iw/2)*2:trunc(ih/2)*2,format=yuv420p\" /home/o/hgnn-clothdyn/artifacts/taichi_presets/dramatic_frame/cloth_demo.mp4",
+    "gif": "ffmpeg -y -framerate 30 -i /home/o/hgnn-clothdyn/artifacts/taichi_presets/dramatic_frame/frame_%04d.png -vf \"fps=30,scale=960:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse\" /home/o/hgnn-clothdyn/artifacts/taichi_presets/dramatic_frame/cloth_demo.gif"
+  }
+}

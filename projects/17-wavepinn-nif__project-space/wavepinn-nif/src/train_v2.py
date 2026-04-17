@@ -11,6 +11,7 @@ import torch.optim as optim
 import numpy as np
 import time
 import argparse
+from pathlib import Path
 
 def set_seed(seed=42):
     torch.manual_seed(seed)
@@ -99,6 +100,14 @@ class WavePINN(nn.Module):
     def forward(self, c):
         return self.net(self.ff(c))
 
+
+DEFAULT_MODEL_CONFIG = {
+    "hidden_dims": [128, 128, 64],
+    "use_fourier": True,
+    "num_fourier": 32,
+    "fourier_scale": 1.0,
+}
+
 def source(coords):
     """Ricker wavelet source term."""
     x, z, t = coords[:, 0:1], coords[:, 1:2], coords[:, 2:3]
@@ -182,7 +191,10 @@ def main():
     vel = generate_velocity(64, 64, args.seed).to(device)
     print(f"Velocity: [{vel.min():.2f}, {vel.max():.2f}]")
     
-    model = WavePINN().to(device)
+    model = WavePINN(
+        hidden=DEFAULT_MODEL_CONFIG["hidden_dims"],
+        n_four=DEFAULT_MODEL_CONFIG["num_fourier"],
+    ).to(device)
     print(f"Params: {sum(p.numel() for p in model.parameters()):,}")
     
     print("\n" + "="*60 + "\nTRAINING\n" + "="*60)
@@ -203,8 +215,43 @@ def main():
     passed = reduction > 50 and np.all(np.isfinite(u)) and np.max(np.abs(u)) < 10
     print(f"\n{'PASSED' if passed else 'FAILED'}: Acceptance criteria")
     
-    torch.save({"model": model.state_dict(), "history": hist, "velocity": vel.cpu()}, args.output)
-    print(f"Saved: {args.output}")
+    output_path = Path(args.output)
+    output_path.parent.mkdir(parents=True, exist_ok=True)
+
+    checkpoint = {
+        "model": model.state_dict(),
+        "history": hist,
+        "velocity": vel.cpu(),
+        "model_config": DEFAULT_MODEL_CONFIG,
+        "training_args": {
+            "epochs": args.epochs,
+            "lr": args.lr,
+            "n_int": args.n_int,
+            "n_bc": args.n_bc,
+            "n_ic": args.n_ic,
+            "seed": args.seed,
+        },
+        "final_metrics": {
+            "initial_loss": float(init_loss),
+            "final_loss": float(final_loss),
+            "reduction_percent": float(reduction),
+            "max_abs_u_t03": float(np.max(np.abs(u))),
+            "all_finite_t03": bool(np.all(np.isfinite(u))),
+            "acceptance_passed": bool(passed),
+        },
+        "source": {
+            "type": "ricker",
+            "x": 0.5,
+            "z": 0.15,
+            "f0": 5.0,
+            "t0": 0.15,
+            "amplitude": 0.5,
+            "sigma_spatial": 0.03,
+        },
+        "script": "src/train_v2.py",
+    }
+    torch.save(checkpoint, output_path)
+    print(f"Saved: {output_path}")
     return 0 if passed else 1
 
 if __name__ == "__main__":

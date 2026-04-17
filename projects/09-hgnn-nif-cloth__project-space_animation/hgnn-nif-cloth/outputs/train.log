@@ -1,0 +1,63 @@
+Model params: 201,958
+Train pairs: 535  Val pairs: 59
+Device: cuda  AMP: True
+/home/o/work/hgnn-nif-cloth/scripts/train_dynamics.py:191: FutureWarning: `torch.cuda.amp.GradScaler(args...)` is deprecated. Please use `torch.amp.GradScaler('cuda', args...)` instead.
+  scaler = torch.cuda.amp.GradScaler(enabled=amp)
+/home/o/work/hgnn-nif-cloth/scripts/train_dynamics.py:95: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=amp):
+/home/o/work/hgnn-nif-cloth/scripts/train_dynamics.py:109: FutureWarning: `torch.cuda.amp.autocast(args...)` is deprecated. Please use `torch.amp.autocast('cuda', args...)` instead.
+  with torch.cuda.amp.autocast(enabled=amp):
+ep    0  train 0.00864 (pos 0.00425)  val 0.00297 (pos 0.00143)  lr 1.00e-03  3.7s
+ep    5  train 0.00205 (pos 0.00096)  val 0.00191 (pos 0.00089)  lr 9.99e-04  3.2s
+ep   10  train 0.00199 (pos 0.00094)  val 0.00190 (pos 0.00089)  lr 9.95e-04  3.1s
+ep   15  train 0.00185 (pos 0.00086)  val 0.00182 (pos 0.00085)  lr 9.90e-04  3.2s
+ep   20  train 0.00179 (pos 0.00083)  val 0.00171 (pos 0.00080)  lr 9.83e-04  3.2s
+ep   25  train 0.00181 (pos 0.00084)  val 0.00177 (pos 0.00082)  lr 9.74e-04  3.5s
+ep   30  train 0.00163 (pos 0.00076)  val 0.00164 (pos 0.00076)  lr 9.63e-04  3.4s
+ep   35  train 0.00173 (pos 0.00080)  val 0.00177 (pos 0.00082)  lr 9.50e-04  3.1s
+ep   40  train 0.00160 (pos 0.00074)  val 0.00157 (pos 0.00072)  lr 9.36e-04  3.3s
+ep   45  train 0.00158 (pos 0.00073)  val 0.00172 (pos 0.00080)  lr 9.20e-04  3.2s
+ep   50  train 0.00168 (pos 0.00078)  val 0.00187 (pos 0.00087)  lr 9.02e-04  3.3s
+ep   55  train 0.00159 (pos 0.00073)  val 0.00152 (pos 0.00070)  lr 8.82e-04  3.3s
+ep   60  train 0.00153 (pos 0.00071)  val 0.00154 (pos 0.00071)  lr 8.62e-04  3.3s
+ep   65  train 0.00156 (pos 0.00072)  val 0.00151 (pos 0.00069)  lr 8.39e-04  3.2s
+ep   70  train 0.00148 (pos 0.00068)  val 0.00146 (pos 0.00067)  lr 8.16e-04  3.2s
+ep   75  train 0.00151 (pos 0.00070)  val 0.00153 (pos 0.00070)  lr 7.91e-04  3.2s
+ep   80  train 0.00168 (pos 0.00078)  val 0.00164 (pos 0.00076)  lr 7.65e-04  3.4s
+ep   85  train 0.00151 (pos 0.00069)  val 0.00148 (pos 0.00068)  lr 7.38e-04  3.2s
+ep   90  train 0.00147 (pos 0.00067)  val 0.00145 (pos 0.00067)  lr 7.10e-04  3.4s
+ep   95  train 0.00146 (pos 0.00067)  val 0.00145 (pos 0.00066)  lr 6.81e-04  3.2s
+ep  100  train 0.00150 (pos 0.00069)  val 0.00150 (pos 0.00069)  lr 6.52e-04  3.4s
+ep  105  train 0.00149 (pos 0.00068)  val 0.00149 (pos 0.00068)  lr 6.22e-04  3.3s
+ep  110  train 0.00144 (pos 0.00066)  val 0.00144 (pos 0.00066)  lr 5.92e-04  3.3s
+ep  115  train 0.00143 (pos 0.00066)  val 0.00143 (pos 0.00065)  lr 5.61e-04  3.3s
+ep  120  train 0.00147 (pos 0.00067)  val 0.00148 (pos 0.00068)  lr 5.30e-04  3.2s
+ep  125  train 0.00145 (pos 0.00066)  val 0.00143 (pos 0.00065)  lr 4.99e-04  3.3s
+ep  130  train 0.00141 (pos 0.00065)  val 0.00141 (pos 0.00064)  lr 4.68e-04  3.2s
+ep  135  train 0.00142 (pos 0.00065)  val 0.00145 (pos 0.00066)  lr 4.37e-04  3.2s
+ep  140  train 0.00140 (pos 0.00064)  val 0.00140 (pos 0.00064)  lr 4.06e-04  3.2s
+ep  145  train 0.00141 (pos 0.00064)  val 0.00142 (pos 0.00065)  lr 3.76e-04  3.2s
+ep  150  train 0.00140 (pos 0.00064)  val 0.00138 (pos 0.00063)  lr 3.46e-04  3.2s
+ep  155  train 0.00139 (pos 0.00063)  val 0.00139 (pos 0.00063)  lr 3.17e-04  3.2s
+ep  160  train 0.00137 (pos 0.00063)  val 0.00139 (pos 0.00063)  lr 2.89e-04  3.4s
+ep  165  train 0.00139 (pos 0.00063)  val 0.00139 (pos 0.00063)  lr 2.61e-04  3.4s
+ep  170  train 0.00136 (pos 0.00062)  val 0.00134 (pos 0.00061)  lr 2.35e-04  3.2s
+ep  175  train 0.00138 (pos 0.00063)  val 0.00134 (pos 0.00061)  lr 2.09e-04  3.4s
+ep  180  train 0.00135 (pos 0.00061)  val 0.00132 (pos 0.00060)  lr 1.85e-04  3.4s
+ep  185  train 0.00133 (pos 0.00060)  val 0.00131 (pos 0.00059)  lr 1.62e-04  3.2s
+ep  190  train 0.00132 (pos 0.00060)  val 0.00131 (pos 0.00059)  lr 1.40e-04  3.2s
+ep  195  train 0.00132 (pos 0.00060)  val 0.00128 (pos 0.00058)  lr 1.20e-04  3.3s
+ep  200  train 0.00131 (pos 0.00060)  val 0.00127 (pos 0.00057)  lr 1.01e-04  3.2s
+ep  205  train 0.00130 (pos 0.00059)  val 0.00128 (pos 0.00058)  lr 8.38e-05  3.3s
+ep  210  train 0.00131 (pos 0.00059)  val 0.00127 (pos 0.00058)  lr 6.83e-05  3.3s
+ep  215  train 0.00130 (pos 0.00059)  val 0.00127 (pos 0.00057)  lr 5.45e-05  3.2s
+ep  220  train 0.00130 (pos 0.00059)  val 0.00126 (pos 0.00057)  lr 4.25e-05  3.2s
+ep  225  train 0.00129 (pos 0.00059)  val 0.00125 (pos 0.00056)  lr 3.23e-05  3.2s
+ep  230  train 0.00129 (pos 0.00058)  val 0.00125 (pos 0.00056)  lr 2.40e-05  3.1s
+ep  235  train 0.00129 (pos 0.00058)  val 0.00125 (pos 0.00056)  lr 1.76e-05  3.4s
+ep  240  train 0.00129 (pos 0.00058)  val 0.00125 (pos 0.00056)  lr 1.32e-05  3.2s
+ep  245  train 0.00129 (pos 0.00058)  val 0.00125 (pos 0.00056)  lr 1.06e-05  3.4s
+ep  249  train 0.00129 (pos 0.00058)  val 0.00125 (pos 0.00056)  lr 1.00e-05  3.3s
+Best val_loss = 0.001246
+Saved best -> checkpoints/hgnn_nif_cloth_trained.pt
+Saved final -> checkpoints/hgnn_nif_cloth_trained_final.pt

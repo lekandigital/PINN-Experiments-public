@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=1280, initial-scale=1" />
+<title>HGNN-NIF Cloth Dynamics</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="hero">
+  <video class="hero-video" src="assets/hgnn_trust_window.mp4"
+         poster="assets/poster.png" autoplay muted loop playsinline></video>
+  <div class="hero-overlay">
+    <div class="tag">Project 09 · PINN Experiments</div>
+    <h1>Cloth Dynamics from <span class="accent">Graphs</span> &amp; <span class="accent-b">Implicit Fields</span></h1>
+    <p class="sub">A topology-aware HGNN predicts how every vertex moves; a SIREN neural implicit field
+    gives continuous, interpolatable surface coordinates. Trained on 20 seconds of mass-spring cloth physics.</p>
+    <div class="hero-stats">
+      <div><strong>1 600</strong><span>fine vertices (40×40 grid)</span></div>
+      <div><strong>201 958</strong><span>model parameters</span></div>
+      <div><strong>153 fps</strong><span>CPU inference</span></div>
+      <div><strong>13.6 min</strong><span>training on RTX 3090 Ti</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#compare">PBS vs HGNN-NIF</a>
+  <a href="#architecture">Architecture</a>
+  <a href="#metrics">Metrics</a>
+  <a href="#presets">Taichi presets</a>
+  <a href="#why">Why HGNN-NIF</a>
+</nav>
+
+<section id="compare" class="band dark">
+  <div class="band-head">
+    <h2>Without my model <span class="arrow">→</span> With my model</h2>
+    <p>The baseline on the left is an explicit mass-spring simulator: accurate but it runs physics every step.
+    The right is the trained HGNN-NIF predicting the next frame from a 3-frame history. Identical seed, identical topology,
+    rendered with the same camera and lighting so visual differences are the model, not the graphics.</p>
+  </div>
+  <h3 class="subsection-label">Trust window (frames 0-9, 0.30 s) — where the model tracks physics</h3>
+  <div class="compare-grid">
+    <figure>
+      <video src="assets/physics_trust_window.mp4" autoplay muted loop playsinline controls></video>
+      <figcaption><span class="label cold">Without my model</span>
+      Mass-spring PBS (ground truth). 8 substeps per frame, gravity + time-varying wind.</figcaption>
+    </figure>
+    <figure>
+      <video src="assets/hgnn_trust_window.mp4" autoplay muted loop playsinline controls></video>
+      <figcaption><span class="label warm">With my model</span>
+      HGNN-NIF autoregressive rollout within the 9-frame trust window (RMSE &lt; 0.05).</figcaption>
+    </figure>
+  </div>
+  <details class="side-by-side">
+    <summary>Side-by-side, locked timing (trust window)</summary>
+    <video src="assets/trust_comparison.mp4" autoplay muted loop playsinline controls></video>
+  </details>
+
+  <details class="extended-rollout">
+    <summary>Full 120-frame rollout (shows divergence past trust window)</summary>
+    <p class="rollout-note">After frame 9, autoregressive error compounds. The HGNN rollout diverges from
+    physics — edges stretch, the surface becomes jagged. This is expected for a pure next-frame predictor
+    without re-anchoring.</p>
+    <div class="compare-grid">
+      <figure>
+        <video src="assets/physics_demo.mp4" autoplay muted loop playsinline controls></video>
+        <figcaption><span class="label cold">Physics baseline</span> Full 120 frames.</figcaption>
+      </figure>
+      <figure>
+        <video src="assets/hgnn_nif_demo.mp4" autoplay muted loop playsinline controls></video>
+        <figcaption><span class="label warm">HGNN-NIF rollout</span> Full 120 frames — diverges after frame 9.</figcaption>
+      </figure>
+    </div>
+    <details class="side-by-side" style="margin:0 20px 20px">
+      <summary>Side-by-side, locked timing (hstack, 120 frames)</summary>
+      <video src="assets/comparison.mp4" autoplay muted loop playsinline controls></video>
+    </details>
+  </details>
+</section>
+
+<section id="architecture" class="band">
+  <div class="band-head">
+    <h2>What makes HGNN-NIF different</h2>
+    <p>A plain GNN on the cloth graph captures short-range interactions but has no sense of hierarchy —
+    long-range folds demand ever-deeper message-passing stacks. A pure SIREN field is continuous and
+    differentiable, but knows nothing about which vertices are actually connected. HGNN-NIF composes the two.</p>
+  </div>
+  <div class="arch-grid">
+    <div class="arch-card bad">
+      <h3>Plain GNN <span class="vs">baseline (Project 05)</span></h3>
+      <ul>
+        <li>Flat message passing on a single-resolution graph</li>
+        <li>Long-range wind folds need many GCN layers → over-smoothing</li>
+        <li>Outputs are tied to fixed vertex positions only</li>
+      </ul>
+    </div>
+    <div class="arch-card bad">
+      <h3>Standalone HGNN <span class="vs">Project 08</span></h3>
+      <ul>
+        <li>Coarse + fine graphs with cross-resolution attention</li>
+        <li>Good at multi-scale dynamics, but still a discrete mesh</li>
+        <li>No continuous field — can't query points between vertices</li>
+      </ul>
+    </div>
+    <div class="arch-card good">
+      <h3>HGNN-NIF <span class="vs">this work</span></h3>
+      <ul>
+        <li>40×40 fine graph ↔ 20×20 coarse graph with cross-attention (<strong>HGNN part</strong>)</li>
+        <li>3-frame GRU fuses history into per-vertex latents</li>
+        <li>SIREN conditioned on those latents yields a continuous position field (<strong>NIF part</strong>)</li>
+        <li>Loss mixes vertex MSE + velocity MSE + spring-length regulariser</li>
+        <li>Trained with 4-step BPTT + pushforward noise to reduce rollout drift</li>
+      </ul>
+    </div>
+  </div>
+  <pre class="architecture-ascii"><code>  history (3 × N × 3)                               next-frame positions + velocity
+            │                                                         ▲
+            ▼                                                         │
+   ┌──────────────┐    cross-attn    ┌──────────────┐                  │
+   │ fine HGNN     │ ◀──────────────▶ │ coarse HGNN  │                  │
+   │ 40×40 · 64d   │                 │ 20×20 · 64d  │                  │
+   └──────┬───────┘                  └──────┬───────┘                  │
+          │ per-vertex latent (64)         │                           │
+          ▼                                ▼                           │
+      ┌─────────────────────────────────────────┐                      │
+      │ SIREN (128 × 3, ω₀ = 30)  — conditional │ ──▶ continuous field ┘
+      └─────────────────────────────────────────┘
+</code></pre>
+</section>
+
+<section id="metrics" class="band dark">
+  <div class="band-head">
+    <h2>Rollout metrics</h2>
+    <p>All numbers are per-frame RMSE in world units (<code>1 unit ≈ cloth side length</code>). The trustworthy window is defined as the longest prefix where RMSE stays under <code>0.05</code>.</p>
+  </div>
+  <div class="metrics-grid">
+    <div class="metric-card"><strong>201 958</strong><span>total parameters</span></div>
+    <div class="metric-card"><strong>9 frames · 0.30 s</strong><span>trustworthy rollout window</span></div>
+    <div class="metric-card"><strong>2.44</strong><span>mean RMSE over 600 frames</span></div>
+    <div class="metric-card"><strong>5.68</strong><span>max RMSE (end of 20-second rollout)</span></div>
+    <div class="metric-card"><strong>0.577</strong><span>edge-length error (mean)</span></div>
+    <div class="metric-card"><strong>152.98 fps</strong><span>inference throughput (CPU)</span></div>
+  </div>
+  <div class="chart-card">
+    <canvas id="rmse-chart" width="1200" height="320"></canvas>
+    <div class="chart-caption">Per-frame position RMSE over the autoregressive rollout. Dashed line = 0.05 threshold; vertical mark = trustworthy frame (9). After that, the compounding error of a pure next-frame predictor takes over.</div>
+  </div>
+  <details class="raw">
+    <summary>Raw training / rollout plot (matplotlib)</summary>
+    <img src="assets/rollout_error.png" alt="rollout error matplotlib plot" />
+  </details>
+</section>
+
+<section id="presets" class="band">
+  <div class="band-head">
+    <h2>Three Taichi presets</h2>
+    <p>The interactive viewer ships with three dataclass-driven presets. Same scene, different lighting,
+    different fidelity, different intent. Physics stills at frame 60 (settled cloth); HGNN stills at frame 8
+    (within trust window).</p>
+  </div>
+  <div class="presets-grid">
+    <figure>
+      <img src="assets/research.png" alt="research preset (physics)" />
+      <figcaption><span class="label">research · physics</span>
+      Raw 40×40 mesh with visible wireframe. Frame 60, physics baseline.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/pitch.png" alt="pitch preset (physics)" />
+      <figcaption><span class="label">pitch · physics</span>
+      4× Catmull-Rom upsample, Gaussian smoothing. Frame 60, physics baseline.</figcaption>
+    </figure>
+    <figure>
+      <img src="assets/dramatic.png" alt="dramatic preset (physics)" />
+      <figcaption><span class="label">dramatic · physics</span>
+      5× upsample, close 3/4 camera, violet rim light. Frame 60, physics baseline.</figcaption>
+    </figure>
+  </div>
+  <details class="preset-hgnn-compare">
+    <summary>Same presets, HGNN-NIF prediction at frame 8 (trust window)</summary>
+    <div class="presets-grid">
+      <figure>
+        <img src="assets/research_hgnn.png" alt="research preset (HGNN)" />
+        <figcaption><span class="label warm">research · HGNN</span> Frame 8, within trust window.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/pitch_hgnn.png" alt="pitch preset (HGNN)" />
+        <figcaption><span class="label warm">pitch · HGNN</span> Frame 8, within trust window.</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/dramatic_hgnn.png" alt="dramatic preset (HGNN)" />
+        <figcaption><span class="label warm">dramatic · HGNN</span> Frame 8, within trust window.</figcaption>
+      </figure>
+    </div>
+  </details>
+</section>
+
+<section id="why" class="band dark">
+  <div class="band-head">
+    <h2>Why HGNN-NIF</h2>
+  </div>
+  <div class="why-grid">
+    <div>
+      <h3>Graph structure where the structure matters</h3>
+      <p>Cloth is a graph. Springs connect neighbours; forces propagate only through edges. A graph network
+      is the natural encoder — and going hierarchical (fine ↔ coarse with cross-attention) lets a single
+      forward pass see both stitch-scale wrinkles and large-scale wind folds without stacking 20 GCN layers.</p>
+    </div>
+    <div>
+      <h3>Continuous field where continuity matters</h3>
+      <p>Once you've encoded the graph state as per-vertex latents, those latents condition a SIREN that
+      can be queried at any continuous coordinate. That is what makes the "NIF" in HGNN-NIF: the decoder
+      is an implicit field, not a per-vertex MLP. You can ask it for positions at arbitrary UV coordinates,
+      upsample the display surface, or eventually decouple the render-time mesh from the physics mesh.</p>
+    </div>
+    <div>
+      <h3>Honest about what it can and can't do</h3>
+      <p>The trust window here is 9 frames — 0.30 s of predicted motion before autoregressive drift pushes
+      the RMSE above 0.05. That's the honest answer from a pure next-frame predictor. Extending it is a
+      scaling-and-data question (longer sequences, richer loss, maybe differentiable physics in the loop),
+      not an architecture question.</p>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div>
+    <a href="assets/metadata.json">metadata.json</a> ·
+    <a href="assets/rollout_curve.json">rollout_curve.json</a> ·
+    <a href="assets/comparison.mp4">comparison.mp4</a>
+  </div>
+  <div class="mono">/Users/lekan/Dev/PINN-Experiments/projects/09-hgnn-nif-cloth__project-space_animation</div>
+</footer>
+
+<script src="chart.js"></script>
+</body>
+</html>

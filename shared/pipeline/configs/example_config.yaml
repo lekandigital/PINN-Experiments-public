@@ -1,0 +1,72 @@
+# Animation Pipeline Configuration
+# Example configuration for the shared animation pipeline
+
+# Pipeline settings
+name: "demo_animation"
+fps: 30.0
+coordinate_system: "Y_UP_RIGHT_HANDED"
+
+# Skeleton specification (SMPL-compatible)
+skeleton:
+  format: "smpl_24"
+  num_joints: 24
+  # Joint names follow SMPL convention
+  joint_names:
+    - pelvis
+    - left_hip
+    - right_hip
+    - spine1
+    - left_knee
+    - right_knee
+    - spine2
+    - left_ankle
+    - right_ankle
+    - spine3
+    - left_foot
+    - right_foot
+    - neck
+    - left_collar
+    - right_collar
+    - head
+    - left_shoulder
+    - right_shoulder
+    - left_elbow
+    - right_elbow
+    - left_wrist
+    - right_wrist
+    - left_hand
+    - right_hand
+
+# Skinning configuration
+skinning:
+  method: "lbs"  # "lbs" or "dqs"
+  max_influences: 4  # Max bones per vertex
+  
+# Cloth simulation configuration
+cloth:
+  resolution: 32  # Grid resolution for default cloth
+  width: 0.6      # Cloth width in meters
+  height: 0.8     # Cloth height in meters
+  stiffness: 100.0
+  damping: 0.99
+  collision_margin: 0.005
+  coarse_graph_size: 256  # For HGNN multi-resolution
+
+# Model checkpoints (set to actual paths when available)
+checkpoints:
+  motion: null  # Path to Project 07 checkpoint
+  body: null    # Path to Project 14 checkpoint
+  cloth: null   # Path to Project 09 checkpoint
+
+# Mesh assets
+meshes:
+  body: null    # Path to rest-pose body mesh (OBJ)
+  cloth: null   # Path to rest-pose cloth mesh (OBJ)
+  skinning_weights: null  # Path to skinning weights (NPZ)
+
+# Output settings
+output:
+  directory: "./output"
+  export_obj: true
+  export_npz: true
+  export_bvh: true

@@ -1,0 +1,34 @@
+{
+  "project": "ClothGNN",
+  "description": "Ultra-lightweight recurrent GNN (Encoder→GRU→Decoder) for cloth dynamics prediction",
+  "architecture": "MessagePassing Encoder → GRU → Decoder",
+  "mesh": {
+    "grid_dimensions": [32, 32],
+    "vertex_count": 1024,
+    "edge_count": 7812
+  },
+  "model": {
+    "parameters": 49347,
+    "hidden_dim": 64,
+    "gru_layers": 1,
+    "noise_std": 0.003
+  },
+  "training": {
+    "sequences": 10,
+    "epochs": 200,
+    "best_loss": 7.74e-05
+  },
+  "inference": {
+    "fps": 1451.5,
+    "device": "NVIDIA GeForce RTX 3090 Ti"
+  },
+  "rollout": {
+    "total_frames": 200,
+    "trustworthy_5pct": 19,
+    "trustworthy_10pct": 26,
+    "final_rmse": 0.426157,
+    "mean_rel_edge_error": 0.219318
+  },
+  "preset_used": "pitch",
+  "export_date": "2026-04-09"
+}

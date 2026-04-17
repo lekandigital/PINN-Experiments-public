@@ -1,0 +1,19 @@
+{
+  "checkpoint_path": "/home/o/wavepinn-nif/wavepinn_trained.pt",
+  "device": "cuda",
+  "resolution": 160,
+  "frames": 64,
+  "t_start": 0.05,
+  "t_end": 0.5,
+  "field_min": -8.086906746029854e-05,
+  "field_max": 6.880844011902809e-05,
+  "field_std": 1.9347451598150656e-05,
+  "frame_energy_mean": 4.600271275023715e-10,
+  "frame_energy_std": 1.2216760936212268e-10,
+  "peak_energy_frame": 63,
+  "peak_energy_time": 0.5,
+  "gif_saved": true,
+  "model_config": null,
+  "training_args": null,
+  "final_metrics": null
+}

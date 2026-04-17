@@ -67,7 +67,7 @@ class Benchmarker:
     
     def _build_graph_structures(self):
         """Pre-build graph structures for benchmarking."""
-        initial_data = self.dataset.get_frame(0).to(self.device)
+        initial_data = self.dataset.get_frame(0, normalized=True).to(self.device)
         graphs, cluster_maps = build_graph_pyramid(initial_data, num_levels=2)
         
         self.fine_template = graphs[0]
@@ -125,12 +125,12 @@ class Benchmarker:
         edges = self.dataset.edges.to(self.device)
         rest_lengths = self.dataset.rest_lengths.to(self.device)
         
-        # Initialize from ground truth
-        current_pos = gt_positions[0].clone()
-        current_vel = gt_velocities[0].clone()
-        
+        # Initialize from ground truth while keeping model inputs normalized.
+        current_pos = self.dataset.normalize_positions(gt_positions[0].clone())
+        current_vel = self.dataset.normalize_velocities(gt_velocities[0].clone())
+
         # Storage for predictions
-        pred_positions = [current_pos.cpu().numpy()]
+        pred_positions = [gt_positions[0].cpu().numpy()]
         position_errors = []
         velocity_errors = []
         edge_length_errors = []
@@ -169,25 +169,28 @@ class Benchmarker:
             # Forward pass
             delta_vel = self.model(data, coarse_data, self.cluster_map)
             
-            # Update state
+            # Update state in normalized space, then convert back to physical units.
             pred_vel = (current_vel + delta_vel) * 0.99  # Damping
             pred_pos = current_pos + pred_vel * 0.01  # dt
-            
-            # Simple ground collision
-            collision_mask = pred_pos[:, 1] < -1.0
-            pred_pos[collision_mask, 1] = -1.0
-            pred_vel[collision_mask, 1] = torch.abs(pred_vel[collision_mask, 1]) * 0.5
-            
+
+            pred_pos_raw = self.dataset.denormalize_positions(pred_pos)
+            pred_vel_raw = self.dataset.denormalize_velocities(pred_vel)
+
+            # Simple ground collision in physical coordinates.
+            collision_mask = pred_pos_raw[:, 1] < -1.0
+            pred_pos_raw[collision_mask, 1] = -1.0
+            pred_vel_raw[collision_mask, 1] = torch.abs(pred_vel_raw[collision_mask, 1]) * 0.5
+
             # Store prediction
-            pred_positions.append(pred_pos.cpu().numpy())
-            
+            pred_positions.append(pred_pos_raw.cpu().numpy())
+
             # Compute errors against ground truth
-            pos_error = torch.sqrt(torch.mean((pred_pos - gt_positions[t]) ** 2)).item()
-            vel_error = torch.sqrt(torch.mean((pred_vel - gt_velocities[t]) ** 2)).item()
-            
+            pos_error = torch.sqrt(torch.mean((pred_pos_raw - gt_positions[t]) ** 2)).item()
+            vel_error = torch.sqrt(torch.mean((pred_vel_raw - gt_velocities[t]) ** 2)).item()
+
             # Edge length error
             pred_lengths = torch.norm(
-                pred_pos[edges[:, 0]] - pred_pos[edges[:, 1]], dim=-1
+                pred_pos_raw[edges[:, 0]] - pred_pos_raw[edges[:, 1]], dim=-1
             )
             edge_error = torch.mean(torch.abs(pred_lengths - rest_lengths)).item()
             
@@ -196,8 +199,8 @@ class Benchmarker:
             edge_length_errors.append(edge_error)
             
             # Update for next step
-            current_pos = pred_pos
-            current_vel = pred_vel
+            current_pos = self.dataset.normalize_positions(pred_pos_raw)
+            current_vel = self.dataset.normalize_velocities(pred_vel_raw)
         
         # Compile results
         results = {
@@ -245,7 +248,7 @@ class Benchmarker:
         logger.info(f"Running FPS benchmark ({num_iters} iterations)...")
         
         # Prepare test data
-        data = self.dataset.get_frame(0).to(self.device)
+        data = self.dataset.get_frame(0, normalized=True).to(self.device)
         
         if self.coarse_template is not None:
             coarse_pos = self._pool_positions(
@@ -315,7 +318,7 @@ class Benchmarker:
         baseline_mem = torch.cuda.memory_allocated() / 1e6
         
         # Run forward pass
-        data = self.dataset.get_frame(0).to(self.device)
+        data = self.dataset.get_frame(0, normalized=True).to(self.device)
         
         if self.coarse_template is not None:
             coarse_pos = self._pool_positions(

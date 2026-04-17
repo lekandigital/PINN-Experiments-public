@@ -7,6 +7,7 @@ Components:
 - CrossLevelAttention: Multi-resolution attention mechanism
 - AdaptiveHGNN: Hierarchical GNN with energy-based resolution control
 - SIRENDecoder: Latent-conditioned sinusoidal implicit decoder
+- NIFDecoder: Full NIF decoder with variance output (from P04)
 - HGNN_NIF_ClothModel: End-to-end hybrid model
 """
 
@@ -14,6 +15,7 @@ from .graph_conv import GraphConv
 from .attention import CrossLevelAttention
 from .hgnn import AdaptiveHGNN
 from .siren import SirenLayer, SIRENDecoder
+from .nif_decoder import NIFDecoder, create_nif_decoder
 from .hybrid_model import HGNN_NIF_ClothModel
 
 __all__ = [
@@ -22,5 +24,7 @@ __all__ = [
     "AdaptiveHGNN",
     "SirenLayer",
     "SIRENDecoder",
+    "NIFDecoder",
+    "create_nif_decoder",
     "HGNN_NIF_ClothModel",
 ]

@@ -1,0 +1,42 @@
+{
+  "checkpoint_path": "/home/o/wavepinn-nif/outputs/checkpoints/wavepinn_train_v2.pt",
+  "device": "cuda",
+  "resolution": 160,
+  "frames": 64,
+  "t_start": 0.05,
+  "t_end": 0.5,
+  "field_min": -0.00021967868087813258,
+  "field_max": 0.00026402604999020696,
+  "field_std": 8.403106039622799e-05,
+  "frame_energy_mean": 7.984599648125368e-09,
+  "frame_energy_std": 3.850729513033002e-09,
+  "peak_energy_frame": 42,
+  "peak_energy_time": 0.35,
+  "gif_saved": true,
+  "model_config": {
+    "hidden_dims": [
+      128,
+      128,
+      64
+    ],
+    "use_fourier": true,
+    "num_fourier": 32,
+    "fourier_scale": 1.0
+  },
+  "training_args": {
+    "epochs": 3000,
+    "lr": 0.0005,
+    "n_int": 8000,
+    "n_bc": 2000,
+    "n_ic": 1000,
+    "seed": 42
+  },
+  "final_metrics": {
+    "initial_loss": 408.8040466308594,
+    "final_loss": 4.104084291611798e-05,
+    "reduction_percent": 99.99998996075425,
+    "max_abs_u_t03": 0.00024752673925831914,
+    "all_finite_t03": true,
+    "acceptance_passed": true
+  }
+}

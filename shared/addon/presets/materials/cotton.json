@@ -1,0 +1,17 @@
+{
+    "name": "Cotton",
+    "description": "Medium weight, breathable fabric with moderate drape",
+    "parameters": {
+        "density": 0.20,
+        "stiffness": 0.40,
+        "bending_stiffness": 0.10,
+        "damping": 0.08,
+        "friction": 0.4
+    },
+    "metadata": {
+        "category": "medium",
+        "tags": ["breathable", "everyday", "comfortable"],
+        "real_world_gsm": "100-200",
+        "typical_uses": ["t-shirts", "casual wear", "bed sheets"]
+    }
+}

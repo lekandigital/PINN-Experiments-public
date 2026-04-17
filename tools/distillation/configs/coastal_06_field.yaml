@@ -1,0 +1,112 @@
+# CoastFlow-GNN (Project 06) → Compact Model for Field Laptops
+#
+# Use case: Coastal flow prediction on field laptops without GPU
+# Target: CPU-only inference, <100ms latency, <5MB model
+# Teacher: CoastFlow-GNN (~200K params, full resolution)
+# Student: Compact encoder-decoder (~50K params)
+
+name: coastal_06_field
+description: "Distill CoastFlow-GNN to compact model for field laptop deployment"
+
+# Teacher model (Project 06 - CoastFlow-GNN)
+teacher:
+  name: coastflow_gnn
+  checkpoint: "projects/06-coastflow-gnn__project-space/checkpoints/best_model.pt"
+  project_path: "projects/06-coastflow-gnn__project-space"
+  freeze: true
+
+# Student model - compact encoder-decoder
+student:
+  name: coastflow_compact
+  init_args:
+    input_channels: 4     # bathymetry, tides, wind_u, wind_v
+    output_channels: 2    # velocity_u, velocity_v
+    encoder_channels: [16, 32, 64]
+    decoder_channels: [64, 32, 16]
+    kernel_size: 3
+    use_skip_connections: true
+    activation: "gelu"
+    # Much smaller than teacher's GNN architecture
+
+# Sampling from coastal simulation data
+sampling:
+  strategy: dataset
+  data_path: "data/coastal/processed"
+  data_format: numpy
+  augment: true
+  augment_config:
+    horizontal_flip: true
+    rotation_90: true
+    noise: 0.005
+  batch_size: 32
+  num_workers: 4
+  shuffle: true
+
+# Loss configuration
+loss:
+  temperature: 2.0
+  weights:
+    soft_target: 0.6
+    hard_target: 0.3
+    feature_match: 0.0
+    physics: 0.1
+  physics_losses:
+    - type: navier_stokes
+      weight: 1.0
+      params:
+        viscosity: 1.0e-6
+        density: 1025.0  # Seawater density
+
+# Training configuration
+training:
+  epochs: 400
+  learning_rate: 1.0e-3
+  weight_decay: 1.0e-4
+  scheduler: cosine
+  warmup_epochs: 30
+  batch_size: 32
+  gradient_clip: 1.0
+  early_stopping_patience: 60
+  checkpoint_every: 25
+  seed: 42
+
+# Export configuration - direct CNN export
+export:
+  format: onnx
+  opset_version: 17
+  strategy: direct
+  optimize: true
+  simplify: true
+  dynamic_axes:
+    input: {0: "batch_size"}
+    output: {0: "batch_size"}
+  validate_export: true
+
+# Quantization configuration
+quantization:
+  enabled: true
+  methods:
+    - dynamic_int8  # CPU-friendly
+    - static_int8   # Better accuracy with calibration
+  calibration_samples: 300
+
+# Benchmark configuration
+benchmark:
+  backends:
+    - cpu  # Field laptops are CPU-only
+  warmup_runs: 20
+  benchmark_runs: 200
+  batch_sizes: [1, 4]
+  target_latency_ms: 100.0  # Relaxed for field use
+  target_throughput: 10.0
+
+# Packaging configuration
+package:
+  target: edge
+  target_platform: x86_64
+  include_cpp: true
+  include_python: true
+  include_sample_data: true
+
+# Output configuration
+output_dir: "outputs/distillation/coastal_06_field"

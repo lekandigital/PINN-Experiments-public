@@ -1,0 +1,174 @@
+{
+  "preset": "research",
+  "mode": "compare",
+  "arch": "cuda",
+  "physics_path": "outputs_40_preserve_size/physics_baseline/cloth_sequence.npy",
+  "hgnn_path": "outputs_40_preserve_size/hgnn_prediction/cloth_sequence.npy",
+  "mesh_info": "outputs_40_preserve_size/mesh_info.json",
+  "clip_start": 24,
+  "clip_end": 24,
+  "window_res": [
+    1500,
+    940
+  ],
+  "export_only": true,
+  "export_frames": 1,
+  "export_fps": 30,
+  "fps": 60,
+  "playback_speed": 0.82,
+  "mesh_scale": 1.35,
+  "comparison_gap": 0.88,
+  "surface_mode": "raw",
+  "wireframe": true,
+  "show_gui": false,
+  "preset_config": {
+    "name": "research",
+    "description": "Clear analytical framing with a cooler technical palette and wire overlay.",
+    "window_res": [
+      1500,
+      940
+    ],
+    "export_frames": 120,
+    "export_fps": 30,
+    "clip_start": 0,
+    "clip_end": 28,
+    "playback_speed": 0.82,
+    "mesh_scale": 1.35,
+    "comparison_gap": 0.88,
+    "surface_mode": "raw",
+    "display_subdivisions": 1,
+    "camera": {
+      "position": [
+        -0.06,
+        1.88,
+        4.45
+      ],
+      "lookat": [
+        0.0,
+        0.56,
+        0.14
+      ],
+      "fov": 30.0
+    },
+    "background": [
+      0.082,
+      0.094,
+      0.118
+    ],
+    "ambient": [
+      0.34,
+      0.35,
+      0.36
+    ],
+    "lights": [
+      {
+        "pos": [
+          2.4,
+          2.3,
+          2.1
+        ],
+        "color": [
+          1.0,
+          0.99,
+          0.97
+        ]
+      },
+      {
+        "pos": [
+          -2.0,
+          1.2,
+          -1.7
+        ],
+        "color": [
+          0.34,
+          0.42,
+          0.52
+        ]
+      }
+    ],
+    "floor_color": [
+      0.17,
+      0.19,
+      0.22
+    ],
+    "floor_margin": 0.075,
+    "wireframe_default": true,
+    "wireframe_color": [
+      0.13,
+      0.15,
+      0.18
+    ],
+    "wireframe_width": 0.42,
+    "physics_style": {
+      "light_color": [
+        0.82,
+        0.86,
+        0.92
+      ],
+      "dark_color": [
+        0.6,
+        0.68,
+        0.8
+      ],
+      "shadow_tint": [
+        0.4,
+        0.51,
+        0.69
+      ],
+      "highlight_tint": [
+        0.94,
+        0.97,
+        0.99
+      ],
+      "displacement_tint": [
+        0.54,
+        0.64,
+        0.86
+      ],
+      "stripe_repeat": 4,
+      "stripe_strength": 0.13,
+      "tone_strength": 0.35,
+      "displacement_strength": 0.16
+    },
+    "hgnn_style": {
+      "light_color": [
+        0.88,
+        0.89,
+        0.92
+      ],
+      "dark_color": [
+        0.74,
+        0.75,
+        0.8
+      ],
+      "shadow_tint": [
+        0.54,
+        0.57,
+        0.66
+      ],
+      "highlight_tint": [
+        0.98,
+        0.98,
+        0.99
+      ],
+      "displacement_tint": [
+        0.81,
+        0.72,
+        0.58
+      ],
+      "stripe_repeat": 5,
+      "stripe_strength": 0.1,
+      "tone_strength": 0.3,
+      "displacement_strength": 0.12
+    }
+  },
+  "timestep": 0.010000000474974513,
+  "bundle_frames": 1,
+  "bundle_frame_offset": 24,
+  "source_mesh_size": 40,
+  "display_mesh_size": 40,
+  "ffmpeg": {
+    "mp4": "ffmpeg -y -framerate 30 -i artifacts_40_smoke/research/frame_%04d.png -vf \"scale=trunc(iw/2)*2:trunc(ih/2)*2,format=yuv420p\" artifacts_40_smoke/research/cloth_demo.mp4",
+    "gif": "ffmpeg -y -framerate 30 -i artifacts_40_smoke/research/frame_%04d.png -vf \"fps=30,scale=960:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse\" artifacts_40_smoke/research/cloth_demo.gif"
+  }
+}

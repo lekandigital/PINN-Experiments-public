@@ -4,6 +4,8 @@ FourierFeatureMLP: Core neural implicit field Φθ(x,y,z,t) for cloth simulation
 Combines Fourier feature embedding with SIREN-style architecture and optional
 GRU temporal conditioning. Designed for high-frequency cloth wrinkle capture.
 
+Uses the shared implicit_fields library for Fourier features and SIREN layers.
+
 Architecture:
     1. Fourier Feature Embedding: [x,y,z,t] -> [sin(2πBx), cos(2πBx)]
     2. SIREN Layers: Multiple layers with sin activations
@@ -17,6 +19,14 @@ Reference:
       Activation Functions", NeurIPS 2020.
 """
 
+import sys
+from pathlib import Path
+
+# Add repository root to path for implicit_fields import
+repo_root = Path(__file__).parent.parent.parent.parent.parent.parent
+if str(repo_root) not in sys.path:
+    sys.path.insert(0, str(repo_root))
+
 import math
 import torch
 import torch.nn as nn
@@ -25,18 +35,15 @@ from typing import Optional, Tuple
 from .siren import SIRENLayer
 from .temporal_gru import TemporalGRU
 
+# Import Fourier features from shared library
+from implicit_fields import FourierFeatureEncoding as _FourierFeatureEncoding
+
 
 class FourierFeatureEmbedding(nn.Module):
     """
     Random Fourier feature embedding for positional encoding.
     
-    Maps low-dimensional inputs to high-dimensional feature space using
-    random sinusoidal projections, enabling the network to learn high-frequency
-    details like cloth wrinkles.
-    
-    embedding(x) = [sin(2π * B @ x), cos(2π * B @ x)]
-    
-    where B is a fixed random matrix sampled from N(0, σ²).
+    Wrapper around shared implicit_fields.FourierFeatureEncoding for P12 compatibility.
     
     Args:
         in_dim: Input dimension (4 for x,y,z,t)
@@ -59,13 +66,19 @@ class FourierFeatureEmbedding(nn.Module):
         self.scale = scale
         self.out_dim = num_freqs * 2  # sin and cos
         
-        # Random projection matrix B ~ N(0, scale²)
-        B = torch.randn(num_freqs, in_dim) * scale
-        
-        if learnable:
-            self.B = nn.Parameter(B)
-        else:
-            self.register_buffer('B', B)
+        # Use shared library
+        self._encoding = _FourierFeatureEncoding(
+            in_features=in_dim,
+            num_frequencies=num_freqs,
+            scale=scale,
+            learnable=learnable,
+            include_input=False,  # P12 doesn't include raw input
+        )
+    
+    @property
+    def B(self):
+        """Expose B matrix for compatibility."""
+        return self._encoding.B
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
@@ -77,11 +90,7 @@ class FourierFeatureEmbedding(nn.Module):
         Returns:
             Fourier features of shape (batch, num_freqs * 2)
         """
-        # Project: (batch, in_dim) @ (in_dim, num_freqs) -> (batch, num_freqs)
-        projected = 2.0 * math.pi * torch.matmul(x, self.B.T)
-        
-        # Concatenate sin and cos
-        return torch.cat([torch.sin(projected), torch.cos(projected)], dim=-1)
+        return self._encoding(x)
 
 
 class FourierFeatureMLP(nn.Module):

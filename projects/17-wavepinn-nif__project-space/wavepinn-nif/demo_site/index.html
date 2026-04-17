@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>WavePINN Demo Comparison</title>
+  <meta name="description" content="Static microsite comparing the baseline field, the trained WavePINN output, and the final Taichi GGUI wave demo.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero" id="top">
+      <div class="hero-copy">
+        <p class="kicker">Wave Demo Comparison</p>
+        <h1 id="hero-title">WavePINN Wave Demo</h1>
+        <p class="hero-subtitle" id="hero-subtitle">
+          From baseline field outputs to a trained WavePINN and a polished Taichi GGUI surface demo.
+        </p>
+        <p class="hero-summary">
+          This page compares the non-neural reference field, the trained WavePINN field, and the final fixed-topology Taichi GGUI presentation that turns the learned result into a clean simulation demo surface.
+        </p>
+        <div class="hero-strip" id="hero-strip">
+          <span class="strip-chip">Loading metadata...</span>
+        </div>
+      </div>
+      <div class="hero-media-frame">
+        <div class="frame-label">Final Taichi GGUI Demo</div>
+        <video
+          id="hero-video"
+          class="hero-video"
+          autoplay
+          muted
+          loop
+          playsinline
+          controls
+          preload="metadata"
+          poster="assets/media/taichi-final-poster.png">
+          <source src="assets/media/taichi-final.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+      </div>
+    </header>
+
+    <nav class="section-nav" aria-label="Section navigation">
+      <a href="#comparison">Without vs With PINN</a>
+      <a href="#field-views">Field Views</a>
+      <a href="#taichi">Final Taichi Demo</a>
+      <a href="#why-pinn">Why Use the PINN</a>
+      <a href="#metrics">Metrics</a>
+      <a href="#artifacts">Artifacts</a>
+    </nav>
+
+    <main>
+      <section class="section section-comparison" id="comparison">
+        <div class="section-head">
+          <p class="kicker">Core Story</p>
+          <h2>Without My PINN vs With My PINN</h2>
+          <p>
+            Both sides show the same wave phenomenon over the same time range. The left side is the non-neural reference field. The right side is the trained WavePINN surrogate that learns a continuous spatiotemporal representation of that field.
+          </p>
+        </div>
+
+        <div class="motion-toolbar">
+          <button type="button" id="toggle-motion">Pause motion</button>
+          <p class="toolbar-note">Autoplay is muted. Use the button if you want to freeze all comparison clips.</p>
+        </div>
+
+        <div class="comparison-grid">
+          <article class="story-card baseline-card">
+            <div class="story-header">
+              <p class="story-label">Without My PINN</p>
+              <h3>Reference / baseline field</h3>
+              <p>
+                This is the non-neural baseline for the project: structured wave propagation sampled directly from the reference field. It is the target behavior the learned model is trying to approximate.
+              </p>
+            </div>
+
+            <figure class="media-card wide">
+              <figcaption>Reference field motion</figcaption>
+              <video
+                id="reference-motion"
+                class="comparison-video autoplay-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+                preload="metadata"
+                poster="">
+              </video>
+            </figure>
+
+            <div class="visual-grid">
+              <figure class="media-card">
+                <figcaption>Reference snapshots</figcaption>
+                <img id="reference-snapshots" alt="Reference field snapshots" loading="lazy">
+              </figure>
+              <figure class="media-card">
+                <figcaption>Reference x-t slice</figcaption>
+                <img id="reference-slice" alt="Reference field x-t slice" loading="lazy">
+              </figure>
+            </div>
+
+            <div class="chip-row" id="reference-chips"></div>
+          </article>
+
+          <article class="story-card learned-card">
+            <div class="story-header">
+              <p class="story-label accent">With My PINN</p>
+              <h3>Trained WavePINN field</h3>
+              <p>
+                The learned model fits the same dynamics as a compact continuous field. Its outputs preserve recognizable fronts and timing, and the field can be resampled cleanly for both technical views and the final Taichi surface demo.
+              </p>
+            </div>
+
+            <figure class="media-card wide">
+              <figcaption>Learned field motion</figcaption>
+              <video
+                id="learned-motion"
+                class="comparison-video autoplay-video"
+                autoplay
+                muted
+                loop
+                playsinline
+                controls
+                preload="metadata"
+                poster="">
+              </video>
+            </figure>
+
+            <div class="visual-grid">
+              <figure class="media-card">
+                <figcaption>WavePINN snapshots</figcaption>
+                <img id="learned-snapshots" alt="Learned WavePINN snapshots" loading="lazy">
+              </figure>
+              <figure class="media-card">
+                <figcaption>WavePINN x-t slice</figcaption>
+                <img id="learned-slice" alt="Learned WavePINN x-t slice" loading="lazy">
+              </figure>
+            </div>
+
+            <div class="chip-row" id="learned-chips"></div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-reference" id="field-views">
+        <div class="section-head">
+          <p class="kicker">Technical Views</p>
+          <h2>Field Views</h2>
+          <p>
+            These are the internal field views for the same dynamic system: reference snapshots, learned snapshots, and the corresponding x-t slices that expose temporal structure directly.
+          </p>
+        </div>
+
+        <div class="field-grid">
+          <figure class="field-card">
+            <figcaption>Reference snapshots</figcaption>
+            <img id="paired-reference-snapshots" alt="Reference snapshots comparison panel" loading="lazy">
+          </figure>
+          <figure class="field-card">
+            <figcaption>Learned snapshots</figcaption>
+            <img id="paired-learned-snapshots" alt="Learned snapshots comparison panel" loading="lazy">
+          </figure>
+          <figure class="field-card">
+            <figcaption>Reference x-t slice</figcaption>
+            <img id="paired-reference-slice" alt="Reference x-t slice comparison panel" loading="lazy">
+          </figure>
+          <figure class="field-card">
+            <figcaption>Learned x-t slice</figcaption>
+            <img id="paired-learned-slice" alt="Learned x-t slice comparison panel" loading="lazy">
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-taichi" id="taichi">
+        <div class="section-head">
+          <p class="kicker">Final Presentation Path</p>
+          <h2>Final Taichi GGUI Demo</h2>
+          <p>
+            The learned scalar field is sampled on a regular x-z grid, mapped to vertical displacement, and rendered as one fixed-topology surface in Taichi GGUI.
+            This is the final demo path: native, real-time, exportable, and suited to both live playback and polished prerecorded capture.
+          </p>
+        </div>
+
+        <div class="taichi-layout">
+          <article class="taichi-hero-card">
+            <div class="frame-label">Final polished demo</div>
+            <video
+              id="taichi-video"
+              class="hero-video"
+              autoplay
+              muted
+              loop
+              playsinline
+              controls
+              preload="metadata"
+              poster="">
+            </video>
+            <div class="taichi-steps">
+              <div>
+                <span>1</span>
+                <p>Sample the learned WavePINN field over time.</p>
+              </div>
+              <div>
+                <span>2</span>
+                <p>Map the scalar field to y-displacement on a fixed grid.</p>
+              </div>
+              <div>
+                <span>3</span>
+                <p>Render and export the surface through Taichi GGUI.</p>
+              </div>
+            </div>
+          </article>
+
+          <aside class="preset-stack">
+            <article class="preset-card">
+              <div>
+                <p class="story-label">Research</p>
+                <h3>Analytical preset</h3>
+              </div>
+              <img id="preset-research" alt="Research Taichi preset still" loading="lazy">
+            </article>
+            <article class="preset-card">
+              <div>
+                <p class="story-label accent">Pitch</p>
+                <h3>Live demo preset</h3>
+              </div>
+              <img id="preset-pitch" alt="Pitch Taichi preset still" loading="lazy">
+            </article>
+            <article class="preset-card">
+              <div>
+                <p class="story-label">Dramatic</p>
+                <h3>Prerendered clip preset</h3>
+              </div>
+              <img id="preset-dramatic" alt="Dramatic Taichi preset still" loading="lazy">
+            </article>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-why" id="why-pinn">
+        <div class="section-head">
+          <p class="kicker">Why It Matters</p>
+          <h2>Why Use the PINN</h2>
+          <p>
+            The PINN is not there to decorate the project. It turns the wave dynamics into a compact learned surrogate that can be sampled continuously, compared against the reference field, and presented as a convincing physical surface demo.
+          </p>
+        </div>
+
+        <div class="why-grid">
+          <article class="why-card">
+            <h3>Continuous spatiotemporal field</h3>
+            <p>
+              The learned model represents u(x, z, t) directly, so the field can be sampled on demand instead of being limited to one fixed discrete export.
+            </p>
+          </article>
+          <article class="why-card">
+            <h3>Compact surrogate</h3>
+            <p>
+              A single checkpoint stands in for the evolving wavefield and can drive validation plots, offline renders, and future interactive tooling from the same representation.
+            </p>
+          </article>
+          <article class="why-card">
+            <h3>Coherent approximation</h3>
+            <p>
+              The fit is strong enough to preserve recognizable propagation structure, which makes the learned result read as a field approximation rather than decorative motion.
+            </p>
+          </article>
+          <article class="why-card">
+            <h3>Better presentation leverage</h3>
+            <p>
+              Once the field is learned, it can be remapped onto the fixed-topology Taichi surface and presented as a clean native demo instead of a brittle export path.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-metrics" id="metrics">
+        <div class="section-head">
+          <p class="kicker">High-Signal Numbers</p>
+          <h2>Metrics</h2>
+          <p>
+            Only the most useful values are surfaced here: learned-field fit quality and final Taichi export settings.
+          </p>
+        </div>
+        <div class="metrics-grid" id="metrics-grid"></div>
+        <p class="metrics-note" id="reference-metric-note"></p>
+      </section>
+
+      <section class="section section-artifacts" id="artifacts">
+        <div class="section-head">
+          <p class="kicker">Repo Outputs</p>
+          <h2>Artifacts / Paths</h2>
+          <p>
+            These are the concrete files that drive the site and the final demo.
+          </p>
+        </div>
+        <div class="path-list" id="path-list"></div>
+        <p class="artifact-note">
+          Legacy Blender exports may still exist in the repo for historical context, but they are not the main comparison path and they are not the final presentation layer on this page.
+        </p>
+      </section>
+    </main>
+  </div>
+
+  <template id="metric-card-template">
+    <article class="metric-card">
+      <p class="metric-label"></p>
+      <p class="metric-value"></p>
+      <p class="metric-context"></p>
+    </article>
+  </template>
+
+  <template id="path-item-template">
+    <article class="path-item">
+      <p class="path-label"></p>
+      <code class="path-code"></code>
+    </article>
+  </template>
+
+  <script src="app.js"></script>
+</body>
+</html>

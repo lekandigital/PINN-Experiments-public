@@ -1,27 +1,38 @@
 """
 SIREN (Sinusoidal Representation Networks) layers for high-frequency details.
 
-SIREN uses sin(ωx) activations instead of ReLU, enabling neural networks to
-represent signals with fine spatial and temporal details - critical for
-capturing cloth wrinkles and folds.
+Re-exports from the shared implicit_fields library for backward compatibility.
 
 Reference:
     Sitzmann et al., "Implicit Neural Representations with Periodic Activation
     Functions", NeurIPS 2020.
 """
 
+import sys
+from pathlib import Path
+
+# Add repository root to path for implicit_fields import
+repo_root = Path(__file__).parent.parent.parent.parent.parent.parent
+if str(repo_root) not in sys.path:
+    sys.path.insert(0, str(repo_root))
+
 import math
 import torch
 import torch.nn as nn
 from typing import Optional
+
+# Import from shared library
+from implicit_fields import (
+    SirenLayer as _BaseSirenLayer,
+    SirenNetwork as _BaseSirenNetwork,
+)
 
 
 class SIRENLayer(nn.Module):
     """
     A single SIREN layer with sine activation and specialized initialization.
     
-    The key insight is that sin activations require careful weight initialization
-    to ensure the distribution of activations is preserved across layers.
+    Wrapper for P12 backward compatibility.
     
     Args:
         in_features: Number of input features
@@ -46,52 +57,31 @@ class SIRENLayer(nn.Module):
         self.omega_0 = omega_0
         self.is_first = is_first
         
-        # Linear transformation
-        self.linear = nn.Linear(in_features, out_features, bias=bias)
-        
-        # SIREN-specific initialization
-        self._init_weights()
+        # Use shared library layer
+        self._layer = _BaseSirenLayer(
+            in_features=in_features,
+            out_features=out_features,
+            omega=omega_0,
+            is_first=is_first,
+            bias=bias,
+        )
     
-    def _init_weights(self) -> None:
-        """
-        Initialize weights according to SIREN paper.
-        
-        First layer: Uniform(-1/in, 1/in)
-        Other layers: Uniform(-sqrt(6/in)/omega_0, sqrt(6/in)/omega_0)
-        """
-        with torch.no_grad():
-            if self.is_first:
-                # First layer: uniform in [-1/in, 1/in]
-                bound = 1.0 / self.in_features
-            else:
-                # Hidden layers: scaled by omega_0
-                bound = math.sqrt(6.0 / self.in_features) / self.omega_0
-            
-            self.linear.weight.uniform_(-bound, bound)
-            
-            if self.linear.bias is not None:
-                # Bias initialized to zero or small uniform
-                self.linear.bias.uniform_(-bound, bound)
+    @property
+    def linear(self):
+        """Expose linear layer for compatibility."""
+        return self._layer.linear
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """
         Forward pass: sin(omega_0 * (Wx + b))
-        
-        Args:
-            x: Input tensor of shape (batch, in_features)
-            
-        Returns:
-            Output tensor of shape (batch, out_features)
         """
-        return torch.sin(self.omega_0 * self.linear(x))
+        return self._layer(x)
     
     def forward_with_intermediate(self, x: torch.Tensor) -> tuple:
         """
         Return both pre-activation and activation for gradient analysis.
-        
-        Useful for computing spatial gradients (normals) via autodiff.
         """
-        pre_activation = self.omega_0 * self.linear(x)
+        pre_activation = self.omega_0 * self._layer.linear(x)
         return torch.sin(pre_activation), pre_activation
 
 
@@ -99,11 +89,7 @@ class SIRENNetwork(nn.Module):
     """
     Complete SIREN network with multiple layers.
     
-    Architecture:
-        input -> [SIRENLayer] x (num_layers - 1) -> Linear -> output
-    
-    The final layer is linear (no sine activation) to allow arbitrary
-    output range for SDF values.
+    Wrapper around shared implicit_fields.SirenNetwork for P12 backward compatibility.
     
     Args:
         in_features: Input dimension (e.g., 4 for x,y,z,t)
@@ -132,67 +118,33 @@ class SIRENNetwork(nn.Module):
         self.omega_0 = omega_0
         self.omega_0_first = omega_0_first if omega_0_first is not None else omega_0
         
-        # Build network layers
-        layers = []
-        
-        # First layer (input -> hidden)
-        layers.append(SIRENLayer(
+        # Use shared library - convert num_layers to hidden_layers
+        # P12 convention: num_layers includes output layer
+        # Shared lib: hidden_layers = num_layers - 2 (excluding first and output)
+        self._network = _BaseSirenNetwork(
             in_features=in_features,
-            out_features=hidden_features,
+            hidden_features=hidden_features,
+            out_features=out_features,
+            hidden_layers=num_layers - 2,
             omega_0=self.omega_0_first,
-            is_first=True,
-        ))
-        
-        # Hidden layers
-        for _ in range(num_layers - 2):
-            layers.append(SIRENLayer(
-                in_features=hidden_features,
-                out_features=hidden_features,
-                omega_0=omega_0,
-                is_first=False,
-            ))
-        
-        self.layers = nn.ModuleList(layers)
-        
-        # Final linear layer (no sine activation)
-        self.final_layer = nn.Linear(hidden_features, out_features)
-        self._init_final_layer()
+            omega_hidden=omega_0,
+            final_activation=False,
+        )
     
-    def _init_final_layer(self) -> None:
-        """Initialize final layer with SIREN-compatible scaling."""
-        with torch.no_grad():
-            bound = math.sqrt(6.0 / self.hidden_features) / self.omega_0
-            self.final_layer.weight.uniform_(-bound, bound)
-            if self.final_layer.bias is not None:
-                self.final_layer.bias.zero_()
+    @property
+    def final_layer(self):
+        """Expose final layer for compatibility."""
+        return self._network.final_linear
     
     def forward(self, x: torch.Tensor) -> torch.Tensor:
-        """
-        Forward pass through all layers.
-        
-        Args:
-            x: Input coordinates of shape (batch, in_features)
-            
-        Returns:
-            Output of shape (batch, out_features)
-        """
-        for layer in self.layers:
-            x = layer(x)
-        
-        return self.final_layer(x)
+        """Forward pass through all layers."""
+        return self._network(x)
     
     def forward_with_gradient(self, x: torch.Tensor) -> tuple:
         """
         Forward pass that also computes spatial gradient (useful for normals).
-        
-        Args:
-            x: Input coordinates of shape (batch, in_features)
-            
-        Returns:
-            output: SDF values of shape (batch, out_features)
-            gradient: Spatial gradient of shape (batch, in_features)
         """
-        x.requires_grad_(True)
+        x = x.requires_grad_(True)
         output = self.forward(x)
         
         gradient = torch.autograd.grad(

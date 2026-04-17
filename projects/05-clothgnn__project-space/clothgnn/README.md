@@ -98,6 +98,79 @@ pred_displacement, h_next = model(data, h)
 - PyTorch >= 2.1.0
 - PyTorch Geometric
 - h5py
+
+---
+
+## Lightweight/Mobile Deployment
+
+ClothGNN is designed to be the **lightweight/mobile alternative** to HGNN-NIF-Cloth (Project 09).
+
+### Target Metrics
+
+| Metric | Target | Current |
+|--------|--------|---------|
+| Parameters | ~70K | ~70K ✓ |
+| Position RMSE | < 0.1 | TBD |
+| Edge Length Error | < 0.01 | 0.0077 ✓ |
+| Inference Speed | 100+ FPS | 1700+ FPS ✓ |
+
+### Quick Start (3090 Ti Box)
+
+```bash
+# SSH into the box
+ssh REDACTED_SERVER
+# Password: REDACTED_PASSWORD
+
+cd /path/to/PINN-Experiments/projects/05-clothgnn__project-space/clothgnn
+
+# Activate environment
+conda activate cloth-gnn
+
+# Step 1: Generate training data
+python data/generate_dataset.py --output data/cloth_dynamics.h5 --n-sequences 1000 --split
+
+# Step 2: Train baseline model (fix RMSE)
+python scripts/train_baseline.py --data data/cloth_dynamics.h5 --epochs 100
+
+# Step 3: Check baseline RMSE
+python scripts/benchmark.py --checkpoint checkpoints/baseline/best_model.pt --data data/cloth_dynamics.h5
+
+# Step 4: (Optional) Train with distillation for better quality
+python scripts/train_distillation.py \
+    --teacher-checkpoint checkpoints/baseline/best_model.pt \
+    --self-distill \
+    --epochs 200
+
+# Step 5: Export to ONNX for web/mobile
+python scripts/export_onnx.py --checkpoint checkpoints/distilled/best_model.pt --benchmark
+
+# Step 6: Final benchmark
+python scripts/benchmark.py --checkpoint checkpoints/distilled/best_model.pt
+```
+
+### Knowledge Distillation
+
+The project supports knowledge distillation from:
+1. **HGNN-NIF-Cloth** (Project 09) - Full hierarchical cloth model (~136K params)
+2. **Self-distillation** - Full ClothGNN (~70K) → ClothGNN-Lite (~35K)
+
+See `config/distillation.yaml` for configuration.
+
+### ONNX Export
+
+Exports for web deployment include:
+- `cloth_gnn.onnx` - Full precision model
+- `cloth_gnn_optimized.onnx` - Inference-optimized
+- `cloth_template_32x32.npz` - Mesh template
+- `cloth_gnn_loader.js` - JavaScript loader for three.js/Babylon.js
+
+### Model Registration
+
+Models are registered in the distillation pipeline:
+- `cloth_gnn` - Full ClothGNNModel
+- `cloth_gnn_lite` - Lightweight variant for mobile
+
+See `register_models.py` for details.
 - numpy
 
 ## Tested On

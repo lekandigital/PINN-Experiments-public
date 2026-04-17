@@ -1,0 +1,17 @@
+{
+    "name": "Wool",
+    "description": "Medium-heavy fabric with good insulation and moderate drape",
+    "parameters": {
+        "density": 0.35,
+        "stiffness": 0.55,
+        "bending_stiffness": 0.20,
+        "damping": 0.12,
+        "friction": 0.5
+    },
+    "metadata": {
+        "category": "medium-heavy",
+        "tags": ["warm", "insulating", "natural", "formal"],
+        "real_world_gsm": "200-400",
+        "typical_uses": ["suits", "coats", "sweaters", "blankets"]
+    }
+}

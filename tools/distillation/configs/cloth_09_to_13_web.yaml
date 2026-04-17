@@ -1,0 +1,107 @@
+# HGNN-NIF-Cloth (Project 09) → NIF-Cloth4D SIREN (Project 13) for Web Browser
+# 
+# Use case: Real-time cloth visualization in web browser
+# Target: WebGL/WebNN with <50ms latency at 60 FPS
+# Teacher: HGNN-NIF-Cloth (136K params, hybrid GNN + neural field)
+# Student: SIREN-based implicit field (66K params, no GNN)
+
+name: cloth_09_to_13_web
+description: "Distill HGNN-NIF-Cloth to SIREN for web browser deployment"
+
+# Teacher model (Project 09 - HGNN-NIF-Cloth)
+teacher:
+  name: hgnn_nif_cloth
+  checkpoint: "projects/09-hgnn-nif-cloth__project-space/checkpoints/best_model.pt"
+  project_path: "projects/09-hgnn-nif-cloth__project-space"
+  freeze: true
+
+# Student model (Project 13 style - SIREN implicit field)
+student:
+  name: siren_cloth_field
+  init_args:
+    input_dim: 4  # (x, y, z, t) - 3D position + time
+    output_dim: 3  # displacement/deformation vector
+    hidden_dim: 64
+    num_layers: 4
+    omega_0: 30.0  # SIREN frequency parameter
+    use_positional_encoding: false  # SIREN doesn't need it
+
+# Sampling strategy - grid queries for implicit fields
+sampling:
+  strategy: grid
+  bounds:
+    x: [-1.0, 1.0]
+    y: [-1.0, 1.0]
+    z: [-1.0, 1.0]
+    t: [0.0, 1.0]
+  resolution: [32, 32, 32, 16]  # Spatial x3 + temporal
+  batch_size: 4096
+  num_workers: 4
+
+# Loss configuration
+loss:
+  temperature: 2.0
+  weights:
+    soft_target: 0.7
+    hard_target: 0.2
+    feature_match: 0.0  # No feature matching (different architectures)
+    physics: 0.1
+  physics_losses:
+    - type: edge_preservation
+      weight: 1.0
+      params:
+        edge_threshold: 0.01
+
+# Training configuration
+training:
+  epochs: 200
+  learning_rate: 1.0e-4
+  weight_decay: 1.0e-5
+  scheduler: cosine
+  warmup_epochs: 10
+  batch_size: 4096
+  gradient_clip: 1.0
+  early_stopping_patience: 30
+  checkpoint_every: 10
+  seed: 42
+
+# Export configuration - direct export for SIREN (no GNN)
+export:
+  format: onnx
+  opset_version: 17
+  strategy: direct
+  optimize: true
+  simplify: true
+  dynamic_axes:
+    input: {0: "batch_size"}
+    output: {0: "batch_size"}
+  validate_export: true
+
+# Quantization configuration
+quantization:
+  enabled: true
+  methods:
+    - dynamic_int8  # Fast, no calibration needed
+    - fp16          # Good quality/speed tradeoff for WebGL
+  calibration_samples: 500
+
+# Benchmark configuration
+benchmark:
+  backends:
+    - cpu
+  warmup_runs: 50
+  benchmark_runs: 1000
+  batch_sizes: [1, 16, 64]
+  target_latency_ms: 16.0  # ~60 FPS
+  target_throughput: 60.0
+
+# Packaging configuration
+package:
+  target: web
+  include_demo: true
+  demo_type: cloth_visualization
+  bundle_wasm: true
+  compress: true
+
+# Output configuration
+output_dir: "outputs/distillation/cloth_09_to_13_web"
