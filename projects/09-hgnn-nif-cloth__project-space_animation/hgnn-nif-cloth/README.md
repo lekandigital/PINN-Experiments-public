@@ -4,6 +4,12 @@
 
 A hybrid framework that fuses hierarchical graph neural networks (HGNNs) for internal lattice dynamics with a latent-conditioned neural implicit surface decoder (SIREN) for physically accurate cloth simulation.
 
+## Update (April 17, 2026)
+
+- This project-space is now the fuller demo-oriented variant, with rollout metrics, outputs, demo-site assets, and Taichi media.
+- Training, physics-data generation, and rollout/metrics scripts were added around the hybrid model workflow.
+- Use this variant when you need the end-to-end animation and demo path rather than the lighter base tree.
+
 ## 🎯 Overview
 
 This project implements a novel hybrid approach to cloth simulation:

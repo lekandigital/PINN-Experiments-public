@@ -2,6 +2,12 @@
 
 Unified SDF-based collision system for all cloth simulation projects in PINN-Experiments.
 
+## Update (April 17, 2026)
+
+- The shared stack now includes body interfaces, SDF fields, detection, response, loss, and mesh utilities with dedicated tests.
+- Cloth projects are expected to integrate here instead of carrying separate collision logic in each project tree.
+- This README update aligns the module with the repo's newer shared-training and export flows.
+
 ## Installation
 
 The module has minimal dependencies:

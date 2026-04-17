@@ -12,6 +12,12 @@
 
 ---
 
+## Update (April 17, 2026)
+
+- Recent private-head work refreshed the project docs and SIREN-centered model implementation.
+- This project continues to anchor the cloth-geometry implicit-field path within the repo's broader `implicit_fields` work.
+- The README now calls out the current monorepo context without changing the project's basic usage model.
+
 ## Original Description
 
 SIREN-based SDF decoder for static cloth geometry.

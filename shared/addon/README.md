@@ -2,6 +2,12 @@
 
 A professional-quality Blender addon that runs neural cloth, body, and motion simulations in real-time. Supports multiple model backends through a pluggable architecture.
 
+## Update (April 17, 2026)
+
+- Backend adapters now cover projects 05, 09, 11, 13, and 14 through a unified manager and interface layer.
+- Preset materials, request/apply helpers, and addon tests were expanded to support repeatable Blender-side workflows.
+- The addon is now more clearly positioned as the shared interactive frontend for neural simulation experiments.
+
 ## Features
 
 - **Multiple Backend Support**: SIREN, GNN, HGNN, PEGNN models

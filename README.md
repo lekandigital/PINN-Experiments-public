@@ -2,6 +2,12 @@
 
 A monorepo containing Physics-Informed Neural Network (PINN), Graph Neural Network (GNN), and Neural Implicit Field (NIF) experiments for scientific computing and physics simulation.
 
+## Update (April 17, 2026)
+
+- The repo now includes shared infrastructure under `shared/`, `shared_training/`, `benchmark_harness/`, `tools/distillation/`, `implicit_fields/`, and `data/coastal/`.
+- Demo and export surfaces expanded across the monorepo, especially in projects 01, 05, 08, 09-animation, 13, and 17.
+- Workflow docs for key management and private-to-public sync are now part of normal repo operations.
+
 ## Repository Structure
 
 ```

@@ -4,6 +4,12 @@ Recurrent Graph Neural Network for Cloth and Hair Dynamics Prediction.
 
 Based on MeshGraphNetRP architecture with temporal consistency via GRU cells.
 
+## Update (April 17, 2026)
+
+- Configs, data loaders, dataset-generation scripts, training scripts, and export helpers were expanded around the core GNN.
+- Demo assets, Taichi artifacts, and the static demo site are now tracked as part of the project surface.
+- Shared collision, distillation, and export tooling now sit closer to the ClothGNN workflow.
+
 ## Architecture
 
 ```

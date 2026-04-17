@@ -1,5 +1,11 @@
 # nif-cloth4d
 
+## Update (April 17, 2026)
+
+- Project 13 is one of the most actively updated areas in the current private `main`.
+- The project-space now includes an explicit `demo/` surface plus expanded pipeline helpers such as `scripts/run_full_pipeline.py`.
+- Model and training code plus shared collision hookups were updated to support the current cloth workflow.
+
 ## Overview
 This project-space contains the nif-cloth4d implementation and related resources.
 

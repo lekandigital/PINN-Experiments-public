@@ -4,6 +4,12 @@
 
 A real-time physics-encoded GNN designed to replace finite-element solvers for soft-body and bio-mechanics animation.
 
+## Update (April 17, 2026)
+
+- Body-SDF export and physics-model integration work were added or refreshed in the current project tree.
+- Project 14 now sits closer to the shared addon, collision, and export-pipeline infrastructure.
+- This README update keeps the deform workflow aligned with the repo's current shared-tooling direction.
+
 ## Features
 
 - **Physics-Encoded Message Passing**: Hard-coded Hooke's law in the network architecture guarantees physical consistency

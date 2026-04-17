@@ -7,6 +7,12 @@
 [![CUDA 11.8](https://img.shields.io/badge/cuda-11.8-76b900.svg)](https://developer.nvidia.com/cuda-toolkit)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
+## Update (April 17, 2026)
+
+- The temporal cloth stack received updates in both the Fourier MLP and SIREN model implementations.
+- Shared collision integration is now part of the tracked project surface.
+- This README refresh keeps the temporal training and export story aligned with the current repo layout.
+
 ## Overview
 
 NIF-Cloth4D-Temporal learns a neural implicit field Φθ(x, y, z, t) that maps continuous spacetime coordinates to Signed Distance Function (SDF) values for cloth simulation. The model enables:

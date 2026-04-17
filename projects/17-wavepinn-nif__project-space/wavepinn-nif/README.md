@@ -2,6 +2,12 @@
 
 A **Physics-Informed Neural Implicit Field (PINN-NIF)** solver for the 2D/3D acoustic scalar wave equation in heterogeneous media. Built with JAX + Haiku for GPU-accelerated autodifferentiation.
 
+## Update (April 17, 2026)
+
+- Project 17 saw substantial private-head updates around the Taichi viewer, supervised-FD training and validation helpers, and demo/export tooling.
+- Artifact bundles and demo-site assets are now part of the tracked workflow rather than side notes.
+- The practical runtime story is now documented around the current PyTorch and Taichi stack.
+
 ## 🎯 Overview
 
 This framework solves the acoustic wave equation:

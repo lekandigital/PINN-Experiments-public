@@ -1,5 +1,11 @@
 # hgnn-nif-cloth
 
+## Update (April 17, 2026)
+
+- The core hybrid project received code-level refreshes in model exports, SIREN support, and training losses.
+- Docker requirements were updated to match the current training and runtime expectations.
+- For the richer rollout and demo pipeline, see the `_animation` project-space variant tracked beside this one.
+
 ## Overview
 This project-space contains the hgnn-nif-cloth implementation and related resources.
 

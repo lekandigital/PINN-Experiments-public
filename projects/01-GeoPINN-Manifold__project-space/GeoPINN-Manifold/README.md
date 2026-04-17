@@ -9,6 +9,12 @@ GeoPINN-Manifold extends the standard PINN framework to handle partial different
 - **Tori**: Reaction-diffusion patterns
 - **General Meshes**: PDEs on arbitrary triangle meshes
 
+## Update (April 17, 2026)
+
+- The project now carries a Taichi-based visualization path, artifact bundles, and a static demo site under the project tree.
+- Rendering and training helpers expanded under `scripts/`, with curated outputs tracked under `artifacts/`.
+- Differential-geometry compatibility work continues around the core manifold solver.
+
 ## Key Features
 
 - **Laplace-Beltrami Operator**: Automatic differentiation for surface Laplacians

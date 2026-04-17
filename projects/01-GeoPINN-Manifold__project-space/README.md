@@ -1,5 +1,11 @@
 # GeoPINN-Manifold
 
+## Update (April 17, 2026)
+
+- The project now carries a Taichi-based visualization path, artifact bundles, and a static demo site under the project tree.
+- Rendering and training helpers expanded under `scripts/`, with curated outputs tracked under `artifacts/`.
+- Differential-geometry compatibility work continues around the core manifold solver.
+
 ## Overview
 Physics-Informed Neural Networks on Riemannian Manifolds. This project implements geometric deep learning layers for solving PDEs on curved surfaces (spheres, tori, shells).
 
