@@ -2,6 +2,12 @@
 
 A neural implicit field model for real-time cloth simulation with physics-informed losses and interactive Blender integration.
 
+## Update (April 17, 2026)
+
+- The model path was refreshed and shared collision hooks were added around the interactive cloth workflow.
+- Project 11 now fits more cleanly into the shared addon and cloth-tooling story in the repo.
+- This README update is mainly about keeping docs aligned with the current shared infrastructure.
+
 ## 🎯 Project Overview
 
 NIF-Cloth3D-Interactive is a SIREN-based neural network that predicts cloth geometry under arbitrary forces. The system enables artists to interactively control cloth simulation parameters (wind, pins, materials) and see real-time results in Blender.

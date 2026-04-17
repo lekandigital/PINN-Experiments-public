@@ -1,5 +1,11 @@
 # clothgnn
 
+## Update (April 17, 2026)
+
+- Configs, data loaders, dataset-generation scripts, training scripts, and export helpers were expanded around the core GNN.
+- Demo assets, Taichi artifacts, and the static demo site are now tracked as part of the project surface.
+- Shared collision, distillation, and export tooling now sit closer to the ClothGNN workflow.
+
 ## Overview
 This project-space contains the clothgnn implementation and related resources.
 

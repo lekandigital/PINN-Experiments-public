@@ -1,5 +1,11 @@
 # pegnn-deform
 
+## Update (April 17, 2026)
+
+- Body-SDF export and physics-model integration work were added or refreshed in the current project tree.
+- Project 14 now sits closer to the shared addon, collision, and export-pipeline infrastructure.
+- This README update keeps the deform workflow aligned with the repo's current shared-tooling direction.
+
 ## Overview
 This project-space contains the pegnn-deform implementation and related resources.
 

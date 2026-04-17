@@ -1,5 +1,11 @@
 # pinn-lite-foil
 
+## Update (April 17, 2026)
+
+- This pass mainly syncs the docs with the current monorepo structure, workflow docs, and shared utilities.
+- The project itself did not receive the same level of recent reshaping as projects 13 and 17.
+- Shared benchmarking and distillation infrastructure is now available at the repo level when needed.
+
 ## Overview
 This project-space contains the pinn-lite-foil implementation and related resources.
 

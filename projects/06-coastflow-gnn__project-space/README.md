@@ -1,5 +1,11 @@
 # coastflow-gnn
 
+## Update (April 17, 2026)
+
+- Geometry support expanded under `src/geometry`, with more explicit differential-geometry reuse from the shared repo layers.
+- The project now aligns more closely with `data/coastal/` for bathymetry, forcing, mesh, and validation inputs.
+- This README update reflects the shift toward shared coastal and export infrastructure.
+
 ## Overview
 This project-space contains the coastflow-gnn implementation and related resources.
 

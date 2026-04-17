@@ -4,6 +4,12 @@
 
 A domain-agnostic framework for predicting optimal trajectories as geodesics on learnable potential fields. Originally developed for microbe chemotaxis (Cell-Path PINNs), now generalized to support robotics, migration, finance, game AI, and more.
 
+## Update (April 17, 2026)
+
+- The implementation now centers on `src/core`, `src/domains`, and `src/export` modules instead of a looser single-file layout.
+- New demos cover game-AI and robotics-style trajectory-planning flows.
+- Test coverage was expanded around the core, domain, and trajectory modules.
+
 ## 🌟 Key Features
 
 - **Domain-Agnostic Core**: Abstract geodesic trajectory framework works across application domains

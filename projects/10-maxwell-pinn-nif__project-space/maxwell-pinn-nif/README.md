@@ -4,6 +4,12 @@
 
 A comprehensive research kit implementing a neural implicit field (NIF) solver for electromagnetic simulations in complex, anisotropic media.
 
+## Update (April 17, 2026)
+
+- This refresh aligns the docs with the current monorepo workflow and shared utility layers.
+- The electromagnetics project did not undergo a major private-head layout shift compared with projects 13 and 17.
+- Shared benchmarking and export patterns can now be referenced from repo-level tooling where useful.
+
 ## Features
 
 - 🧠 **PINN Architecture**: Shared MLP backbone with E/H field output heads

@@ -1,5 +1,11 @@
 # nif-cloth3d
 
+## Update (April 17, 2026)
+
+- The model path was refreshed and shared collision hooks were added around the interactive cloth workflow.
+- Project 11 now fits more cleanly into the shared addon and cloth-tooling story in the repo.
+- This README update is mainly about keeping docs aligned with the current shared infrastructure.
+
 ## Overview
 This project-space contains the nif-cloth3d implementation and related resources.
 

@@ -2,6 +2,12 @@
 
 Physics-Informed Neural Network for Free-Surface Water Simulations with Dual Eulerian-Lagrangian Architecture.
 
+## Update (April 17, 2026)
+
+- Geometry support was expanded in the current project implementation.
+- SurfPINN now sits closer to the repo's coastal-data and shared-geometry infrastructure than earlier README versions implied.
+- This doc refresh keeps the project aligned with the current monorepo context.
+
 ## Overview
 
 SurfPINN jointly predicts:

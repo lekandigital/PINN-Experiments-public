@@ -2,6 +2,12 @@
 
 Shared data infrastructure providing real-world NOAA data for coastal physics-informed ML projects.
 
+## Update (April 17, 2026)
+
+- Downloader coverage now spans CO-OPS, NDBC, CUDEM, shoreline, and WOA sources.
+- Processors and integration helpers were expanded for mesh generation, forcing assembly, validation bundles, and project-06 handoff.
+- This package now acts as the shared coastal data layer for projects 01, 02, 06, 16, and 17.
+
 ## Quick Start
 
 ```python

@@ -1,5 +1,11 @@
 # nif-cloth4d-temporal
 
+## Update (April 17, 2026)
+
+- The temporal cloth stack received updates in both the Fourier MLP and SIREN model implementations.
+- Shared collision integration is now part of the tracked project surface.
+- This README refresh keeps the temporal training and export story aligned with the current repo layout.
+
 ## Overview
 This project-space contains the nif-cloth4d-temporal implementation and related resources.
 

@@ -8,6 +8,12 @@
 
 CoastFlow-GNN is a multi-scale hierarchical Graph Neural Network (GNN) surrogate model that predicts coupled wind-wave fields from shoreline DEM (Digital Elevation Model) meshes. It combines Physics-Informed Neural Network (PINN) loss functions with Graph Convolutional Networks to accelerate coastal engineering simulations.
 
+## Update (April 17, 2026)
+
+- Geometry support expanded under `src/geometry`, with more explicit differential-geometry reuse from the shared repo layers.
+- The project now aligns more closely with `data/coastal/` for bathymetry, forcing, mesh, and validation inputs.
+- This README update reflects the shift toward shared coastal and export infrastructure.
+
 ## 🌊 Features
 
 - **Hierarchical Graph Pooling**: Multi-scale GCN layers with TopKPooling for capturing features at different spatial resolutions

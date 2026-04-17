@@ -1,5 +1,11 @@
 # WavePINN-NIF-ComplexMedia
 
+## Update (April 17, 2026)
+
+- This project's docs were synced to the current monorepo shape and shared coastal-data context.
+- The repo now expects real-world ocean and acoustics integrations to come through `data/coastal/` and the shared tooling layers.
+- No large private-head layout rewrite landed here recently, so this refresh is intentionally documentation-focused.
+
 ## Overview
 This project-space contains the WavePINN-NIF-ComplexMedia implementation and related resources.
 

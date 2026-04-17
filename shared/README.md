@@ -2,6 +2,12 @@
 
 A shared library of physics-informed graph neural network layers for the PINN-Experiments repository.
 
+## Update (April 17, 2026)
+
+- `shared/` now sits alongside broader common stacks such as collision, diffgeo, export, pipeline, and trajectory helpers.
+- Cross-project reuse expanded around cloth, coastal, and deform workflows instead of isolated per-project utilities.
+- Treat this library as part of the shared infrastructure story rather than a one-off side package.
+
 ## Design Principle
 
 In standard GNN message passing, the network learns the **entire** message function from data. In physics-encoded convolution, we **hard-code** known physical laws as the primary message function, and the network learns **only corrections/residuals**.

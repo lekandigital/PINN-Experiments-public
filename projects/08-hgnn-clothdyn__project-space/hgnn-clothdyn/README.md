@@ -2,6 +2,12 @@
 
 A PyTorch implementation of hierarchical graph neural networks for learning cloth simulation dynamics with physics-informed learned edge stiffness.
 
+## Update (April 17, 2026)
+
+- Training, benchmarking, and synthetic-data scripts were revised around the current hierarchical cloth-dynamics workflow.
+- Comparison media and Taichi outputs now live under tracked artifact bundles.
+- Shared collision integration was added to keep this project closer to the common cloth stack.
+
 ## Features
 
 - **Multi-Resolution Graph Pyramid**: Graclus clustering for coarse-to-fine message passing

@@ -8,6 +8,12 @@
 
 ClothGeom-NIF maps latent cloth states (node positions + edge strains) to watertight, high-detail cloth surfaces using neural implicit fields with SIREN activations.
 
+## Update (April 17, 2026)
+
+- Recent private-head work refreshed the project docs and SIREN-centered model implementation.
+- This project continues to anchor the cloth-geometry implicit-field path within the repo's broader `implicit_fields` work.
+- The README now calls out the current monorepo context without changing the project's basic usage model.
+
 ## 🚀 Quick Start
 
 ### Option 1: Fully Automated (Recommended)

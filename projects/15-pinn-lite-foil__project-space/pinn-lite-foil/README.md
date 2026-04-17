@@ -6,6 +6,12 @@
 [![TensorFlow 2.15](https://img.shields.io/badge/tensorflow-2.15-orange.svg)](https://tensorflow.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
+## Update (April 17, 2026)
+
+- This pass mainly syncs the docs with the current monorepo structure, workflow docs, and shared utilities.
+- The project itself did not receive the same level of recent reshaping as projects 13 and 17.
+- Shared benchmarking and distillation infrastructure is now available at the repo level when needed.
+
 ## Overview
 
 PINN-Lite-Foil delivers **sub-millisecond inference** (<1ms) for 2D airfoil flow prediction on edge devices. Using knowledge distillation and low-rank compression, we reduce a baseline 8-layer PINN to a compact 4-layer student model (<2MB) while maintaining <5% accuracy loss on lift/drag coefficients.

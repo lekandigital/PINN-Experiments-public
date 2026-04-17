@@ -2,6 +2,12 @@
 
 A PyTorch implementation of a neural implicit signed distance field (SDF) network that predicts cloth geometry at any timestamp, replacing traditional FEM/mass-spring solvers.
 
+## Update (April 17, 2026)
+
+- Project 13 is one of the most actively updated areas in the current private `main`.
+- The project-space now includes an explicit `demo/` surface plus expanded pipeline helpers such as `scripts/run_full_pipeline.py`.
+- Model and training code plus shared collision hookups were updated to support the current cloth workflow.
+
 ## Overview
 
 NIF-Cloth4D learns a continuous function `f(x, y, z, t) → SDF` that represents cloth geometry over time. Given a 4D spacetime coordinate, the network predicts the signed distance to the cloth surface.

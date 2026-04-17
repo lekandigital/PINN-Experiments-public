@@ -1,5 +1,11 @@
 # cell-path-pinns
 
+## Update (April 17, 2026)
+
+- The implementation now centers on `src/core`, `src/domains`, and `src/export` modules instead of a looser single-file layout.
+- New demos cover game-AI and robotics-style trajectory-planning flows.
+- Test coverage was expanded around the core, domain, and trajectory modules.
+
 ## Overview
 This project-space contains the cell-path-pinns implementation and related resources.
 

@@ -1,5 +1,11 @@
 # wavepinn-nif
 
+## Update (April 17, 2026)
+
+- Project 17 saw substantial private-head updates around the Taichi viewer, supervised-FD training and validation helpers, and demo/export tooling.
+- Artifact bundles and demo-site assets are now part of the tracked workflow rather than side notes.
+- The practical runtime story is now documented around the current PyTorch and Taichi stack.
+
 ## Overview
 This project-space contains the wavepinn-nif implementation and related resources.
 
