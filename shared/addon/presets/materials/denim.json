@@ -1,0 +1,17 @@
+{
+    "name": "Denim",
+    "description": "Heavy, stiff cotton twill with minimal drape and high durability",
+    "parameters": {
+        "density": 0.45,
+        "stiffness": 0.85,
+        "bending_stiffness": 0.40,
+        "damping": 0.15,
+        "friction": 0.6
+    },
+    "metadata": {
+        "category": "heavy",
+        "tags": ["tough", "structured", "workwear"],
+        "real_world_gsm": "300-450",
+        "typical_uses": ["jeans", "jackets", "bags", "workwear"]
+    }
+}

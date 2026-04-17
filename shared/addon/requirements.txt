@@ -1,0 +1,13 @@
+# Core dependencies (required)
+torch>=2.0.0
+numpy>=1.21.0
+scikit-image>=0.19.0  # For marching cubes SDF mesh extraction
+
+# Optional dependencies for GNN backends
+# torch-geometric>=2.3.0  # For ClothGNN (05) and PEGNN-Deform (14)
+# torch-scatter>=2.1.0
+# torch-sparse>=0.6.0
+
+# Development/testing dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0

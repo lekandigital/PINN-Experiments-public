@@ -1,0 +1,36 @@
+{
+  "fine": {
+    "resolution": 40,
+    "num_vertices": 1600,
+    "num_edges": 4641,
+    "num_faces": 3042
+  },
+  "coarse": {
+    "resolution": 20,
+    "num_vertices": 400,
+    "num_edges": 1121,
+    "num_faces": 722
+  },
+  "fps": 30,
+  "fixed_rows": 1,
+  "physics": {
+    "gravity": -9.8,
+    "stiffness": 500.0,
+    "damping": 0.995,
+    "substeps": 8,
+    "wind_strength": 2.0,
+    "wind_freq": 0.4
+  },
+  "rollout": {
+    "history_frames": 3,
+    "total_frames": 600,
+    "compared_frames": 600,
+    "rmse_threshold": 0.05,
+    "trustworthy_frame": 9,
+    "trustworthy_seconds": 0.3,
+    "final_frame_rmse": 5.6759185791015625,
+    "mean_rmse": 2.440723419189453,
+    "max_rmse": 5.6759185791015625
+  },
+  "checkpoint": "/home/o/work/hgnn-nif-cloth/checkpoints/hgnn_nif_cloth_trained.pt"
+}

@@ -1,0 +1,8 @@
+{
+  "fps": 159.7026357264156,
+  "ms_per_frame": 6.2616374203935266,
+  "num_iterations": 100,
+  "warmup_iterations": 10,
+  "device": "cuda",
+  "gpu_name": "NVIDIA GeForce RTX 3090 Ti"
+}

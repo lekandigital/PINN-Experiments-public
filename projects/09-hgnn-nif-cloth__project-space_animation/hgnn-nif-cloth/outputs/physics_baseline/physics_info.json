@@ -1,0 +1,24 @@
+{
+  "resolution": 40,
+  "coarse_resolution": 20,
+  "num_frames": 600,
+  "num_vertices_fine": 1600,
+  "num_vertices_coarse": 400,
+  "num_edges_fine": 4641,
+  "num_edges_coarse": 1121,
+  "num_faces_fine": 3042,
+  "num_faces_coarse": 722,
+  "fps": 30,
+  "dt": 0.03333333333333333,
+  "fixed_rows": 1,
+  "physics": {
+    "gravity": -9.8,
+    "stiffness": 500.0,
+    "damping": 0.995,
+    "substeps": 8,
+    "wind_strength": 2.0,
+    "wind_freq": 0.4
+  },
+  "size": 2.0,
+  "height": 1.0
+}

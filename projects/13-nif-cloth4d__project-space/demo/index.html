@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NIF-Cloth4D — Neural Cloth Simulation</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #1a1a2e;
+    color: #e0e0e0;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+  #canvas-container {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0; left: 0;
+  }
+  canvas { display: block; }
+
+  /* Loading overlay */
+  #loading {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: #1a1a2e;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: opacity 0.5s ease;
+  }
+  #loading.hidden { opacity: 0; pointer-events: none; }
+  .spinner {
+    width: 40px; height: 40px;
+    border: 3px solid rgba(255,255,255,0.1);
+    border-top-color: #7c83ff;
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    margin-bottom: 16px;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  #loading p { font-size: 14px; color: #888; letter-spacing: 0.5px; }
+
+  /* Branding overlay — top left */
+  #branding {
+    position: fixed;
+    top: 24px; left: 28px;
+    z-index: 10;
+    pointer-events: none;
+  }
+  #branding h1 {
+    font-size: 20px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+  }
+  #branding .subtitle {
+    font-size: 12px;
+    color: #888;
+    font-weight: 400;
+    letter-spacing: 0.3px;
+  }
+  #branding .org {
+    font-size: 11px;
+    color: #555;
+    margin-top: 8px;
+  }
+
+  /* Stats overlay — top right */
+  #stats {
+    position: fixed;
+    top: 24px; right: 28px;
+    z-index: 10;
+    text-align: right;
+    font-size: 11px;
+    color: #666;
+    line-height: 1.6;
+    pointer-events: none;
+    font-variant-numeric: tabular-nums;
+  }
+  #stats .value { color: #999; }
+
+  /* Controls bar — bottom */
+  #controls {
+    position: fixed;
+    bottom: 0; left: 0; right: 0;
+    z-index: 10;
+    padding: 16px 28px 22px;
+    background: linear-gradient(transparent, rgba(26,26,46,0.95) 40%);
+  }
+  #controls-inner {
+    max-width: 640px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  #play-btn {
+    width: 36px; height: 36px;
+    border: none;
+    background: rgba(255,255,255,0.08);
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.15s;
+    flex-shrink: 0;
+  }
+  #play-btn:hover { background: rgba(255,255,255,0.15); }
+  #play-btn svg { fill: #ccc; width: 14px; height: 14px; }
+  #time-slider {
+    flex: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    height: 4px;
+    background: rgba(255,255,255,0.12);
+    border-radius: 2px;
+    outline: none;
+    cursor: pointer;
+  }
+  #time-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 14px; height: 14px;
+    background: #7c83ff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+  }
+  #time-slider::-moz-range-thumb {
+    width: 14px; height: 14px;
+    background: #7c83ff;
+    border-radius: 50%;
+    cursor: pointer;
+    border: none;
+  }
+  #time-label {
+    font-size: 13px;
+    color: #999;
+    min-width: 62px;
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    flex-shrink: 0;
+  }
+</style>
+</head>
+<body>
+
+<div id="loading">
+  <div class="spinner"></div>
+  <p>Loading meshes...</p>
+</div>
+
+<div id="branding">
+  <h1>NIF-Cloth4D</h1>
+  <div class="subtitle">Neural Implicit Field &mdash; Cloth Dynamics</div>
+  <div class="org">SoarLabs | hy.ms/pinn</div>
+</div>
+
+<div id="stats">
+  <div>Vertices: <span class="value" id="stat-verts">—</span></div>
+  <div>Faces: <span class="value" id="stat-faces">—</span></div>
+  <div style="margin-top:4px;">Model: <span class="value">66K params | SIREN MLP</span></div>
+  <div>Chamfer Distance: <span class="value">0.020</span></div>
+</div>
+
+<div id="controls">
+  <div id="controls-inner">
+    <button id="play-btn" aria-label="Play/Pause">
+      <svg id="play-icon" viewBox="0 0 16 16"><polygon points="3,1 13,8 3,15"/></svg>
+      <svg id="pause-icon" viewBox="0 0 16 16" style="display:none">
+        <rect x="2" y="1" width="4" height="14"/><rect x="10" y="1" width="4" height="14"/>
+      </svg>
+    </button>
+    <input type="range" id="time-slider" min="0" max="1000" value="0" step="1">
+    <div id="time-label">t = 0.000</div>
+  </div>
+</div>
+
+<div id="canvas-container"></div>
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+
+<script type="module">
+import * as THREE from 'three';
+import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+import { OBJLoader } from 'three/addons/loaders/OBJLoader.js';
+
+// ─── Scene setup ───
+const container = document.getElementById('canvas-container');
+const renderer = new THREE.WebGLRenderer({ antialias: true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.shadowMap.enabled = true;
+renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.toneMapping = THREE.ACESFilmicToneMapping;
+renderer.toneMappingExposure = 1.1;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+container.appendChild(renderer.domElement);
+
+const scene = new THREE.Scene();
+scene.background = new THREE.Color(0x1a1a2e);
+scene.fog = new THREE.FogExp2(0x1a1a2e, 0.15);
+
+// Camera — 3/4 view
+const camera = new THREE.PerspectiveCamera(40, window.innerWidth / window.innerHeight, 0.1, 100);
+camera.position.set(3.0, 2.5, 3.5);
+camera.lookAt(0, 0.3, 0);
+
+// Controls
+const controls = new OrbitControls(camera, renderer.domElement);
+controls.enableDamping = true;
+controls.dampingFactor = 0.08;
+controls.target.set(0, 0.3, 0);
+controls.minDistance = 1.5;
+controls.maxDistance = 12;
+controls.update();
+
+// ─── Lighting ───
+const hemiLight = new THREE.HemisphereLight(0xddeeff, 0x2a2a3e, 0.8);
+scene.add(hemiLight);
+
+const dirLight = new THREE.DirectionalLight(0xffffff, 1.5);
+dirLight.position.set(4, 6, 3);
+dirLight.castShadow = true;
+dirLight.shadow.mapSize.set(1024, 1024);
+dirLight.shadow.camera.near = 0.5;
+dirLight.shadow.camera.far = 20;
+dirLight.shadow.camera.left = -4;
+dirLight.shadow.camera.right = 4;
+dirLight.shadow.camera.top = 4;
+dirLight.shadow.camera.bottom = -4;
+dirLight.shadow.bias = -0.001;
+scene.add(dirLight);
+
+const fillLight = new THREE.DirectionalLight(0x8888cc, 0.3);
+fillLight.position.set(-3, 2, -2);
+scene.add(fillLight);
+
+// ─── Ground plane ───
+const groundGeo = new THREE.PlaneGeometry(20, 20);
+const groundMat = new THREE.ShadowMaterial({ opacity: 0.25 });
+const ground = new THREE.Mesh(groundGeo, groundMat);
+ground.rotation.x = -Math.PI / 2;
+ground.position.y = -0.01;
+ground.receiveShadow = true;
+scene.add(ground);
+
+// Subtle grid
+const gridHelper = new THREE.GridHelper(8, 16, 0x333355, 0x252545);
+gridHelper.position.y = 0;
+scene.add(gridHelper);
+
+// ─── Cloth material ───
+const clothMaterial = new THREE.MeshStandardMaterial({
+  color: 0xe8e0d8,
+  roughness: 0.85,
+  metalness: 0.02,
+  side: THREE.DoubleSide,
+  transparent: true,
+  opacity: 1.0,
+});
+
+// ─── Load OBJ files ───
+const loader = new OBJLoader();
+const meshFiles = [
+  { path: './meshes/cloth_t0_000.obj', t: 0.0 },
+  { path: './meshes/cloth_t0_500.obj', t: 0.5 },
+  { path: './meshes/cloth_t1_000.obj', t: 1.0 },
+];
+
+const meshEntries = []; // { group, mesh, verts, faces, t }
+
+function loadOBJ(url) {
+  return new Promise((resolve, reject) => {
+    loader.load(url, resolve, undefined, reject);
+  });
+}
+
+async function init() {
+  const promises = meshFiles.map(f => loadOBJ(f.path));
+  const groups = await Promise.all(promises);
+
+  groups.forEach((group, i) => {
+    let totalVerts = 0, totalFaces = 0;
+
+    group.traverse(child => {
+      if (child.isMesh) {
+        child.material = clothMaterial.clone();
+        child.castShadow = true;
+        child.receiveShadow = true;
+        child.geometry.computeVertexNormals();
+
+        const geo = child.geometry;
+        totalVerts += geo.attributes.position.count;
+        totalFaces += geo.index ? geo.index.count / 3 : geo.attributes.position.count / 3;
+      }
+    });
+
+    // Center and normalize the mesh
+    const box = new THREE.Box3().setFromObject(group);
+    const center = box.getCenter(new THREE.Vector3());
+    const size = box.getSize(new THREE.Vector3());
+    const maxDim = Math.max(size.x, size.y, size.z);
+    const scale = 2.0 / maxDim;
+
+    group.position.sub(center);
+    group.scale.setScalar(scale);
+    group.position.y += size.y * scale * 0.5;
+
+    group.visible = i === 0;
+    scene.add(group);
+
+    meshEntries.push({
+      group,
+      verts: totalVerts,
+      faces: Math.round(totalFaces),
+      t: meshFiles[i].t,
+    });
+  });
+
+  // Hide loading
+  document.getElementById('loading').classList.add('hidden');
+  updateStats(0);
+  animate();
+}
+
+// ─── Time control ───
+const slider = document.getElementById('time-slider');
+const timeLabel = document.getElementById('time-label');
+const statVerts = document.getElementById('stat-verts');
+const statFaces = document.getElementById('stat-faces');
+const playBtn = document.getElementById('play-btn');
+const playIcon = document.getElementById('play-icon');
+const pauseIcon = document.getElementById('pause-icon');
+
+let currentTime = 0; // 0..1
+let playing = false;
+let playDirection = 1;
+const PLAY_SPEED = 0.3; // full cycle in ~3.3s
+
+function updateStats(t) {
+  // Find which mesh is most visible
+  let closest = meshEntries[0];
+  let minDist = Infinity;
+  for (const entry of meshEntries) {
+    const d = Math.abs(entry.t - t);
+    if (d < minDist) { minDist = d; closest = entry; }
+  }
+  statVerts.textContent = closest.verts.toLocaleString();
+  statFaces.textContent = closest.faces.toLocaleString();
+}
+
+function setTime(t) {
+  currentTime = Math.max(0, Math.min(1, t));
+  slider.value = Math.round(currentTime * 1000);
+  timeLabel.textContent = `t = ${currentTime.toFixed(3)}`;
+
+  // Crossfade logic: determine which two keyframes we're between
+  const keyframes = meshEntries.map(e => e.t); // [0, 0.5, 1.0]
+
+  // Find bracketing keyframes
+  let lowerIdx = 0, upperIdx = meshEntries.length - 1;
+  for (let i = 0; i < keyframes.length - 1; i++) {
+    if (currentTime >= keyframes[i] && currentTime <= keyframes[i + 1]) {
+      lowerIdx = i;
+      upperIdx = i + 1;
+      break;
+    }
+  }
+
+  const lowerT = keyframes[lowerIdx];
+  const upperT = keyframes[upperIdx];
+  const range = upperT - lowerT;
+  const blend = range > 0 ? (currentTime - lowerT) / range : 0;
+
+  // Set visibility and opacity
+  meshEntries.forEach((entry, i) => {
+    let opacity = 0;
+    if (i === lowerIdx && i === upperIdx) {
+      opacity = 1;
+    } else if (i === lowerIdx) {
+      opacity = 1 - blend;
+    } else if (i === upperIdx) {
+      opacity = blend;
+    }
+
+    const visible = opacity > 0.001;
+    entry.group.visible = visible;
+    if (visible) {
+      entry.group.traverse(child => {
+        if (child.isMesh) {
+          child.material.opacity = opacity;
+          child.material.transparent = opacity < 0.999;
+        }
+      });
+    }
+  });
+
+  updateStats(currentTime);
+}
+
+slider.addEventListener('input', () => {
+  setTime(parseInt(slider.value) / 1000);
+});
+
+playBtn.addEventListener('click', () => {
+  playing = !playing;
+  playIcon.style.display = playing ? 'none' : 'block';
+  pauseIcon.style.display = playing ? 'block' : 'none';
+});
+
+// ─── Animation loop ───
+let lastFrameTime = 0;
+
+function animate(timestamp = 0) {
+  requestAnimationFrame(animate);
+
+  const delta = Math.min((timestamp - lastFrameTime) / 1000, 0.05);
+  lastFrameTime = timestamp;
+
+  if (playing) {
+    let newTime = currentTime + playDirection * PLAY_SPEED * delta;
+    if (newTime >= 1) { newTime = 1; playDirection = -1; }
+    else if (newTime <= 0) { newTime = 0; playDirection = 1; }
+    setTime(newTime);
+  }
+
+  controls.update();
+  renderer.render(scene, camera);
+}
+
+// ─── Resize ───
+window.addEventListener('resize', () => {
+  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// ─── Start ───
+init().catch(err => {
+  console.error('Failed to load meshes:', err);
+  document.querySelector('#loading p').textContent = 'Error loading meshes. Run via: python3 -m http.server';
+});
+</script>
+
+</body>
+</html>

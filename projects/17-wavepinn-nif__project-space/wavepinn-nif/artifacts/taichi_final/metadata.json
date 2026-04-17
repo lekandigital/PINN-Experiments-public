@@ -1,0 +1,168 @@
+{
+  "preset": "dramatic",
+  "arch": "cuda",
+  "checkpoint_path": "/home/o/wavepinn-nif/outputs/supervised_fd_long/checkpoints/wavefield_nif_supervised.pt",
+  "torch_device": "cuda",
+  "resolution": 192,
+  "frames": 144,
+  "export_frames": 210,
+  "export_fps": 30,
+  "window_res": [
+    1920,
+    1080
+  ],
+  "t_start": 0.0,
+  "t_end": 0.55,
+  "extent": 2.45,
+  "height_scale": 0.125,
+  "amplitude_reference": 0.27242588996887207,
+  "scale_factor": 0.45884038412899286,
+  "display_transfer": "tanh",
+  "display_gain": 1.3,
+  "center_mode": "global",
+  "spatial_smooth_passes": 3,
+  "temporal_smooth_passes": 1,
+  "playback_speed": 0.72,
+  "wireframe": false,
+  "preset_config": {
+    "name": "dramatic",
+    "description": "Higher contrast and stronger displacement for prerecorded hero clips.",
+    "resolution": 192,
+    "frames": 144,
+    "export_frames": 210,
+    "export_fps": 30,
+    "window_res": [
+      1920,
+      1080
+    ],
+    "height_scale": 0.125,
+    "amplitude_percentile": 99.75,
+    "center_mode": "global",
+    "spatial_smooth": 3,
+    "temporal_smooth": 1,
+    "height_transfer": "tanh",
+    "height_gain": 1.3,
+    "playback_speed": 0.72,
+    "extent": 2.45,
+    "camera": {
+      "position": [
+        -0.54,
+        1.52,
+        1.78
+      ],
+      "lookat": [
+        0.1,
+        -0.02,
+        0.06
+      ],
+      "fov": 24.0
+    },
+    "background": [
+      0.02,
+      0.026,
+      0.04
+    ],
+    "ambient": [
+      0.22,
+      0.23,
+      0.25
+    ],
+    "lights": [
+      {
+        "pos": [
+          2.2,
+          2.5,
+          1.2
+        ],
+        "color": [
+          1.1,
+          1.0,
+          0.92
+        ]
+      },
+      {
+        "pos": [
+          -1.8,
+          1.0,
+          -1.3
+        ],
+        "color": [
+          0.2,
+          0.32,
+          0.52
+        ]
+      },
+      {
+        "pos": [
+          0.0,
+          0.55,
+          2.4
+        ],
+        "color": [
+          0.09,
+          0.1,
+          0.12
+        ]
+      }
+    ],
+    "ground_color": [
+      0.09,
+      0.1,
+      0.13
+    ],
+    "ground_margin": 0.065,
+    "wireframe_default": false,
+    "wireframe_color": [
+      0.05,
+      0.06,
+      0.08
+    ],
+    "wireframe_width": 0.7,
+    "palette": {
+      "neutral": [
+        0.76,
+        0.8,
+        0.86
+      ],
+      "positive": [
+        0.99,
+        0.7,
+        0.4
+      ],
+      "negative": [
+        0.18,
+        0.49,
+        0.88
+      ],
+      "strength_power": 0.72
+    }
+  },
+  "model_config": {
+    "hidden_dims": [
+      256,
+      256,
+      256,
+      128
+    ],
+    "use_fourier": true,
+    "num_fourier": 64,
+    "fourier_scale": 8.0
+  },
+  "training_args": {
+    "grid": 128,
+    "frames": 96,
+    "total_time": 0.55,
+    "steps": 15000,
+    "batch_size": 32768,
+    "lr": 0.0002,
+    "seed": 42
+  },
+  "final_metrics": {
+    "mse": 0.00033030454263401526,
+    "mae": 0.014247354585677385,
+    "relative_l2": 0.34884150997074703,
+    "psnr_db": 34.8108545347383,
+    "best_val_loss": 0.000330305309034884,
+    "reference_scale": 14.461195945739746
+  }
+}

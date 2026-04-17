@@ -1,0 +1,186 @@
+{
+  "preset": "pitch",
+  "mode": "hgnn",
+  "arch": "cuda",
+  "physics_path": "outputs/physics_baseline/cloth_sequence.npy",
+  "hgnn_path": "outputs/hgnn_prediction/cloth_sequence.npy",
+  "mesh_info": "outputs/mesh_info.json",
+  "clip_start": 2,
+  "clip_end": 38,
+  "window_res": [
+    1600,
+    960
+  ],
+  "export_only": true,
+  "export_frames": 144,
+  "export_fps": 30,
+  "fps": 60,
+  "playback_speed": 0.74,
+  "mesh_scale": 1.45,
+  "comparison_gap": 0.92,
+  "surface_mode": "smooth",
+  "wireframe": false,
+  "show_gui": false,
+  "preset_config": {
+    "name": "pitch",
+    "description": "Balanced hero preset for laptop playback and export, with clean contrast and restrained color.",
+    "window_res": [
+      1600,
+      960
+    ],
+    "export_frames": 132,
+    "export_fps": 30,
+    "clip_start": 2,
+    "clip_end": 30,
+    "playback_speed": 0.74,
+    "mesh_scale": 1.45,
+    "comparison_gap": 0.92,
+    "surface_mode": "smooth",
+    "display_subdivisions": 3,
+    "camera": {
+      "position": [
+        -0.16,
+        1.78,
+        4.1
+      ],
+      "lookat": [
+        0.0,
+        0.54,
+        0.18
+      ],
+      "fov": 28.0
+    },
+    "background": [
+      0.04,
+      0.05,
+      0.07
+    ],
+    "ambient": [
+      0.3,
+      0.31,
+      0.33
+    ],
+    "lights": [
+      {
+        "pos": [
+          2.5,
+          2.6,
+          2.0
+        ],
+        "color": [
+          1.05,
+          1.0,
+          0.95
+        ]
+      },
+      {
+        "pos": [
+          -2.2,
+          1.1,
+          -1.4
+        ],
+        "color": [
+          0.24,
+          0.38,
+          0.54
+        ]
+      },
+      {
+        "pos": [
+          0.0,
+          0.9,
+          2.7
+        ],
+        "color": [
+          0.1,
+          0.12,
+          0.16
+        ]
+      }
+    ],
+    "floor_color": [
+      0.13,
+      0.15,
+      0.18
+    ],
+    "floor_margin": 0.085,
+    "wireframe_default": false,
+    "wireframe_color": [
+      0.07,
+      0.08,
+      0.1
+    ],
+    "wireframe_width": 0.58,
+    "physics_style": {
+      "light_color": [
+        0.79,
+        0.84,
+        0.89
+      ],
+      "dark_color": [
+        0.58,
+        0.67,
+        0.78
+      ],
+      "shadow_tint": [
+        0.32,
+        0.48,
+        0.72
+      ],
+      "highlight_tint": [
+        0.95,
+        0.97,
+        0.98
+      ],
+      "displacement_tint": [
+        0.44,
+        0.62,
+        0.9
+      ],
+      "stripe_repeat": 5,
+      "stripe_strength": 0.08,
+      "tone_strength": 0.34,
+      "displacement_strength": 0.1
+    },
+    "hgnn_style": {
+      "light_color": [
+        0.9,
+        0.87,
+        0.8
+      ],
+      "dark_color": [
+        0.72,
+        0.7,
+        0.64
+      ],
+      "shadow_tint": [
+        0.59,
+        0.6,
+        0.69
+      ],
+      "highlight_tint": [
+        0.99,
+        0.97,
+        0.92
+      ],
+      "displacement_tint": [
+        0.93,
+        0.7,
+        0.45
+      ],
+      "stripe_repeat": 6,
+      "stripe_strength": 0.06,
+      "tone_strength": 0.3,
+      "displacement_strength": 0.12
+    }
+  },
+  "timestep": 0.010000000474974513,
+  "bundle_frames": 37,
+  "bundle_frame_offset": 2,
+  "source_mesh_size": 40,
+  "display_mesh_size": 118,
+  "ffmpeg": {
+    "mp4": "ffmpeg -y -framerate 30 -i /home/o/hgnn-clothdyn/artifacts/taichi_final/hgnn_demo_frames/frame_%04d.png -vf \"scale=trunc(iw/2)*2:trunc(ih/2)*2,format=yuv420p\" /home/o/hgnn-clothdyn/artifacts/taichi_final/hgnn_demo_frames/cloth_demo.mp4",
+    "gif": "ffmpeg -y -framerate 30 -i /home/o/hgnn-clothdyn/artifacts/taichi_final/hgnn_demo_frames/frame_%04d.png -vf \"fps=30,scale=960:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse\" /home/o/hgnn-clothdyn/artifacts/taichi_final/hgnn_demo_frames/cloth_demo.gif"
+  }
+}

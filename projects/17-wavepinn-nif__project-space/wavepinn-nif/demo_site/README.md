@@ -1,0 +1,63 @@
+# WavePINN Demo Site
+
+This folder contains a plain HTML/CSS/JS microsite that compares:
+
+1. without my PINN
+2. with my PINN
+3. the final Taichi GGUI demo
+
+The structure is intentionally comparison-first:
+
+- left: the non-neural reference / baseline field
+- right: the trained WavePINN field
+- final section: the polished Taichi GGUI presentation of the learned result
+
+The site is self-contained after running the asset prep step below.
+
+## Prepare Assets
+
+From the project root:
+
+```bash
+.venv/bin/python demo_site/tools/prepare_assets.py
+```
+
+This copies the real project artifacts into `demo_site/assets/` and generates:
+
+- `demo_site/assets/media/reference-field.mp4`
+- `demo_site/assets/media/learned-field.mp4`
+- `demo_site/assets/data/site-data.json`
+
+## Run Locally
+
+From the project root:
+
+```bash
+python3 -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000/demo_site/
+```
+
+You can also serve only the site folder:
+
+```bash
+cd demo_site
+python3 -m http.server 8000
+```
+
+Then open:
+
+```text
+http://localhost:8000/
+```
+
+## Notes
+
+- The final hero asset is the Taichi GGUI MP4, not Blender.
+- The main comparison is reference field vs learned WavePINN field.
+- Legacy Blender files may still exist in the repo, but they are not part of the primary story on this site.
+- The site reads metrics and metadata from the copied JSON files in `demo_site/assets/data/`.

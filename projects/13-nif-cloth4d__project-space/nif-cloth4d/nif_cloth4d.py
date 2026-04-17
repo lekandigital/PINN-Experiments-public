@@ -2,8 +2,10 @@
 NIF-Cloth4D: Neural Implicit Field for Cloth Dynamics
 Core network implementation using SIREN (Sinusoidal Representation Networks)
 
-This module implements a Fourier-feature MLP that predicts signed distance fields
+This module implements a SIREN-based MLP that predicts signed distance fields
 for cloth geometry at any given spacetime coordinate (x, y, z, t).
+
+Uses the shared implicit_fields library for core SIREN implementation.
 """
 
 import torch
@@ -12,36 +14,27 @@ import torch.nn.functional as F
 import numpy as np
 from typing import Optional, Tuple
 
+# Import from shared implicit_fields library
+import sys
+from pathlib import Path
+# Add repository root to path for implicit_fields import
+repo_root = Path(__file__).parent.parent.parent.parent
+if str(repo_root) not in sys.path:
+    sys.path.insert(0, str(repo_root))
 
-class SineActivation(nn.Module):
-    """
-    Sinusoidal activation function for SIREN networks.
-    
-    The sine activation enables the network to learn high-frequency functions
-    by providing a rich set of frequencies through the nonlinearity itself.
-    
-    Args:
-        w0: Frequency scaling factor. Higher values allow learning higher frequencies.
-            Typical values: 30.0 for first layer, 1.0 for hidden layers.
-    """
-    def __init__(self, w0: float = 1.0):
-        super().__init__()
-        self.w0 = w0
-    
-    def forward(self, x: torch.Tensor) -> torch.Tensor:
-        return torch.sin(self.w0 * x)
+from implicit_fields import SirenNetwork
 
 
 class FourierFeatureSIREN(nn.Module):
     """
-    Fourier-Feature SIREN network for implicit SDF prediction.
+    SIREN network wrapper for implicit SDF prediction with optional conditioning.
     
     This network takes spacetime coordinates (x, y, z, t) and optionally
     conditioning inputs (e.g., force vectors) to predict signed distance values.
     
     Architecture:
-        - First layer: Linear + Sine(w0=30) with special initialization
-        - Hidden layers: Linear + Sine(w0=1) with SIREN initialization
+        - First layer: Linear + Sine(omega_0=30) with special initialization
+        - Hidden layers: Linear + Sine(omega_hidden=30) with SIREN initialization
         - Output layer: Linear (no activation) for SDF value
     
     Args:
@@ -66,34 +59,15 @@ class FourierFeatureSIREN(nn.Module):
         self.hidden_dim = hidden_dim
         total_in = in_dim + cond_dim
         
-        # First layer with higher w0 for input frequencies
-        self.first_linear = nn.Linear(total_in, hidden_dim)
-        self.first_act = SineActivation(w0=w0)
-        
-        # SIREN initialization for first layer: U[-1/in, 1/in]
-        with torch.no_grad():
-            self.first_linear.weight.uniform_(-1.0 / total_in, 1.0 / total_in)
-        
-        # Hidden layers with sine activations
-        self.hidden = nn.ModuleList()
-        for _ in range(hidden_layers):
-            lin = nn.Linear(hidden_dim, hidden_dim)
-            self.hidden.append(lin)
-            self.hidden.append(SineActivation(w0=1.0))
-            
-            # SIREN initialization for hidden layers
-            # Weights ~ U[-sqrt(6/n)/w0, sqrt(6/n)/w0] where n = hidden_dim
-            with torch.no_grad():
-                bound = np.sqrt(6.0 / hidden_dim) / 1.0
-                lin.weight.uniform_(-bound, bound)
-        
-        # Final output layer (linear, no activation)
-        self.final_linear = nn.Linear(hidden_dim, 1)
-        
-        # Initialize final layer to small values for stable SDF output
-        with torch.no_grad():
-            self.final_linear.weight.fill_(0.0)
-            self.final_linear.bias.fill_(0.0)
+        # Use shared SirenNetwork implementation
+        self.siren = SirenNetwork(
+            in_features=total_in,
+            hidden_features=hidden_dim,
+            out_features=1,
+            hidden_layers=hidden_layers,
+            omega_0=w0,
+            omega_hidden=w0  # Match original behavior
+        )
     
     def forward(
         self,
@@ -115,17 +89,7 @@ class FourierFeatureSIREN(nn.Module):
         else:
             x = coords
         
-        # First layer
-        x = self.first_linear(x)
-        x = self.first_act(x)
-        
-        # Hidden layers
-        for layer in self.hidden:
-            x = layer(x)
-        
-        # Output layer
-        sdf = self.final_linear(x)
-        return sdf
+        return self.siren(x)
 
 
 def compute_sdf_loss(

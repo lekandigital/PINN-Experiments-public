@@ -20,6 +20,144 @@ where:
 - 🔄 Inverse problem support for slowness reconstruction
 - 📊 W&B integration for experiment tracking
 
+## Taichi Demo
+
+The main visualization path for this repo is now a Taichi GGUI height-field demo, not Blender.
+
+- Primary checkpoint: `outputs/supervised_fd_long/checkpoints/wavefield_nif_supervised.pt`
+- Main viewer: `src/taichi_wave_demo.py`
+- Frame/video helper: `src/make_demo_video.py`
+- Validation/export helpers: `src/validate_wavefield.py`, `src/export_blender.py`
+
+### Environment Notes
+
+The practical demo stack is PyTorch + Taichi. In this repo, the current Taichi viewer was validated on Python 3.10 with CUDA on the 3090 Ti box.
+
+- If you are on Python 3.14 locally, Taichi wheels may be unavailable.
+- Use a Python 3.10-3.12 environment for the Taichi viewer.
+- Minimal packages for the demo path: `torch`, `numpy`, `matplotlib`, `pillow`, `taichi`
+
+### Retrain The Demo Checkpoint If Needed
+
+The most reliable training path for the demo is the supervised FD fallback:
+
+```bash
+python src/train_supervised_fd.py \
+  --output outputs/supervised_fd_long \
+  --grid 128 \
+  --frames 96 \
+  --total_time 0.55 \
+  --steps 15000 \
+  --batch_size 32768 \
+  --lr 2e-4
+```
+
+That writes:
+
+- Checkpoint: `outputs/supervised_fd_long/checkpoints/wavefield_nif_supervised.pt`
+- Reference artifacts: `outputs/supervised_fd_long/reference/`
+
+### Validate The Checkpoint
+
+```bash
+python src/validate_wavefield.py \
+  --checkpoint outputs/supervised_fd_long/checkpoints/wavefield_nif_supervised.pt \
+  --output outputs/supervised_fd_long/validation_model \
+  --resolution 128 \
+  --frames 48 \
+  --t_start 0.0 \
+  --t_end 0.55
+```
+
+### Run The Live Viewer
+
+Use the `pitch` preset for the default live demo:
+
+```bash
+python src/taichi_wave_demo.py \
+  --preset pitch \
+  --checkpoint outputs/supervised_fd_long/checkpoints/wavefield_nif_supervised.pt \
+  --arch auto
+```
+
+Viewer controls:
+
+- `space`: play/pause
+- `r`: restart from the first frame
+- `[` and `]`: slower / faster playback
+- `w`: toggle wireframe overlay
+- right mouse button: Taichi camera orbit/pan
+
+### Presets
+
+The viewer ships with three presentation presets:
+
+- `research`: flatter, more analytical, optional wireframe by default
+- `pitch`: balanced default for calls and deck captures
+- `dramatic`: higher contrast and stronger displacement for prerecorded clips
+
+List them from the CLI:
+
+```bash
+python src/taichi_wave_demo.py --list-presets
+```
+
+### Export A Deterministic Frame Sequence
+
+This exports a fixed frame sequence with a fixed camera and exits automatically:
+
+```bash
+python src/taichi_wave_demo.py \
+  --preset pitch \
+  --checkpoint outputs/supervised_fd_long/checkpoints/wavefield_nif_supervised.pt \
+  --arch auto \
+  --export-only \
+  --export-dir outputs/taichi_pitch_frames
+```
+
+Recommended hero export:
+
+```bash
+python src/taichi_wave_demo.py \
+  --preset dramatic \
+  --checkpoint outputs/supervised_fd_long/checkpoints/wavefield_nif_supervised.pt \
+  --arch auto \
+  --export-only \
+  --export-dir outputs/taichi_dramatic_frames \
+  --export-frames 210 \
+  --export-fps 30
+```
+
+The export directory will contain:
+
+- `frame_0000.png`, `frame_0001.png`, ...
+- `metadata.json`
+
+### Create MP4 / GIF
+
+If `ffmpeg` is available, use the helper:
+
+```bash
+python src/make_demo_video.py \
+  --frames-dir outputs/taichi_pitch_frames \
+  --fps 30 \
+  --overwrite
+```
+
+If you prefer to run `ffmpeg` directly:
+
+```bash
+ffmpeg -y -framerate 30 -i outputs/taichi_pitch_frames/frame_%04d.png \
+  -vf "scale=trunc(iw/2)*2:trunc(ih/2)*2,format=yuv420p" \
+  outputs/taichi_pitch_frames/wave_demo.mp4
+```
+
+```bash
+ffmpeg -y -framerate 30 -i outputs/taichi_pitch_frames/frame_%04d.png \
+  -vf "fps=30,scale=960:-1:flags=lanczos,split[s0][s1];[s0]palettegen[p];[s1][p]paletteuse" \
+  outputs/taichi_pitch_frames/wave_demo.gif
+```
+
 ## 🏗️ Project Structure
 
 ```

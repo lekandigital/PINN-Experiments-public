@@ -88,14 +88,66 @@ class ClothDataset:
         
         self.num_frames = len(self.positions)
         self.num_nodes = self.positions.shape[1]
-        
+        self.pos_mean = self.positions.mean(dim=(0, 1))
+        self.pos_scale = self.positions.std().clamp(min=1e-8)
+
         logger.info(f"Loaded dataset: {self.num_frames} frames, {self.num_nodes} nodes")
-    
-    def get_frame(self, frame_idx: int) -> Data:
+
+    def normalization_tensors(
+        self,
+        device: Optional[torch.device] = None
+    ) -> Tuple[torch.Tensor, torch.Tensor]:
+        """Return position mean and scalar scale on the requested device."""
+        mean = self.pos_mean
+        scale = self.pos_scale
+        if device is not None:
+            mean = mean.to(device)
+            scale = scale.to(device)
+        return mean, scale
+
+    def normalize_positions(self, positions: torch.Tensor) -> torch.Tensor:
+        """Normalize positions with dataset-wide statistics."""
+        mean, scale = self.normalization_tensors(positions.device)
+        return (positions - mean) / scale
+
+    def denormalize_positions(self, positions: torch.Tensor) -> torch.Tensor:
+        """Invert dataset position normalization."""
+        mean, scale = self.normalization_tensors(positions.device)
+        return positions * scale + mean
+
+    def normalize_velocities(self, velocities: torch.Tensor) -> torch.Tensor:
+        """Normalize velocities with the same scalar used for positions."""
+        _, scale = self.normalization_tensors(velocities.device)
+        return velocities / scale
+
+    def denormalize_velocities(self, velocities: torch.Tensor) -> torch.Tensor:
+        """Invert dataset velocity normalization."""
+        _, scale = self.normalization_tensors(velocities.device)
+        return velocities * scale
+
+    def normalize_rest_lengths(self, rest_lengths: torch.Tensor) -> torch.Tensor:
+        """Normalize edge rest lengths consistently with positions."""
+        _, scale = self.normalization_tensors(rest_lengths.device)
+        return rest_lengths / scale
+
+    def normalization_dict(self) -> Dict[str, Any]:
+        """Serialize normalization metadata for checkpoints and exports."""
+        return {
+            'pos_mean': self.pos_mean.tolist(),
+            'pos_scale': float(self.pos_scale.item()),
+        }
+
+    def get_frame(self, frame_idx: int, normalized: bool = False) -> Data:
         """Get a single frame as a PyG Data object."""
         pos = self.positions[frame_idx]
         vel = self.velocities[frame_idx]
-        
+        rest_lengths = self.rest_lengths
+
+        if normalized:
+            pos = self.normalize_positions(pos)
+            vel = self.normalize_velocities(vel)
+            rest_lengths = self.normalize_rest_lengths(rest_lengths)
+
         # Node features: [pos, vel]
         x = torch.cat([pos, vel], dim=-1)
         
@@ -107,8 +159,8 @@ class ClothDataset:
         
         # Edge attributes (rest lengths, duplicated for undirected)
         edge_attr = torch.cat([
-            self.rest_lengths,
-            self.rest_lengths
+            rest_lengths,
+            rest_lengths
         ]).unsqueeze(-1)
         
         data = Data(
@@ -124,7 +176,8 @@ class ClothDataset:
     def get_sequence(
         self, 
         start_frame: int = 0, 
-        end_frame: Optional[int] = None
+        end_frame: Optional[int] = None,
+        normalized: bool = False,
     ) -> Tuple[List[Data], torch.Tensor, torch.Tensor]:
         """
         Get a sequence of frames.
@@ -137,10 +190,14 @@ class ClothDataset:
         if end_frame is None:
             end_frame = self.num_frames
         
-        graphs = [self.get_frame(i) for i in range(start_frame, end_frame)]
+        graphs = [self.get_frame(i, normalized=normalized) for i in range(start_frame, end_frame)]
         gt_positions = self.positions[start_frame:end_frame]
         gt_velocities = self.velocities[start_frame:end_frame]
-        
+
+        if normalized:
+            gt_positions = self.normalize_positions(gt_positions)
+            gt_velocities = self.normalize_velocities(gt_velocities)
+
         return graphs, gt_positions, gt_velocities
 
 
@@ -211,7 +268,7 @@ class Trainer:
     def _build_graph_structures(self):
         """Pre-build graph pyramid structures."""
         # Get initial graph
-        initial_data = self.dataset.get_frame(0).to(self.device)
+        initial_data = self.dataset.get_frame(0, normalized=True).to(self.device)
         
         # Build pyramid
         graphs, cluster_maps = build_graph_pyramid(initial_data, num_levels=2)
@@ -317,19 +374,14 @@ class Trainer:
         logger.info(f"Epoch {epoch}: sampling_prob={sampling_prob:.2f}")
         
         # Get sequence
-        _, gt_positions, gt_velocities = self.dataset.get_sequence()
+        _, gt_positions, gt_velocities = self.dataset.get_sequence(normalized=True)
         gt_positions = gt_positions.to(self.device)
         gt_velocities = gt_velocities.to(self.device)
 
-        # Normalize inputs for numerical stability
-        pos_mean = gt_positions.mean(dim=(0, 1), keepdim=True)
-        pos_std = gt_positions.std() + 1e-8
-        gt_positions = (gt_positions - pos_mean) / pos_std
-        gt_velocities = gt_velocities / pos_std  # Scale velocities consistently
-
         edges = self.dataset.edges.to(self.device)
-        rest_lengths = self.dataset.rest_lengths.to(self.device)
-        rest_lengths = rest_lengths / pos_std  # Scale rest lengths consistently
+        rest_lengths = self.dataset.normalize_rest_lengths(
+            self.dataset.rest_lengths.to(self.device)
+        )
         
         epoch_losses = {'position': 0, 'velocity': 0, 'edge_length': 0, 'total': 0}
         num_steps = 0
@@ -460,13 +512,16 @@ class Trainer:
         # Use last 20% of sequence for validation
         val_start = int(self.dataset.num_frames * 0.8)
         _, gt_positions, gt_velocities = self.dataset.get_sequence(
-            start_frame=val_start
+            start_frame=val_start,
+            normalized=True,
         )
         gt_positions = gt_positions.to(self.device)
         gt_velocities = gt_velocities.to(self.device)
-        
+
         edges = self.dataset.edges.to(self.device)
-        rest_lengths = self.dataset.rest_lengths.to(self.device)
+        rest_lengths = self.dataset.normalize_rest_lengths(
+            self.dataset.rest_lengths.to(self.device)
+        )
         
         val_losses = {'position': 0, 'velocity': 0, 'edge_length': 0, 'total': 0}
         num_steps = 0
@@ -616,7 +671,8 @@ class Trainer:
             'scheduler_state_dict': self.scheduler.state_dict(),
             'losses': losses,
             'best_loss': self.best_loss,
-            'config': self.config
+            'config': self.config,
+            'normalization': self.dataset.normalization_dict(),
         }, path)
         logger.info(f"Checkpoint saved: {path}")
     

@@ -309,8 +309,11 @@ class Trainer:
                 self.optimizer.zero_grad()
                 sdf_pred = self.model(batch_coords)
                 
-                # Compute loss
-                loss, loss_dict = self.loss_fn(sdf_pred, batch_sdf_gt)
+                # Compute loss (pass coords+model for eikonal regularization)
+                loss, loss_dict = self.loss_fn(
+                    sdf_pred, batch_sdf_gt,
+                    coords=batch_coords, model=self.model
+                )
                 
                 # Backward pass
                 loss.backward()

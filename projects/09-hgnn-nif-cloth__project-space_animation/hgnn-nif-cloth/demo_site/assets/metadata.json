@@ -1,0 +1,95 @@
+{
+  "project": "HGNN-NIF Cloth Dynamics",
+  "description": "Hierarchical Graph Neural Network + Neural Implicit Field (SIREN) trained to predict next-frame cloth positions from a 3-frame history window. Baseline is an explicit mass-spring PBS simulator.",
+  "model": {
+    "architecture": "TemporalHGNN_NIF",
+    "components": {
+      "hgnn_base": {
+        "layers": 2,
+        "latent_dim": 64,
+        "hidden_dim": 64,
+        "fine_resolution": "40x40",
+        "coarse_resolution": "20x20",
+        "num_heads": 4,
+        "cross_attention": "fine <-> coarse per layer"
+      },
+      "nif_siren": {
+        "hidden_dim": 128,
+        "layers": 3,
+        "activation": "sin (omega_0=30)",
+        "conditioning": "per-vertex HGNN latent"
+      },
+      "temporal_head": {
+        "history_frames": 3,
+        "gru_hidden": 64,
+        "outputs": ["position", "velocity"]
+      }
+    },
+    "params_total": 201958,
+    "loss": "MSE(pos) + lambda_vel * MSE(vel) + lambda_spring * spring_loss",
+    "training": {
+      "epochs": 400,
+      "batch_size": 16,
+      "optimizer": "AdamW",
+      "lr": 0.001,
+      "scheduler": "cosine",
+      "rollout_k_bptt": 4,
+      "pushforward_noise_std": 0.003,
+      "best_val_loss": 0.001246,
+      "device": "cuda (RTX 3090 Ti)",
+      "total_train_time_sec": 816.8,
+      "samples_per_epoch": 534
+    }
+  },
+  "mesh": {
+    "resolution": "40x40",
+    "num_vertices_fine": 1600,
+    "num_edges_fine": 4641,
+    "num_faces_fine": 3042,
+    "num_vertices_coarse": 400,
+    "num_edges_coarse": 1121
+  },
+  "physics_baseline": {
+    "frames": 600,
+    "fps": 30,
+    "duration_sec": 20.0,
+    "simulator": "mass-spring explicit Euler",
+    "gravity": -9.8,
+    "stiffness": 500,
+    "damping": 0.995,
+    "substeps": 8,
+    "wind_strength": 2.0,
+    "wind_freq_hz": 0.4,
+    "pinned_rows": 1,
+    "pin_count": 40
+  },
+  "rollout": {
+    "seed_frames": 3,
+    "evaluation_frames": 600,
+    "trustworthy_frame": 9,
+    "trustworthy_seconds": 0.3,
+    "rmse_threshold_world_units": 0.05,
+    "mean_rmse": 2.4407,
+    "max_rmse": 5.6759,
+    "final_frame_rmse": 5.68,
+    "edge_length_error_mean": 0.5766,
+    "edge_strain_pred_mean": 0.5886,
+    "edge_strain_gt_mean": 0.0244,
+    "interpretation": "Model tracks physics cleanly for ~9 frames (0.30 s). After that, autoregressive compounding error drives divergence; edges stretch by ~59 cm on average vs 2.4 cm for the physics baseline."
+  },
+  "inference": {
+    "device": "CPU (local)",
+    "ms_per_step": 6.54,
+    "fps": 152.98,
+    "note": "GPU throughput on the 3090 Ti is higher; measurement here is cpu-single-thread for portability."
+  },
+  "artifacts": {
+    "physics_demo_mp4": "artifacts/taichi_final/physics_demo.mp4",
+    "hgnn_nif_demo_mp4": "artifacts/taichi_final/hgnn_nif_demo.mp4",
+    "comparison_mp4": "artifacts/taichi_final/comparison.mp4",
+    "poster_png": "artifacts/taichi_final/poster.png",
+    "rollout_curve_json": "outputs/rollout_curve.json",
+    "rollout_error_png": "outputs/metrics/rollout_error.png",
+    "variant_test_dir": "artifacts/variant_test/"
+  }
+}

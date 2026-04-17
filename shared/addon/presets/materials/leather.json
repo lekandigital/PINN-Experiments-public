@@ -1,0 +1,17 @@
+{
+    "name": "Leather",
+    "description": "Thick, stiff material with minimal stretch and high friction",
+    "parameters": {
+        "density": 0.70,
+        "stiffness": 0.95,
+        "bending_stiffness": 0.70,
+        "damping": 0.25,
+        "friction": 0.8
+    },
+    "metadata": {
+        "category": "heavy",
+        "tags": ["tough", "premium", "structured", "protective"],
+        "real_world_gsm": "500-1000",
+        "typical_uses": ["jackets", "bags", "furniture", "shoes"]
+    }
+}

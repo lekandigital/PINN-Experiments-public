@@ -1,0 +1,62 @@
+# Knowledge Distillation Configuration
+# Distill HGNN-NIF-Cloth (teacher) to ClothGNN-Lite (student)
+
+teacher:
+  name: "hgnn_nif_cloth"  # or "cloth_gnn" for self-distillation
+  checkpoint: "path/to/teacher/checkpoint.pt"
+  freeze: true
+
+student:
+  type: "clothgnn_lite"
+  config:
+    node_input_dim: 6
+    edge_input_dim: 3
+    node_hidden_dim: 32
+    edge_hidden_dim: 16
+    num_message_passes: 3
+    output_dim: 3
+    aggregation: "mean"
+    use_layer_norm: true
+    dropout: 0.0
+
+training:
+  epochs: 200
+  learning_rate: 0.0005
+  weight_decay: 0.0001
+  batch_size: 8
+  gradient_clip: 1.0
+  seed: 42
+  warmup_epochs: 10
+
+loss:
+  alpha_soft: 0.6       # Weight for distillation loss
+  alpha_hard: 0.3       # Weight for ground truth loss
+  alpha_physics: 0.1    # Weight for physics loss
+  temperature: 3.0      # Distillation temperature
+
+physics_loss:
+  edge_preservation:
+    weight: 0.5
+    threshold: 0.02
+  momentum_conservation:
+    weight: 0.5
+
+data:
+  path: "data/cloth_dynamics.h5"
+  augment: true
+  augment_rotation: true
+  augment_scale: [0.9, 1.1]
+  augment_noise: 0.001
+
+scheduler:
+  type: "cosine_annealing"
+  T_max: 200
+
+evaluation:
+  eval_every: 5
+  save_every: 20
+  early_stopping_patience: 50
+
+output:
+  save_dir: "checkpoints/distilled/"
+  log_dir: "logs/distilled/"

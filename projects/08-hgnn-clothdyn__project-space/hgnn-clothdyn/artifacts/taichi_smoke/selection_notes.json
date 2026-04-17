@@ -1,0 +1,21 @@
+{
+  "selected_preset": "pitch",
+  "selected_mode": "compare",
+  "selected_reason": "Best balance of readable framing, clean contrast, and restrained color while keeping both baseline and HGNN cloths legible on a laptop screen.",
+  "rejected": {
+    "research": [
+      "Wireframe overlay made the image busier and slightly noisier than needed for the default.",
+      "The look felt more analytical than pitchable."
+    ],
+    "dramatic": [
+      "Too dark for the default laptop-viewing preset.",
+      "The tighter framing felt less forgiving and slightly more visually cramped."
+    ]
+  },
+  "criteria": [
+    "reject muddy or washed-out looks",
+    "reject flat or noisy looks",
+    "reject overly dark presets for the default",
+    "reject framing where the cloth feels cramped or visually confusing"
+  ]
+}

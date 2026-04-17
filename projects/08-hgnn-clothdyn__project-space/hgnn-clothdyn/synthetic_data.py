@@ -291,7 +291,15 @@ def generate_cloth_sequence(
         'rest_lengths': mesh_data['rest_lengths'],
         'fixed_mask': mesh_data['fixed_mask'],
         'mesh_size': np.array([mesh_size]),
-        'num_frames': np.array([num_frames])
+        'num_frames': np.array([num_frames]),
+        'spacing': np.array([sim.spacing], dtype=np.float32),
+        'mass': np.array([sim.mass], dtype=np.float32),
+        'stiffness': np.array([sim.stiffness], dtype=np.float32),
+        'damping': np.array([sim.damping], dtype=np.float32),
+        'gravity': np.array([sim.gravity], dtype=np.float32),
+        'ground_height': np.array([sim.ground_height], dtype=np.float32),
+        'dt': np.array([sim.dt], dtype=np.float32),
+        'substeps': np.array([sim.substeps], dtype=np.int32),
     }
     
     # Save to HDF5
@@ -459,10 +467,46 @@ def main():
         help='Spring stiffness coefficient'
     )
     parser.add_argument(
+        '--spacing',
+        type=float,
+        default=0.05,
+        help='Distance between adjacent vertices'
+    )
+    parser.add_argument(
+        '--mass',
+        type=float,
+        default=0.01,
+        help='Mass per vertex'
+    )
+    parser.add_argument(
+        '--damping',
+        type=float,
+        default=0.99,
+        help='Velocity damping factor'
+    )
+    parser.add_argument(
         '--gravity', '-g',
         type=float,
         default=-9.81,
         help='Gravitational acceleration'
+    )
+    parser.add_argument(
+        '--ground-height',
+        type=float,
+        default=-1.0,
+        help='Ground plane y-coordinate'
+    )
+    parser.add_argument(
+        '--dt',
+        type=float,
+        default=0.001,
+        help='Integration timestep per substep'
+    )
+    parser.add_argument(
+        '--substeps',
+        type=int,
+        default=10,
+        help='Integration substeps per output frame'
     )
     parser.add_argument(
         '--visualize', '-v',
@@ -490,8 +534,14 @@ def main():
             num_frames=args.frames,
             mesh_size=args.mesh_size,
             output_path=args.output,
+            spacing=args.spacing,
+            mass=args.mass,
             stiffness=args.stiffness,
-            gravity=args.gravity
+            damping=args.damping,
+            gravity=args.gravity,
+            ground_height=args.ground_height,
+            dt=args.dt,
+            substeps=args.substeps,
         )
         
         if args.visualize:

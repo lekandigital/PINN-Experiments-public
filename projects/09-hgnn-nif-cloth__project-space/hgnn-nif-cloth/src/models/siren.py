@@ -1,28 +1,40 @@
 """
 SIREN: Sinusoidal Representation Networks for Implicit Fields
 
-Implements the SIREN architecture from "Implicit Neural Representations 
-with Periodic Activation Functions" (Sitzmann et al., 2020).
+Re-exports from the shared implicit_fields library with backward-compatible
+interfaces specific to the HGNN-NIF-Cloth project.
 
-Key features:
-- Sine activation functions for representing high-frequency details
-- Special initialization scheme for stable training
-- Latent conditioning for representing families of shapes
+Original implementation based on "Implicit Neural Representations 
+with Periodic Activation Functions" (Sitzmann et al., 2020).
 """
+
+import sys
+from pathlib import Path
+
+# Add repository root to path for implicit_fields import
+repo_root = Path(__file__).parent.parent.parent.parent.parent.parent
+if str(repo_root) not in sys.path:
+    sys.path.insert(0, str(repo_root))
 
 import torch
 import torch.nn as nn
 import numpy as np
 from typing import Optional, List
 
+# Import from shared library
+from implicit_fields import (
+    SirenLayer as _BaseSirenLayer,
+    LatentConditionedSiren,
+    FourierFeatureEncoding,
+)
+
 
 class SirenLayer(nn.Module):
     """
     A single SIREN layer with sinusoidal activation.
     
-    Uses the initialization scheme from Sitzmann et al.:
-    - First layer: w0=30 to allow high-frequency representation
-    - Hidden layers: w0=1 with c=6 initialization constant
+    Wrapper for backward compatibility with P09 convention (c=6.0 parameter).
+    Uses the shared implicit_fields library underneath.
     
     Args:
         in_features: Input feature dimension
@@ -52,29 +64,20 @@ class SirenLayer(nn.Module):
         self.w0 = w0
         self.c = c
         
-        self.linear = nn.Linear(in_features, out_features)
-        self._init_weights()
-        
-    def _init_weights(self):
-        """
-        Initialize weights according to SIREN paper.
-        
-        For first layer: uniform in [-1/in, 1/in]
-        For hidden layers: uniform in [-sqrt(c/in)/w0, sqrt(c/in)/w0]
-        """
-        with torch.no_grad():
-            if self.is_first:
-                bound = 1.0 / self.in_features
-            else:
-                bound = np.sqrt(self.c / self.in_features) / self.w0
-                
-            self.linear.weight.uniform_(-bound, bound)
-            if self.linear.bias is not None:
-                self.linear.bias.uniform_(-bound, bound)
+        # Use shared library SirenLayer
+        # Note: shared lib uses omega and sqrt(6/n), this uses c parameter
+        self._layer = _BaseSirenLayer(
+            in_features=in_features,
+            out_features=out_features,
+            omega=w0,
+            is_first=is_first,
+            bias=True,
+            c=c  # Pass through the c parameter
+        )
                 
     def forward(self, x: torch.Tensor) -> torch.Tensor:
         """Apply linear transform followed by scaled sine activation."""
-        return torch.sin(self.w0 * self.linear(x))
+        return self._layer(x)
     
     def __repr__(self) -> str:
         return (f"{self.__class__.__name__}({self.in_features}, {self.out_features}, "

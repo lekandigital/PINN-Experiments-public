@@ -1,0 +1,44 @@
+{
+  "checkpoint_path": "/home/o/wavepinn-nif/outputs/supervised_fd/checkpoints/wavefield_nif_supervised.pt",
+  "device": "cuda",
+  "resolution": 160,
+  "frames": 96,
+  "t_start": 0.0,
+  "t_end": 0.55,
+  "field_min": -0.35435575246810913,
+  "field_max": 0.5184861421585083,
+  "field_std": 0.03627957031130791,
+  "frame_energy_mean": 0.0013163168914616108,
+  "frame_energy_std": 0.0003756876103579998,
+  "peak_energy_frame": 27,
+  "peak_energy_time": 0.1563157894736842,
+  "gif_saved": true,
+  "model_config": {
+    "hidden_dims": [
+      256,
+      256,
+      256,
+      128
+    ],
+    "use_fourier": true,
+    "num_fourier": 64,
+    "fourier_scale": 8.0
+  },
+  "training_args": {
+    "grid": 128,
+    "frames": 96,
+    "total_time": 0.55,
+    "steps": 3000,
+    "batch_size": 32768,
+    "lr": 0.0002,
+    "seed": 42
+  },
+  "final_metrics": {
+    "mse": 0.0013853057753294706,
+    "mae": 0.026168016095956165,
+    "relative_l2": 0.714403719168466,
+    "psnr_db": 28.584543552051088,
+    "best_val_loss": 0.0013814631383866072,
+    "reference_scale": 14.461195945739746
+  }
+}

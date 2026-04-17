@@ -1,0 +1,17 @@
+{
+    "name": "Lycra/Spandex",
+    "description": "Highly elastic synthetic fabric that stretches and recovers",
+    "parameters": {
+        "density": 0.18,
+        "stiffness": 0.20,
+        "bending_stiffness": 0.05,
+        "damping": 0.05,
+        "friction": 0.3
+    },
+    "metadata": {
+        "category": "lightweight",
+        "tags": ["stretchy", "athletic", "form-fitting", "synthetic"],
+        "real_world_gsm": "150-250",
+        "typical_uses": ["sportswear", "swimwear", "leggings", "dancewear"]
+    }
+}

@@ -71,6 +71,114 @@ class WavePINN(nn.Module):
         return self.mlp(x)
 
 
+def infer_model_config_from_state_dict(state_dict: dict) -> dict:
+    """Infer MLP layout from a PyTorch state dict."""
+    linear_weights = []
+    for key, value in state_dict.items():
+        if (key.startswith("mlp.") or key.startswith("net.")) and key.endswith(".weight"):
+            linear_weights.append((key, value))
+    linear_weights.sort(key=lambda item: int(item[0].split(".")[1]))
+
+    if not linear_weights:
+        raise ValueError("Could not infer model config: no MLP weights found in checkpoint")
+
+    hidden_dims = [int(weight.shape[0]) for _, weight in linear_weights[:-1]]
+
+    fourier_basis = state_dict.get("fourier.B")
+    if fourier_basis is None:
+        fourier_basis = state_dict.get("ff.B")
+    if fourier_basis is None:
+        use_fourier = False
+        num_fourier = 0
+        fourier_scale = 1.0
+    else:
+        use_fourier = True
+        num_fourier = int(fourier_basis.shape[1])
+        fourier_scale = float(fourier_basis.std().item()) if fourier_basis.numel() > 0 else 1.0
+
+    return {
+        "hidden_dims": hidden_dims,
+        "use_fourier": use_fourier,
+        "num_fourier": num_fourier,
+        "fourier_scale": fourier_scale,
+    }
+
+
+def normalize_state_dict_keys(state_dict: dict) -> dict:
+    """Map older training-script module names onto the export model names."""
+    normalized = {}
+    for key, value in state_dict.items():
+        if key.startswith("ff."):
+            key = key.replace("ff.", "fourier.", 1)
+        elif key.startswith("net."):
+            key = key.replace("net.", "mlp.", 1)
+        normalized[key] = value
+    return normalized
+
+
+def build_model_from_config(model_config: dict, device: str) -> WavePINN:
+    return WavePINN(
+        hidden_dims=model_config.get("hidden_dims", [128, 128, 64, 32]),
+        use_fourier=model_config.get("use_fourier", True),
+        num_fourier=model_config.get("num_fourier", 32),
+        fourier_scale=model_config.get("fourier_scale", 1.0),
+    ).to(device)
+
+
+def load_wavepinn_checkpoint(model_path: str, device: str | None = None):
+    device = device or ("cuda" if torch.cuda.is_available() else "cpu")
+    checkpoint_path = Path(model_path)
+    if not checkpoint_path.exists():
+        raise FileNotFoundError(f"Checkpoint not found: {checkpoint_path}")
+
+    checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=False)
+    state_dict = checkpoint.get("model_state") or checkpoint.get("model") or checkpoint
+    if not isinstance(state_dict, dict):
+        raise ValueError(f"Unsupported checkpoint format in {checkpoint_path}")
+
+    model_config = checkpoint.get("model_config") or infer_model_config_from_state_dict(state_dict)
+    state_dict = normalize_state_dict_keys(state_dict)
+    model = build_model_from_config(model_config, device)
+    model.load_state_dict(state_dict)
+    model.eval()
+    return model, checkpoint, device
+
+
+def sample_wavefield_sequence(
+    model: WavePINN,
+    resolution: int,
+    n_frames: int,
+    t_start: float,
+    t_end: float,
+    device: str,
+):
+    """Sample a trained wavefield model on a regular grid over time."""
+    x = torch.linspace(0, 1, resolution, device=device)
+    xx, zz = torch.meshgrid(x, x, indexing="ij")
+    all_fields = []
+    times = np.linspace(t_start, t_end, n_frames)
+
+    for frame, t in enumerate(times):
+        coords = torch.stack(
+            [
+                xx.flatten(),
+                zz.flatten(),
+                torch.full((resolution**2,), t, device=device),
+            ],
+            dim=-1,
+        )
+
+        with torch.no_grad():
+            u = model(coords).cpu().numpy().reshape(resolution, resolution)
+
+        all_fields.append(u)
+
+        if frame % 10 == 0:
+            print(f"  Frame {frame}/{n_frames} (t={t:.3f})")
+
+    return np.array(all_fields), times
+
+
 def export_blender_sequence(
     model_path=None,
     output_dir="blender_export",
@@ -78,63 +186,45 @@ def export_blender_sequence(
     n_frames=60,
     t_start=0.05,
     t_end=0.5,
-    seed=42
+    seed=42,
+    allow_random_init=False,
 ):
     """Export wavefield animation as image sequence for Blender."""
     
     output_path = Path(output_dir)
-    output_path.mkdir(exist_ok=True)
+    output_path.mkdir(parents=True, exist_ok=True)
     (output_path / "images").mkdir(exist_ok=True)
     
     device = "cuda" if torch.cuda.is_available() else "cpu"
     print(f"Device: {device}")
     
-    # Set seed for reproducible Fourier features
-    torch.manual_seed(seed)
-    model = WavePINN().to(device)
-    
-    # Load weights if checkpoint provided
-    if model_path and Path(model_path).exists():
-        checkpoint = torch.load(model_path, map_location=device, weights_only=False)
-        # Support both checkpoint formats
-        if "model_state" in checkpoint:
-            model.load_state_dict(checkpoint["model_state"])
-        elif "model" in checkpoint:
-            model.load_state_dict(checkpoint["model"])
-        else:
-            model.load_state_dict(checkpoint)
+    checkpoint = None
+    if model_path:
+        model, checkpoint, device = load_wavepinn_checkpoint(model_path, device=device)
         print(f"Loaded weights from: {model_path}")
+    elif allow_random_init:
+        torch.manual_seed(seed)
+        model = WavePINN().to(device)
+        model.eval()
+        print("Using randomly initialized model (explicit demo mode)")
     else:
-        print("Using randomly initialized model (demo mode)")
-    
-    model.eval()
+        raise FileNotFoundError(
+            "No checkpoint supplied. Pass --model /path/to/checkpoint.pt "
+            "or use --allow-random-init for explicit demo-only exports."
+        )
     
     print(f"\nExporting {n_frames} frames at {resolution}x{resolution}...")
-    
-    # Create coordinate grid
-    x = torch.linspace(0, 1, resolution, device=device)
-    xx, zz = torch.meshgrid(x, x, indexing="ij")
-    
-    all_fields = []
-    times = np.linspace(t_start, t_end, n_frames)
-    
-    for frame, t in enumerate(times):
-        coords = torch.stack([
-            xx.flatten(),
-            zz.flatten(),
-            torch.full((resolution**2,), t, device=device)
-        ], dim=-1)
-        
-        with torch.no_grad():
-            u = model(coords).cpu().numpy().reshape(resolution, resolution)
-        
-        all_fields.append(u)
-        
-        if frame % 10 == 0:
-            print(f"  Frame {frame}/{n_frames} (t={t:.3f})")
-    
+
+    all_fields, times = sample_wavefield_sequence(
+        model=model,
+        resolution=resolution,
+        n_frames=n_frames,
+        t_start=t_start,
+        t_end=t_end,
+        device=device,
+    )
+
     # Normalize and save as images
-    all_fields = np.array(all_fields)
     global_min, global_max = all_fields.min(), all_fields.max()
     
     print(f"\nWavefield range: [{global_min:.6f}, {global_max:.6f}]")
@@ -161,7 +251,9 @@ def export_blender_sequence(
         "global_min": float(global_min),
         "global_max": float(global_max),
         "displacement_scale": 0.5,
-        "model_path": str(model_path) if model_path else None
+        "model_path": str(model_path) if model_path else None,
+        "model_config": checkpoint.get("model_config") if checkpoint else None,
+        "random_init": checkpoint is None,
     }
     
     with open(output_path / "metadata.json", "w") as f:
@@ -188,6 +280,7 @@ def main():
     parser.add_argument("--t_start", type=float, default=0.05)
     parser.add_argument("--t_end", type=float, default=0.5)
     parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--allow-random-init", action="store_true")
     args = parser.parse_args()
     
     export_blender_sequence(
@@ -197,7 +290,8 @@ def main():
         n_frames=args.frames,
         t_start=args.t_start,
         t_end=args.t_end,
-        seed=args.seed
+        seed=args.seed,
+        allow_random_init=args.allow_random_init,
     )
 
 

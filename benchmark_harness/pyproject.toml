@@ -1,0 +1,135 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pinn-benchmark-harness"
+version = "1.0.0"
+description = "Shared benchmarking harness for 17 PINN experiments"
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [
+    {name = "PINN Experiments Team"}
+]
+keywords = ["benchmarking", "PINN", "physics-informed", "neural networks", "machine learning"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "numpy>=1.24.0",
+    "pyyaml>=6.0",
+    "psutil>=5.9.0",
+]
+
+[project.optional-dependencies]
+pytorch = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+]
+pytorch-geometric = [
+    "torch>=2.0.0",
+    "torch-geometric>=2.3.0",
+    "torch-scatter>=2.1.0",
+    "torch-sparse>=0.6.0",
+    "torch-cluster>=1.6.0",
+]
+jax = [
+    "jax>=0.4.0",
+    "jaxlib>=0.4.0",
+    "dm-haiku>=0.0.10",
+    "optax>=0.1.0",
+]
+onnx = [
+    "onnx>=1.14.0",
+    "onnxruntime>=1.15.0",
+    "onnxruntime-gpu>=1.15.0",
+]
+tensorflow = [
+    "tensorflow>=2.13.0",
+]
+all = [
+    "torch>=2.0.0",
+    "torchvision>=0.15.0",
+    "torch-geometric>=2.3.0",
+    "jax>=0.4.0",
+    "jaxlib>=0.4.0",
+    "dm-haiku>=0.0.10",
+    "optax>=0.1.0",
+    "onnx>=1.14.0",
+    "onnxruntime>=1.15.0",
+    "tensorflow>=2.13.0",
+]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "mypy>=1.0.0",
+]
+
+[project.scripts]
+pinn-benchmark = "benchmark_harness.run_all:main"
+pinn-benchmark-single = "benchmark_harness.run_single:main"
+
+[project.urls]
+Repository = "https://github.com/your-org/pinn-experiments"
+Documentation = "https://github.com/your-org/pinn-experiments#readme"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["harness*", "adapters*"]
+
+[tool.setuptools.package-data]
+"*" = ["*.yaml", "*.yml"]
+
+[tool.black]
+line-length = 100
+target-version = ["py310", "py311", "py312"]
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | _build
+  | buck-out
+  | build
+  | dist
+  | results
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 100
+known_first_party = ["harness", "adapters"]
+skip = [".venv", "results"]
+
+[tool.mypy]
+python_version = "3.10"
+warn_return_any = true
+warn_unused_configs = true
+ignore_missing_imports = true
+exclude = ["results/", "tests/"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning",
+]

@@ -22,5 +22,6 @@ tqdm>=4.65.0
 # Configuration
 PyYAML>=6.0
 
-# Optional: mesh processing (for marching cubes)
-# scikit-image>=0.21.0
+# Mesh processing (for marching cubes extraction)
+scikit-image>=0.21.0
+trimesh>=3.21.0

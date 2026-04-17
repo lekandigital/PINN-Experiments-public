@@ -1,0 +1,17 @@
+{
+    "name": "Velvet",
+    "description": "Dense, soft pile fabric with luxurious feel and moderate weight",
+    "parameters": {
+        "density": 0.30,
+        "stiffness": 0.45,
+        "bending_stiffness": 0.15,
+        "damping": 0.10,
+        "friction": 0.7
+    },
+    "metadata": {
+        "category": "medium",
+        "tags": ["luxurious", "soft", "formal", "rich"],
+        "real_world_gsm": "200-350",
+        "typical_uses": ["evening wear", "upholstery", "curtains", "costumes"]
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "Chiffon",
+    "description": "Ultra-lightweight, sheer fabric with flowing drape",
+    "parameters": {
+        "density": 0.05,
+        "stiffness": 0.08,
+        "bending_stiffness": 0.01,
+        "damping": 0.01,
+        "friction": 0.05
+    },
+    "metadata": {
+        "category": "ultralight",
+        "tags": ["sheer", "flowing", "delicate", "romantic"],
+        "real_world_gsm": "15-30",
+        "typical_uses": ["evening wear", "scarves", "overlays", "bridal"]
+    }
+}

@@ -1,0 +1,17 @@
+{
+    "name": "Silk",
+    "description": "Smooth, lightweight, low friction material with elegant drape",
+    "parameters": {
+        "density": 0.08,
+        "stiffness": 0.15,
+        "bending_stiffness": 0.02,
+        "damping": 0.02,
+        "friction": 0.1
+    },
+    "metadata": {
+        "category": "lightweight",
+        "tags": ["smooth", "shiny", "elegant", "formal"],
+        "real_world_gsm": "12-30",
+        "typical_uses": ["evening wear", "blouses", "scarves", "lingerie"]
+    }
+}

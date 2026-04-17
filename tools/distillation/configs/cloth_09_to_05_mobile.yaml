@@ -1,0 +1,117 @@
+# HGNN-NIF-Cloth (Project 09) → ClothGNN (Project 05) for Mobile Games
+#
+# Use case: Real-time cloth physics in mobile games
+# Target: iOS/Android with ONNX Runtime Mobile, <20ms latency
+# Teacher: HGNN-NIF-Cloth (136K params, hybrid architecture)
+# Student: ClothGNN (70K params, efficient message passing)
+
+name: cloth_09_to_05_mobile
+description: "Distill HGNN-NIF-Cloth to lightweight ClothGNN for mobile deployment"
+
+# Teacher model (Project 09 - HGNN-NIF-Cloth)
+teacher:
+  name: hgnn_nif_cloth
+  checkpoint: "projects/09-hgnn-nif-cloth__project-space/checkpoints/best_model.pt"
+  project_path: "projects/09-hgnn-nif-cloth__project-space"
+  freeze: true
+
+# Student model (Project 05 style - ClothGNN)
+student:
+  name: cloth_gnn_lite
+  init_args:
+    node_input_dim: 6     # position (3) + velocity (3)
+    edge_input_dim: 3     # relative position
+    node_hidden_dim: 32   # Reduced from typical 64
+    edge_hidden_dim: 16   # Reduced for mobile
+    num_message_passes: 3 # Fewer than teacher
+    output_dim: 3         # acceleration prediction
+    aggregation: "mean"   # Efficient aggregation
+    use_layer_norm: true
+    dropout: 0.0          # No dropout at inference
+
+# Sampling from cloth simulation dataset
+sampling:
+  strategy: dataset
+  data_path: "data/cloth_simulations"
+  data_format: h5
+  augment: true
+  augment_config:
+    rotation: true
+    scale: [0.9, 1.1]
+    noise: 0.001
+  batch_size: 256
+  num_workers: 4
+  shuffle: true
+
+# Loss configuration
+loss:
+  temperature: 3.0  # Higher temperature for GNN-to-GNN distillation
+  weights:
+    soft_target: 0.6
+    hard_target: 0.3
+    feature_match: 0.0  # Skip - architecture mismatch
+    physics: 0.1
+  physics_losses:
+    - type: edge_preservation
+      weight: 0.5
+      params:
+        edge_threshold: 0.02
+    - type: momentum_conservation
+      weight: 0.5
+
+# Training configuration
+training:
+  epochs: 300
+  learning_rate: 5.0e-4
+  weight_decay: 1.0e-4
+  scheduler: cosine
+  warmup_epochs: 20
+  batch_size: 256
+  gradient_clip: 1.0
+  early_stopping_patience: 50
+  checkpoint_every: 20
+  seed: 42
+
+# Export configuration - flatten for GNN
+export:
+  format: onnx
+  opset_version: 17
+  strategy: flatten  # Pad graphs to max_nodes for static shape
+  max_nodes: 1024    # Maximum vertices in cloth mesh
+  max_edges: 4096    # Maximum edges
+  optimize: true
+  simplify: true
+  dynamic_axes: null  # Fixed shape for mobile
+  validate_export: true
+
+# Quantization configuration
+quantization:
+  enabled: true
+  methods:
+    - dynamic_int8  # Primary for mobile CPU
+    - static_int8   # Best quality if calibration data available
+  calibration_samples: 200
+  per_channel: false  # Mobile compatibility
+
+# Benchmark configuration  
+benchmark:
+  backends:
+    - cpu  # Mobile typically uses CPU
+  warmup_runs: 30
+  benchmark_runs: 500
+  batch_sizes: [1, 4, 8]
+  target_latency_ms: 20.0  # Mobile budget
+  target_throughput: 50.0
+
+# Packaging configuration
+package:
+  target: mobile
+  include_example: true
+  framework: onnx  # ONNX Runtime Mobile
+  optimize_for_mobile: true
+  target_platforms:
+    - ios
+    - android
+
+# Output configuration
+output_dir: "outputs/distillation/cloth_09_to_05_mobile"

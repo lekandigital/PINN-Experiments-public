@@ -1,0 +1,40 @@
+# Baseline Training Configuration
+# Used for training without knowledge distillation
+
+model:
+  type: "clothgnn"  # or "clothgnn_lite" for mobile
+  node_feat_dim: 16
+  hidden_dim: 64
+
+training:
+  epochs: 100
+  learning_rate: 0.001
+  weight_decay: 0.00001
+  batch_size: 8
+  gradient_clip: 1.0
+  seed: 42
+
+loss:
+  lambda_position: 1.0
+  lambda_velocity: 0.1
+  lambda_edge: 0.1
+
+data:
+  path: "data/cloth_dynamics.h5"
+  window_size: 10
+  augment: true
+  augment_rotation: true
+  augment_scale: [0.9, 1.1]
+  augment_noise: 0.001
+
+scheduler:
+  type: "cosine_annealing"
+  T_max: 100
+
+evaluation:
+  eval_every: 5
+  save_every: 20
+
+output:
+  save_dir: "checkpoints/baseline/"
+  log_dir: "logs/baseline/"
