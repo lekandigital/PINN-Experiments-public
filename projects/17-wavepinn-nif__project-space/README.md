@@ -4,7 +4,7 @@
 
 | Videos (MP4/GIF) | Images |
 | --- | --- |
-| [wave_demo.mp4](wavepinn-nif/artifacts/taichi_final/wave_demo.mp4) | ![](wavepinn-nif/artifacts/taichi_final/poster.png) |
+| [wave_demo.mp4](wavepinn-nif/artifacts/taichi_final/wave_demo.mp4) | ![](wavepinn-nif/artifacts/taichi_final/wave_demo.gif)<br>![](wavepinn-nif/artifacts/taichi_final/poster.png) |
 
 
 ## Update (April 17, 2026)
