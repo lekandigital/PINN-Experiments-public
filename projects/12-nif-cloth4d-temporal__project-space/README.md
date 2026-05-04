@@ -4,7 +4,7 @@
 
 | Videos (MP4/GIF) | Images |
 | --- | --- |
-| [comparison.mp4](nif-cloth4d-temporal/artifacts/taichi_final/comparison.mp4)<br>[baseline_demo.mp4](nif-cloth4d-temporal/artifacts/taichi_final/baseline_demo.mp4)<br>[nif_cloth4d_temporal_demo.mp4](nif-cloth4d-temporal/artifacts/taichi_final/nif_cloth4d_temporal_demo.mp4)<br>[temporal_ablation.mp4](nif-cloth4d-temporal/artifacts/taichi_final/temporal_ablation.mp4) | ![](nif-cloth4d-temporal/artifacts/taichi_final/poster.png)<br>![](nif-cloth4d-temporal/artifacts/taichi_final/loss-curve.png)<br>![](nif-cloth4d-temporal/artifacts/taichi_final/metrics-over-time.png) |
+| [comparison.mp4](nif-cloth4d-temporal/artifacts/taichi_final/comparison.mp4)<br>[baseline_demo.mp4](nif-cloth4d-temporal/artifacts/taichi_final/baseline_demo.mp4)<br>[nif_cloth4d_temporal_demo.mp4](nif-cloth4d-temporal/artifacts/taichi_final/nif_cloth4d_temporal_demo.mp4)<br>[temporal_ablation.mp4](nif-cloth4d-temporal/artifacts/taichi_final/temporal_ablation.mp4) | ![](nif-cloth4d-temporal/artifacts/taichi_final/comparison.gif)<br>![](nif-cloth4d-temporal/artifacts/taichi_final/poster.png)<br>![](nif-cloth4d-temporal/artifacts/taichi_final/loss-curve.png)<br>![](nif-cloth4d-temporal/artifacts/taichi_final/metrics-over-time.png) |
 
 
 ## Update (April 17, 2026)

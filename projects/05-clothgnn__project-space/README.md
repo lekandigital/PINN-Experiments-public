@@ -4,7 +4,7 @@
 
 | Videos (MP4/GIF) | Images |
 | --- | --- |
-| [comparison.mp4](clothgnn/artifacts/taichi_final/comparison.mp4)<br>[gnn_demo.mp4](clothgnn/artifacts/taichi_final/gnn_demo.mp4)<br>[physics_demo.mp4](clothgnn/artifacts/taichi_final/physics_demo.mp4) | ![](clothgnn/artifacts/taichi_final/poster.png) |
+| [comparison.mp4](clothgnn/artifacts/taichi_final/comparison.mp4)<br>[gnn_demo.mp4](clothgnn/artifacts/taichi_final/gnn_demo.mp4)<br>[physics_demo.mp4](clothgnn/artifacts/taichi_final/physics_demo.mp4) | ![](clothgnn/artifacts/taichi_final/comparison.gif)<br>![](clothgnn/artifacts/taichi_final/poster.png) |
 
 
 ## Update (April 17, 2026)

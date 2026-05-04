@@ -4,7 +4,7 @@
 
 | Videos (MP4/GIF) | Images |
 | --- | --- |
-| [comparison.mp4](hgnn-nif-cloth/artifacts/taichi_final/comparison.mp4)<br>[hgnn_nif_demo.mp4](hgnn-nif-cloth/artifacts/taichi_final/hgnn_nif_demo.mp4)<br>[hgnn_trust_window.mp4](hgnn-nif-cloth/artifacts/taichi_final/hgnn_trust_window.mp4)<br>[physics_demo.mp4](hgnn-nif-cloth/artifacts/taichi_final/physics_demo.mp4)<br>[physics_trust_window.mp4](hgnn-nif-cloth/artifacts/taichi_final/physics_trust_window.mp4)<br>[trust_comparison.mp4](hgnn-nif-cloth/artifacts/taichi_final/trust_comparison.mp4) | ![](hgnn-nif-cloth/artifacts/taichi_final/poster.png) |
+| [comparison.mp4](hgnn-nif-cloth/artifacts/taichi_final/comparison.mp4)<br>[hgnn_nif_demo.mp4](hgnn-nif-cloth/artifacts/taichi_final/hgnn_nif_demo.mp4)<br>[hgnn_trust_window.mp4](hgnn-nif-cloth/artifacts/taichi_final/hgnn_trust_window.mp4)<br>[physics_demo.mp4](hgnn-nif-cloth/artifacts/taichi_final/physics_demo.mp4)<br>[physics_trust_window.mp4](hgnn-nif-cloth/artifacts/taichi_final/physics_trust_window.mp4)<br>[trust_comparison.mp4](hgnn-nif-cloth/artifacts/taichi_final/trust_comparison.mp4) | ![](hgnn-nif-cloth/artifacts/taichi_final/comparison.gif)<br>![](hgnn-nif-cloth/artifacts/taichi_final/poster.png) |
 
 
 ## Update (April 17, 2026)
