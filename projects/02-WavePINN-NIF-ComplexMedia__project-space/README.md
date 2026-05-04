@@ -2,9 +2,9 @@
 
 ### Demo
 
-| Videos (MP4/GIF) | Images |
-| --- | --- |
-| [comparison.mp4](WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.mp4)<br>[baseline_demo.mp4](WavePINN-NIF-ComplexMedia/artifacts/taichi_final/baseline_demo.mp4)<br>[project02_wavepinn_nif_demo.mp4](WavePINN-NIF-ComplexMedia/artifacts/taichi_final/project02_wavepinn_nif_demo.mp4) | ![](WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.gif)<br>![](WavePINN-NIF-ComplexMedia/artifacts/taichi_final/poster.png) |
+| Images |
+| --- |
+| ![](WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.gif)<br>![](WavePINN-NIF-ComplexMedia/artifacts/taichi_final/poster.png) |
 
 
 ## Update (April 17, 2026)
