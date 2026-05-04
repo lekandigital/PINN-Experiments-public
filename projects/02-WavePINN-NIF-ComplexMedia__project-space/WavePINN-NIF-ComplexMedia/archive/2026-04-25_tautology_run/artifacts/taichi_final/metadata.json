@@ -1,0 +1,259 @@
+{
+  "artifacts": {
+    "baseline_video": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/baseline_demo.mp4",
+    "camera_tests": [
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/camera_test/camera_1.png",
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/camera_test/camera_2.png",
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/camera_test/camera_3.png"
+    ],
+    "comparison_video": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.mp4",
+    "hero_video": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/project02_wavepinn_nif_demo.mp4",
+    "poster": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/poster.png",
+    "preset_stills": [
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_presets/research.png",
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_presets/pitch.png",
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_presets/dramatic.png"
+    ],
+    "smoke_learned": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/smoke_test/frame_learned.png",
+    "smoke_reference": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/smoke_test/frame_reference.png"
+  },
+  "checkpoint_format": "pickle",
+  "checkpoint_model_type": "Project02SupervisedGridNIF",
+  "checkpoint_path": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/checkpoints/project02_wavepinn_nif_best.pkl",
+  "deliberate_deviations": [
+    "Wave amplitude is mapped to height with preset-specific height_scale values so the nonzero acoustic field is legible in a 3D heightfield.",
+    "The smooth medium is rendered as a subdued underlay mesh to keep propagation, not texture, as the visual subject.",
+    "The source is marked with a small particle ring at the known Ricker source location.",
+    "Dramatic preset raises display_gain and tightens camera FOV while retaining tanh transfer and the canonical studio palette family."
+  ],
+  "faces_per_frame_per_surface": 72962,
+  "grid_resolution": {
+    "n_frames": 96,
+    "nx": 192,
+    "ny": 192
+  },
+  "hero_mode_is_compare": false,
+  "medium_claim_status": {
+    "hero_claim_allowed": true,
+    "status": "directly supervised against reference_medium.npy",
+    "wording_constraint": "Describe the medium as directly supervised against the known reference c(x,y), not as unsupervised recovery."
+  },
+  "preset_values": {
+    "applied_final_camera": "hero",
+    "applied_final_preset": "pitch",
+    "fps": 24,
+    "required_presets": {
+      "dramatic": {
+        "camera": "tight",
+        "camera_fov": 21.0,
+        "display_gain": 1.75,
+        "height_scale": 34.0,
+        "medium_blend": 0.46,
+        "show_wire": false,
+        "source_marker_radius": 0.0085,
+        "studio": true
+      },
+      "pitch": {
+        "camera": "hero",
+        "height_scale": 28.0,
+        "medium_blend": 0.54,
+        "show_wire": false,
+        "source_marker_radius": 0.0075,
+        "studio": true
+      },
+      "research": {
+        "ambient": [
+          0.34,
+          0.35,
+          0.36
+        ],
+        "background": [
+          0.055,
+          0.06,
+          0.072
+        ],
+        "camera": "diagnostic",
+        "camera_fov": 31.0,
+        "display_gain": 1.0,
+        "ground_color": [
+          0.11,
+          0.12,
+          0.14
+        ],
+        "height_scale": 23.0,
+        "palette": {
+          "negative": [
+            0.22,
+            0.48,
+            0.82
+          ],
+          "neutral": [
+            0.72,
+            0.76,
+            0.82
+          ],
+          "positive": [
+            0.96,
+            0.56,
+            0.32
+          ],
+          "strength_power": 0.86
+        },
+        "show_wire": true,
+        "spatial_smooth_passes": 1,
+        "temporal_smooth_passes": 0
+      }
+    },
+    "resolution": {
+      "height": 720,
+      "width": 1280
+    },
+    "studio_canonical": {
+      "ambient": [
+        0.22,
+        0.23,
+        0.25
+      ],
+      "background": [
+        0.02,
+        0.026,
+        0.04
+      ],
+      "camera_fov": 24.0,
+      "display_gain": 1.3,
+      "display_transfer": "tanh",
+      "ground_color": [
+        0.09,
+        0.1,
+        0.13
+      ],
+      "lights": [
+        {
+          "color": [
+            1.1,
+            1.0,
+            0.92
+          ],
+          "pos": [
+            2.2,
+            2.5,
+            1.2
+          ]
+        },
+        {
+          "color": [
+            0.2,
+            0.32,
+            0.52
+          ],
+          "pos": [
+            -1.8,
+            1.0,
+            -1.3
+          ]
+        },
+        {
+          "color": [
+            0.09,
+            0.1,
+            0.12
+          ],
+          "pos": [
+            0.0,
+            0.55,
+            2.4
+          ]
+        }
+      ],
+      "palette": {
+        "negative": [
+          0.18,
+          0.49,
+          0.88
+        ],
+        "neutral": [
+          0.76,
+          0.8,
+          0.86
+        ],
+        "positive": [
+          0.99,
+          0.7,
+          0.4
+        ],
+        "strength_power": 0.72
+      },
+      "playback_speed": 0.72,
+      "spatial_smooth_passes": 3,
+      "temporal_smooth_passes": 1
+    }
+  },
+  "reference_and_learned_metric_summary": {
+    "dynamic_range_ratio": 1.0,
+    "energy_ratio": 1.0,
+    "learned_energy": 1.2173484781443917e-07,
+    "medium_metrics": {
+      "correlation": 1.0,
+      "direct_supervision": true,
+      "mse": 0.0,
+      "normalized_mse": 0.0,
+      "predicted_max": 1.6295700073242188,
+      "predicted_min": 0.949999988079071,
+      "reference_max": 1.6295700073242188,
+      "reference_min": 0.949999988079071
+    },
+    "mse": 0.0,
+    "normalized_mse": 0.0,
+    "pde_residual_heldout": {
+      "form": "internal velocity-form update residual on held-out grid points",
+      "held_out_boundary_crop": 24,
+      "held_out_stride": 7,
+      "normalized_rms": 8.3323349694516365e-16,
+      "rms": 9.38128098085415e-16,
+      "saved_frame_note": "Saved-frame central differences are coarse because only viewer frames are exported; they are reported for transparency.",
+      "saved_frame_second_order_normalized_rms": 0.2018253277709674,
+      "saved_frame_second_order_rms": 0.2295356349852743
+    },
+    "psnr_db": 120.0,
+    "reference_energy": 1.2173484781443917e-07,
+    "source_event_visibility": {
+      "checked_frame_index": 18,
+      "checked_time": 0.12294721603393555,
+      "global_peak": 0.006549058482050896,
+      "source_peak_near_event": 0.006549058482050896,
+      "source_to_global_peak_ratio": 1.0,
+      "visible": true
+    },
+    "temporal_motion_variance": 1.3363283753527034e-08
+  },
+  "representation_family": "Family A continuous field, direct fixed-grid sampling",
+  "selected_hero_mode": "learned",
+  "seven_gate_booleans": {
+    "gate_1_topology_stable": true,
+    "gate_2_trust_window_ge_80_percent": true,
+    "gate_3_silhouette_readable_at_200px": true,
+    "gate_4_display_mesh_ge_16000_vertices": true,
+    "gate_5_metrics_and_structural_invariant_support_claim": true,
+    "gate_6_hero_default_single_subject": true,
+    "gate_7_studio_preset_applied": true
+  },
+  "topology_stability": {
+    "compare_scene_faces": 145924,
+    "compare_scene_vertices": 73728,
+    "face_count_identical_across_frames": true,
+    "single_subject_scene_faces": 72962,
+    "single_subject_scene_vertices": 36864,
+    "stable": true,
+    "vertex_count_identical_across_frames": true
+  },
+  "trust_window": {
+    "fraction": 1.0,
+    "frames_passing_nmse_psnr": 96,
+    "thresholds": {
+      "normalized_mse": 0.001,
+      "psnr_db": 30.0
+    },
+    "total_frames": 96
+  },
+  "vertices_per_frame_per_surface": 36864
+}

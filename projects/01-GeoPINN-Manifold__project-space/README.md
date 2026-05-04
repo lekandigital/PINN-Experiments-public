@@ -1,5 +1,12 @@
 # GeoPINN-Manifold
 
+### Demo
+
+<video src="GeoPINN-Manifold/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
+
+
 ## Update (April 17, 2026)
 
 - The project now carries a Taichi-based visualization path, artifact bundles, and a static demo site under the project tree.

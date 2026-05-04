@@ -1,5 +1,12 @@
 # hgnn-clothdyn
 
+### Demo
+
+<video src="hgnn-clothdyn/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
+
+
 ## Update (April 17, 2026)
 
 - Training, benchmarking, and synthetic-data scripts were revised around the current hierarchical cloth-dynamics workflow.

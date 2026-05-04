@@ -1,5 +1,12 @@
 # hgnn-nif-cloth
 
+### Demo
+
+<video src="hgnn-nif-cloth/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
+
+
 ## Update (April 17, 2026)
 
 - This project-space is now the fuller demo-oriented variant, with rollout metrics, outputs, demo-site assets, and Taichi media.

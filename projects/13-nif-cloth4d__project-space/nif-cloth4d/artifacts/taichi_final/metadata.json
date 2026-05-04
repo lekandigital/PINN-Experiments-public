@@ -1,0 +1,144 @@
+{
+  "project": "NIF-Cloth4D",
+  "generated_at": "2026-04-17T21:51:33+00:00",
+  "model": {
+    "architecture": "FourierFeatureSIREN (4D spacetime SDF)",
+    "input_dim": 4,
+    "output_dim": 1,
+    "hidden_dim": 256,
+    "hidden_layers": 5,
+    "w0_initial": 30.0,
+    "parameters": 330497,
+    "parameters_millions": 0.33,
+    "checkpoint_path": "checkpoints/nif_cloth4d_trained.pt",
+    "checkpoint_size_mb": 3.8
+  },
+  "training": {
+    "epochs": 500,
+    "best_epoch": 440,
+    "batch_size": 16384,
+    "learning_rate": 0.0001,
+    "scheduler": "CosineAnnealingLR",
+    "loss_weights": {
+      "sdf": 1.0,
+      "eikonal": 0.01
+    },
+    "hardware": "NVIDIA RTX 3090 Ti (24 GB VRAM)",
+    "final_train_loss": 0.0002994428481337511,
+    "final_val_loss": 0.00045715959277004004,
+    "initial_val_loss": 0.06368070840835571
+  },
+  "data": {
+    "samples_per_frame": 20000,
+    "near_surface_ratio": 0.7,
+    "surface_band": 0.05,
+    "source_frames": 12,
+    "source_timesteps": [
+      0.0,
+      0.09090909090909091,
+      0.18181818181818182,
+      0.2727272727272727,
+      0.36363636363636365,
+      0.4545454545454546,
+      0.5454545454545454,
+      0.6363636363636364,
+      0.7272727272727273,
+      0.8181818181818182,
+      0.9090909090909092,
+      1.0
+    ]
+  },
+  "mesh_extraction": {
+    "method": "heightfield_min_sdf",
+    "description": "Heightfield extraction: for each (x,y) on a regular grid, find z where the NIF SDF is most negative (cloth shell centre). Gives identical vertex/face counts every timestep.",
+    "grid_resolution": 128,
+    "vertices_per_frame": 16384,
+    "faces_per_frame": 32258,
+    "topology": "fixed_regular_grid",
+    "why_heightfield": "Cloth is a thin z=f(x,y,t) shell; heightfield extraction gives identical topology every frame and eliminates marching-cubes popping."
+  },
+  "evaluation": {
+    "metric": "Chamfer + Hausdorff distance vs analytic physics baseline",
+    "average_chamfer": 5.99912918505173e-05,
+    "average_hausdorff": 0.022756773566039543,
+    "per_timestep": [
+      {
+        "t": 0.0,
+        "chamfer": 3.552616241685778e-05,
+        "hausdorff": 0.019607841968536377
+      },
+      {
+        "t": 0.091,
+        "chamfer": 1.2514116491734156e-05,
+        "hausdorff": 0.013609528541564941
+      },
+      {
+        "t": 0.182,
+        "chamfer": 1.1920059260676994e-05,
+        "hausdorff": 0.010755538940429688
+      },
+      {
+        "t": 0.273,
+        "chamfer": 1.3150805512180796e-05,
+        "hausdorff": 0.012989521026611328
+      },
+      {
+        "t": 0.364,
+        "chamfer": 1.2973378700926845e-05,
+        "hausdorff": 0.012293994426727295
+      },
+      {
+        "t": 0.455,
+        "chamfer": 1.0894251626729443e-05,
+        "hausdorff": 0.01225656270980835
+      },
+      {
+        "t": 0.545,
+        "chamfer": 1.0372685135033154e-05,
+        "hausdorff": 0.011237800121307373
+      },
+      {
+        "t": 0.636,
+        "chamfer": 1.1093848362384842e-05,
+        "hausdorff": 0.01126280426979065
+      },
+      {
+        "t": 0.727,
+        "chamfer": 1.3187249510701387e-05,
+        "hausdorff": 0.012345552444458008
+      },
+      {
+        "t": 0.818,
+        "chamfer": 1.3382865058095694e-05,
+        "hausdorff": 0.014641612768173218
+      },
+      {
+        "t": 0.909,
+        "chamfer": 1.90187355084797e-05,
+        "hausdorff": 0.022052957383777372
+      },
+      {
+        "t": 1.0,
+        "chamfer": 0.0005558613446224068,
+        "hausdorff": 0.1200275681912899
+      }
+    ]
+  },
+  "demo": {
+    "viewer": "src/taichi_cloth_demo.py",
+    "presets": [
+      "research",
+      "pitch",
+      "dramatic"
+    ],
+    "hero_preset": "pitch",
+    "hero_mode": "nif",
+    "artifacts": {
+      "nif_video": "artifacts/taichi_final/nif_demo.mp4",
+      "baseline_video": "artifacts/taichi_final/baseline_demo.mp4",
+      "comparison_video": "artifacts/taichi_final/comparison.mp4",
+      "nif_poster": "artifacts/taichi_final/poster_nif.png",
+      "baseline_poster": "artifacts/taichi_final/poster_baseline.png"
+    }
+  }
+}

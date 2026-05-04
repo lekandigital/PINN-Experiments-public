@@ -64,6 +64,7 @@ loss_weights:
   lambda_bc: 10.0          # Boundary condition weight
   lambda_ic: 10.0          # Initial condition weight
   lambda_data: 1.0         # Data fitting weight (if available)
+  lambda_medium: 1.0       # Direct c(x,y) supervision when a reference medium exists
   
   # Adaptive weighting
   adaptive_weights: false

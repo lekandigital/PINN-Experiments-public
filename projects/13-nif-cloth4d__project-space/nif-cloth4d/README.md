@@ -62,6 +62,21 @@ chmod +x run_pipeline.sh
 ./run_pipeline.sh /tmp/cloth_test_data ./output
 ```
 
+### 6. Interactive Taichi GGUI Demo
+
+```bash
+# Live playback (hero preset)
+python src/taichi_cloth_demo.py --preset pitch
+
+# Offline export (writes artifacts/pitch_animation/frame_####.png)
+python src/taichi_cloth_demo.py --preset pitch --export --export-frames 120 \
+    --export-dir artifacts/pitch_animation --arch metal --hide-window
+```
+
+Keys: `space` play/pause · `r` reset · `m` NIF ↔ physics baseline · `w` wireframe · `[`/`]` (reserved). See `src/taichi_cloth_demo.py --list-presets` for the full preset list (`research`, `pitch`, `dramatic`).
+
+The demo consumes the fixed-topology sequences in `outputs/nif_prediction/` and `outputs/physics_baseline/`. Both sequences share the same 32,258-face heightfield, so only vertex positions are updated per frame.
+
 ## Project Structure
 
 ```

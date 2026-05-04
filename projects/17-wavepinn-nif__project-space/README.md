@@ -1,5 +1,12 @@
 # wavepinn-nif
 
+### Demo
+
+<video src="wavepinn-nif/artifacts/taichi_final/wave_demo.mp4" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
+
+
 ## Update (April 17, 2026)
 
 - Project 17 saw substantial private-head updates around the Taichi viewer, supervised-FD training and validation helpers, and demo/export tooling.

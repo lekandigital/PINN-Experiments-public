@@ -32,6 +32,8 @@ class WavePDELoss:
                  lambda_bc: float = 10.0,
                  lambda_ic: float = 10.0,
                  lambda_data: float = 1.0,
+                 lambda_medium: float = 0.0,
+                 source_config: Optional[Dict] = None,
                  bc_type: str = "dirichlet",
                  ndim: int = 2):
         """
@@ -51,8 +53,46 @@ class WavePDELoss:
         self.lambda_bc = lambda_bc
         self.lambda_ic = lambda_ic
         self.lambda_data = lambda_data
+        self.lambda_medium = lambda_medium
+        self.source_config = source_config or {}
         self.bc_type = bc_type
         self.ndim = ndim
+
+    def source_term(self, x: jnp.ndarray) -> jnp.ndarray:
+        """
+        Ricker source term evaluated at collocation points.
+
+        Args:
+            x: Coordinates with shape (..., ndim+1), last coordinate is time.
+
+        Returns:
+            Source forcing with shape (...,).
+        """
+        if not self.source_config or self.source_config.get("type", "none") == "none":
+            return jnp.zeros(x.shape[:-1])
+
+        source_type = self.source_config.get("type", "ricker")
+        if source_type != "ricker":
+            raise ValueError(f"Unsupported source type for PDE residual: {source_type}")
+
+        position = jnp.asarray(self.source_config.get("position", [0.5, 0.5]), dtype=x.dtype)
+        sigma = jnp.asarray(self.source_config.get("sigma", 0.02), dtype=x.dtype)
+        frequency = jnp.asarray(self.source_config.get("frequency", 9.0), dtype=x.dtype)
+        t0 = jnp.asarray(self.source_config.get("t0", 0.12), dtype=x.dtype)
+        amplitude = jnp.asarray(self.source_config.get("amplitude", 1.0), dtype=x.dtype)
+        spatial_normalization = jnp.asarray(
+            self.source_config.get("spatial_normalization", 1.0),
+            dtype=x.dtype,
+        )
+
+        spatial = x[..., :self.ndim]
+        time = x[..., -1]
+        radius2 = jnp.sum((spatial - position[:self.ndim]) ** 2, axis=-1)
+        source_spatial = jnp.exp(-radius2 / (2.0 * sigma * sigma)) * spatial_normalization
+        tau = time - t0
+        arg = (jnp.pi * frequency * tau) ** 2
+        source_time = (1.0 - 2.0 * arg) * jnp.exp(-arg)
+        return amplitude * source_time * source_spatial
     
     def _compute_derivatives(self, 
                             params: Dict,
@@ -156,8 +196,8 @@ class WavePDELoss:
             for i in range(self.ndim):
                 laplacian = laplacian + hess_u[i, i]
             
-            # PDE residual: u_tt - c^2 * laplacian
-            residual = u_tt - c**2 * laplacian
+            # PDE residual: u_tt - c^2 * laplacian - source
+            residual = u_tt - c**2 * laplacian - self.source_term(x_single)
             
             return residual
         
@@ -328,6 +368,29 @@ class WavePDELoss:
         u_pred = u_pred.squeeze()
         
         return jnp.mean((u_pred - u_data)**2)
+
+    def medium_data_loss(self,
+                         params: Dict,
+                         rng: jax.Array,
+                         x_media: jnp.ndarray,
+                         c_data: jnp.ndarray) -> jnp.ndarray:
+        """
+        Data fitting loss for directly supervised MediaNIF values.
+
+        Args:
+            params: Model parameters
+            rng: Random key
+            x_media: Spatial observation points (batch, ndim)
+            c_data: Observed wave speeds (batch,)
+
+        Returns:
+            Medium data loss (scalar)
+        """
+        dummy_t = jnp.zeros((x_media.shape[0], 1), dtype=x_media.dtype)
+        x_full = jnp.concatenate([x_media, dummy_t], axis=-1)
+        _, c_pred = self.model_apply(params, rng, x_full, return_media=True)
+        c_pred = c_pred.squeeze()
+        return jnp.mean((c_pred - c_data) ** 2)
     
     def total_loss(self,
                    params: Dict,
@@ -398,13 +461,22 @@ class WavePDELoss:
             )
         else:
             losses['loss_data'] = jnp.array(0.0)
+
+        # 5. Medium supervision (if known c(x,y) labels are available)
+        if 'x_media' in data_batch and 'c_data' in data_batch:
+            losses['loss_medium'] = self.medium_data_loss(
+                params, rng, data_batch['x_media'], data_batch['c_data']
+            )
+        else:
+            losses['loss_medium'] = jnp.array(0.0)
         
         # Compute weighted total
         total = (
             self.lambda_pde * losses['loss_pde'] +
             self.lambda_bc * losses['loss_bc'] +
             self.lambda_ic * losses['loss_ic'] +
-            self.lambda_data * losses['loss_data']
+            self.lambda_data * losses['loss_data'] +
+            self.lambda_medium * losses['loss_medium']
         )
         losses['loss_total'] = total
         
@@ -429,6 +501,8 @@ def create_loss_fn(model_apply: Callable,
         lambda_bc=config.get('lambda_bc', 10.0),
         lambda_ic=config.get('lambda_ic', 10.0),
         lambda_data=config.get('lambda_data', 1.0),
+        lambda_medium=config.get('lambda_medium', 0.0),
+        source_config=config.get('source_config', None),
         bc_type=config.get('bc_type', 'dirichlet'),
         ndim=config.get('ndim', 2),
     )
