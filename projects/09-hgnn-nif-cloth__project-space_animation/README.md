@@ -2,7 +2,7 @@
 
 ### Demo
 
-<video src="hgnn-nif-cloth/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
+<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/09-hgnn-nif-cloth__project-space_animation/hgnn-nif-cloth/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
   Your browser does not support the video tag.
 </video>
 

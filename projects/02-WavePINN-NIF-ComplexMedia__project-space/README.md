@@ -2,7 +2,7 @@
 
 ### Demo
 
-<video src="WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
+<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
   Your browser does not support the video tag.
 </video>
 
