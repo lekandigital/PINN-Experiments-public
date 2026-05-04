@@ -2,9 +2,9 @@
 
 ### Demo
 
-| Videos (MP4/GIF) | Images |
-| --- | --- |
-| [comparison.mp4](GeoPINN-Manifold/artifacts/taichi_final/comparison.mp4)<br>[analytical_sphere.mp4](GeoPINN-Manifold/artifacts/taichi_final/analytical_sphere.mp4)<br>[geopinn_sphere.mp4](GeoPINN-Manifold/artifacts/taichi_final/geopinn_sphere.mp4) | ![](GeoPINN-Manifold/artifacts/taichi_final/comparison.gif)<br>![](GeoPINN-Manifold/artifacts/taichi_final/poster.png) |
+| Images |
+| --- |
+| ![](GeoPINN-Manifold/artifacts/taichi_final/comparison.gif)<br>![](GeoPINN-Manifold/artifacts/taichi_final/poster.png) |
 
 
 ## Update (April 17, 2026)
