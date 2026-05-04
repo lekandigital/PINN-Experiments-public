@@ -1,0 +1,32 @@
+{
+  "status": "reference_only_structural_metrics",
+  "source_h5": "/Users/lekan/Dev/PINN-Experiments/projects/16-surfpinn__project-space/surfpinn/recovered_remote_2026-05-04/data/synthetic_dam_break.h5",
+  "learned_model_metrics_status": "not_valid_not_computed",
+  "height_nmse_learned": null,
+  "psnr_db_learned": null,
+  "rmse_learned": null,
+  "relative_l2_learned": null,
+  "reference_height_dynamic_range": 0.6499844640493393,
+  "reference_temporal_motion_mse": 0.00017278978662271948,
+  "reference_slope_rms": 0.9044478029748485,
+  "reference_slope_max": 19.844707469275427,
+  "reference_curvature_rms_laplacian_proxy": 74.06208104468618,
+  "reference_curvature_max_abs_laplacian_proxy": 2502.010471209884,
+  "reference_mass_relative_drift": 0.16913944778091594,
+  "reference_mass_series_min_max": [
+    0.3781250021129381,
+    0.44208085616264725
+  ],
+  "reference_continuity_residual_rms_proxy": 2.293752788250044,
+  "reference_continuity_residual_mean_abs_proxy": 1.3717404110482248,
+  "invalid_recovered_checkpoint_log_metrics": {
+    "best_reported_psnr_db": 15.81,
+    "training_log_500ep_psnr_db": 14.62,
+    "training_log_1000ep_psnr_db": 12.24,
+    "height_rmse_range_from_logs": [
+      0.1053,
+      0.158784
+    ],
+    "reason_invalid": "metrics come from h_t -> h_t target-in-input contract and are not accepted as prediction/simulation evidence"
+  }
+}

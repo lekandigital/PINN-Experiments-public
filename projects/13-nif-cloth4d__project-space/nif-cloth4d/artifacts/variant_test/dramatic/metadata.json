@@ -1,0 +1,130 @@
+{
+  "preset": "dramatic",
+  "arch": "metal",
+  "outputs_dir": "/Users/lekan/Dev/PINN-Experiments/projects/13-nif-cloth4d__project-space/nif-cloth4d/outputs",
+  "mode": "nif",
+  "wireframe": false,
+  "playback_fps": 30.0,
+  "export_frames": 20,
+  "export_fps": 24,
+  "window_res": [
+    1920,
+    1080
+  ],
+  "source_frames": 12,
+  "vertices_per_frame": 16384,
+  "faces": 32258,
+  "center": [
+    0.0,
+    0.32822149991989136,
+    0.0
+  ],
+  "scale": 0.8888889124364036,
+  "y_range": [
+    -0.43678784370422363,
+    0.436787873506546
+  ],
+  "preset_config": {
+    "name": "dramatic",
+    "description": "Close camera on the drape, strong key/fill contrast.",
+    "window_res": [
+      1920,
+      1080
+    ],
+    "background": [
+      0.018,
+      0.022,
+      0.036
+    ],
+    "camera": {
+      "position": [
+        0.9,
+        1.15,
+        1.55
+      ],
+      "lookat": [
+        0.0,
+        0.05,
+        0.05
+      ],
+      "fov": 32.0
+    },
+    "light": {
+      "key_pos": [
+        1.8,
+        1.9,
+        0.9
+      ],
+      "key_color": [
+        1.1,
+        0.92,
+        0.72
+      ],
+      "key_intensity": 0.95,
+      "fill_pos": [
+        -1.5,
+        0.6,
+        -1.2
+      ],
+      "fill_color": [
+        0.4,
+        0.58,
+        0.92
+      ],
+      "fill_intensity": 0.35,
+      "rim_pos": [
+        0.0,
+        1.2,
+        -1.8
+      ],
+      "rim_color": [
+        0.55,
+        0.65,
+        0.88
+      ],
+      "rim_intensity": 0.22,
+      "ambient": [
+        0.15,
+        0.16,
+        0.2
+      ]
+    },
+    "palette": {
+      "low": [
+        1.0,
+        0.72,
+        0.4
+      ],
+      "mid": [
+        0.8,
+        0.8,
+        0.8
+      ],
+      "high": [
+        0.24,
+        0.46,
+        0.9
+      ],
+      "gamma": 0.75
+    },
+    "playback_fps": 30.0,
+    "temporal_subdivisions": 12,
+    "height_scale": 1.2,
+    "color_mode": "height",
+    "show_wireframe": false,
+    "wireframe_color": [
+      0.05,
+      0.06,
+      0.09
+    ],
+    "wireframe_width": 0.6,
+    "ground_color": [
+      0.08,
+      0.09,
+      0.12
+    ],
+    "ground_margin": 0.1,
+    "default_mode": "nif",
+    "spatial_smooth_passes": 4
+  }
+}

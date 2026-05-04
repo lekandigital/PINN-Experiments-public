@@ -1,0 +1,300 @@
+{
+  "anti_tautology_checks_passed": {
+    "allclose_at_1e_6": false,
+    "byte_identical": false,
+    "energy_ratio_in_plausible_range": true,
+    "energy_ratio_not_exactly_one": true,
+    "heldout_nmse_above_leakage_floor": true,
+    "max_abs_reference_minus_learned": 0.21910728514194489,
+    "zero_field_rejected": true
+  },
+  "artifacts": {
+    "baseline_video": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/baseline_demo.mp4",
+    "camera_tests": [
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/camera_test/camera_1.png",
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/camera_test/camera_2.png",
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/camera_test/camera_3.png"
+    ],
+    "comparison_video": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.mp4",
+    "hero_video": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/project02_wavepinn_nif_demo.mp4",
+    "poster": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/poster.png",
+    "preset_stills": [
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_presets/research.png",
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_presets/pitch.png",
+      "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_presets/dramatic.png"
+    ],
+    "smoke_learned": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/smoke_test/frame_learned.png",
+    "smoke_reference": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/smoke_test/frame_reference.png"
+  },
+  "checkpoint_format": "pickle",
+  "checkpoint_model_type": "JAX/Haiku WavePINN-NIF",
+  "checkpoint_path": "/Users/lekan/Dev/PINN-Experiments/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/checkpoints/project02_wavepinn_nif_best.pkl",
+  "deliberate_deviations": [
+    "Wave amplitude is mapped to height with preset-specific height_scale values so the nonzero acoustic field is legible in a 3D heightfield.",
+    "The smooth medium is rendered as a subdued underlay mesh to keep propagation, not texture, as the visual subject.",
+    "The source is marked with a small particle ring at the known Ricker source location.",
+    "Dramatic preset raises display_gain and tightens camera FOV while retaining tanh transfer and the canonical studio palette family."
+  ],
+  "faces_per_frame_per_surface": 72962,
+  "grid_resolution": {
+    "n_frames": 96,
+    "nx": 192,
+    "ny": 192
+  },
+  "hero_mode_is_compare": false,
+  "hero_path_classification": "baseline-hero path",
+  "medium_claim_status": {
+    "hero_claim_allowed": false,
+    "status": "directly supervised against reference_medium.npy with real MediaNIF network parameters",
+    "wording_constraint": "The medium network is directly supervised and accurate, but the post must not present a full WavePINN-NIF hero claim when the held-out wavefield gate fails."
+  },
+  "preset_values": {
+    "applied_final_camera": "hero",
+    "applied_final_preset": "pitch",
+    "fps": 24,
+    "required_presets": {
+      "dramatic": {
+        "camera": "tight",
+        "camera_fov": 21.0,
+        "display_gain": 1.75,
+        "height_scale": 0.65,
+        "medium_blend": 0.46,
+        "show_wire": false,
+        "source_marker_radius": 0.0085,
+        "studio": true
+      },
+      "pitch": {
+        "camera": "hero",
+        "height_scale": 0.45,
+        "medium_blend": 0.54,
+        "show_wire": false,
+        "source_marker_radius": 0.0075,
+        "studio": true
+      },
+      "research": {
+        "ambient": [
+          0.34,
+          0.35,
+          0.36
+        ],
+        "background": [
+          0.055,
+          0.06,
+          0.072
+        ],
+        "camera": "diagnostic",
+        "camera_fov": 31.0,
+        "display_gain": 1.0,
+        "ground_color": [
+          0.11,
+          0.12,
+          0.14
+        ],
+        "height_scale": 0.35,
+        "palette": {
+          "negative": [
+            0.22,
+            0.48,
+            0.82
+          ],
+          "neutral": [
+            0.72,
+            0.76,
+            0.82
+          ],
+          "positive": [
+            0.96,
+            0.56,
+            0.32
+          ],
+          "strength_power": 0.86
+        },
+        "show_wire": true,
+        "spatial_smooth_passes": 1,
+        "temporal_smooth_passes": 0
+      }
+    },
+    "resolution": {
+      "height": 540,
+      "width": 960
+    },
+    "studio_canonical": {
+      "ambient": [
+        0.22,
+        0.23,
+        0.25
+      ],
+      "background": [
+        0.02,
+        0.026,
+        0.04
+      ],
+      "camera_fov": 24.0,
+      "display_gain": 1.3,
+      "display_transfer": "tanh",
+      "ground_color": [
+        0.09,
+        0.1,
+        0.13
+      ],
+      "lights": [
+        {
+          "color": [
+            1.1,
+            1.0,
+            0.92
+          ],
+          "pos": [
+            2.2,
+            2.5,
+            1.2
+          ]
+        },
+        {
+          "color": [
+            0.2,
+            0.32,
+            0.52
+          ],
+          "pos": [
+            -1.8,
+            1.0,
+            -1.3
+          ]
+        },
+        {
+          "color": [
+            0.09,
+            0.1,
+            0.12
+          ],
+          "pos": [
+            0.0,
+            0.55,
+            2.4
+          ]
+        }
+      ],
+      "palette": {
+        "negative": [
+          0.18,
+          0.49,
+          0.88
+        ],
+        "neutral": [
+          0.76,
+          0.8,
+          0.86
+        ],
+        "positive": [
+          0.99,
+          0.7,
+          0.4
+        ],
+        "strength_power": 0.72
+      },
+      "playback_speed": 0.72,
+      "spatial_smooth_passes": 3,
+      "temporal_smooth_passes": 1
+    }
+  },
+  "reference_and_learned_metric_summary": {
+    "anti_tautology": {
+      "allclose_at_1e_6": false,
+      "byte_identical": false,
+      "energy_ratio_in_plausible_range": true,
+      "energy_ratio_not_exactly_one": true,
+      "heldout_nmse_above_leakage_floor": true,
+      "max_abs_reference_minus_learned": 0.21910728514194489,
+      "zero_field_rejected": true
+    },
+    "dynamic_range_ratio": 0.9710680842399597,
+    "energy_ratio": 0.8643086906760289,
+    "heldout_pde_residual_normalized_rms": 16.93649405969787,
+    "heldout_pde_residual_rms": 16.93649405969787,
+    "learned_energy": 0.0008695576107129455,
+    "learned_temporal_motion_variance": 8.921507105696946e-05,
+    "medium_metrics": {
+      "medium_correlation": 0.999999163742628,
+      "medium_max_pred": 1.627058744430542,
+      "medium_min_pred": 0.9500125050544739,
+      "medium_nmse": 5.665654247806883e-08,
+      "medium_off_lattice_nmse": 4.4784835864450285e-08
+    },
+    "off_lattice_nmse": 0.39179357371985474,
+    "off_lattice_psnr_db": 20.21051978874152,
+    "reference_energy": 0.0010060729691758752,
+    "reference_temporal_motion_variance": 0.00011044034908991307,
+    "source_event_visible": true,
+    "time_heldout_nmse": 0.4483926727815032,
+    "time_heldout_psnr_db": 23.589150383274564
+  },
+  "representation_family": "Family A continuous field, direct fixed-grid sampling",
+  "selected_hero_mode": "reference",
+  "seven_gate_booleans": {
+    "gate_1_topology_stable": true,
+    "gate_2_trust_window_ge_80_percent": false,
+    "gate_3_silhouette_readable_at_200px": true,
+    "gate_4_display_mesh_ge_16000_vertices": true,
+    "gate_5_metrics_and_structural_invariant_support_claim": false,
+    "gate_6_hero_default_single_subject": true,
+    "gate_7_studio_preset_applied": true
+  },
+  "topology_stability": {
+    "compare_scene_faces": 145924,
+    "compare_scene_vertices": 73728,
+    "face_count_identical_across_frames": true,
+    "single_subject_scene_faces": 72962,
+    "single_subject_scene_vertices": 36864,
+    "stable": true,
+    "vertex_count_identical_across_frames": true
+  },
+  "trust_window": {
+    "end_frame": 72,
+    "fraction": 0.0,
+    "start_frame": 72,
+    "threshold": "per-held-out-frame NMSE <= 1e-3 and PSNR >= 30 dB"
+  },
+  "vertices_per_frame_per_surface": 36864,
+  "reference_metric_summary": {
+    "shape": [
+      96,
+      192,
+      192
+    ],
+    "max_abs": 0.5953689217567444,
+    "temporal_motion_variance": 0.0001104403636418283,
+    "substantive_frames_energy_gt_1e_5": 86,
+    "energy": 0.0010060732020065188
+  },
+  "learned_metric_summary": {
+    "heldout_nmse": 0.4483926727815032,
+    "heldout_psnr_db": 23.589150383274564,
+    "off_lattice_nmse": 0.39179357371985474,
+    "off_lattice_psnr_db": 20.21051978874152,
+    "energy_ratio": 0.8643086906760289,
+    "dynamic_range_ratio": 0.9710680842399597,
+    "learned_temporal_motion_variance": 8.921507105696946e-05,
+    "reference_temporal_motion_variance": 0.0001104403636418283,
+    "heldout_pde_residual_rms": 16.93649405969787,
+    "heldout_pde_residual_normalized_rms": 16.93649405969787,
+    "medium_nmse": 5.665654247806883e-08,
+    "medium_correlation": 0.999999163742628,
+    "medium_off_lattice_nmse": 4.4784835864450285e-08,
+    "medium_off_lattice_psnr_db": 67.89540884767374,
+    "trust_window_fraction": 0.0,
+    "source_event_visible": true,
+    "source_ref_peak_frame": 21,
+    "source_pred_peak_frame": 21
+  },
+  "gate": {
+    "topology_stable": true,
+    "trust_window_ratio": 0.0,
+    "silhouette_readable_at_200px": true,
+    "display_vertices": 36864,
+    "metrics_support_claim": false,
+    "hero_default_is_single_subject": true,
+    "studio_preset_applied": true,
+    "all_seven_pass": false
+  }
+}

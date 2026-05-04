@@ -1,5 +1,12 @@
 # nif-cloth4d-temporal
 
+### Demo
+
+<video src="nif-cloth4d-temporal/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
+
+
 ## Update (April 17, 2026)
 
 - The temporal cloth stack received updates in both the Fourier MLP and SIREN model implementations.

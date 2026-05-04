@@ -254,6 +254,21 @@ def compute_velocity_consistency_loss(
     return (vel_diff ** 2).sum(dim=(-1, -2)).mean()
 
 
+def compute_eikonal_loss(gradient: torch.Tensor) -> torch.Tensor:
+    """
+    Eikonal regularizer: encourages ||∇f|| ≈ 1 (true-SDF structural invariant).
+
+    Args:
+        gradient: Spatial gradient of the field (..., 3), typically from
+            FourierFeatureMLP.compute_gradient.
+
+    Returns:
+        Scalar eikonal loss: mean of (||∇f|| - 1)^2.
+    """
+    grad_norm = gradient.norm(dim=-1)
+    return ((grad_norm - 1.0) ** 2).mean()
+
+
 def compute_collision_loss(
     pred_vertices: torch.Tensor,
     obstacle_sdf_fn: Optional[callable] = None,

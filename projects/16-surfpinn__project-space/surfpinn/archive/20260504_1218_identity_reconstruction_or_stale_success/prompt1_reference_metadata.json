@@ -1,0 +1,70 @@
+{
+  "source_h5": "/Users/lekan/Dev/PINN-Experiments/projects/16-surfpinn__project-space/surfpinn/recovered_remote_2026-05-04/data/synthetic_dam_break.h5",
+  "export_note": "Reference-only export from recovered diagnostic HDF5; no learned outputs accepted from invalid identity-style checkpoint.",
+  "source_attrs": {
+    "description": "Synthetic dam break for SurfPINN training",
+    "domain": [
+      0.0,
+      1.0,
+      0.0,
+      1.0
+    ],
+    "n_particles": 2000,
+    "nt": 32,
+    "nx": 64,
+    "ny": 64,
+    "t_max": 1.0
+  },
+  "shape_conventions": {
+    "reference_height_sequence.npy": "time, x, y",
+    "reference_velocity_grid.npy": "time, x, y, components(u,v)",
+    "reference_particles.npy": "time, particle, components(x,y,z)",
+    "reference_particle_velocities.npy": "time, particle, components(u,v,w)"
+  },
+  "height_dynamic_range": 0.6499844789505005,
+  "temporal_motion_mse_mean": 0.00017278977611567825,
+  "temporal_motion_mse_min": 8.104441803880036e-06,
+  "temporal_motion_mse_max": 0.0021799432579427958,
+  "substantive_frame_count": 32,
+  "substantive_frame_energy_floor": 0.000754150003194809,
+  "height_std_x_mean": 0.1562812626361847,
+  "height_std_y_mean": 0.014324856922030449,
+  "height_std_y_over_std_x": 0.09166074473871107,
+  "eulerian_velocity_u_range": [
+    -2.8014168739318848,
+    2.801400661468506
+  ],
+  "eulerian_velocity_v_range": [
+    -0.0,
+    2.8705880641937256
+  ],
+  "particle_y_motion_abs_max": 0.0,
+  "particle_y_motion_rms": 0.0,
+  "particle_velocity_u_range": [
+    -0.0,
+    2.8014283180236816
+  ],
+  "particle_velocity_v_range": [
+    0.0,
+    0.0
+  ],
+  "particle_velocity_w_range": [
+    0.0,
+    0.0
+  ],
+  "mass_mean": 0.4083711504936218,
+  "mass_min": 0.3781265318393707,
+  "mass_max": 0.4420813322067261,
+  "mass_relative_drift": 0.16913597285747528,
+  "threshold_status": {
+    "height_dynamic_range_gt_0_10": true,
+    "temporal_motion_mse_gt_1e_4": true,
+    "substantive_frames_gte_8": true,
+    "std_y_over_std_x_gte_0_20": false,
+    "particle_y_motion_nonzero": false
+  },
+  "deliberate_deviations": [
+    "Reference export is diagnostic only; no learned-model hero because source data fails 2D threshold and recovered checkpoint was trained with target height in input.",
+    "No active checkpoint copied into checkpoints/ because recovered checkpoint is real but invalid for prediction claims."
+  ]
+}

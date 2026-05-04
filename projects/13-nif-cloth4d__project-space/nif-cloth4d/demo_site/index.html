@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NIF-Cloth4D — Neural Implicit Field for Cloth Dynamics</title>
+  <meta name="description" content="A SIREN network learns a continuous spacetime SDF of draping cloth. Compare the physics baseline and the learned NIF side by side.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-shell">
+
+    <header class="hero" id="top">
+      <div class="hero-copy">
+        <p class="kicker">NIF-Cloth4D · Project 13</p>
+        <h1>A continuous neural implicit field<br>learning cloth geometry over spacetime</h1>
+        <p class="hero-subtitle">
+          One SIREN network, 330k parameters, 3.8&nbsp;MB on disk. It learns a continuous signed-distance
+          function over <code>(x, y, z, t)</code> that you can query at any spatial resolution and any
+          intermediate time — no solver rerun, no fixed mesh.
+        </p>
+        <div class="hero-strip" id="hero-strip">
+          <span class="strip-chip"><span class="chip-label">avg Chamfer</span><span class="chip-value" id="chip-chamfer">…</span></span>
+          <span class="strip-chip"><span class="chip-label">avg Hausdorff</span><span class="chip-value" id="chip-hausdorff">…</span></span>
+          <span class="strip-chip"><span class="chip-label">parameters</span><span class="chip-value" id="chip-params">…</span></span>
+          <span class="strip-chip"><span class="chip-label">checkpoint</span><span class="chip-value" id="chip-ckpt">…</span></span>
+          <span class="strip-chip"><span class="chip-label">hardware</span><span class="chip-value">RTX 3090 Ti</span></span>
+        </div>
+      </div>
+      <figure class="hero-media-frame">
+        <figcaption class="frame-label">With my NIF — pitch preset, 30 fps</figcaption>
+        <video
+          id="hero-video"
+          class="hero-video"
+          autoplay muted loop playsinline preload="metadata" controls
+          poster="assets/media/poster_nif.png">
+          <source src="assets/media/nif_demo.mp4" type="video/mp4">
+          Your browser does not support embedded video.
+        </video>
+      </figure>
+    </header>
+
+    <nav class="section-nav" aria-label="Section navigation">
+      <a href="#comparison">Without vs With</a>
+      <a href="#representation">The representation</a>
+      <a href="#evaluation">Evaluation</a>
+      <a href="#presets">Taichi presets</a>
+      <a href="#why-nif">Why NIF</a>
+      <a href="#artifacts">Artifacts</a>
+    </nav>
+
+    <main>
+
+      <section class="section section-comparison" id="comparison">
+        <div class="section-head">
+          <p class="kicker">Core story</p>
+          <h2>Without my NIF vs. with my NIF</h2>
+          <p>
+            Same domain, same timespan, same viewport. On the left, the analytic physics cloth
+            we trained against (the ground truth for this synthetic benchmark). On the right, the
+            NIF rendered from the same checkpoint you'd ship — a tiny SIREN field queried on a regular
+            grid at inference time.
+          </p>
+        </div>
+
+        <div class="motion-toolbar">
+          <button type="button" id="toggle-motion">Pause motion</button>
+          <p class="toolbar-note">Autoplay is muted. Use the button if you want to freeze every clip.</p>
+        </div>
+
+        <div class="comparison-grid">
+          <article class="story-card baseline-card">
+            <div class="story-header">
+              <p class="story-label">Without my NIF</p>
+              <h3>Analytic physics cloth</h3>
+              <p>
+                The synthetic cloth simulator we built the dataset from: a falling shell interpolated
+                from a flat state at <code>t=0</code> to a fully draped state at <code>t=1</code>. Clean,
+                but locked to one resolution and one discrete timeline.
+              </p>
+            </div>
+            <figure class="media-card wide">
+              <figcaption>Physics baseline — pitch preset</figcaption>
+              <video class="comparison-video autoplay-video" autoplay muted loop playsinline preload="metadata" controls
+                poster="assets/media/poster_baseline.png">
+                <source src="assets/media/baseline_demo.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <div class="chip-row">
+              <span class="chip">12 source frames</span>
+              <span class="chip">128×128 grid</span>
+              <span class="chip">closed-form</span>
+            </div>
+          </article>
+
+          <article class="story-card learned-card">
+            <div class="story-header">
+              <p class="story-label accent">With my NIF</p>
+              <h3>Learned SIREN SDF</h3>
+              <p>
+                A 5-layer SIREN with ω₀=30, 256 hidden units, Fourier feature input encoding.
+                Trained for 500 epochs against per-sample SDF with a light Eikonal regulariser.
+                The same checkpoint drives every frame below — only the query coordinates change.
+              </p>
+            </div>
+            <figure class="media-card wide">
+              <figcaption>NIF prediction — pitch preset</figcaption>
+              <video class="comparison-video autoplay-video" autoplay muted loop playsinline preload="metadata" controls
+                poster="assets/media/poster_nif.png">
+                <source src="assets/media/nif_demo.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <div class="chip-row">
+              <span class="chip">330,497 params</span>
+              <span class="chip">3.8 MB on disk</span>
+              <span class="chip">continuous t</span>
+            </div>
+          </article>
+        </div>
+
+        <figure class="media-card wide side-by-side-card">
+          <figcaption>Side-by-side — baseline left, NIF right</figcaption>
+          <video class="comparison-video autoplay-video" autoplay muted loop playsinline preload="metadata" controls
+            poster="assets/media/poster_nif.png">
+            <source src="assets/media/comparison.mp4" type="video/mp4">
+          </video>
+        </figure>
+      </section>
+
+      <section class="section section-representation" id="representation">
+        <div class="section-head">
+          <p class="kicker">The representation changes, not the solver</p>
+          <h2>Cloth as a field, not a mesh</h2>
+          <p>
+            Most cloth pipelines store the state as a <em>discrete mesh at fixed timesteps</em>.
+            NIF-Cloth4D stores it as a <em>continuous function</em>. That swap is the whole point —
+            the downstream savings (arbitrary resolution, arbitrary temporal queries, no popping,
+            one file to ship) follow from it.
+          </p>
+        </div>
+
+        <div class="representation-grid">
+          <div class="rep-card">
+            <h3>Query any resolution</h3>
+            <p>
+              The viewer samples the field on a 128×128 heightfield, but nothing in the checkpoint
+              is tied to that grid. Swap in a 512×512 grid, or an adaptive quadtree, and the same
+              weights give you a denser or cheaper mesh. No retraining.
+            </p>
+          </div>
+          <div class="rep-card">
+            <h3>Query any time</h3>
+            <p>
+              Training uses 12 source timesteps, but <code>t</code> is a continuous input. The
+              player interpolates between the source frames <em>visually</em>; the model itself
+              would happily give you <code>t = 0.47</code> directly. That's why the drape plays back
+              smoothly at 30 fps from 12 source frames.
+            </p>
+          </div>
+          <div class="rep-card">
+            <h3>Fixed-topology extraction</h3>
+            <p>
+              For this demo we extract by heightfield (per-(x,y), find z where SDF is most negative).
+              Because the cloth is a thin <code>z = f(x, y, t)</code> shell, this gives the same
+              16,384 vertices and 32,258 triangles every frame — no marching-cubes popping.
+            </p>
+          </div>
+          <div class="rep-card">
+            <h3>One file to ship</h3>
+            <p>
+              The trained checkpoint is 3.8&nbsp;MB. Compared to shipping a 12-frame, 16k-vertex
+              mesh sequence (~2.4&nbsp;MB of vertices alone) and a solver, the field representation
+              scales far better the moment you ask for more resolution or finer time steps.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-metrics" id="evaluation">
+        <div class="section-head">
+          <p class="kicker">How close does it get?</p>
+          <h2>Evaluation — Chamfer &amp; Hausdorff vs. the physics baseline</h2>
+          <p>
+            Both metrics are computed directly on the extracted meshes: point-to-point Chamfer for
+            overall fidelity, Hausdorff for worst-case deviation. The rightmost red bump at
+            <code>t=1</code> is the full drape — the hardest region, where the field has to commit
+            to a non-trivial curved geometry.
+          </p>
+        </div>
+        <div class="metrics-grid">
+          <figure class="media-card wide">
+            <figcaption>Per-timestep Chamfer and Hausdorff distance</figcaption>
+            <img src="assets/plots/metrics_over_time.png" alt="Per-timestep Chamfer and Hausdorff plots" loading="lazy">
+          </figure>
+          <figure class="media-card wide">
+            <figcaption>Training loss (log scale)</figcaption>
+            <img src="assets/plots/loss_curve.png" alt="Training and validation loss curve" loading="lazy">
+          </figure>
+        </div>
+        <div class="metrics-posters">
+          <figure class="media-card">
+            <figcaption>Best baseline poster frame</figcaption>
+            <img src="assets/media/poster_baseline.png" alt="Physics baseline poster frame" loading="lazy">
+          </figure>
+          <figure class="media-card">
+            <figcaption>Best NIF poster frame</figcaption>
+            <img src="assets/media/poster_nif.png" alt="NIF prediction poster frame" loading="lazy">
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-presets" id="presets">
+        <div class="section-head">
+          <p class="kicker">Rendering — Taichi GGUI</p>
+          <h2>Three presets, one viewer</h2>
+          <p>
+            <code>src/taichi_cloth_demo.py</code> wraps the heightfield sequences in a Taichi GGUI
+            scene with dark background, warm-key / cool-fill lighting, and a per-vertex
+            height-diverging colormap. Presets share the same rig; only camera, density, and shading
+            differ.
+          </p>
+        </div>
+        <div class="preset-grid">
+          <figure class="preset-card">
+            <img src="assets/presets/research.png" alt="research preset final frame" loading="lazy">
+            <figcaption>
+              <strong>research</strong> — heightfield wireframe exposed. Shows the honest regular-grid
+              topology used by the extractor.
+            </figcaption>
+          </figure>
+          <figure class="preset-card">
+            <img src="assets/presets/pitch.png" alt="pitch preset final frame" loading="lazy">
+            <figcaption>
+              <strong>pitch</strong> — balanced hero framing. Smooth lighting, no wireframe, used for
+              the clips at the top of this page.
+            </figcaption>
+          </figure>
+          <figure class="preset-card">
+            <img src="assets/presets/dramatic.png" alt="dramatic preset final frame" loading="lazy">
+            <figcaption>
+              <strong>dramatic</strong> — close camera, strong warm/cool contrast, extra smoothing
+              for hero clips.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section section-why" id="why-nif">
+        <div class="section-head">
+          <p class="kicker">Why this matters</p>
+          <h2>Why a NIF for cloth?</h2>
+        </div>
+        <ul class="why-list">
+          <li><strong>Continuous spatiotemporal SDF.</strong> No mesh fixed at training time. Query cloth geometry as a smooth function of <code>(x, y, z, t)</code>.</li>
+          <li><strong>Resolution-independent queries.</strong> Heightfield today, adaptive remeshing tomorrow. Same weights.</li>
+          <li><strong>Compact learned representation.</strong> 3.8&nbsp;MB checkpoint replaces a solver + discrete state. Ship one artifact.</li>
+          <li><strong>Smooth interpolation in time.</strong> 12 source frames become arbitrarily many display frames, with no manual tweening.</li>
+          <li><strong>Faster than re-running physics at new resolutions.</strong> A forward pass through the SIREN scales with query count, not simulation steps.</li>
+          <li><strong>Fixed-topology output by construction.</strong> Heightfield extraction removes marching-cubes popping — the mesh never changes vertex count across frames.</li>
+        </ul>
+      </section>
+
+      <section class="section section-artifacts" id="artifacts">
+        <div class="section-head">
+          <p class="kicker">Artifacts</p>
+          <h2>What's on disk</h2>
+          <p>
+            Every video, poster, and plot on this page is rendered from the checkpoint at
+            <code>checkpoints/nif_cloth4d_trained.pt</code> and the extracted mesh sequences at
+            <code>outputs/</code>. All assets for the site live in <code>demo_site/assets/</code>.
+          </p>
+        </div>
+        <div class="artifact-grid">
+          <div class="artifact-card">
+            <h3>Videos</h3>
+            <ul>
+              <li><code>artifacts/taichi_final/nif_demo.mp4</code></li>
+              <li><code>artifacts/taichi_final/baseline_demo.mp4</code></li>
+              <li><code>artifacts/taichi_final/comparison.mp4</code></li>
+            </ul>
+          </div>
+          <div class="artifact-card">
+            <h3>Posters + plots</h3>
+            <ul>
+              <li><code>poster_nif.png</code></li>
+              <li><code>poster_baseline.png</code></li>
+              <li><code>loss_curve.png</code></li>
+              <li><code>metrics_over_time.png</code></li>
+            </ul>
+          </div>
+          <div class="artifact-card">
+            <h3>Preset stills</h3>
+            <ul>
+              <li><code>artifacts/taichi_presets/research.png</code></li>
+              <li><code>artifacts/taichi_presets/pitch.png</code></li>
+              <li><code>artifacts/taichi_presets/dramatic.png</code></li>
+            </ul>
+          </div>
+          <div class="artifact-card">
+            <h3>Data</h3>
+            <ul>
+              <li><code>outputs/nif_prediction/{vertices,faces}.npy</code></li>
+              <li><code>outputs/physics_baseline/{vertices,faces}.npy</code></li>
+              <li><code>outputs/{metrics,mesh_info}.json</code></li>
+              <li><code>artifacts/taichi_final/metadata.json</code></li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="page-footer">
+      <p>Static demo — serve with <code>python3 -m http.server</code> from <code>demo_site/</code>.</p>
+      <p>Project 13 · NIF-Cloth4D · <span id="footer-date">…</span></p>
+    </footer>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

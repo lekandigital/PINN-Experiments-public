@@ -1,0 +1,13 @@
+{
+  "status": "not_generated",
+  "reason": "Recovered checkpoint is a real Haiku/JAX checkpoint but was trained/evaluated under an h_t -> h_t reconstruction contract where target height is included in grid_input.",
+  "recovered_checkpoint": "/Users/lekan/Dev/PINN-Experiments/projects/16-surfpinn__project-space/surfpinn/recovered_remote_2026-05-04/checkpoints/surfpinn_best.pkl",
+  "checkpoint_epoch": 156,
+  "checkpoint_step": 1248,
+  "checkpoint_param_count": 230372,
+  "contract_classification": "h_t -> h_t rejected; candidate repair is Family B previous-state-to-next-state after Prompt 5 data repair",
+  "learned_arrays_written": false,
+  "forward_pass_from_valid_checkpoint": false,
+  "anti_tautology": "failed by construction for historical/recovered run because height_true is present in grid_input; no learned metrics reported as valid",
+  "next_prompt": "Prompt 5"
+}

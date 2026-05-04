@@ -12,14 +12,16 @@ from .physics_losses import (
     compute_bend_loss,
     compute_momentum_loss,
     compute_collision_loss,
+    compute_eikonal_loss,
 )
 from .scheduled_sampling import ScheduledSamplingLoss
 
 __all__ = [
     "PhysicsLossStack",
     "compute_stretch_loss",
-    "compute_bend_loss", 
+    "compute_bend_loss",
     "compute_momentum_loss",
     "compute_collision_loss",
+    "compute_eikonal_loss",
     "ScheduledSamplingLoss",
 ]

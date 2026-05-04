@@ -1,5 +1,12 @@
 # clothgnn
 
+### Demo
+
+<video src="clothgnn/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
+
+
 ## Update (April 17, 2026)
 
 - Configs, data loaders, dataset-generation scripts, training scripts, and export helpers were expanded around the core GNN.

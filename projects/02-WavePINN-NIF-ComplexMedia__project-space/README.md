@@ -1,5 +1,12 @@
 # WavePINN-NIF-ComplexMedia
 
+### Demo
+
+<video src="WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
+
+
 ## Update (April 17, 2026)
 
 - This project's docs were synced to the current monorepo shape and shared coastal-data context.

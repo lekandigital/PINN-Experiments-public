@@ -100,6 +100,8 @@ class WavePINNTrainer:
             lambda_bc=self.loss_config.get('lambda_bc', 10.0),
             lambda_ic=self.loss_config.get('lambda_ic', 10.0),
             lambda_data=self.loss_config.get('lambda_data', 1.0),
+            lambda_medium=self.loss_config.get('lambda_medium', 0.0),
+            source_config=self.loss_config.get('source_config', None),
             ndim=ndim
         )
         
@@ -248,9 +250,28 @@ class WavePINNTrainer:
             self.rng, batch_rng = jax.random.split(self.rng)
             batch = create_data_batch(data, batch_size, batch_rng)
             
-            # Add targets for initial conditions
-            batch['u0_target'] = jnp.zeros(len(batch['initial']))
-            batch['v0_target'] = jnp.zeros(len(batch['initial']))
+            # Add supervised wavefield labels when the repaired contract provides them.
+            if 'x_data' in data and 'u_data' in data:
+                self.rng, data_rng = jax.random.split(self.rng)
+                data_size = len(data['x_data'])
+                data_idx = jax.random.randint(data_rng, (batch_size,), 0, data_size)
+                batch['x_data'] = jnp.asarray(data['x_data'])[data_idx]
+                batch['u_data'] = jnp.asarray(data['u_data'])[data_idx]
+
+            # Add directly supervised medium labels when known c(x,y) is provided.
+            if 'x_media' in data and 'c_data' in data:
+                self.rng, media_rng = jax.random.split(self.rng)
+                media_size = len(data['x_media'])
+                media_idx = jax.random.randint(media_rng, (batch_size,), 0, media_size)
+                batch['x_media'] = jnp.asarray(data['x_media'])[media_idx]
+                batch['c_data'] = jnp.asarray(data['c_data'])[media_idx]
+
+            # Initial-condition targets are no longer unconditionally hardcoded.
+            # Zero is only a fallback for legacy generated datasets.
+            if 'u0_target' not in batch:
+                batch['u0_target'] = jnp.zeros(len(batch['initial']))
+            if 'v0_target' not in batch:
+                batch['v0_target'] = jnp.zeros(len(batch['initial']))
             
             metrics = self.train_step(batch)
             
