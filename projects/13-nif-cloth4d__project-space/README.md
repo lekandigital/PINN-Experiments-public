@@ -2,9 +2,9 @@
 
 ### Demo
 
-<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/13-nif-cloth4d__project-space/nif-cloth4d/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
-  Your browser does not support the video tag.
-</video>
+| Videos (MP4/GIF) | Images |
+| --- | --- |
+| [comparison.mp4](nif-cloth4d/artifacts/taichi_final/comparison.mp4)<br>[baseline_demo.mp4](nif-cloth4d/artifacts/taichi_final/baseline_demo.mp4)<br>[nif_demo.mp4](nif-cloth4d/artifacts/taichi_final/nif_demo.mp4) | ![](nif-cloth4d/artifacts/taichi_final/poster_baseline.png)<br>![](nif-cloth4d/artifacts/taichi_final/poster_nif.png)<br>![](nif-cloth4d/artifacts/taichi_final/loss_curve.png)<br>![](nif-cloth4d/artifacts/taichi_final/metrics_over_time.png) |
 
 
 ## Update (April 17, 2026)

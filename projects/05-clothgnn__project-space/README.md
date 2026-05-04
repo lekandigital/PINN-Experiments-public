@@ -2,9 +2,9 @@
 
 ### Demo
 
-<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/05-clothgnn__project-space/clothgnn/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;">
-  Your browser does not support the video tag.
-</video>
+| Videos (MP4/GIF) | Images |
+| --- | --- |
+| [comparison.mp4](clothgnn/artifacts/taichi_final/comparison.mp4)<br>[gnn_demo.mp4](clothgnn/artifacts/taichi_final/gnn_demo.mp4)<br>[physics_demo.mp4](clothgnn/artifacts/taichi_final/physics_demo.mp4) | ![](clothgnn/artifacts/taichi_final/poster.png) |
 
 
 ## Update (April 17, 2026)

@@ -2,30 +2,16 @@
 
 ## Demos
 
-### 01-GeoPINN-Manifold
-<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/01-GeoPINN-Manifold__project-space/GeoPINN-Manifold/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
-
-### 02-WavePINN-NIF-ComplexMedia
-<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
-
-### 05-clothgnn
-<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/05-clothgnn__project-space/clothgnn/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
-
-### 08-hgnn-clothdyn
-<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/08-hgnn-clothdyn__project-space/hgnn-clothdyn/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
-
-### 09-hgnn-nif-cloth
-<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/09-hgnn-nif-cloth__project-space_animation/hgnn-nif-cloth/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
-
-### 12-nif-cloth4d-temporal
-<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/12-nif-cloth4d-temporal__project-space/nif-cloth4d-temporal/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
-
-### 13-nif-cloth4d
-<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/13-nif-cloth4d__project-space/nif-cloth4d/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
-
-### 17-wavepinn-nif
-<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/17-wavepinn-nif__project-space/wavepinn-nif/artifacts/taichi_final/wave_demo.mp4" controls="controls" style="max-width: 100%;"></video>
-
+| Project | Videos (MP4/GIF) | Images |
+| --- | --- | --- |
+| 01-GeoPINN-Manifold | [comparison.mp4](projects/01-GeoPINN-Manifold__project-space/GeoPINN-Manifold/artifacts/taichi_final/comparison.mp4)<br>[analytical_sphere.mp4](projects/01-GeoPINN-Manifold__project-space/GeoPINN-Manifold/artifacts/taichi_final/analytical_sphere.mp4)<br>[geopinn_sphere.mp4](projects/01-GeoPINN-Manifold__project-space/GeoPINN-Manifold/artifacts/taichi_final/geopinn_sphere.mp4) | ![](projects/01-GeoPINN-Manifold__project-space/GeoPINN-Manifold/artifacts/taichi_final/poster.png) |
+| 02-WavePINN-NIF-ComplexMedia | [comparison.mp4](projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.mp4)<br>[baseline_demo.mp4](projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/baseline_demo.mp4)<br>[project02_wavepinn_nif_demo.mp4](projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/project02_wavepinn_nif_demo.mp4) | ![](projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/poster.png) |
+| 05-clothgnn | [comparison.mp4](projects/05-clothgnn__project-space/clothgnn/artifacts/taichi_final/comparison.mp4)<br>[gnn_demo.mp4](projects/05-clothgnn__project-space/clothgnn/artifacts/taichi_final/gnn_demo.mp4)<br>[physics_demo.mp4](projects/05-clothgnn__project-space/clothgnn/artifacts/taichi_final/physics_demo.mp4) | ![](projects/05-clothgnn__project-space/clothgnn/artifacts/taichi_final/poster.png) |
+| 08-hgnn-clothdyn | [comparison.mp4](projects/08-hgnn-clothdyn__project-space/hgnn-clothdyn/artifacts/taichi_final/comparison.mp4)<br>[hgnn_demo.mp4](projects/08-hgnn-clothdyn__project-space/hgnn-clothdyn/artifacts/taichi_final/hgnn_demo.mp4)<br>[physics_demo.mp4](projects/08-hgnn-clothdyn__project-space/hgnn-clothdyn/artifacts/taichi_final/physics_demo.mp4) | ![](projects/08-hgnn-clothdyn__project-space/hgnn-clothdyn/artifacts/taichi_final/poster.png) |
+| 09-hgnn-nif-cloth | [comparison.mp4](projects/09-hgnn-nif-cloth__project-space_animation/hgnn-nif-cloth/artifacts/taichi_final/comparison.mp4)<br>[hgnn_nif_demo.mp4](projects/09-hgnn-nif-cloth__project-space_animation/hgnn-nif-cloth/artifacts/taichi_final/hgnn_nif_demo.mp4)<br>[hgnn_trust_window.mp4](projects/09-hgnn-nif-cloth__project-space_animation/hgnn-nif-cloth/artifacts/taichi_final/hgnn_trust_window.mp4)<br>[physics_demo.mp4](projects/09-hgnn-nif-cloth__project-space_animation/hgnn-nif-cloth/artifacts/taichi_final/physics_demo.mp4)<br>[physics_trust_window.mp4](projects/09-hgnn-nif-cloth__project-space_animation/hgnn-nif-cloth/artifacts/taichi_final/physics_trust_window.mp4)<br>[trust_comparison.mp4](projects/09-hgnn-nif-cloth__project-space_animation/hgnn-nif-cloth/artifacts/taichi_final/trust_comparison.mp4) | ![](projects/09-hgnn-nif-cloth__project-space_animation/hgnn-nif-cloth/artifacts/taichi_final/poster.png) |
+| 12-nif-cloth4d-temporal | [comparison.mp4](projects/12-nif-cloth4d-temporal__project-space/nif-cloth4d-temporal/artifacts/taichi_final/comparison.mp4)<br>[baseline_demo.mp4](projects/12-nif-cloth4d-temporal__project-space/nif-cloth4d-temporal/artifacts/taichi_final/baseline_demo.mp4)<br>[nif_cloth4d_temporal_demo.mp4](projects/12-nif-cloth4d-temporal__project-space/nif-cloth4d-temporal/artifacts/taichi_final/nif_cloth4d_temporal_demo.mp4)<br>[temporal_ablation.mp4](projects/12-nif-cloth4d-temporal__project-space/nif-cloth4d-temporal/artifacts/taichi_final/temporal_ablation.mp4) | ![](projects/12-nif-cloth4d-temporal__project-space/nif-cloth4d-temporal/artifacts/taichi_final/poster.png)<br>![](projects/12-nif-cloth4d-temporal__project-space/nif-cloth4d-temporal/artifacts/taichi_final/loss-curve.png)<br>![](projects/12-nif-cloth4d-temporal__project-space/nif-cloth4d-temporal/artifacts/taichi_final/metrics-over-time.png) |
+| 13-nif-cloth4d | [comparison.mp4](projects/13-nif-cloth4d__project-space/nif-cloth4d/artifacts/taichi_final/comparison.mp4)<br>[baseline_demo.mp4](projects/13-nif-cloth4d__project-space/nif-cloth4d/artifacts/taichi_final/baseline_demo.mp4)<br>[nif_demo.mp4](projects/13-nif-cloth4d__project-space/nif-cloth4d/artifacts/taichi_final/nif_demo.mp4) | ![](projects/13-nif-cloth4d__project-space/nif-cloth4d/artifacts/taichi_final/poster_baseline.png)<br>![](projects/13-nif-cloth4d__project-space/nif-cloth4d/artifacts/taichi_final/poster_nif.png)<br>![](projects/13-nif-cloth4d__project-space/nif-cloth4d/artifacts/taichi_final/loss_curve.png)<br>![](projects/13-nif-cloth4d__project-space/nif-cloth4d/artifacts/taichi_final/metrics_over_time.png) |
+| 17-wavepinn-nif | [wave_demo.mp4](projects/17-wavepinn-nif__project-space/wavepinn-nif/artifacts/taichi_final/wave_demo.mp4) | ![](projects/17-wavepinn-nif__project-space/wavepinn-nif/artifacts/taichi_final/poster.png) |
 
 
 A monorepo containing Physics-Informed Neural Network (PINN), Graph Neural Network (GNN), and Neural Implicit Field (NIF) experiments for scientific computing and physics simulation.

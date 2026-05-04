@@ -2,9 +2,9 @@
 
 ### Demo
 
-<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/17-wavepinn-nif__project-space/wavepinn-nif/artifacts/taichi_final/wave_demo.mp4" controls="controls" style="max-width: 100%;">
-  Your browser does not support the video tag.
-</video>
+| Videos (MP4/GIF) | Images |
+| --- | --- |
+| [wave_demo.mp4](wavepinn-nif/artifacts/taichi_final/wave_demo.mp4) | ![](wavepinn-nif/artifacts/taichi_final/poster.png) |
 
 
 ## Update (April 17, 2026)
