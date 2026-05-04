@@ -3,28 +3,28 @@
 ## Demos
 
 ### 01-GeoPINN-Manifold
-<video src="projects/01-GeoPINN-Manifold__project-space/GeoPINN-Manifold/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
+<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/01-GeoPINN-Manifold__project-space/GeoPINN-Manifold/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
 
 ### 02-WavePINN-NIF-ComplexMedia
-<video src="projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
+<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/02-WavePINN-NIF-ComplexMedia__project-space/WavePINN-NIF-ComplexMedia/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
 
 ### 05-clothgnn
-<video src="projects/05-clothgnn__project-space/clothgnn/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
+<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/05-clothgnn__project-space/clothgnn/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
 
 ### 08-hgnn-clothdyn
-<video src="projects/08-hgnn-clothdyn__project-space/hgnn-clothdyn/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
+<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/08-hgnn-clothdyn__project-space/hgnn-clothdyn/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
 
 ### 09-hgnn-nif-cloth
-<video src="projects/09-hgnn-nif-cloth__project-space_animation/hgnn-nif-cloth/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
+<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/09-hgnn-nif-cloth__project-space_animation/hgnn-nif-cloth/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
 
 ### 12-nif-cloth4d-temporal
-<video src="projects/12-nif-cloth4d-temporal__project-space/nif-cloth4d-temporal/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
+<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/12-nif-cloth4d-temporal__project-space/nif-cloth4d-temporal/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
 
 ### 13-nif-cloth4d
-<video src="projects/13-nif-cloth4d__project-space/nif-cloth4d/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
+<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/13-nif-cloth4d__project-space/nif-cloth4d/artifacts/taichi_final/comparison.mp4" controls="controls" style="max-width: 100%;"></video>
 
 ### 17-wavepinn-nif
-<video src="projects/17-wavepinn-nif__project-space/wavepinn-nif/artifacts/taichi_final/wave_demo.mp4" controls="controls" style="max-width: 100%;"></video>
+<video src="https://raw.githubusercontent.com/lekandigital/PINN-Experiments-public/main/projects/17-wavepinn-nif__project-space/wavepinn-nif/artifacts/taichi_final/wave_demo.mp4" controls="controls" style="max-width: 100%;"></video>
 
 
 
